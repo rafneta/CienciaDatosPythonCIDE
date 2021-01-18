@@ -3,7 +3,7 @@
 ```{tableofcontents}
 ```
 
-La presente página esta destinada para el laboratorio de la signatura de: _Introducción a la ciencia de datos._ Asignatuea oblifatoria del programa de Maestría en economía (generación 2020-2022), del [Centro de Investigación y Docencias Economicas, A.C.][cide]   
+La presente página está destinada para el laboratorio de la signatura de: _Introducción a la ciencia de datos._ Asignatura obligatoria del programa de Maestría en economía (generación 2020-2022), del [Centro de Investigación y Docencias Economicas, A.C.][cide]   
 
 
 [cide]: https://www.cide.edu/de/docencia/me/plan-de-estudios/
@@ -20,6 +20,8 @@ federico.daverio@alumnos.cide.edu
 ## Calificación de tareas. 
 
 
+
+
 ## Calendario
 
 Viernes de 8:00 a 9:45
@@ -27,15 +29,15 @@ Viernes de 8:00 a 9:45
 
 ## Material
 
-- Todas las clases serán grabadas y estarán dipsonibles (se necesita ) en el siguiente enlace
+- Todas los labprarot serán grabadas y estarán dipsonibles (para estudiantes de ) en el siguiente enlace
 - Todo el material se puede descargar, y también se puede ejecutar en linea
 - 
 
-## Navegaciñon en la plataforma
+## Navegación en la plataforma
 
-- En el lado izquierdo puedes escontrar el i+ídice general, en el lado derecho el índice del docuemnto visible
+- En el lado izquierdo puedes escontrar el índice general, en el lado derecho el índice del documento visible actual. 
 
 
-## CUestionario diagnostico
+## Cuestionario diagnostico
 
 
