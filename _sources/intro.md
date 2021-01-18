@@ -1,6 +1,7 @@
 # Información del curso
 
-
+```{tableofcontents}
+```
 
 La presente página esta destinada para el laboratorio de la signatura de: _Introducción a la ciencia de datos._ Asignatuea oblifatoria del programa de Maestría en economía (generación 2020-2022), del [Centro de Investigación y Docencias Economicas, A.C.][cide]   
 
