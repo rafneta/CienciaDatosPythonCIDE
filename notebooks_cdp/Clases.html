@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; Introducción a la ciencia de datos</title>
+    <title>Clases &#8212; Introducción a la ciencia de datos</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -116,13 +116,35 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Parte 2
+  Parte 1
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="Funciones.html">
+   Funciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ControlDeFlujo.html">
+   Control de Flujo
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Parte 2
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
   <a class="reference internal" href="ComplejidadAlgoritmica.html">
    Complejidad Algoritmica
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Clases
   </a>
  </li>
 </ul>
@@ -206,7 +228,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/rafneta/CienciaDatosPythonCIDE/master?urlpath=tree/notebooks_cdp/notebooks_cdp/Clases.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/rafneta/CienciaDatosPythonCIDE/master?urlpath=tree/notebooks_cdp/Clases.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -214,7 +236,7 @@
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/rafneta/CienciaDatosPythonCIDE/blob/master/notebooks_cdp/notebooks_cdp/Clases.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/rafneta/CienciaDatosPythonCIDE/blob/master/notebooks_cdp/Clases.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -231,15 +253,6 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="simple nav section-nav flex-column">
-</ul>
-
-        </nav>
-        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -247,7 +260,9 @@
         
               <div>
                 
-  <div class="cell docutils container">
+  <div class="section" id="clases">
+<h1>Clases<a class="headerlink" href="#clases" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span><span class="p">,</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">display</span>
 <span class="n">IFrame</span><span class="p">(</span><span class="s2">&quot;https://pythontutor.com/iframe-embed.html#code=</span><span class="si">%23%</span><span class="s2">20Object-oriented%20programming</span><span class="si">%20i</span><span class="s2">ntro%0A</span><span class="si">%23%</span><span class="s2">20Adapted</span><span class="si">%20f</span><span class="s2">rom%20MIT</span><span class="si">%206.01%</span><span class="s2">20course%20notes</span><span class="si">%20%</span><span class="s2">28Section</span><span class="si">%203.5%</span><span class="s2">29%0A</span><span class="si">%23%</span><span class="s2">20http%3A//mit.edu/6.01/mercurial/spring10/www/handouts/readings.pdf%0A%0Aclass%20Staff601%3A%0A</span><span class="si">%20%</span><span class="s2">20</span><span class="si">%20%</span><span class="s2">20course</span><span class="si">%20%</span><span class="s2">3D%20&#39;6.01&#39;%0A</span><span class="si">%20%</span><span class="s2">20</span><span class="si">%20%</span><span class="s2">20building</span><span class="si">%20%</span><span class="s2">3D</span><span class="si">%2034%</span><span class="s2">0A</span><span class="si">%20%</span><span class="s2">20</span><span class="si">%20%</span><span class="s2">20room</span><span class="si">%20%</span><span class="s2">3D</span><span class="si">%20501%</span><span class="s2">0A%0A</span><span class="si">%20%</span><span class="s2">20</span><span class="si">%20%</span><span class="s2">20def</span><span class="si">%20s</span><span class="s2">alutation</span><span class="si">%28s</span><span class="s2">elf</span><span class="si">%29%</span><span class="s2">3A%0A</span><span class="si">%20%</span><span class="s2">20</span><span class="si">%20%</span><span class="s2">20</span><span class="si">%20%</span><span class="s2">20</span><span class="si">%20%</span><span class="s2">20return</span><span class="si">%20s</span><span class="s2">elf.role</span><span class="si">%20%</span><span class="s2">2B%20&#39;%20&#39;</span><span class="si">%20%</span><span class="s2">2B</span><span class="si">%20s</span><span class="s2">elf.name%0A%0Apat</span><span class="si">%20%</span><span class="s2">3D%20Staff601</span><span class="si">%28%</span><span class="s2">29%0Aprint%28pat.course</span><span class="si">%29%</span><span class="s2">0A%0Apat.name</span><span class="si">%20%</span><span class="s2">3D%20&#39;Pat&#39;%0Apat.age</span><span class="si">%20%</span><span class="s2">3D</span><span class="si">%2060%</span><span class="s2">0Apat.role</span><span class="si">%20%</span><span class="s2">3D%20&#39;Professor&#39;%0A%0Aprint%28pat.building</span><span class="si">%29%</span><span class="s2">0Apat.building</span><span class="si">%20%</span><span class="s2">3D</span><span class="si">%2032%</span><span class="s2">0Aprint%28pat.building</span><span class="si">%29%</span><span class="s2">0A%0Aprint%28pat.salutation</span><span class="si">%28%</span><span class="s2">29</span><span class="si">%29%</span><span class="s2">0Aprint%28Staff601.salutation%28pat</span><span class="si">%29%</span><span class="s2">29&amp;codeDivHeight=400&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false&quot;</span><span class="p">,</span>
@@ -278,6 +293,7 @@
                                    <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax
 </pre></div>
+</div>
 </div>
 </div>
 </div>

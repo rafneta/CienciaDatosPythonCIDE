@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; Introducción a la ciencia de datos</title>
+    <title>Funciones &#8212; Introducción a la ciencia de datos</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -56,7 +56,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="ControlDeFlujo.html" />
+    <link rel="next" title="Control de Flujo" href="ControlDeFlujo.html" />
     <link rel="prev" title="Markdown Files" href="../markdown.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -117,6 +117,23 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
+  Parte 1
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Funciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ControlDeFlujo.html">
+   Control de Flujo
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
   Parte 2
  </span>
 </p>
@@ -124,6 +141,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="ComplejidadAlgoritmica.html">
    Complejidad Algoritmica
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Clases.html">
+   Clases
   </a>
  </li>
 </ul>
@@ -207,7 +229,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/rafneta/CienciaDatosPythonCIDE/master?urlpath=tree/notebooks_cdp/notebooks_cdp/Funciones.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/rafneta/CienciaDatosPythonCIDE/master?urlpath=tree/notebooks_cdp/Funciones.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -215,7 +237,7 @@
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/rafneta/CienciaDatosPythonCIDE/blob/master/notebooks_cdp/notebooks_cdp/Funciones.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/rafneta/CienciaDatosPythonCIDE/blob/master/notebooks_cdp/Funciones.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -232,15 +254,6 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="simple nav section-nav flex-column">
-</ul>
-
-        </nav>
-        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -248,7 +261,9 @@
         
               <div>
                 
-  <p>Escribe un codigo para replicar la figura de abajo:
+  <div class="section" id="funciones">
+<h1>Funciones<a class="headerlink" href="#funciones" title="Permalink to this headline">¶</a></h1>
+<p>Escribe un codigo para replicar la figura de abajo:
 
 
 ![Capture.PNG](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAF4AAACvCAYAAAB0HGnSAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMySURBVHhe7dxRauMwFEBRrzHQDQVvJV1KupB+ZBmaqk2mj7GFR3HkG8X3QD9cKLFvhQx6tEMSwvAQw0MMDzE8pBj+fDyk0+f1Qg83CX8+Dmn8SOnyPn6Hv13rsWZXfI49DD9fh/fL9bt6pMXwrvY23GogvlwhxfBqy/AQw0MMDzE8xPAQw0MMDzE8xPAQw0MMDzE8pBh+1enk5ykdjufrheZMwq86j8/B307pks5pzOH/Xutfsys+TqCqR3859vVnh2H8+hVozmL46ulTDO9qL3KrgfhyhRTDqy3DQwwPMTzE8BDDQwwPMTzE8BDDQwwPMTzE8JBieO508pJOb68/QJmE587jc/CfX/b5mMP/Xr+i2RUfJ1Dbjv5y7N/Prp5+dWQxfPXDx/DV06cY/nVXe+ZWA/HlCimGV1uGhxgeYniI4SGGhxgeYniI4SGGhxgeYniI4SHF8N2eTn6MXfzLxkn4bs/jv4IP188cc/jb9ZOaXfFxAtXV6C/Hvn129fRrW4vhqx8+hq9++Bj+jq0uhn/i1Z651UB8uUKK4dWW4SGGhxgeYniI4SGGhxgeYniI4SGGhxgeYnhIMfwuTydX3XedSfhdnsevuu/7zK74OIHazehv1X3XWwxf/fDxAapXTQx/x1YXw9duGavuu55bTbbqvu/jyzVadd91iuHVluEhhocYHmJ4iOEhhocYHmJ4iOEhhocYHmJ4SDG8f5jQ1iT8Ls/jAbMrPk6gdjP629hi+OqHj+GrHz6Gv2Ori+GfeLVnbjUQX66QYni1ZXiI4SGGhxgeYniI4SGGhxgeYniI4SGGhxgeUgzf7elkJybhuz2P78zsio8TqK5Gfx1ZDF/98DH81qO/jrjVQHy5Qorh1ZbhIYaHGB5ieIjhIYaHGB5ieIjhIYaHGB5ieEgxPHc6uQ+T8Nx5/L7Mrvg4gdp29Lcfi+G3Hf3th1sNxJcrpBhebRkeYniI4SGGhxgeYniI4SGGhxgeYniI4SGGhxTDrzqd1KJJ+FXn8fpvsys+TqB6+I92PVoM72pvw60G4ssVUgyvtgwPMTzE8BDDQwwPMTzE8BDDQwwPMTzE8IiU/gDIfeAzFDyESgAAAABJRU5ErkJggg==)</p>
@@ -320,6 +335,7 @@
 </div>
 </div>
 </div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -350,7 +366,7 @@
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="../markdown.html" title="previous page">Markdown Files</a>
-    <a class='right-next' id="next-link" href="ControlDeFlujo.html" title="next page">&lt;no title&gt;</a>
+    <a class='right-next' id="next-link" href="ControlDeFlujo.html" title="next page">Control de Flujo</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
