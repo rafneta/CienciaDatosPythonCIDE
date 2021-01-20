@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Control de Flujo &#8212; Introducción a la ciencia de datos</title>
+    <title>Calendario Laboratorio &#8212; Introducción a la ciencia de datos</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -58,8 +58,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="Complejidad Algoritmica" href="ComplejidadAlgoritmica.html" />
-    <link rel="prev" title="Funciones" href="Funciones.html" />
+    <link rel="next" title="Funciones" href="Funciones.html" />
+    <link rel="prev" title="Información del curso" href="../intro.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -101,9 +101,9 @@
   Encuadre
  </span>
 </p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="calendarioLab.html">
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    <strong>
     Calendario Laboratorio
    </strong>
@@ -115,14 +115,14 @@
   Parte 1
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="Funciones.html">
    Funciones
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ControlDeFlujo.html">
    Control de Flujo
   </a>
  </li>
@@ -179,7 +179,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/notebooks_cdp/ControlDeFlujo.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/notebooks_cdp/calendarioLab.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -199,7 +199,7 @@
                 data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
                     class="fab fa-github"></i>repositorio</button></a>
         <a class="issues-button"
-            href="https://github.com/rafneta/CienciaDatosPythonCIDE/issues/new?title=Issue%20on%20page%20%2Fnotebooks_cdp/ControlDeFlujo.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/rafneta/CienciaDatosPythonCIDE/issues/new?title=Issue%20on%20page%20%2Fnotebooks_cdp/calendarioLab.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
         
@@ -220,7 +220,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/rafneta/CienciaDatosPythonCIDE/master?urlpath=tree/notebooks_cdp/ControlDeFlujo.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/rafneta/CienciaDatosPythonCIDE/master?urlpath=tree/notebooks_cdp/calendarioLab.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -228,7 +228,7 @@
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/rafneta/CienciaDatosPythonCIDE/blob/master/notebooks_cdp/ControlDeFlujo.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/rafneta/CienciaDatosPythonCIDE/blob/master/notebooks_cdp/calendarioLab.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Lanzamiento Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -245,6 +245,134 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contenido
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#viernes-29-enero">
+   <strong>
+    Viernes 29/enero
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#viernes-5-febrero">
+   <strong>
+    Viernes 5/febrero
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#viernes-12-febrero">
+   <strong>
+    Viernes 12/febrero
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#viernes-19-febrero">
+   <strong>
+    Viernes 19/febrero
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#viernes-26-febrero">
+   <strong>
+    Viernes 26/febrero
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#viernes-5-marzo">
+   <strong>
+    Viernes 5/marzo
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#viernes-12-marzo">
+   <strong>
+    Viernes 12/marzo
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#viernes-19-marzo">
+   <strong>
+    Viernes 19/marzo
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#viernes-26-marzo">
+   <strong>
+    Viernes 26/marzo
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#viernes-9-abril">
+   <strong>
+    Viernes 9/abril
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#viernes-16-abril">
+   <strong>
+    Viernes 16/abril
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#viernes-23-abril">
+   <strong>
+    Viernes 23/abril
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#viernes-30-abril">
+   <strong>
+    Viernes 30/abril
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#viernes-7-mayo">
+   <strong>
+    Viernes 7/mayo
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#viernes-14-mayo">
+   <strong>
+    Viernes 14/mayo
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#viernes-21-mayo">
+   <strong>
+    Viernes 21/mayo
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#viernes-28-mayo">
+   <strong>
+    Viernes 28/mayo
+   </strong>
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -252,8 +380,97 @@
         
               <div>
                 
-  <div class="section" id="control-de-flujo">
-<h1>Control de Flujo<a class="headerlink" href="#control-de-flujo" title="Enlazar permanentemente con este título">¶</a></h1>
+  <div class="section" id="calendario-laboratorio">
+<h1><strong>Calendario Laboratorio</strong><a class="headerlink" href="#calendario-laboratorio" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-body docutils">
+<p class="card-text">2021</p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-body docutils">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="viernes-29-enero">
+<h2><strong>Viernes 29/enero</strong><a class="headerlink" href="#viernes-29-enero" title="Enlazar permanentemente con este título">¶</a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Control de versiones (GitHub)</p></li>
+<li><p>Instalación de Python (Anaconda)</p></li>
+</ul>
+</div>
+<div class="section" id="viernes-5-febrero">
+<h2><strong>Viernes 5/febrero</strong><a class="headerlink" href="#viernes-5-febrero" title="Enlazar permanentemente con este título">¶</a></h2>
+</div>
+<hr class="docutils" />
+<div class="section" id="viernes-12-febrero">
+<h2><strong>Viernes 12/febrero</strong><a class="headerlink" href="#viernes-12-febrero" title="Enlazar permanentemente con este título">¶</a></h2>
+</div>
+<hr class="docutils" />
+<div class="section" id="viernes-19-febrero">
+<h2><strong>Viernes 19/febrero</strong><a class="headerlink" href="#viernes-19-febrero" title="Enlazar permanentemente con este título">¶</a></h2>
+</div>
+<hr class="docutils" />
+<div class="section" id="viernes-26-febrero">
+<h2><strong>Viernes 26/febrero</strong><a class="headerlink" href="#viernes-26-febrero" title="Enlazar permanentemente con este título">¶</a></h2>
+</div>
+<hr class="docutils" />
+<div class="section" id="viernes-5-marzo">
+<h2><strong>Viernes 5/marzo</strong><a class="headerlink" href="#viernes-5-marzo" title="Enlazar permanentemente con este título">¶</a></h2>
+</div>
+<hr class="docutils" />
+<div class="section" id="viernes-12-marzo">
+<h2><strong>Viernes 12/marzo</strong><a class="headerlink" href="#viernes-12-marzo" title="Enlazar permanentemente con este título">¶</a></h2>
+</div>
+<hr class="docutils" />
+<div class="section" id="viernes-19-marzo">
+<h2><strong>Viernes 19/marzo</strong><a class="headerlink" href="#viernes-19-marzo" title="Enlazar permanentemente con este título">¶</a></h2>
+</div>
+<hr class="docutils" />
+<div class="section" id="viernes-26-marzo">
+<h2><strong>Viernes 26/marzo</strong><a class="headerlink" href="#viernes-26-marzo" title="Enlazar permanentemente con este título">¶</a></h2>
+</div>
+<hr class="docutils" />
+<div class="section" id="viernes-9-abril">
+<h2><strong>Viernes 9/abril</strong><a class="headerlink" href="#viernes-9-abril" title="Enlazar permanentemente con este título">¶</a></h2>
+</div>
+<hr class="docutils" />
+<div class="section" id="viernes-16-abril">
+<h2><strong>Viernes 16/abril</strong><a class="headerlink" href="#viernes-16-abril" title="Enlazar permanentemente con este título">¶</a></h2>
+</div>
+<hr class="docutils" />
+<div class="section" id="viernes-23-abril">
+<h2><strong>Viernes 23/abril</strong><a class="headerlink" href="#viernes-23-abril" title="Enlazar permanentemente con este título">¶</a></h2>
+</div>
+<hr class="docutils" />
+<div class="section" id="viernes-30-abril">
+<h2><strong>Viernes 30/abril</strong><a class="headerlink" href="#viernes-30-abril" title="Enlazar permanentemente con este título">¶</a></h2>
+</div>
+<hr class="docutils" />
+<div class="section" id="viernes-7-mayo">
+<h2><strong>Viernes 7/mayo</strong><a class="headerlink" href="#viernes-7-mayo" title="Enlazar permanentemente con este título">¶</a></h2>
+</div>
+<hr class="docutils" />
+<div class="section" id="viernes-14-mayo">
+<h2><strong>Viernes 14/mayo</strong><a class="headerlink" href="#viernes-14-mayo" title="Enlazar permanentemente con este título">¶</a></h2>
+</div>
+<hr class="docutils" />
+<div class="section" id="viernes-21-mayo">
+<h2><strong>Viernes 21/mayo</strong><a class="headerlink" href="#viernes-21-mayo" title="Enlazar permanentemente con este título">¶</a></h2>
+</div>
+<hr class="docutils" />
+<div class="section" id="viernes-28-mayo">
+<h2><strong>Viernes 28/mayo</strong><a class="headerlink" href="#viernes-28-mayo" title="Enlazar permanentemente con este título">¶</a></h2>
+<hr class="docutils" />
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -284,8 +501,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="Funciones.html" title="previous page">Funciones</a>
-    <a class='right-next' id="next-link" href="ComplejidadAlgoritmica.html" title="next page">Complejidad Algoritmica</a>
+    <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">Información del curso</a>
+    <a class='right-next' id="next-link" href="Funciones.html" title="next page">Funciones</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
