@@ -1,12 +1,6 @@
 # Información del curso
 
 
-```{contents}
-:depth: 4
-```
-
-
-
 La presente página está destinada para el laboratorio de la asignatura: _Introducción a la ciencia de datos._ 
 
 Asignatura obligatoria del programa de Maestría en economía (generación 2020-2022), del [Centro de Investigación y Docencias Economicas, A.C.][cide]   
@@ -39,8 +33,11 @@ Rúbrica base [enlace](http://200.57.56.254/Siretea/Carruseles/CarruselIO/R%C3%B
 
 ## Calendario
 
-Viernes de 8:00 a 9:45
-
+<object data="./Calendario_cdp_2021.pdf" type="application/pdf" width="700px" height="700px">
+    <embed src="./Calendario_cdp_2021.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="./Calendario_cdp_2021.pdf">Download PDF</a>.</p>
+    </embed>
+</object>
 
 ## Material
 
