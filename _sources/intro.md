@@ -34,7 +34,7 @@ Rúbrica base [enlace](http://200.57.56.254/Siretea/Carruseles/CarruselIO/R%C3%B
 ## Calendario
 
 
-<iframe src=”https://docs.google.com/viewer?url=https://drive.google.com/file/d/10oJ50Pr6WpWBlEHbWb-nw54nEoo7Nq-B/preview" width=”100%” height=”100%”></iframe>
+<iframe src=”https://docs.google.com/viewer?url=https://melaniewalsh.github.io/Intro-Cultural-Analytics/features/images/Intro-CA-2020-Syllabus.pdf&embedded=true" width=”100%” height=”100%”></iframe>
                                         
                                         
 
