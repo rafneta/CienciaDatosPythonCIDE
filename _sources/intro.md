@@ -33,9 +33,9 @@ Rúbrica base [enlace](http://200.57.56.254/Siretea/Carruseles/CarruselIO/R%C3%B
 
 ## Calendario
 
-<object data="./Calendario_cdp_2021.pdf" type="application/pdf" width="700px" height="700px">
-    <embed src="./Calendario_cdp_2021.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="./Calendario_cdp_2021.pdf">Download PDF</a>.</p>
+<object data="notebooks_cdp/Calendario_cdp_2021.pdf" type="application/pdf" width="700px" height="700px">
+    <embed src="notebooks_cdp/Calendario_cdp_2021.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="notebooks_cdp/Calendario_cdp_2021.pdf">Download PDF</a>.</p>
     </embed>
 </object>
 
