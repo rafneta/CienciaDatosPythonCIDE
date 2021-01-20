@@ -21,6 +21,26 @@ rafael.martinez@alumnos.cide.edu
 federico.daverio@alumnos.cide.edu
 
 
+## Calendario
+
+
+![Calendario][]
+
+[Calendario]: notebooks_cdp/Calendario_cdp_2021.png
+
+
+                                        
+
+## Material
+
+- Todas los laboratorios serán grabados y estarán dipsonibles (es necesario el correo institucional) en el siguiente enlace
+- Todo el material se puede descargar, y también se puede ejecutar en linea
+
+
+## Cuestionario diagnostico
+
+
+
 ## Calificación de tareas. 
 | | Sobresaliente [100]   | Bueno [85-95] |Regular [80-70]| Pobre [50-60]| No aceptable [0-40]| 
 |:--:|:--------------:|:-----:|:-----:|:---:|:--:|
@@ -31,19 +51,10 @@ federico.daverio@alumnos.cide.edu
 Rúbrica base [enlace](http://200.57.56.254/Siretea/Carruseles/CarruselIO/R%C3%BAbrica/rbrica_para_evaluar_un_programa_en_c.html)
 
 
-## Calendario
 
-
-<iframe src=”https://docs.google.com/viewer?url=https://melaniewalsh.github.io/Intro-Cultural-Analytics/features/images/Intro-CA-2020-Syllabus.pdf&embedded=true" width=”100%” height=”100%”></iframe>
-                                        
                                         
 
-## Material
-
-- Todas los laboratorios serán grabados y estarán dipsonibles (es necesario el correo institucional) en el siguiente enlace
-- Todo el material se puede descargar, y también se puede ejecutar en linea
 
 
-## Cuestionario diagnostico
 
 
