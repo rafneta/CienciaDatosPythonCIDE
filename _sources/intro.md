@@ -1,3 +1,4 @@
+![](/banner.png)
 # Información del curso
 
 
@@ -6,40 +7,37 @@ La presente página está destinada para el laboratorio de la asignatura: _Intro
 
 [cide]: https://www.cide.edu/de/docencia/me/plan-de-estudios/
     
-
+El laboratorio será impartido por: 
 
 
 **Rafael Martínez Martínez**
 
-rafael.martinez@alumnos.cide.edu
+<rafael.martinez@alumnos.cide.edu>
 
 
 **Federico Daverio**
 
-federico.daverio@alumnos.cide.edu
+<federico.daverio@alumnos.cide.edu>
 
-
-## Calendario
-
-
-![Calendario][]
-
-[Calendario]: notebooks_cdp/Calendario_cdp_2021.png
-
+Cualquier duda o aclaración los laboratoristas están a disposición por medio de estos correos institucionales. 
 
                                         
 
 ## Material
 
-- Todas los laboratorios serán grabados y estarán dipsonibles (es necesario el correo institucional) en el siguiente enlace
-- Todo el material se puede descargar, y también se puede ejecutar en linea
+- Los laboratorios serán grabados y estarán disponibles (es necesario el correo institucional) en el siguiente enlace
+- El material de los laboratorios se puede descargar, y también se puede ejecutar en línea
+- Pueden encontrar el material de los laboratorios organizado en la barra de navegación lateral de izquierda
 
 
 ## Cuestionario diagnostico
 
 
 
-## Calificación de tareas. 
+## Tareas
+Las tareas tendrán que ser entregadas como link a una página Github personal en los tiempos y formas especificadas por el profesor durante la clase. La tareas entregadas tarde recibirán una penalización. 
+
+El sistema de calificación de las tareas será el siguiente:
 | | Sobresaliente [100]   | Bueno [85-95] |Regular [80-70]| Pobre [50-60]| No aceptable [0-40]| 
 |:--:|:--------------:|:-----:|:-----:|:---:|:--:|
 |`Funcionalidad`  | El programa funciona correctamente y todas las variables de entrada están validadas. | En algunos casos particulares no funciona el programa las variables de entrada están validadas.   |Sólo funciona en casos específicos las variables no están validadas y las condiciones no son correctas. |En algunos casos no funciona el programa y no hay validación de datos. | No funciona ningún caso.|
@@ -48,6 +46,16 @@ federico.daverio@alumnos.cide.edu
 
 Rúbrica base [enlace](http://200.57.56.254/Siretea/Carruseles/CarruselIO/R%C3%BAbrica/rbrica_para_evaluar_un_programa_en_c.html)
 
+## Calendario laboratorio
+
+## Calendario general de actividades
+
+
+![Calendario][]
+
+[Calendario]: notebooks_cdp/Calendario_cdp_2021.png
+
+
 
 
                                         
@@ -56,3 +64,6 @@ Rúbrica base [enlace](http://200.57.56.254/Siretea/Carruseles/CarruselIO/R%C3%B
 
 
 
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbODc5ODMwMDU0LC0xODQ4MzY1OTMzXX0=
+-->
