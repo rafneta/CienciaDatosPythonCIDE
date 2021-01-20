@@ -1,5 +1,12 @@
 # Información del curso
 
+
+```{contents}
+:depth: 4
+```
+
+
+
 La presente página está destinada para el laboratorio de la asignatura: _Introducción a la ciencia de datos._ 
 
 Asignatura obligatoria del programa de Maestría en economía (generación 2020-2022), del [Centro de Investigación y Docencias Economicas, A.C.][cide]   
