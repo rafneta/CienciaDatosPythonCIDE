@@ -1,3 +1,5 @@
+![](banner.png)
+
 # Encuadre
 
 Los lineamientos e información del laboratorio están descritos en las sigeuintes secciones 
@@ -11,7 +13,6 @@ Los lineamientos e información del laboratorio están descritos en las sigeuint
 
 ## Cuestionario diagnostico
 
-![](banner.png)
 
 ## Tareas
 Las tareas tendrán que ser entregadas como link a una página Github personal en los tiempos y formas especificadas por el profesor durante la clase. La tareas entregadas tarde recibirán una penalización. 
