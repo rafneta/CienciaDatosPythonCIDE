@@ -1,10 +1,4 @@
-
-
-![](banner.png)
-
-
-
-
+![](https://raw.githubusercontent.com/rafneta/CienciaDatosPythonCIDE/master/imagenes/banner.png)
 
 # Encuadre
 
