@@ -23,10 +23,13 @@ Se prefiere se utilicen en el orden que se indican.
 
 ## Tareas
 
-- **Tareas (40%)** 
-– Exámenes (30%)
-– Proyecto (20%)
-- Participación (10%)
+ – Exámenes (30%)
+ 
+ – Proyecto (20%)
+ 
+ - Participación (10%)
+ 
+ - **Tareas (40%)**
 
 
 Los laboratoristas nos encargaremos de la revisión de las tareas. Para ello la siguiente rubrica será la base para establecer la evaluación de dichas tareas.
