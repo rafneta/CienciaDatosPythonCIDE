@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Encuadre &#8212; Introducción a la ciencia de datos</title>
+    <title>Navegación en el libro &#8212; Introducción a la ciencia de datos</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -62,8 +62,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="Calendario Laboratorio" href="calendarioLab.html" />
-    <link rel="prev" title="Sobre este sitio" href="../intro.html" />
+    <link rel="next" title="Laboratorio 1" href="../Laboratorios/Lab1/lab1.html" />
+    <link rel="prev" title="Calendario Laboratorio" href="calendarioLab.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -106,8 +106,8 @@
  </span>
 </p>
 <ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="encuadre.html">
    Encuadre
   </a>
  </li>
@@ -116,8 +116,8 @@
    Calendario Laboratorio
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Navegacion.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Navegación en el libro
   </a>
  </li>
@@ -286,9 +286,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/docs/encuadre.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/docs/Navegacion.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -306,7 +306,7 @@
                 data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
                     class="fab fa-github"></i>repositorio</button></a>
         <a class="issues-button"
-            href="https://github.com/rafneta/CienciaDatosPythonCIDE/issues/new?title=Issue%20on%20page%20%2Fdocs/encuadre.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/rafneta/CienciaDatosPythonCIDE/issues/new?title=Issue%20on%20page%20%2Fdocs/Navegacion.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
         
@@ -322,6 +322,31 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/rafneta/CienciaDatosPythonCIDE/master?urlpath=tree/docs/Navegacion.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/rafneta/CienciaDatosPythonCIDE/blob/master/docs/Navegacion.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Lanzamiento Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Lanzamiento Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -333,28 +358,41 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#canales-de-comunicacion">
-   Canales de comunicación
+  <a class="reference internal nav-link" href="#i-class-fa-fa-rocket-aria-hidden-true-i-notebook-interactivo">
+   <i aria-hidden="true" class="fa fa-rocket">
+   </i>
+   Notebook Interactivo
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sesiones-de-laboratorio">
-   Sesiones de laboratorio
+  <a class="reference internal nav-link" href="#i-class-fas-fa-expand-aria-hidden-true-i-pantalla-completa">
+   <i aria-hidden="true" class="fas fa-expand">
+   </i>
+   Pantalla completa
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tareas">
-   Tareas
+  <a class="reference internal nav-link" href="#i-class-fab-fa-github-aria-hidden-true-i-github">
+   <i aria-hidden="true" class="fab fa-github">
+   </i>
+   GitHub
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#material">
-   Material
+  <a class="reference internal nav-link" href="#i-class-fa-fa-download-aria-hidden-true-i-descargar-archivos">
+   <i aria-hidden="true" class="fa fa-download">
+   </i>
+   Descargar Archivos
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#calendario-general-de-actividades">
-   Calendario general de actividades
+  <a class="reference internal nav-link" href="#mostrar-ocultar">
+   Mostrar/Ocultar
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sobre-el-software-del-libro">
+   Sobre el software del libro
   </a>
  </li>
 </ul>
@@ -369,87 +407,87 @@
               <div>
                 
   <p><img alt="" src="https://raw.githubusercontent.com/rafneta/CienciaDatosPythonCIDE/master/imagenes/banner.png" /></p>
-<div class="section" id="encuadre">
-<h1>Encuadre<a class="headerlink" href="#encuadre" title="Enlazar permanentemente con este título">¶</a></h1>
-<p>El laboratorio de introducción a la ciencia de datos no tiene ninguna ponderación sobre la evaluación del curso. El objetivo del laboratorio es dar seguimiento para resolver dudas, practicar, y apoyar a los estudiantes sobre el curso.</p>
-<div class="section" id="canales-de-comunicacion">
-<h2>Canales de comunicación<a class="headerlink" href="#canales-de-comunicacion" title="Enlazar permanentemente con este título">¶</a></h2>
-<ol class="simple">
-<li><p>slack</p></li>
-<li><p>Microsoft Teams (MT)</p></li>
-<li><p>correo institucional: <a href="mailto:rafael.martinez@alumnos.cide.edu?Subject=Laboratorio%20Ciencia%20de%20Datos"><i class="fa fa-envelope" aria-hidden="true"></i> Rafael </a> <a href="mailto:federico.daverio@alumnos.cide.edu?Subject=Laboratorio%20Ciencia%20de%20Datos"><i class="fa fa-envelope" aria-hidden="true"></i> Federico</a></p></li>
-</ol>
-<p>Se prefiere se utilicen en el orden que se indican.</p>
-</div>
-<div class="section" id="sesiones-de-laboratorio">
-<h2>Sesiones de laboratorio<a class="headerlink" href="#sesiones-de-laboratorio" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="contents topic" id="contenido">
+<p class="topic-title">Contenido</p>
 <ul class="simple">
-<li><p>Viernes de 8:00 a 9:30 hrs.</p></li>
-<li><p>Plataforma de streaming: zoom (Datos en el grupo de Teams)</p></li>
-<li><p><a class="reference external" href="https://cideo365-my.sharepoint.com/:f:/g/personal/rafael_martinez_alumnos_cide_edu/Ep-HPMTIHGNDpRXyGTDGYPQBp3IzXCJXsha-jHCSVtPKrw?e=Croqjz">Videos de sesiones</a></p></li>
+<li><p><a class="reference internal" href="#navegacion-en-el-libro" id="id1">Navegación en el libro</a></p>
+<ul>
+<li><p><a class="reference internal" href="#i-class-fa-fa-rocket-aria-hidden-true-i-notebook-interactivo" id="id2"><i class="fa fa-rocket" aria-hidden="true"></i> Notebook Interactivo</a></p></li>
+<li><p><a class="reference internal" href="#i-class-fas-fa-expand-aria-hidden-true-i-pantalla-completa" id="id3"><i class="fas fa-expand" aria-hidden="true"></i> Pantalla completa</a></p></li>
+<li><p><a class="reference internal" href="#i-class-fab-fa-github-aria-hidden-true-i-github" id="id4"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></p></li>
+<li><p><a class="reference internal" href="#i-class-fa-fa-download-aria-hidden-true-i-descargar-archivos" id="id5"><i class="fa fa-download" aria-hidden="true"></i>  Descargar Archivos</a></p></li>
+<li><p><a class="reference internal" href="#mostrar-ocultar" id="id6">Mostrar/Ocultar</a></p></li>
+<li><p><a class="reference internal" href="#sobre-el-software-del-libro" id="id7">Sobre el software del libro</a></p></li>
+</ul>
+</li>
 </ul>
 </div>
-<div class="section" id="tareas">
-<h2>Tareas<a class="headerlink" href="#tareas" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="navegacion-en-el-libro">
+<h1><a class="toc-backref" href="#id1">Navegación en el libro</a><a class="headerlink" href="#navegacion-en-el-libro" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>El libro se puede consultar en dipositivos movíles, así como PC. La visualización es un poco diferente en cada dispositivo, pero los componentes son los mismos.</p>
+<p>En la visualización de una PC, en la parte izquierda de la pantalla se encuentra el menu principal en orden descendente.</p>
+<p>En la parte de la derecha esta el menu del documento actual, también en forma descendente</p>
+<p>En la parte superior se pueden encontrar algunos iconos que se explican a continuación</p>
+<div class="section" id="i-class-fa-fa-rocket-aria-hidden-true-i-notebook-interactivo">
+<h2><a class="toc-backref" href="#id2"><i class="fa fa-rocket" aria-hidden="true"></i> Notebook Interactivo</a><a class="headerlink" href="#i-class-fa-fa-rocket-aria-hidden-true-i-notebook-interactivo" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>De estar disponible este icono se tienen las siguientes opciones para interactuar:</p>
 <ul class="simple">
-<li><p><strong>Tareas (40%)</strong>
-– Exámenes (30%)
-– Proyecto (20%)</p></li>
-<li><p>Participación (10%)</p></li>
-</ul>
-<p>Los laboratoristas nos encargaremos de la revisión de las tareas. Para ello la siguiente rubrica será la base para establecer la evaluación de dichas tareas.</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="text-align:center head"><p></p></th>
-<th class="text-align:center head"><p>Sobresaliente [100]</p></th>
-<th class="text-align:center head"><p>Bueno [85-95]</p></th>
-<th class="text-align:center head"><p>Regular [80-70]</p></th>
-<th class="text-align:center head"><p>Pobre [50-60]</p></th>
-<th class="text-align:center head"><p>No aceptable [0-40]</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">Funcionalidad</span></code></p></td>
-<td class="text-align:center"><p>El programa funciona correctamente y todas las variables de entrada están validadas.</p></td>
-<td class="text-align:center"><p>En algunos casos particulares no funciona el programa las variables de entrada están validadas.</p></td>
-<td class="text-align:center"><p>Sólo funciona en casos específicos las variables no están validadas y las condiciones no son correctas.</p></td>
-<td class="text-align:center"><p>En algunos casos no funciona el programa y no hay validación de datos.</p></td>
-<td class="text-align:center"><p>No funciona ningún caso.</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">Razonamiento</span></code></p></td>
-<td class="text-align:center"><p>Es un código compacto muy depurado.</p></td>
-<td class="text-align:center"><p>El programa contempla todas las condiciones no es compacto.</p></td>
-<td class="text-align:center"><p>El programa contempla algunas de las condiciones y no es compacto.</p></td>
-<td class="text-align:center"><p>El programa no es depurado repite partes de código y no contempla todas la partes de las condiciones.</p></td>
-<td class="text-align:center"><p>No hay razonamiento lógico.</p></td>
-</tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">Documentación</span></code></p></td>
-<td class="text-align:center"><p>La presentación incluye el nombre, los apellidos, la carrera, nombre del profesor especialidad, nombre de la institución y matrícula, objetivos bien definidos documentados y partes del código bien documentado.</p></td>
-<td class="text-align:center"><p>Le faltan algunos datos presentación, nombre del profesor especialidad, y nombre de la institución, matrícula los objetivos no están completos define bien el código en la documentación.</p></td>
-<td class="text-align:center"><p>La presentación está incompleta, la carrera, nombre del profesor especialidad, y nombre de la institución, matrícula objetivos no define bien el código en la documentación.</p></td>
-<td class="text-align:center"><p>No tiene presentación no tiene objetivos no define bien el código en la documentación.</p></td>
-<td class="text-align:center"><p>No es aceptable la documentación.</p></td>
-</tr>
-</tbody>
-</table>
-<p>La rúbrica base se puede encontrar en el siguiente <a class="reference external" href="http://200.57.56.254/Siretea/Carruseles/CarruselIO/R%C3%BAbrica/rbrica_para_evaluar_un_programa_en_c.html">enlace</a>. Esta rúbrica no es definitiva y puede variar dependiendo del tipo de tarea.</p>
-<ul class="simple">
-<li><p>Las tareas se entregarán en MT</p></li>
-<li><p>La tarea se entrega en equipos de 2 o 3 personas</p></li>
-<li><p>Las fechas y formato especifico se indicarán en su momento</p></li>
+<li><p><img src = "https://raw.githubusercontent.com/rafneta/CienciaDatosPythonCIDE/master/imagenes/logo_binder.svg"  width="20" height="20"> Genera el <a class="reference external" href="https://mybinder.org/">Binder</a> del documento actual</p></li>
+<li><p><img src = "https://raw.githubusercontent.com/rafneta/CienciaDatosPythonCIDE/master/imagenes/logo_colab.png"  width="20" height="20"> Genera el <a class="reference external" href="https://colab.research.google.com">Google Colab</a> del documento actual</p></li>
+<li><p><i class="fas fa-play"></i> Genera interacción en el  documento actual con <a class="reference external" href="https://github.com/executablebooks/thebe">Thebe</a></p></li>
 </ul>
 </div>
-<div class="section" id="material">
-<h2>Material<a class="headerlink" href="#material" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>El material de los laboratorios será público y estará disponible en este sitio.</p>
-<p>Existen bastantes recursos para python, en este sitio compartiremos la bibliografía más importante. Además en los laboratorios se podrá encontrar información más especifica.</p>
-<p><a class="reference external" href="https://runestone.academy/runestone/books/published/thinkcspy/index.html">How to Think Like a Computer Scientist: Interactive Edition</a>. Es un libro muy bueno e interactivo, si creas una cuenta puedes guardar tu avance. La plataforma y la idea del libro adelantado a su tiempo. En la misma plataforma se pueden encontrar más aoyos interactivos para programación.</p>
-<p><a class="reference external" href="https://py3.codeskulptor.org/">CodeSkulptor3</a>. Plataforma para ejecutar código sencillo de python, sin necesidad de registo o instalación</p>
-<p><a class="reference external" href="http://pythontutor.com/">Python Tutor</a>. Para una visualización de la ejecución de programas</p>
+<div class="section" id="i-class-fas-fa-expand-aria-hidden-true-i-pantalla-completa">
+<h2><a class="toc-backref" href="#id3"><i class="fas fa-expand" aria-hidden="true"></i> Pantalla completa</a><a class="headerlink" href="#i-class-fas-fa-expand-aria-hidden-true-i-pantalla-completa" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Visualización en pantalla completa</p>
 </div>
-<div class="section" id="calendario-general-de-actividades">
-<h2>Calendario general de actividades<a class="headerlink" href="#calendario-general-de-actividades" title="Enlazar permanentemente con este título">¶</a></h2>
-<p><img alt="Calendario" src="../_images/Calendario_cdp_2021.png" /></p>
+<div class="section" id="i-class-fab-fa-github-aria-hidden-true-i-github">
+<h2><a class="toc-backref" href="#id4"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a><a class="headerlink" href="#i-class-fab-fa-github-aria-hidden-true-i-github" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><p><i class="fab fa-github" aria-hidden="true"></i> Para visitar el repositorio</p></li>
+<li><p><i class="fas fa-lightbulb"></i> Si se queire exponer un problema del documento actual,</p></li>
+</ul>
+</div>
+<div class="section" id="i-class-fa-fa-download-aria-hidden-true-i-descargar-archivos">
+<h2><a class="toc-backref" href="#id5"><i class="fa fa-download" aria-hidden="true"></i>  Descargar Archivos</a><a class="headerlink" href="#i-class-fa-fa-download-aria-hidden-true-i-descargar-archivos" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Se puede descargar la página en los formatos disponibles</p>
+<ul class="simple">
+<li><p>Jupyter notebook *.ipynb (cuando se encuentre disponible)</p></li>
+<li><p>Markdown *.md (cuando este desponible)</p></li>
+<li><p>Documento *.pdf (siempre disponible, con la impresion del navegador)</p></li>
+</ul>
+</div>
+<div class="section" id="mostrar-ocultar">
+<h2><a class="toc-backref" href="#id6">Mostrar/Ocultar</a><a class="headerlink" href="#mostrar-ocultar" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En algunas páginas pueden tener contenido por mostrar.  Cuando esto suceda, en el extremo derecho aparecerá la leyenda «Click to Show».</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ejemplo de &#39;Click to Show&#39;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ejemplo de &#39;Click to Show&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span> <span class="o">**</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>256
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="sobre-el-software-del-libro">
+<h2><a class="toc-backref" href="#id7">Sobre el software del libro</a><a class="headerlink" href="#sobre-el-software-del-libro" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Este libro se ha creado con <a class="reference external" href="https://jupyterbook.org/intro.html">Jupyter Book</a>. El cual puede ser una herramienta para presentar el proyecto final.</p>
 </div>
 </div>
 
@@ -481,8 +519,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">Sobre este sitio</a>
-    <a class='right-next' id="next-link" href="calendarioLab.html" title="next page">Calendario Laboratorio</a>
+    <a class='left-prev' id="prev-link" href="calendarioLab.html" title="previous page">Calendario Laboratorio</a>
+    <a class='right-next' id="next-link" href="../Laboratorios/Lab1/lab1.html" title="next page">Laboratorio 1</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
