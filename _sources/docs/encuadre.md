@@ -20,6 +20,15 @@ Se prefiere se utilicen en el orden que se indican.
 - [Videos de sesiones](https://cideo365-my.sharepoint.com/:f:/g/personal/rafael_martinez_alumnos_cide_edu/Ep-HPMTIHGNDpRXyGTDGYPQBp3IzXCJXsha-jHCSVtPKrw?e=Croqjz)
 
 
+## Asesorías
+
+Si es necesario, se pueden agendar asesorías (individuales o en grupo)
+
+<!-- Principio del widget integrado de Calendly -->
+<div class="calendly-inline-widget" data-url="https://calendly.com/rafamm/reunion-de-15-minutos-cide" style="min-width:320px;height:630px;"></div>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
+<!-- Final del widget integrado de Calendly -->
+
 
 ## Tareas
 
