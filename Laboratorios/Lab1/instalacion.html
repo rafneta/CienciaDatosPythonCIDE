@@ -441,8 +441,8 @@
 </div>
 <p>De acuerdo a tu equipo, selecciona la pestaña indicada</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="34fcbecf-9659-4cf0-ba97-6efbf3e58271" name="1f402232-4280-4ddf-a275-e99863b11439" type="radio">
-</input><label class="tabbed-label" for="34fcbecf-9659-4cf0-ba97-6efbf3e58271">
+<input checked="checked" id="8d133498-67c3-44b6-a584-fdcd7d9b84e9" name="08ef94aa-6bfe-421f-8ace-dabb61b2160d" type="radio">
+</input><label class="tabbed-label" for="8d133498-67c3-44b6-a584-fdcd7d9b84e9">
 macOS</label><div class="tabbed-content docutils">
 <p>La documentación oficial de <a class="reference external" href="https://docs.anaconda.com/anaconda/install/mac-os/">instalación macOS</a>, puede llegar a parecer muy complicada, pero si se requiere algo en especifico vale la pena seguir.</p>
 <p>Se presenta un resumen de los pasos. Las imagenes  pueden ser distintas dependiendo de la versión del instalador</p>
@@ -473,8 +473,8 @@ https://docs.anaconda.com/_images/Navigator_Launchpad_icon.png"  width="20" heig
 <img src="https://raw.githubusercontent.com/rafneta/CienciaDatosPythonCIDE/master/imagenes/ana_mac.png" widht=60%>
 </div>
 </div>
-<input id="466925d0-eac5-4260-a452-abb757d8ec7e" name="1f402232-4280-4ddf-a275-e99863b11439" type="radio">
-</input><label class="tabbed-label" for="466925d0-eac5-4260-a452-abb757d8ec7e">
+<input id="6bc54b8a-8d91-4139-972a-31bba7486c61" name="08ef94aa-6bfe-421f-8ace-dabb61b2160d" type="radio">
+</input><label class="tabbed-label" for="6bc54b8a-8d91-4139-972a-31bba7486c61">
 Windows</label><div class="tabbed-content docutils">
 <p>La documentación oficial de <a class="reference external" href="https://docs.anaconda.com/anaconda/install/windows/#installing-on-windows">instalación Windows</a>, Puede llegar a parecer muy complicada, pero si se requiere algo en especifico vale la pena seguir.</p>
 <p>Se presenta un resumen de los pasos. Las imagenes  pueden ser distintas dependiendo de la versión del instalador</p>
@@ -506,8 +506,8 @@ https://docs.anaconda.com/_images/win-navigator2.png"  width="40" height="60"> y
 <img src="https://docs.anaconda.com/_images/nav-defaults.png" widht=60%>
 </div>
 </div>
-<input id="abf6499d-43dd-49ae-8f8a-a440a7432890" name="1f402232-4280-4ddf-a275-e99863b11439" type="radio">
-</input><label class="tabbed-label" for="abf6499d-43dd-49ae-8f8a-a440a7432890">
+<input id="b4fe4e81-bf69-4f15-b5d9-8d4e6204ed0c" name="08ef94aa-6bfe-421f-8ace-dabb61b2160d" type="radio">
+</input><label class="tabbed-label" for="b4fe4e81-bf69-4f15-b5d9-8d4e6204ed0c">
 Linux</label><div class="tabbed-content docutils">
 <p>La documentación oficial de <a class="reference external" href="https://docs.anaconda.com/anaconda/install/linux/#installing-on-linux">instalación Linux</a>, puede llegar a parecer muy complicada, pero si se requiere algo en especifico vale la pena seguir.</p>
 <ol class="simple">
@@ -527,17 +527,45 @@ Linux</label><div class="tabbed-content docutils">
 <div><p>Un entorno de anaconda es un directorio qeu cotinen una coleecióne specifica de paquetes y sus dependencias</p>
 </div></blockquote>
 <p>La creación de entornos es útil, por ejemplo, puede evita el conflicto entre actualizaciones de paquetes no compatibles, trabajar con versiones especificas de los paquetes de forma independiente, etc.</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="3a4faf25-ae98-4c14-a655-ddcad4e0949a" name="9eab1ca6-ec26-43c3-aa90-3e76b492cbf5" type="radio">
+</input><label class="tabbed-label" for="3a4faf25-ae98-4c14-a655-ddcad4e0949a">
+macOS</label><div class="tabbed-content docutils">
 <p>Las siguientes instrucciones crean un ambiente  y lo activan</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">mientorno</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.7</span>
-<span class="n">conda</span> <span class="n">activate</span> <span class="n">mientorno</span>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Código</p>
+</div>
+<div class="card-body docutils">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda create -n mientorno python=3.7
+conda activate mientorno
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Explicación</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text"><strong><em>conda create</em></strong>. Es la instrucción de conda para crear el ambiente</p>
+<p class="card-text"><strong><em>-n</em></strong>. Es un argumento para indicar como se llamará el ambiente</p>
+<p class="card-text"><strong><em>mientorno</em></strong>. Es el nombre que se ha decido dar al ambiente</p>
+<p class="card-text"><strong><em>python =3.7</em></strong>. Este ambiente tendra instalado el nucleo de Python versión 3.7</p>
+<p class="card-text"><strong><em>conda activate mientorno</em></strong>. Instrucción para activar el entorno con nombre <em>mientorno</em></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <p>Se explican las instrucciones anteriores:</p>
-<p><strong><em>conda create</em></strong>. Es l ainstrucción deconda para crear el ambiente</p>
-<p><strong><em>-n</em></strong>. Es un argumento para indicar como se llamará el ambiente</p>
-<p><strong><em>mientorno</em></strong>. Es el nombre que se ha decido dar al ambiente</p>
-<p><strong><em>pythin =3.7</em></strong>. Este ambiente tendra instalado el nucleo de Python versión 3.7</p>
-<p><strong><em>conda activate mientorno</em></strong>. Instrucción para activar el entorno con nombre <em>mientorno</em></p>
 <p>Estre entorno solo tiene instaldo el nucleo, entonces si necesitamos realizar graficas, trabajar con arreglos, acceder a métodos numericos y realizar esto en un notebook, necesitamos instalar los paquetes correspondintes</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">numpy</span> <span class="n">scipy</span> <span class="n">matplotlib</span> <span class="n">jupyter</span>
 </pre></div>
@@ -560,6 +588,15 @@ Linux</label><div class="tabbed-content docutils">
 <p><strong><em>jupyterlab</em></strong>. Paquete a instalar</p>
 <p>Para desactivar el entorno activo, se ejecuta la siguiente instrucción</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">deactivate</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+```{tabbed} Linux
+La documentación oficial de [instalación Linux](https://docs.anaconda.com/anaconda/install/linux/#installing-on-linux), puede llegar a parecer muy complicada, pero si se requiere algo en especifico vale la pena seguir. 
+
+1.
+2.
+3.
 </pre></div>
 </div>
 <p>conda list
