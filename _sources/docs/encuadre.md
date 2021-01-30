@@ -32,12 +32,12 @@ Si es necesario, se pueden agendar asesorías (individuales o en grupo)
 
 ## Evaluación
 
-|     | Actividades a evaluar| Porcentaje |
-|----:|:---------------------|-----------:|
-|     | Exámenes   |        30% |
-|     | Proyecto   |       20% |
-|     | Participación|     10% |
-|     | Tareas |       40%     | 
+| Actividades a evaluar| Porcentaje |
+|:---------------------|-----------:|
+| Exámenes   |        30% |
+| Proyecto   |       20% |
+| Participación|     10% |
+| Tareas |       40%     | 
 
 
 Los laboratoristas nos encargaremos de la revisión de las **tareas**. Para ello, la siguiente rubrica será la base para establecer la evaluación.
