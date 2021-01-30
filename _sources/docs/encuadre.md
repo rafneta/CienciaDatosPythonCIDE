@@ -30,18 +30,17 @@ Si es necesario, se pueden agendar asesorías (individuales o en grupo)
 <!-- Final del widget integrado de Calendly -->
 
 
-## Tareas
+## Evaluación
 
- – Exámenes (30%)
- 
- – Proyecto (20%)
- 
- - Participación (10%)
- 
- - **Tareas (40%)**
+|     | Actividades a evaluar| Porcentaje |
+|----:|:---------------------|-----------:|
+|     | Exámenes   |        30% |
+|     | Proyecto   |       20% |
+|     | Participación|     10% |
+|     | Tareas |       40%     | 
 
 
-Los laboratoristas nos encargaremos de la revisión de las tareas. Para ello la siguiente rubrica será la base para establecer la evaluación de dichas tareas.
+Los laboratoristas nos encargaremos de la revisión de las **tareas**. Para ello, la siguiente rubrica será la base para establecer la evaluación.
 
 | | Sobresaliente [100]   | Bueno [85-95] |Regular [80-70]| Pobre [50-60]| No aceptable [0-40]| 
 |:--:|:--------------:|:-----:|:-----:|:---:|:--:|
