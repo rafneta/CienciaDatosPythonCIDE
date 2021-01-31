@@ -366,13 +366,11 @@
   <a class="reference internal nav-link" href="#conda">
    Conda
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#creacion-de-entornos">
-     Creación de entornos
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creacion-de-entornos">
+   Creación de entornos
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#referencias">
@@ -397,11 +395,8 @@
 <li><p><a class="reference internal" href="#instalacion-anaconda" id="id1">Instalación Anaconda</a></p>
 <ul>
 <li><p><a class="reference internal" href="#anaconda-instalacion-individual" id="id2">Anaconda instalación individual</a></p></li>
-<li><p><a class="reference internal" href="#conda" id="id3">Conda</a></p>
-<ul>
+<li><p><a class="reference internal" href="#conda" id="id3">Conda</a></p></li>
 <li><p><a class="reference internal" href="#creacion-de-entornos" id="id4">Creación de entornos</a></p></li>
-</ul>
-</li>
 <li><p><a class="reference internal" href="#referencias" id="id5">Referencias</a></p></li>
 </ul>
 </li>
@@ -424,8 +419,8 @@
 </div>
 <p>De acuerdo a tu equipo, selecciona la pestaña indicada</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="9e0bbe60-68c5-491c-9fed-eae13fce487b" name="f9caea85-565a-4fe9-ac89-4ace0dc00b7c" type="radio">
-</input><label class="tabbed-label" for="9e0bbe60-68c5-491c-9fed-eae13fce487b">
+<input checked="checked" id="37bb37b3-4a4e-48ab-b3af-7fb9e3dfbdad" name="2d0db3ef-3078-45cc-b6c1-45139b92872c" type="radio">
+</input><label class="tabbed-label" for="37bb37b3-4a4e-48ab-b3af-7fb9e3dfbdad">
 macOS</label><div class="tabbed-content docutils">
 <p>La documentación oficial de <a class="reference external" href="https://docs.anaconda.com/anaconda/install/mac-os/">instalación macOS</a>, puede llegar a parecer muy complicada, pero si se requiere algo en especifico vale la pena seguir.</p>
 <p>Se presenta un resumen de los pasos. Las imagenes  pueden ser distintas dependiendo de la versión del instalador</p>
@@ -456,8 +451,8 @@ https://docs.anaconda.com/_images/Navigator_Launchpad_icon.png"  width="20" heig
 <img src="https://raw.githubusercontent.com/rafneta/CienciaDatosPythonCIDE/master/imagenes/ana_mac.png" widht=60%>
 </div>
 </div>
-<input id="474b0cf2-1f13-4dd8-bc36-c64ea72d69e0" name="f9caea85-565a-4fe9-ac89-4ace0dc00b7c" type="radio">
-</input><label class="tabbed-label" for="474b0cf2-1f13-4dd8-bc36-c64ea72d69e0">
+<input id="6fac6536-5188-489f-bd1c-fe8dbf7026c4" name="2d0db3ef-3078-45cc-b6c1-45139b92872c" type="radio">
+</input><label class="tabbed-label" for="6fac6536-5188-489f-bd1c-fe8dbf7026c4">
 Windows</label><div class="tabbed-content docutils">
 <p>La documentación oficial de <a class="reference external" href="https://docs.anaconda.com/anaconda/install/windows/#installing-on-windows">instalación Windows</a>, Puede llegar a parecer muy complicada, pero si se requiere algo en especifico vale la pena seguir.</p>
 <p>Se presenta un resumen de los pasos. Las imagenes  pueden ser distintas dependiendo de la versión del instalador</p>
@@ -489,8 +484,8 @@ https://docs.anaconda.com/_images/win-navigator2.png"  width="40" height="60"> y
 <img src="https://docs.anaconda.com/_images/nav-defaults.png" widht=60%>
 </div>
 </div>
-<input id="95fb042e-22bf-4d22-b80e-dd54c743da3a" name="f9caea85-565a-4fe9-ac89-4ace0dc00b7c" type="radio">
-</input><label class="tabbed-label" for="95fb042e-22bf-4d22-b80e-dd54c743da3a">
+<input id="8eb02f49-7e5c-48fc-aaed-0fb88cefe322" name="2d0db3ef-3078-45cc-b6c1-45139b92872c" type="radio">
+</input><label class="tabbed-label" for="8eb02f49-7e5c-48fc-aaed-0fb88cefe322">
 Linux</label><div class="tabbed-content docutils">
 <p>La documentación oficial de <a class="reference external" href="https://docs.anaconda.com/anaconda/install/linux/#installing-on-linux">instalación Linux</a>, puede llegar a parecer muy complicada, pero si se requiere algo en especifico vale la pena seguir.</p>
 <ol class="simple">
@@ -511,13 +506,21 @@ conda list
 conda update matplotlib
 </pre></div>
 </div>
+</div>
 <div class="section" id="creacion-de-entornos">
-<h3><a class="toc-backref" href="#id4">Creación de entornos</a><a class="headerlink" href="#creacion-de-entornos" title="Enlazar permanentemente con este título">¶</a></h3>
+<h2><a class="toc-backref" href="#id4">Creación de entornos</a><a class="headerlink" href="#creacion-de-entornos" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>La creación de entornos es útil, por ejemplo, puede evitar el conflicto entre actualizaciones de paquetes no compatibles, trabajar con versiones especificas de los paquetes de forma independiente, etc.</p>
 <blockquote>
 <div><p>Un entorno de anaconda es un directorio que contiene una colección especifica de paquetes y sus dependencias</p>
 </div></blockquote>
 <p>Las siguientes instrucciones crean un ambiente y lo activan</p>
+<div class="tip admonition">
+<p class="admonition-title">Para continuar…</p>
+<ul class="simple">
+<li><p>En macOS abrimos una terminal</p></li>
+<li><p>En Windows buscamos Anaconda Prompt</p></li>
+</ul>
+</div>
 <div class="sphinx-bs container pb-4 docutils">
 <div class="row docutils">
 <div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
@@ -526,8 +529,14 @@ conda update matplotlib
 <p class="card-text">Código</p>
 </div>
 <div class="card-body docutils">
+<p class="card-text">macOS</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda create -n mientorno python=3.7
 conda activate mientorno
+</pre></div>
+</div>
+<p class="card-text">Windows</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda create -n mientorno python=3.7
+activate mientorno
 </pre></div>
 </div>
 </div>
@@ -590,7 +599,8 @@ conda activate mientorno
 <p class="card-text">Código</p>
 </div>
 <div class="card-body docutils">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge jupyterlab
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda 
+install -c conda-forge jupyterlab
 </pre></div>
 </div>
 </div>
@@ -612,16 +622,20 @@ conda activate mientorno
 </div>
 </div>
 <p>Para desactivar el entorno activo, se ejecuta la siguiente instrucción</p>
+<p>macOS</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda deactivate
 </pre></div>
 </div>
+<p>Windows</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>deactivate
+</pre></div>
 </div>
 </div>
 <div class="section" id="referencias">
 <h2><a class="toc-backref" href="#id5">Referencias</a><a class="headerlink" href="#referencias" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
 <li><p>Documentación de Anaconda <a class="reference external" href="https://docs.anaconda.com/">enlace</a></p></li>
-<li></li>
+<li><p>Docuemntación de Conda <a class="reference external" href="https://conda.io/projects/conda/en/latest/">enlace</a></p></li>
 </ul>
 </div>
 </div>
