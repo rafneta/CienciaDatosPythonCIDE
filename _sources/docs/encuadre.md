@@ -76,6 +76,9 @@ Existen bastantes recursos para python, en este sitio compartiremos la bibliogra
 
 [](https://notes.quantecon.org/) Notas de quantecon con proyectos de economía (ideas para proyecto)
 
+[The Python Tutorial¶](https://docs.python.org/3.8/tutorial/
+) La documentación oficial podría no ser muy didactica pero si es muy precisa. 
+
 ## Calendario general de actividades
 
 
