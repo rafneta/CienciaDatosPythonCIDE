@@ -68,6 +68,14 @@ Existen bastantes recursos para python, en este sitio compartiremos la bibliogra
 
 [Python Tutor][pt]. Para una visualización de la ejecución de programas 
 
+[](https://quantecon.org/lectures/). Lecturas de QuantEcon: project dedicated to development and documentation of modern open source computational tools for economics, econometrics, and decision making
+
+[](https://executablebooks.github.io/quantecon-example/docs/about_py.html). Migración de la parte de python del enlace aterior a jupyter book
+
+[](https://quantecon.org/notebooks/).Colección de notebooks de quantecon
+
+[](https://notes.quantecon.org/) Notas de quantecon con proyectos de economía (ideas para proyecto)
+
 ## Calendario general de actividades
 
 

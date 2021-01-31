@@ -375,23 +375,6 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#para-ejecucion-en-la-nube">
-   Para ejecución en la nube
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#google-colab">
-     Google Colab
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#binder">
-     Binder
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#referencias">
    Referencias
   </a>
@@ -419,13 +402,7 @@
 <li><p><a class="reference internal" href="#creacion-de-entornos" id="id4">Creación de entornos</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#para-ejecucion-en-la-nube" id="id5">Para ejecución en la nube</a></p>
-<ul>
-<li><p><a class="reference internal" href="#google-colab" id="id6">Google Colab</a></p></li>
-<li><p><a class="reference internal" href="#binder" id="id7">Binder</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#referencias" id="id8">Referencias</a></p></li>
+<li><p><a class="reference internal" href="#referencias" id="id5">Referencias</a></p></li>
 </ul>
 </li>
 </ul>
@@ -447,8 +424,8 @@
 </div>
 <p>De acuerdo a tu equipo, selecciona la pestaña indicada</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="e571750f-83e4-42a8-a3cd-a32280a1130d" name="98c5fc77-90f8-4f25-96b0-ba88a28fb686" type="radio">
-</input><label class="tabbed-label" for="e571750f-83e4-42a8-a3cd-a32280a1130d">
+<input checked="checked" id="2cb10909-ed79-4012-b34a-2c90b2a80019" name="61942685-108f-4169-a89b-dc9d3e0a5f2a" type="radio">
+</input><label class="tabbed-label" for="2cb10909-ed79-4012-b34a-2c90b2a80019">
 macOS</label><div class="tabbed-content docutils">
 <p>La documentación oficial de <a class="reference external" href="https://docs.anaconda.com/anaconda/install/mac-os/">instalación macOS</a>, puede llegar a parecer muy complicada, pero si se requiere algo en especifico vale la pena seguir.</p>
 <p>Se presenta un resumen de los pasos. Las imagenes  pueden ser distintas dependiendo de la versión del instalador</p>
@@ -479,8 +456,8 @@ https://docs.anaconda.com/_images/Navigator_Launchpad_icon.png"  width="20" heig
 <img src="https://raw.githubusercontent.com/rafneta/CienciaDatosPythonCIDE/master/imagenes/ana_mac.png" widht=60%>
 </div>
 </div>
-<input id="92b71f60-2b58-4195-aa9e-f17e1075dabf" name="98c5fc77-90f8-4f25-96b0-ba88a28fb686" type="radio">
-</input><label class="tabbed-label" for="92b71f60-2b58-4195-aa9e-f17e1075dabf">
+<input id="9501ceda-e33a-4444-8eb9-1d957643556b" name="61942685-108f-4169-a89b-dc9d3e0a5f2a" type="radio">
+</input><label class="tabbed-label" for="9501ceda-e33a-4444-8eb9-1d957643556b">
 Windows</label><div class="tabbed-content docutils">
 <p>La documentación oficial de <a class="reference external" href="https://docs.anaconda.com/anaconda/install/windows/#installing-on-windows">instalación Windows</a>, Puede llegar a parecer muy complicada, pero si se requiere algo en especifico vale la pena seguir.</p>
 <p>Se presenta un resumen de los pasos. Las imagenes  pueden ser distintas dependiendo de la versión del instalador</p>
@@ -512,8 +489,8 @@ https://docs.anaconda.com/_images/win-navigator2.png"  width="40" height="60"> y
 <img src="https://docs.anaconda.com/_images/nav-defaults.png" widht=60%>
 </div>
 </div>
-<input id="8177b1b6-d6a8-49cf-ad76-54e759678ca6" name="98c5fc77-90f8-4f25-96b0-ba88a28fb686" type="radio">
-</input><label class="tabbed-label" for="8177b1b6-d6a8-49cf-ad76-54e759678ca6">
+<input id="cc466e61-03b3-4be5-a94e-4b89db6a2b6a" name="61942685-108f-4169-a89b-dc9d3e0a5f2a" type="radio">
+</input><label class="tabbed-label" for="cc466e61-03b3-4be5-a94e-4b89db6a2b6a">
 Linux</label><div class="tabbed-content docutils">
 <p>La documentación oficial de <a class="reference external" href="https://docs.anaconda.com/anaconda/install/linux/#installing-on-linux">instalación Linux</a>, puede llegar a parecer muy complicada, pero si se requiere algo en especifico vale la pena seguir.</p>
 <ol class="simple">
@@ -638,39 +615,10 @@ conda activate mientorno
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda deactivate
 </pre></div>
 </div>
-<p>Para elegir una IDE (integrated development environment) de Python existen diferentes criterios</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.spyder-ide.org">Spyder</a></p></li>
-<li><p><a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a></p></li>
-<li><p><a class="reference external" href="https://atom.io/">Atom</a></p></li>
-<li><p><a class="reference external" href="https://www.jetbrains.com/pycharm/">PyCharm Community Edition</a>. Es necesario enlazar con Anaconda</p></li>
-<li><p><a class="reference external" href="https://rstudio.com/products/rstudio/download/">RStudio</a>. Es necesaria la configuración de la biblioteca <em>reticulate</em> para enlazar con Anaconda</p></li>
-<li><p><a class="reference external" href="https://jupyter.org/install">Jupyter</a></p></li>
-</ul>
-</div>
-</div>
-<div class="section" id="para-ejecucion-en-la-nube">
-<h2><a class="toc-backref" href="#id5">Para ejecución en la nube</a><a class="headerlink" href="#para-ejecucion-en-la-nube" title="Enlazar permanentemente con este título">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://colab.research.google.com">Google Colab</a></p></li>
-<li><p><a class="reference external" href="https://mybinder.org">Binder</a></p></li>
-<li><p><a class="reference external" href="https://www.kaggle.com/kernels">Kaggle notebooks</a></p></li>
-<li><p><a class="reference external" href="https://datalore.io">DataLore</a></p></li>
-<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-manage-workspace?tabs=python">Microsoft Azure ML</a></p></li>
-</ul>
-<div class="section" id="google-colab">
-<h3><a class="toc-backref" href="#id6">Google Colab</a><a class="headerlink" href="#google-colab" title="Enlazar permanentemente con este título">¶</a></h3>
-<p><a class="reference external" href="https://colab.research.google.com">Google Colab</a> (Colaboratory) servicio en línea gratuito, conectado con tu cuenta de Google</p>
-<p>En el siguente enlace hay más información al respecto <a class="reference external" href="https://colab.research.google.com/notebooks/intro.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
-</div>
-<div class="section" id="binder">
-<h3><a class="toc-backref" href="#id7">Binder</a><a class="headerlink" href="#binder" title="Enlazar permanentemente con este título">¶</a></h3>
-<p><a class="reference external" href="https://mybinder.org">Binder</a> es un servicio gratuito que ejecuta Jupyter Notebooks en línea de.</p>
-<p>El siguiente es un ejemplo de un Binder, puede tardar algunos minutos la construcción el ambiente <a class="reference external" href="https://mybinder.org/v2/gh/rafneta/IntroduccionProbabilidad/master"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
 </div>
 </div>
 <div class="section" id="referencias">
-<h2><a class="toc-backref" href="#id8">Referencias</a><a class="headerlink" href="#referencias" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2><a class="toc-backref" href="#id5">Referencias</a><a class="headerlink" href="#referencias" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
 <li><p>Documentación de Anaconda <a class="reference external" href="https://docs.anaconda.com/">enlace</a></p></li>
 <li></li>
