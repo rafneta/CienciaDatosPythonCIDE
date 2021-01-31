@@ -20,19 +20,27 @@ Se prefiere se utilicen en el orden que se indican.
 - [Videos de sesiones](https://cideo365-my.sharepoint.com/:f:/g/personal/rafael_martinez_alumnos_cide_edu/Ep-HPMTIHGNDpRXyGTDGYPQBp3IzXCJXsha-jHCSVtPKrw?e=Croqjz)
 
 
+## Asesorías
 
-## Tareas
+Si es necesario, se pueden agendar asesorías (individuales o en grupo)
 
- – Exámenes (30%)
- 
- – Proyecto (20%)
- 
- - Participación (10%)
- 
- - **Tareas (40%)**
+<!-- Principio del widget integrado de Calendly -->
+<div class="calendly-inline-widget" data-url="https://calendly.com/rafamm/reunion-de-15-minutos-cide" style="min-width:320px;height:630px;"></div>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
+<!-- Final del widget integrado de Calendly -->
 
 
-Los laboratoristas nos encargaremos de la revisión de las tareas. Para ello la siguiente rubrica será la base para establecer la evaluación de dichas tareas.
+## Evaluación
+
+| Actividades a evaluar| Porcentaje |
+|:---------------------|-----------:|
+| Exámenes   |        30% |
+| Proyecto   |       20% |
+| Participación|     10% |
+| Tareas |       40%     | 
+
+
+Los laboratoristas nos encargaremos de la revisión de las **tareas**. Para ello, la siguiente rubrica será la base para establecer la evaluación.
 
 | | Sobresaliente [100]   | Bueno [85-95] |Regular [80-70]| Pobre [50-60]| No aceptable [0-40]| 
 |:--:|:--------------:|:-----:|:-----:|:---:|:--:|
@@ -59,6 +67,17 @@ Existen bastantes recursos para python, en este sitio compartiremos la bibliogra
 [CodeSkulptor3][csk]. Plataforma para ejecutar código sencillo de python, sin necesidad de registo o instalación
 
 [Python Tutor][pt]. Para una visualización de la ejecución de programas 
+
+[](https://quantecon.org/lectures/). Lecturas de QuantEcon: project dedicated to development and documentation of modern open source computational tools for economics, econometrics, and decision making
+
+[](https://executablebooks.github.io/quantecon-example/docs/about_py.html). Migración de la parte de python del enlace aterior a jupyter book
+
+[](https://quantecon.org/notebooks/).Colección de notebooks de quantecon
+
+[](https://notes.quantecon.org/) Notas de quantecon con proyectos de economía (ideas para proyecto)
+
+[The Python Tutorial¶](https://docs.python.org/3.8/tutorial/
+) La documentación oficial podría no ser muy didactica pero si es muy precisa. 
 
 ## Calendario general de actividades
 
