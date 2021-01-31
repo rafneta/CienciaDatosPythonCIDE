@@ -1,0 +1,5 @@
+matplotlib
+numpy
+ipywidgets
+jupyter_contrib_nbextensions
+rise
