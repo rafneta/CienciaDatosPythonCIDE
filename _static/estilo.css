@@ -1,0 +1,130 @@
+thead {
+    border-bottom: 1px solid black;
+    vertical-align: middle;
+    border: 1px solid #dee2e6;
+  }
+tr,
+th,
+td { 
+    text-align: center;
+    vertical-align: middle;
+    padding: 0.1em;
+    line-height: normal;
+    white-space: normal;
+    max-width: none;
+    border: 1px solid #dee2e6;
+  }
+th {
+    font-weight: bold;
+  }
+tbody tr:nth-child(odd) {
+    background: #f5f5f5;
+  }
+tbody tr:hover {
+    background: rgba(66, 165, 245, 0.2);
+  }
+
+.text_cell_render h1 {
+    color: #007935;
+}
+
+
+main.bd-content #main-content h1 {
+    color: #007935;
+}
+
+#site-navigation h1 {
+    color: #007935;
+}
+
+.toctree-ki {
+    color: #007935;
+}
+
+#site-navigation  {
+    color: #007935;
+}
+
+main.bd-content #main-content h2 {
+    color: #007935; /*rgba(0, 121, 53, 1);*/
+}
+
+main.bd-content #main-content h3 {
+    color: #007935; /*rgba(0, 121, 53, 1);*/
+}
+
+#pregunta {
+   
+   background-color:rgba(0, 121, 53, 0.4);
+   /*color: rgba(255,255,255,0.9);
+   background-color: #5c7884;*/
+   padding: 10px 10px 10px 10px;
+   text-align: justify;
+}
+
+#inciso {
+  background-color: rgba(0, 121, 53, 0.2);
+   /*color: rgba(255,255,255,0.9);
+   background-color: #87a0ab;*/
+   padding: 10px 10px 10px 10px;
+   text-align: justify;
+}
+
+p {
+  
+   text-align: justify;
+}
+
+#respuesta{
+  
+   text-align: justify;
+   color: rgba(38, 117, 151, 1);
+}
+
+#colpre {
+  color: #5c7884;
+}
+
+#colin {
+  color: #87a0ab;
+}
+
+
+
+.video-w {
+	width: 600px;
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+.video-ww {
+	width: 360px;
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+.video-container {
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 30px;
+	height: 0;
+	overflow: hidden;
+}
+
+.video-container iframe{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.polaroid {
+  width: 80%;
+  background-color: white;
+  /*box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.2);*/
+  margin-bottom: 25px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:2%;
+}

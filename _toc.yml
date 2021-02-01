@@ -1,0 +1,64 @@
+# Table of content
+# Learn more at https://jupyterbook.org/customize/toc.html
+#
+- file: intro
+
+- part: Información del curso
+  chapters:
+  - file: docs/encuadre
+  - file: docs/calendarioLab
+  - file: docs/Navegacion
+  - file: docs/Pizarron
+    
+- part: Laboratorios 
+  chapters:
+  - file: Laboratorios/Lab1/lab1
+    sections:
+      - file: Laboratorios/Lab1/instalacion
+      - file: Laboratorios/Lab1/GitHub
+  - file: Laboratorios/Lab2/lab2
+    sections:
+      - file: Laboratorios/Lab2/fundamentos
+  - file: Laboratorios/Lab3/lab3
+    sections:
+      - file: Laboratorios/Lab3/Funciones
+  - file: Laboratorios/Lab4/lab4
+    sections:
+      - file: Laboratorios/Lab4/listas
+  - file: Laboratorios/Lab5/lab5
+    sections:
+      - file: Laboratorios/Lab5/ControlDeFlujo
+  - file: Laboratorios/Lab6/lab6
+    sections:
+      - file: Laboratorios/Lab6/tuplas
+  - file: Laboratorios/Lab7/lab7
+    sections:
+      - file: Laboratorios/Lab7/ComplejidadAlgoritmica
+  - file: Laboratorios/Lab8/lab8
+    sections:
+      - file: Laboratorios/Lab8/Clases
+
+- part: Proyecto
+  chapters:
+  - file: docs/Proyecto
+
+
+
+#- part: Encuadre
+#  chapters:
+#  - file: intro
+#  - file: content
+#    sections:
+#      - file: markdown
+#      - file: notebooks
+
+
+#- part: Reference
+#  chapters:
+#  - url: https://executablebooks.org/en/latest/gallery.html
+#    title: Gallery of Jupyter Books
+#  - file: reference/cheatsheet
+#  - file: reference/cli
+#  - file: reference/glossary
+#  - file: reference/_changelog
+#    title: Change log
