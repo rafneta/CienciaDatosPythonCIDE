@@ -9,10 +9,18 @@
   - file: docs/calendarioLab
   - file: docs/Navegacion
   - file: docs/Pizarron
-    
+  
+
+- part: Clases
+  chapters:
+  - file: Clases/1_intro
+    title: Introducción a Python
+
+
 - part: Laboratorios 
   chapters:
   - file: Laboratorios/Lab1/lab1
+    title: Anaconda, GitHub
     sections:
       - file: Laboratorios/Lab1/instalacion
       - file: Laboratorios/Lab1/GitHub
@@ -37,6 +45,11 @@
   - file: Laboratorios/Lab8/lab8
     sections:
       - file: Laboratorios/Lab8/Clases
+
+- part: Tareas
+  chapters:
+  - file: Laboratorios/Lab1/lab1
+
 
 - part: Proyecto
   chapters:
