@@ -49,3 +49,5 @@ sphinx:
    # html_theme: quantecon_book_theme
    # html_theme_options:
    # header_organisation: CIDE
+parse:
+  myst_enable_extensions : ["dollarmath"]  # URI schemes that will be recognised as external URLs in Markdown links
