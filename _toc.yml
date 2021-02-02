@@ -14,13 +14,13 @@
 - part: Clases
   chapters:
   - file: Clases/1_intro
-    title: Introducción a Python
+    title: 1. Introducción a Python
 
 
-- part: Laboratorios 
+- part: Laboratorios
   chapters:
   - file: Laboratorios/Lab1/lab1
-    title: Anaconda, GitHub
+    title: 1. Anaconda, GitHub
     sections:
       - file: Laboratorios/Lab1/instalacion
       - file: Laboratorios/Lab1/GitHub
@@ -48,7 +48,7 @@
 
 - part: Tareas
   chapters:
-  - file: Laboratorios/Lab1/lab1
+  - file: Tareas/1_intro_tarea
 
 
 - part: Proyecto
