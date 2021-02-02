@@ -553,8 +553,29 @@ Tu pago mensual es de $92.0362165594768
 <p>b. ¿Qué hace * y **?</p>
 <p>c. ¿Qué pasaría si se movieran los parentésis?</p>
 <p><em>2.</em> Tu jefe te pide que cambies el código para poder adecuar a pagos trimestrales,semestrales o anuales, cómo adecuarías el código para que la herramienta te pregunte qué frecuencia de pagos quieres y haga los cambios pertinentes</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p><em>3.</em> El código de arriba asume que el plazo siempre está en años, pero puede ser posible que pidas un crédito menor a un año. Cómo adecuarías el código para que pueda ser un préstamo con un plazo tan pequeño como 2 semanas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p><em>4.</em> Ahora te pide que des la opción de un préstamos en pesos o dólares. En el caso que sea en dólares, debería transformarlo el pago mensual y el costo del préstamos a pesos con un tipo de cambio de 20 pesos por dólar. (Asume que el tipo de cambio es fijo en el contrato de préstamo)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p><em>5.</em> Ahora te pide que utilices informacion del tipo de cambio en tiempo real para calcular el pago mensual y costo del préstamo
 
 Tips:
@@ -574,6 +595,13 @@ Tips:
 
 https://forex-python.readthedocs.io/en/latest/usage.html</p></li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p><em>6.</em>  Ahora te pide que generes la opción de convertir el pago a UDIS. La herramienta debería preguntarte en que prefieres el pago mensual y el costo del préstamo en UDIS o pesos.
 
 Tips: Banxico tiene la información del valor más actualizado de UDIS. Para poder acceder a ella automaticamente vamos a usar un API. Vamos a ver más adelante en el curso como usarla, pero por ahora lo único que necesitas hacer es correr el código de abajo para generar el valor de UDI</p>
@@ -631,10 +659,31 @@ Una vez que ya lo tengas, escríbelo en la celda de abajo</p>
 </div>
 </div>
 <p>Ahora sí, adecua el código para que puedas usar la variable <em>udi</em> para poder hacer la estimación en UDIs</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p><em>7.</em> Ahora hay que revisar si hubiera convenido más hace 10 años tomar el préstamo en UDIs o dólares. Para eso, tomemos los valores del 31 de enero de 2010 y https://www.exchangerates.org.uk/USD-MXN-spot-exchange-rates-history-2010.html: https://tiie.com.mx/udi-2010/ y asume que el valor del UDI hace 10 años era de 4.369, y el valor del dólar era de $13.091.
 
 La herramienta debería cálcular el costo del préstamo en pesos en los dos casos y decir cuál hubiera convenido más y la diferencia.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p><em>8.</em> Finalmente, hay que crear un código que nos diga considerando la variación real en el dólar, cuál hubiera sido la variación necesaria en los UDIs para que hubiera sido igual un préstamo en cualquiera de los dos. Y lo contrario, considerando la variación real en UDIS, cuál hubiera sido la variación necesaria en dólares para que hubiera sido igual un préstamo en cualquiera de las dos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="parte-2">
@@ -651,8 +700,29 @@ La herramienta debería cálcular el costo del préstamo en pesos en los dos cas
 
 Y dar la tasa de interés anual</p></li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p><em>10.</em> Ahora hay que hacer una modificación para poder aceptar un plazo y pago tan pequeño como dos semanas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p><em>11.</em> Finalmente, vamos a obtener la tasa de referencia y decidir si debería tomar el crédito. En la página de Banxico busca «TIIE de Fondeo a Un Día Hábil Bancario» y haz un query con el valor. El código debería indicar si la tasa de interés anual del préstamo es menor a la tasa de referencia.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="opcionales-ejercicios-en-hakerrank">
 <h2>Opcionales: Ejercicios en HakerRank<a class="headerlink" href="#opcionales-ejercicios-en-hakerrank" title="Enlazar permanentemente con este título">¶</a></h2>
