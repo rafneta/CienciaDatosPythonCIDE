@@ -17,13 +17,21 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-Escribe un codigo para obtener la serie de Fibonacci de 0 a 50:
+a = input("escriba algo")
 ------------------
 
-[0;36m  File [0;32m"<ipython-input-2-ac5953313a64>"[0;36m, line [0;32m1[0m
-[0;31m    Escribe un codigo para obtener la serie de Fibonacci de 0 a 50:[0m
-[0m             ^[0m
-[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mStdinNotImplementedError[0m                  Traceback (most recent call last)
+[0;32m<ipython-input-1-e7bddc30a437>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0ma[0m [0;34m=[0m [0minput[0m[0;34m([0m[0;34m"escriba algo"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m/opt/anaconda3/lib/python3.7/site-packages/ipykernel/kernelbase.py[0m in [0;36mraw_input[0;34m(self, prompt)[0m
+[1;32m    853[0m         [0;32mif[0m [0;32mnot[0m [0mself[0m[0;34m.[0m[0m_allow_stdin[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    854[0m             raise StdinNotImplementedError(
+[0;32m--> 855[0;31m                 [0;34m"raw_input was called, but this frontend does not support input requests."[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    856[0m             )
+[1;32m    857[0m         return self._input_request(str(prompt),
 
-SyntaxError: invalid syntax (<ipython-input-2-ac5953313a64>, line 1)
+[0;31mStdinNotImplementedError[0m: raw_input was called, but this frontend does not support input requests.
+StdinNotImplementedError: raw_input was called, but this frontend does not support input requests.
 

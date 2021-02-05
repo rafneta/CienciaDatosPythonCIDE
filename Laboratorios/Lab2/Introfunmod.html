@@ -1,0 +1,706 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introducción a funciones y módulos &#8212; Introducción a la ciencia de datos</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/estilo-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/estilo-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="Tarea 1" href="../../Tareas/1_intro_tarea.html" />
+    <link rel="prev" title="Operaciones con tipos de datos básicos" href="fundamentos.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Introducción a la ciencia de datos</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Sobre este sitio
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Información del curso
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/encuadre.html">
+   Encuadre
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/calendarioLab.html">
+   Calendario Laboratorio
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/Navegacion.html">
+   Navegación en el libro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/Pizarron.html">
+   Pizarrón
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Clases
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Clases/1_intro.html">
+   1. Introducción a Python
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Laboratorios
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab1/lab1.html">
+   1. Anaconda, GitHub
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab1/instalacion.html">
+     Instalación Anaconda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab1/GitHub.html">
+     Introducción a GitHub
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="lab2.html">
+   2. Datos, flujo, funciones
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Varfunif.html">
+     Variables y Condiciones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="fundamentos.html">
+     Operaciones con tipos de datos básicos
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Introducción a funciones y módulos
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Tareas
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Tareas/1_intro_tarea.html">
+   Tarea 1
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Proyecto
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/Proyecto.html">
+   Proyecto
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+            title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Laboratorios/Lab2/Introfunmod.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/rafneta/CienciaDatosPythonCIDE"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/rafneta/CienciaDatosPythonCIDE/issues/new?title=Issue%20on%20page%20%2FLaboratorios/Lab2/Introfunmod.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+                title="Modo de pantalla completa"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/rafneta/CienciaDatosPythonCIDE/master?urlpath=tree/Laboratorios/Lab2/Introfunmod.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/rafneta/CienciaDatosPythonCIDE/blob/master/Laboratorios/Lab2/Introfunmod.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Lanzamiento Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Lanzamiento Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contenido
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funciones">
+   Funciones
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modulos">
+   Módulos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funciones-y-modulos-no-estandar">
+   Funciones y módulos no estándar
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p><img alt="" src="https://raw.githubusercontent.com/rafneta/CienciaDatosPythonCIDE/master/imagenes/banner.png" /></p>
+<div class="contents topic" id="contenido">
+<p class="topic-title">Contenido</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#introduccion-a-funciones-y-modulos" id="id1">Introducción a funciones y módulos</a></p>
+<ul>
+<li><p><a class="reference internal" href="#funciones" id="id2">Funciones</a></p></li>
+<li><p><a class="reference internal" href="#modulos" id="id3">Módulos</a></p></li>
+<li><p><a class="reference internal" href="#funciones-y-modulos-no-estandar" id="id4">Funciones y módulos no estándar</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="introduccion-a-funciones-y-modulos">
+<h1><a class="toc-backref" href="#id1">Introducción a funciones y módulos</a><a class="headerlink" href="#introduccion-a-funciones-y-modulos" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Python tiene una serie de de funciones y módulos incluidos en su instalación estándar.</p>
+<p>Las funciones incluidas pueden pensarse como instrucciones que realizan una determinada tarea y pueden ejecutarse solamente indicando el identificador asociado y la notación correspondiente (<em>print(), type() float(), int(), etc.</em>).</p>
+<p>Los módulos son <em>agrupaciones</em>  de funciones, que si se quieren utilizar, tienen que importarse del módulo en el cual se encuentran.</p>
+<div class="section" id="funciones">
+<h2><a class="toc-backref" href="#id2">Funciones</a><a class="headerlink" href="#funciones" title="Enlazar permanentemente con este título">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p>Functiones incorporadas</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">abs()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">delattr()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">hash()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">memoryview()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">set()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">all()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">dict()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">help()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">min()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">setattr()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">any()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">dir()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">hex()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">next()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">slice()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ascii()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">divmod()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">id()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">object()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sorted()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">bin()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">enumerate()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">input()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">oct()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">staticmethod()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">bool()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">eval()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">open()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">breakpoint()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">exec()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">isinstance()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ord()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sum()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">bytearray()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">filter()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">issubclass()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pow()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">super()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">bytes()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">iter()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">print()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tuple()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">callable()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">format()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">len()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">property()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">type()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">chr()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">frozenset()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">list()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">range()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">vars()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">classmethod()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">getattr()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">locals()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">repr()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">zip()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">compile()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">globals()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">map()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">reversed()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__import__()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">complex()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">hasattr()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">max()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">round()</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;escriba algo&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">e7bddc30a437</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">a</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;escriba algo&quot;</span><span class="p">)</span>
+
+<span class="nn">/opt/anaconda3/lib/python3.7/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">    </span><span class="mi">853</span>         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">854</span>             <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
+<span class="ne">--&gt; </span><span class="mi">855</span>                 <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">856</span>             <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">857</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>algo
+&lt;class &#39;str&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Las funciones pueden necesitar argumentos de entrada (datos  dentro de los paréntesis) o no, pueden hacer una tarea y regresar una valor calculado por dicha tarea o no. Por el momento con esta información basta</p>
+</div>
+<div class="section" id="modulos">
+<h2><a class="toc-backref" href="#id3">Módulos</a><a class="headerlink" href="#modulos" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Existe una cantidad considerable de módulos incorporados en la instalación estándar (Anaconda tiene estos y otras más),  para consultar la lista de módulos estándar instalados, se puede revisar el sigueinte <a class="reference external" href="https://docs.python.org/es/3.9/py-modindex.html">enlace</a>. Algunos módulos estándar son los siguientes</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/es/3.9/library/getpass.html#module-getpass">getpass</a>. Lectura portátil de contraseñas y recuperación del ID de usuario.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/es/3.9/library/urllib.request.html#module-urllib.request">urllib.request</a>. Biblioteca  para abrir URL.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/es/3.9/library/json.html#module-json">json</a>. Codifica y decodifica el formato JSON.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/es/3.9/library/math.html#module-math">math</a>. Funciones matemáticas</p></li>
+</ul>
+<p>Para hacer uso de las funciones de los módulos, estos se puden importar de varias formas.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import MODULE1, MODULE2, ..., MODULEN
+
+import MODULE as ANYTHING
+
+from MODULE import FUNCTION_IN_MODULE1, FUNCTION_IN_MODULE2 
+
+from MODULE import *
+</pre></div>
+</div>
+<p>Importamos del módulo <em>math</em> como ejemplo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">math</span><span class="o">.</span><span class="n">pi</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.141592653589793
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">m</span>
+
+<span class="n">m</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">pi</span>
+
+<span class="n">sin</span><span class="p">(</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">atan</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span><span class="o">/</span><span class="n">cos</span><span class="p">(</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7853981633974483
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7853981633974483
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="funciones-y-modulos-no-estandar">
+<h2><a class="toc-backref" href="#id4">Funciones y módulos no estándar</a><a class="headerlink" href="#funciones-y-modulos-no-estandar" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Se pueden definir funciones y utilizar módulos no estándar, para resolver diferentes problemas.</p>
+<p>Se tiene el siguiente problema:</p>
+<p>El valor acumulado de una cuenta de ahorros que se basa en pagos periódicos puede calcularse con la <em>ecuación de anualidad vencida</em></p>
+<div class="math notranslate nohighlight">
+\[A = \frac{P}{i}((1+i)^n-1)\]</div>
+<p>En esta ecuación, <span class="math notranslate nohighlight">\(A\)</span> es el monto de la cuenta, <span class="math notranslate nohighlight">\(P\)</span> es la cantidad que se deposita periódicamente e <span class="math notranslate nohighlight">\(i\)</span> es la tasa de interés por periodo para los <span class="math notranslate nohighlight">\(n\)</span> periodos de depósito. A un ingeniero le gustaría tener una cuenta de ahorros con un monto de <span class="math notranslate nohighlight">\(750 000\)</span> dólares al momento de retirarse dentro de 20 años, y puede depositar <span class="math notranslate nohighlight">\(l500\)</span> dólares mensuales para lograr dicho objetivo. ¿Cuál es la tasa mínima de interés a que puede inverirse ese dinero, suponiendo que es un interés compuesto mensual?</p>
+<p>La solución es encontrar <span class="math notranslate nohighlight">\(i\)</span> para los datos dados. Este problema no tiene solución cerrada, entonces se resuelve con aproximaciones numéricas. Para consultar uno de los métodos para las soluciones numéricas, comparto el siguiente video (suscribete y dale like XD)</p>
+<div class = "video-w">
+<div class = "video-container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kDmYaLV8Gnw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
+<p>El probleam se puede escribir como</p>
+<div class="math notranslate nohighlight">
+\[A - \frac{P}{i}((1+i)^n-1) = 0 \]</div>
+<p>entonces encontrar el valor de <span class="math notranslate nohighlight">\(i\)</span> es encontrar la raíz de la siguiente función</p>
+<div class="math notranslate nohighlight">
+\[f(i) = A - \frac{P}{i}((1+i)^n-1)  \]</div>
+<p>Entonces, implementamos do cosas,</p>
+<ol class="simple">
+<li><p>Una función que realice el calculo de la función <span class="math notranslate nohighlight">\(f\)</span></p></li>
+<li><p>Buscamos un módulo (afortunadamente existe) que tenga impeentados los algoritmos para encontrar aproximaciones de raíces de funciones.</p></li>
+</ol>
+<p>Se instala el módulo de <em>scipy</em> en caso que no se tenga instalado</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda install scipy
+</pre></div>
+</div>
+<p>Implementamos la función <span class="math notranslate nohighlight">\(f\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="mi">750000</span>
+    <span class="n">P</span> <span class="o">=</span> <span class="mi">1500</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">20</span> <span class="o">*</span> <span class="mi">12</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">A</span> <span class="o">-</span> <span class="p">(</span><span class="n">P</span> <span class="o">/</span> <span class="n">i</span><span class="p">)</span> <span class="o">*</span> <span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">**</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Se importa el módulo y la  función correspondiente</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span>
+
+<span class="n">int_mensual</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;la tasa de interés anual es:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">int_mensual</span> <span class="o">*</span> <span class="mi">12</span> <span class="o">*</span> <span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>la tasa de interés anual es:[6.66093828]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "rafneta/CienciaDatosPythonCIDE",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Laboratorios/Lab2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="fundamentos.html" title="previous page">Operaciones con tipos de datos básicos</a>
+    <a class='right-next' id="next-link" href="../../Tareas/1_intro_tarea.html" title="next page">Tarea 1</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Rafael Martínez-Martínez and Federico Daverio<br/>
+        
+            &copy; Copyright .<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
