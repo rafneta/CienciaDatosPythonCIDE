@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fundamentos &#8212; Introducción a la ciencia de datos</title>
+    <title>Operaciones con tipos de datos básicos &#8212; Introducción a la ciencia de datos</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -171,7 +171,7 @@
   <ul class="current collapse-ul">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Fundamentos
+     Operaciones con tipos de datos básicos
     </a>
    </li>
   </ul>
@@ -388,6 +388,35 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contenido
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tipos-numericos">
+   Tipos numéricos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operaciones-booleanas">
+   Operaciones booleanas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prioridad-de-operaciones">
+   Prioridad de operaciones
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cadenas-de-caracteres">
+   Cadenas de caracteres
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -395,8 +424,457 @@
         
               <div>
                 
-  <div class="section" id="fundamentos">
-<h1>Fundamentos<a class="headerlink" href="#fundamentos" title="Enlazar permanentemente con este título">¶</a></h1>
+  <p><img alt="" src="https://raw.githubusercontent.com/rafneta/CienciaDatosPythonCIDE/master/imagenes/banner.png" /></p>
+<div class="contents topic" id="contenido">
+<p class="topic-title">Contenido</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#operaciones-con-tipos-de-datos-basicos" id="id1">Operaciones con tipos de datos básicos</a></p>
+<ul>
+<li><p><a class="reference internal" href="#tipos-numericos" id="id2">Tipos numéricos</a></p></li>
+<li><p><a class="reference internal" href="#operaciones-booleanas" id="id3">Operaciones booleanas</a></p></li>
+<li><p><a class="reference internal" href="#prioridad-de-operaciones" id="id4">Prioridad de operaciones</a></p></li>
+<li><p><a class="reference internal" href="#cadenas-de-caracteres" id="id5">Cadenas de caracteres</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="operaciones-con-tipos-de-datos-basicos">
+<h1><a class="toc-backref" href="#id1">Operaciones con tipos de datos básicos</a><a class="headerlink" href="#operaciones-con-tipos-de-datos-basicos" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>La asignación <code class="docutils literal notranslate"><span class="pre">=</span></code> es fundamental. Se puede pensar como <em>guardar</em> información en una variable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mf">3.4</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># asignammos a la variable x el valor anterior más 1, se opera de derecha a izquierda.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.4
+</pre></div>
+</div>
+</div>
+</div>
+<p>Al nombre de las variables se les denomina <strong>identificadores</strong>. Estos siguen algunas reglas para que sean válidos. La reglas son relativamente flexibles, una simplificación muy burda es:</p>
+<ul class="simple">
+<li><p>No comenzar con número o caracteres especiales (?, =, !, -, &amp;, etc.)</p></li>
+<li><p>No tener caracteres especiales despues del inicio, los numeros despues del inicio están permitidos</p></li>
+<li><p>El guion bajo está permitido en cualquier posición</p></li>
+<li><p>Se distingue entre mayúsculas y minúsculas, estas pueden utilizarse en cualquier posición del identificador</p></li>
+</ul>
+<p>Para precisar las reglas de construcción de los identificadores se puede consultar el sigueinte <a class="reference external" href="https://docs.python.org/es/3.9/reference/lexical_analysis.html#identifiers">enlace</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="n">casa</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="o">&amp;</span><span class="n">casa</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">_</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">beto</span>  <span class="o">=</span> <span class="mi">34</span>
+<span class="n">Beto</span> <span class="o">=</span> <span class="mi">56</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-2-44731d701242&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+<span class="g g-Whitespace">    </span><span class="mi">1</span><span class="n">casa</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podría coincidir que el identificador que se elige, es una palabra clave de Python (Keywords), estas no pueden utilizarse como identificadores. En ese caso debe de elegirse otro identificador</p>
+<div class="note admonition">
+<p class="admonition-title">Palabras clave</p>
+<p>False   -   await   -   else    -   import  -   pass - None -      break  -    except   -  in     -    raise</p>
+<p>True   -    class   -   finally  -  is     -    return - and    -    continue  - for    -    lambda  -   try</p>
+<p>as   -      def    -    from   -    nonlocal   while - assert  -   del     -   global  -   not  -      with</p>
+<p>async   -   elif    -   if   -      or    -     yield</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="o">=</span> <span class="mi">6</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-21-f3aad9a9458b&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+    <span class="kn">import</span> <span class="o">=</span> <span class="mi">6</span>
+           <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="tipos-numericos">
+<h2><a class="toc-backref" href="#id2">Tipos numéricos</a><a class="headerlink" href="#tipos-numericos" title="Enlazar permanentemente con este título">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Operación</p></th>
+<th class="text-align:left head"><p>Resultado</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">y</span></code></p></td>
+<td class="text-align:left"><p>suma  <em>x</em> con <em>y</em></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">-</span> <span class="pre">y</span></code></p></td>
+<td class="text-align:left"><p>diferencia <em>x</em> con <em>y</em></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">*</span> <span class="pre">y</span></code></p></td>
+<td class="text-align:left"><p>producto <em>x</em> con <em>y</em></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">/</span> <span class="pre">y</span></code></p></td>
+<td class="text-align:left"><p>cociente <em>x</em> con <em>y</em></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">//</span> <span class="pre">y</span></code></p></td>
+<td class="text-align:left"><p>cociente (parte entera) <em>x</em> con <em>y</em></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">%</span> <span class="pre">y</span></code></p></td>
+<td class="text-align:left"><p>residuo de <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">/</span> <span class="pre">y</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">-x</span></code></p></td>
+<td class="text-align:left"><p><em>x</em> negativa</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">+x</span></code></p></td>
+<td class="text-align:left"><p><em>x</em></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">abs(x)</span></code></p></td>
+<td class="text-align:left"><p>valor absoluto o magnitud de <em>x</em></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">int(x)</span></code></p></td>
+<td class="text-align:left"><p><em>x</em> conversión a entero</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">float(x)</span></code></p></td>
+<td class="text-align:left"><p><em>x</em> conversión a flotante</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">complex(re,</span> <span class="pre">im)</span></code></p></td>
+<td class="text-align:left"><p>numero complejo con parte real <em>re</em>, parte imaginaria <em>im</em>. <em>im</em> default es cero.</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">**</span> <span class="pre">y</span></code></p></td>
+<td class="text-align:left"><p>x elevado a y</p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">w</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">z</span> <span class="o">+</span> <span class="n">w</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1+8j)
+&lt;class &#39;complex&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Las siguientes operaciones se denominan <strong>comparaciones</strong>, los resultados son <code class="docutils literal notranslate"><span class="pre">True</span></code> o <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operacion</p></th>
+<th class="head"><p>Significado</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code></p></td>
+<td><p>estrictamente menor que</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code></p></td>
+<td><p>menor o igual que</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code></p></td>
+<td><p>estrictamente mayor que</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code></p></td>
+<td><p>mayor o igual que</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">==</span></code></p></td>
+<td><p>igual que</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">!=</span></code></p></td>
+<td><p>diferente que</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">is</span></code></p></td>
+<td><p>igualdad a nivel de identidad (Son el mismo objeto)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">not</span></code></p></td>
+<td><p>desigualdad a nivel de identidad (no son el mismo objeto)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">d</span> <span class="o">=</span> <span class="mf">9.0</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">!=</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span> <span class="ow">is</span> <span class="n">c</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span> <span class="ow">is</span> <span class="n">d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">4</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="o">&lt;</span>  <span class="n">d</span> <span class="o">+</span> <span class="mi">9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+True
+True
+True
+False
+True
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="operaciones-booleanas">
+<h2><a class="toc-backref" href="#id3">Operaciones booleanas</a><a class="headerlink" href="#operaciones-booleanas" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Los elementos innvolucrados deben ser <code class="docutils literal notranslate"><span class="pre">True</span></code> o <code class="docutils literal notranslate"><span class="pre">False</span></code>, en ese caso, el resultado es <code class="docutils literal notranslate"><span class="pre">True</span></code> o <code class="docutils literal notranslate"><span class="pre">False</span></code>. Si se invilucran otrso enteros el resulatado puede no ser útil</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operación</p></th>
+<th class="head"><p>Resultado</p></th>
+<th class="head"><p>Nota</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">or</span> <span class="pre">y</span></code></p></td>
+<td><p>Si <em>x</em> es falso, el resultado es <em>y</em>, de otro modo es <em>x</em></p></td>
+<td><p>El resultado es verdadero a menos que los dos sean falsos</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">and</span> <span class="pre">y</span></code></p></td>
+<td><p>Si <em>x</em> es falso, el resutado <em>x</em>, de otro modo <em>y</em></p></td>
+<td><p>El resultado solo es verdadero si ambos son verdaderos</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">x</span></code></p></td>
+<td><p>Si <em>x</em> es falso, el resultado es <code class="docutils literal notranslate"><span class="pre">True</span></code>, de otro modo  es <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td><p>negación</p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">y</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">w</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="ow">or</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="ow">and</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="ow">not</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">w</span> <span class="ow">or</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">w</span> <span class="ow">and</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="ow">and</span> <span class="n">w</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">z</span> <span class="ow">and</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span> <span class="ow">and</span> <span class="n">z</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">y</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">w</span> <span class="ow">and</span> <span class="n">w</span><span class="o">+</span><span class="mi">8</span> <span class="o">&lt;=</span> <span class="mi">45</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">z</span><span class="o">-</span><span class="mi">5</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+False
+False
+3
+True
+3
+0
+False
+True
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="prioridad-de-operaciones">
+<h2><a class="toc-backref" href="#id4">Prioridad de operaciones</a><a class="headerlink" href="#prioridad-de-operaciones" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La última operación sigue un orden de evaluación. En general, se denomina <strong>prioridad de opeaciones</strong> a dicho orden. La siguiente tabla resume la prioridad de operador en Python, desde la prioridad más baja a la prioridad más alta. Operadores en la misma caja tienen la misma prioridad. Los operadores en la misma caja, de izquierda a derecha (excepto para exponenciación de derecha a izquierda).</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operador</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>=</p></td>
+<td><p>Expresión de asignación</p></td>
+</tr>
+<tr class="row-odd"><td><p>lambda</p></td>
+<td><p>Expresión lambda</p></td>
+</tr>
+<tr class="row-even"><td><p>if – else</p></td>
+<td><p>Expresión condicional</p></td>
+</tr>
+<tr class="row-odd"><td><p>or</p></td>
+<td><p>Booleano OR</p></td>
+</tr>
+<tr class="row-even"><td><p>and</p></td>
+<td><p>Booleano AND</p></td>
+</tr>
+<tr class="row-odd"><td><p>not x</p></td>
+<td><p>Booleano NOT</p></td>
+</tr>
+<tr class="row-even"><td><p>in, not in, is, is not, &lt;, &lt;=, &gt;, &gt;=, !=, ==</p></td>
+<td><p>Comparaciones, incluyendo comprobaciones de membresía y de identidad</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>^</p></td>
+<td><p>XOR bit a bit</p></td>
+</tr>
+<tr class="row-odd"><td><p>&amp;</p></td>
+<td><p>AND bit a bit</p></td>
+</tr>
+<tr class="row-even"><td><p>&lt;&lt;, &gt;&gt;</p></td>
+<td><p>Desplazamientos</p></td>
+</tr>
+<tr class="row-odd"><td><p>+, -</p></td>
+<td><p>Adición y sustracción</p></td>
+</tr>
+<tr class="row-even"><td><p>*, &#64;, /, //, %</p></td>
+<td><p>Multiplicación, multiplicación de matrices, división, división de redondeo, resto 5</p></td>
+</tr>
+<tr class="row-odd"><td><p>+x, -x, ~x</p></td>
+<td><p>NOT positivo, negativo, bit a bit</p></td>
+</tr>
+<tr class="row-even"><td><p>**</p></td>
+<td><p>Exponenciación</p></td>
+</tr>
+<tr class="row-odd"><td><p>await x</p></td>
+<td><p>Expresión await</p></td>
+</tr>
+<tr class="row-even"><td><p>x[index], x[index:index], x(arguments…), x.attribute</p></td>
+<td><p>Subscripción, segmentación, invocación, referencia de atributo</p></td>
+</tr>
+<tr class="row-odd"><td><p>(expressions…), [expressions…], {key: value…}, {expressions…}</p></td>
+<td><p>Expresión de enlace o entre paréntesis, despliegues de lista, diccionario y conjunto</p></td>
+</tr>
+</tbody>
+</table>
+<div class="tip admonition">
+<p class="admonition-title">Tip…</p>
+<p>Utiliza paréntesis</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">+</span> <span class="p">(</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+5
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="cadenas-de-caracteres">
+<h2><a class="toc-backref" href="#id5">Cadenas de caracteres</a><a class="headerlink" href="#cadenas-de-caracteres" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Las operaciones de la siguiente tabla están soportadas por la mayoría de los tipos secuencia.</p>
+<p>La tabla lista las operaciones ordenadas de menor a mayor prioridad. En la tabla, <em>s</em> y <em>t</em> representan secuencias del mismo tipo, <em>n, i, j</em> y <em>k</em> son números enteros y <em>x</em> es un objeto arbitrario que cumple con cualquier restricción de tipo o valor impuesta por <em>s</em>.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operadoración</p></th>
+<th class="head"><p>Resultado</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>x in s</p></td>
+<td><p>True si un elemento de s es igual a x, False en caso contrario</p></td>
+</tr>
+<tr class="row-odd"><td><p>x not in s</p></td>
+<td><p>False si un elemento de s es igual a x, True en caso contrario</p></td>
+</tr>
+<tr class="row-even"><td><p>s + t</p></td>
+<td><p>la concatenación de s y t</p></td>
+</tr>
+<tr class="row-odd"><td><p>s * n o n * s</p></td>
+<td><p>equivale a concatenar s consigo mismo n veces</p></td>
+</tr>
+<tr class="row-even"><td><p>s[i]</p></td>
+<td><p>El elemento i-esimo de s, empezando a contar en 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>s[i:j]</p></td>
+<td><p>la rebanada de s desde i hasta j-1</p></td>
+</tr>
+<tr class="row-even"><td><p>s[i:j:k]</p></td>
+<td><p>la rebanada de s desde i hasta j-1, con paso k</p></td>
+</tr>
+<tr class="row-odd"><td><p>len(s)</p></td>
+<td><p>longitud de s</p></td>
+</tr>
+<tr class="row-even"><td><p>min(s)</p></td>
+<td><p>el elemento más pequeño de s</p></td>
+</tr>
+<tr class="row-odd"><td><p>max(s)</p></td>
+<td><p>el elemento más grande de s</p></td>
+</tr>
+<tr class="row-even"><td><p>s.index(x[, i[, j]])</p></td>
+<td><p>índice de la primera ocurrencia de x en s (en la posición i o superior, y antes de j)</p></td>
+</tr>
+<tr class="row-odd"><td><p>s.count(x)</p></td>
+<td><p>número total de ocurrencias de x en s</p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;comida china&#39;</span>
+<span class="n">t</span> <span class="o">=</span> <span class="s2">&quot; no gracias&quot;</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;c&#39;</span> <span class="ow">in</span> <span class="n">s</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;r&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">s</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="n">t</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">*</span><span class="n">n</span><span class="p">)</span> <span class="c1"># primitiva de Python, en otros lenguajes podría no existor o tener otra salida </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="c1">#print(s.index(&#39;a&#39;,6,11)) # si no lo encuentra marca error</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">11</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+True
+comida china no gracias
+comida chinacomida china
+d
+omid
+md h
+12
+o
+ 
+5
+11
+5
+2
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
