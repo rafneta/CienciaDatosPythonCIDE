@@ -446,7 +446,7 @@ También te dice que la fórmula para calcular las cuotas es:</p>
 <p>Te dieron un código pero tiene algunos errores y no está arrojando el resultado correcto</p>
 <div class="section" id="antes-de-empezar-un-poco-de-contexto">
 <h3>Antes, de empezar, un poco de contexto<a class="headerlink" href="#antes-de-empezar-un-poco-de-contexto" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>ython tiene una función llamada input que te permite escribir un valor como si fuera un formulario, la función es muy útil si quieres pedir información de un usuario. Abajo hay un ejemplo</p>
+<p>Python tiene una función llamada input que te permite escribir un valor como si fuera un formulario, la función es muy útil si quieres pedir información de un usuario. Abajo hay un ejemplo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">edad</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Dame tu edad&quot;</span><span class="p">)</span>
@@ -460,11 +460,11 @@ También te dice que la fórmula para calcular las cuotas es:</p>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">edad</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Dame tu edad&quot;</span><span class="p">)</span>
 
 <span class="nn">/opt/anaconda3/lib/python3.7/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
-<span class="g g-Whitespace">    </span><span class="mi">856</span>         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">857</span>             <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
-<span class="ne">--&gt; </span><span class="mi">858</span>                 <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">859</span>             <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">860</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">853</span>         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">854</span>             <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
+<span class="ne">--&gt; </span><span class="mi">855</span>                 <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">856</span>             <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">857</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
 
 <span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
 </pre></div>
@@ -576,12 +576,10 @@ Tu pago mensual es de $92.0362165594768
 </div>
 </div>
 </div>
-<p><em>5.</em> Ahora te pide que utilices informacion del tipo de cambio en tiempo real para calcular el pago mensual y costo del préstamo
-
-Tips:
--</p>
+<p><em>5.</em> Ahora te pide que utilices informacion del tipo de cambio en tiempo real para calcular el pago mensual y costo del préstamo</p>
+<p>Tips:</p>
 <ul class="simple">
-<li><p>código de abajo importa la biblioteca forex-python que te da el tipo de cambio entre diferentes monedas</p></li>
+<li><p>El código de abajo importa la biblioteca forex-python que te da el tipo de cambio entre diferentes monedas</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -591,10 +589,9 @@ Tips:
 </div>
 </div>
 <ul class="simple">
-<li><p>Para usar la biblioteca revisa la documentación:
-
-https://forex-python.readthedocs.io/en/latest/usage.html</p></li>
+<li><p>Para usar la biblioteca revisa la documentación:</p></li>
 </ul>
+<p>https://forex-python.readthedocs.io/en/latest/usage.html</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##</span>
@@ -602,12 +599,10 @@ https://forex-python.readthedocs.io/en/latest/usage.html</p></li>
 </div>
 </div>
 </div>
-<p><em>6.</em>  Ahora te pide que generes la opción de convertir el pago a UDIS. La herramienta debería preguntarte en que prefieres el pago mensual y el costo del préstamo en UDIS o pesos.
-
-Tips: Banxico tiene la información del valor más actualizado de UDIS. Para poder acceder a ella automaticamente vamos a usar un API. Vamos a ver más adelante en el curso como usarla, pero por ahora lo único que necesitas hacer es correr el código de abajo para generar el valor de UDI</p>
-<p>Primero necesitas generar un token. En la página de Banxico se muestra cómo generarlo https://www.banxico.org.mx/SieAPIRest/service/v1/token
-
-Una vez que ya lo tengas, escríbelo en la celda de abajo</p>
+<p><em>6.</em>  Ahora te pide que generes la opción de convertir el pago a UDIS. La herramienta debería preguntarte en que prefieres el pago mensual y el costo del préstamo en UDIS o pesos.</p>
+<p>Tips: Banxico tiene la información del valor más actualizado de UDIS. Para poder acceder a ella automaticamente vamos a usar un API. Vamos a ver más adelante en el curso como usarla, pero por ahora lo único que necesitas hacer es correr el código de abajo para generar el valor de UDI</p>
+<p>Primero necesitas generar un token. En la página de Banxico se muestra cómo generarlo https://www.banxico.org.mx/SieAPIRest/service/v1/token</p>
+<p>Una vez que ya lo tengas, escríbelo en la celda de abajo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Este código sirve para guardar el valor del token de Banxico</span>
@@ -666,9 +661,8 @@ Una vez que ya lo tengas, escríbelo en la celda de abajo</p>
 </div>
 </div>
 </div>
-<p><em>7.</em> Ahora hay que revisar si hubiera convenido más hace 10 años tomar el préstamo en UDIs o dólares. Para eso, tomemos los valores del 31 de enero de 2010 y https://www.exchangerates.org.uk/USD-MXN-spot-exchange-rates-history-2010.html: https://tiie.com.mx/udi-2010/ y asume que el valor del UDI hace 10 años era de 4.369, y el valor del dólar era de $13.091.
-
-La herramienta debería cálcular el costo del préstamo en pesos en los dos casos y decir cuál hubiera convenido más y la diferencia.</p>
+<p><em>7.</em> Ahora hay que revisar si hubiera convenido más hace 10 años tomar el préstamo en UDIs o dólares. Para eso, tomemos los valores del 31 de enero de 2010 y https://www.exchangerates.org.uk/USD-MXN-spot-exchange-rates-history-2010.html: https://tiie.com.mx/udi-2010/ y asume que el valor del UDI hace 10 años era de 4.369, y el valor del dólar era de $13.091.</p>
+<p>La herramienta debería cálcular el costo del préstamo en pesos en los dos casos y decir cuál hubiera convenido más y la diferencia.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
@@ -688,18 +682,13 @@ La herramienta debería cálcular el costo del préstamo en pesos en los dos cas
 </div>
 <div class="section" id="parte-2">
 <h2>PARTE 2<a class="headerlink" href="#parte-2" title="Enlazar permanentemente con este título">¶</a></h2>
-<p><em>9.</em> Ahora, vamos a crear una herramienta del lado de la oferta. Dado un plazo, monto y pago vamos a calcular la tasa de interés que un Banco está dando. La herramienta debería aceptar
-
--</p>
+<p><em>9.</em> Ahora, vamos a crear una herramienta del lado de la oferta. Dado un plazo, monto y pago vamos a calcular la tasa de interés que un Banco está dando. La herramienta debería aceptar</p>
 <ul class="simple">
-<li><p>azo: En meses o años
--</p></li>
-<li><p>to: Cualquier número real
-- P</p></li>
-<li><p>: mensuales
-
-Y dar la tasa de interés anual</p></li>
+<li><p>Plazo: En meses o años</p></li>
+<li><p>Monto: Cualquier número real</p></li>
+<li><p>Pago: mensuales</p></li>
 </ul>
+<p>Y dar la tasa de interés anual</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>

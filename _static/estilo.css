@@ -128,3 +128,9 @@ p {
     margin-right:auto;
     margin-top:2%;
 }
+
+.slide-w {
+	width: 100%;
+	max-width: 100%;
+	margin: 0 auto;
+}
