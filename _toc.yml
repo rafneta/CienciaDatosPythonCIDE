@@ -26,7 +26,9 @@
       - file: Laboratorios/Lab1/GitHub
   - file: Laboratorios/Lab2/lab2
     sections:
+      - file: Laboratorios/Lab2/Varfunif
       - file: Laboratorios/Lab2/fundamentos
+      - file: Laboratorios/Lab2/introfunmod
   - file: Laboratorios/Lab3/lab3
     sections:
       - file: Laboratorios/Lab3/Funciones
