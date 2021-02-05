@@ -25,28 +25,29 @@
       - file: Laboratorios/Lab1/instalacion
       - file: Laboratorios/Lab1/GitHub
   - file: Laboratorios/Lab2/lab2
+    title: 2. Datos, flujo, funciones 
     sections:
       - file: Laboratorios/Lab2/Varfunif
       - file: Laboratorios/Lab2/fundamentos
-      - file: Laboratorios/Lab2/introfunmod
-  - file: Laboratorios/Lab3/lab3
-    sections:
-      - file: Laboratorios/Lab3/Funciones
-  - file: Laboratorios/Lab4/lab4
-    sections:
-      - file: Laboratorios/Lab4/listas
-  - file: Laboratorios/Lab5/lab5
-    sections:
-      - file: Laboratorios/Lab5/ControlDeFlujo
-  - file: Laboratorios/Lab6/lab6
-    sections:
-      - file: Laboratorios/Lab6/tuplas
-  - file: Laboratorios/Lab7/lab7
-    sections:
-      - file: Laboratorios/Lab7/ComplejidadAlgoritmica
-  - file: Laboratorios/Lab8/lab8
-    sections:
-      - file: Laboratorios/Lab8/Clases
+      - file: Laboratorios/Lab2/Introfunmod
+  #- file: Laboratorios/Lab3/lab3
+  #  sections:
+  #    - file: Laboratorios/Lab3/Funciones
+  #- file: Laboratorios/Lab4/lab4
+  #  sections:
+  #    - file: Laboratorios/Lab4/listas
+  #- file: Laboratorios/Lab5/lab5
+  #  sections:
+  #    - file: Laboratorios/Lab5/ControlDeFlujo
+  #- file: Laboratorios/Lab6/lab6
+  #  sections:
+  #    - file: Laboratorios/Lab6/tuplas
+  #- file: Laboratorios/Lab7/lab7
+  #  sections:
+  #    - file: Laboratorios/Lab7/ComplejidadAlgoritmica
+  #- file: Laboratorios/Lab8/lab8
+  #  sections:
+  #    - file: Laboratorios/Lab8/Clases
 
 - part: Tareas
   chapters:
