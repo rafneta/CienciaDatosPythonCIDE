@@ -1,0 +1,924 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Funciones y métodos &#8212; Introducción a la ciencia de datos</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/estilo-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/estilo-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="Tarea 1" href="../../Tareas/1_intro_tarea.html" />
+    <link rel="prev" title="Laboratorio 3" href="lab3.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Introducción a la ciencia de datos</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Sobre este sitio
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Información del curso
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/encuadre.html">
+   Encuadre
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/calendarioLab.html">
+   Calendario Laboratorio
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/Navegacion.html">
+   Navegación en el libro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/Pizarron.html">
+   Pizarrón
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Clases
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Clases/1_intro.html">
+   1. Introducción a Python
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Laboratorios
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab1/lab1.html">
+   1. Anaconda, GitHub
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab1/instalacion.html">
+     Instalación Anaconda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab1/GitHub.html">
+     Introducción a GitHub
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab2/lab2.html">
+   2. Datos, flujo, funciones
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab2/Varfunif.html">
+     Variables y Condiciones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab2/fundamentos.html">
+     Operaciones con tipos de datos básicos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab2/Introfunmod.html">
+     Introducción a funciones y módulos
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="lab3.html">
+   3. Funciones, Métodos, Ciclos, Erorres
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Funciones y métodos
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Tareas
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Tareas/1_intro_tarea.html">
+   Tarea 1
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Proyecto
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/Proyecto.html">
+   Proyecto
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+            title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Laboratorios/Lab3/FuncionesMetodos.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/rafneta/CienciaDatosPythonCIDE"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/rafneta/CienciaDatosPythonCIDE/issues/new?title=Issue%20on%20page%20%2FLaboratorios/Lab3/FuncionesMetodos.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+                title="Modo de pantalla completa"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/rafneta/CienciaDatosPythonCIDE/master?urlpath=tree/Laboratorios/Lab3/FuncionesMetodos.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/rafneta/CienciaDatosPythonCIDE/blob/master/Laboratorios/Lab3/FuncionesMetodos.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Lanzamiento Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Lanzamiento Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contenido
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejemplo-modulo-matplotlib">
+   Ejemplo: Módulo Matplotlib
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejemplo-modulo-para-estadistica-stats">
+   Ejemplo: Módulo para estadística
+   <em>
+    stats
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejemplo-ecuacion-diferencial">
+   Ejemplo: Ecuación diferencial
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="funciones-y-metodos">
+<h1>Funciones y métodos<a class="headerlink" href="#funciones-y-metodos" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Se pueden realizar cuatro tipos de <strong>funciones</strong> de acuerdo a sus valors de entrada  y salida.</p>
+<ul class="simple">
+<li><p>Tipo I. No reciben argumentos de entrada y no tienen valores de salida (no reciben nada y no regresan nada)</p></li>
+<li><p>Tipo II. No reciben argumentos de entrada y regresa valores de salida (recibe argumento y regresa valores)</p></li>
+<li><p>Tipo III. Reciben argumentos de entrada y no regresan valores de salida (recibe argumento y no regresa nada)</p></li>
+<li><p>Tipo IV. Recibe argumentos de entrada regresa y  regesa valores de salida (recibe argumento y regresa valores)</p></li>
+</ul>
+<p>El tipo de implemetación depende de las necesidades del problema. Para identificar que tipo de función se esta implementando, basta con observar su implementación.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">funcion_tipoI</span><span class="p">()</span>
+    <span class="n">sentencia_1</span>
+    <span class="n">sentencia_2</span>
+    <span class="o">...</span>
+    <span class="o">...</span>
+    <span class="o">...</span>
+    <span class="n">sentencia_n</span>
+
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">funcion_tipoII</span><span class="p">()</span>
+    <span class="n">sentencia_1</span>
+    <span class="n">sentencia_2</span>
+    <span class="o">...</span>
+    <span class="o">...</span>
+    <span class="o">...</span>
+    <span class="n">sentencia_n</span>
+    <span class="k">return</span> <span class="n">variable</span> <span class="c1">#una o varias veces en el código</span>
+
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">funcion_tipoIII</span><span class="p">(</span><span class="n">argumento_1</span><span class="p">,</span> <span class="n">argumento_2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">argumento_n</span><span class="p">)</span>
+    <span class="n">sentencia_1</span>
+    <span class="n">sentencia_2</span>
+    <span class="o">...</span>
+    <span class="o">...</span>
+    <span class="o">...</span>
+    <span class="n">sentencia_n</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">funcion_tipoIV</span><span class="p">(</span><span class="n">argumento_1</span><span class="p">,</span> <span class="n">argumento_2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">argumento_n</span><span class="p">)</span>
+    <span class="n">sentencia_1</span>
+    <span class="n">sentencia_2</span>
+    <span class="o">...</span>
+    <span class="o">...</span>
+    <span class="o">...</span>
+    <span class="n">sentencia_n</span>
+    <span class="k">return</span> <span class="n">variable</span> <span class="c1"># una o varias veces en el código</span>
+
+</pre></div>
+</div>
+<p>Una vez que se realiza la implementación, el uso de la función es con la sigueinte sintaxis:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="n">funcion_tipoI</span><span class="p">()</span>
+<span class="n">funcion_tipoII</span><span class="p">()</span>
+<span class="n">funcion_tipoIII</span><span class="p">(</span><span class="n">argumento_1</span><span class="p">,</span> <span class="n">argumento_2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">argumento_n</span><span class="p">)</span>
+<span class="n">funcion_tipoIV</span><span class="p">(</span><span class="n">argumento_1</span><span class="p">,</span> <span class="n">argumento_2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">argumento_n</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>Los valores que podría calcular una función se pueden utilizar en cualquier parte del código (una vez definida esta) cuando en la implemenación aparezca <code class="docutils literal notranslate"><span class="pre">return</span></code> en el código de la implementación.</p>
+<p>Por ejemplo</p>
+<iframe width="100%" height="700" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=def%20funcion1%28%29%3A%0A%20%20%20%20a%20%3D%2045%0A%20%20%20%20b%20%3D%2023%0A%20%20%20%20return%20%20a%20%2B%20b%0A%20%20%20%20%0Adef%20funcion2%28%29%3A%0A%20%20%20%20a%20%3D%2045%0A%20%20%20%20b%20%3D%2023%0A%20%20%20%20a%20%2B%20b%0A%0Adef%20funcion3%28a,%20b%29%3A%0A%20%20%20%20c%20%3D%20a%20%2B%20b%0A%20%20%20%20return%20c%0A%0Avalor%20%3D%20funcion1%28%29%20*%208%20%2B%2030%0Aprint%28valor,%20funcion1%28%29%29%0A%0Avalor%20%3D%20funcion2%28%29%0A%0Aprint%28funcion3%282,4%29%29%0A%0Avar1%20%3D%2023%0Avar2%20%3D%20-3%0A%0A%23%20la%20variale%20se%20sustituyen%20en%20el%20lugar%20correspondiente%0A%0Aprint%28funcion3%28var1,var2%29%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+<p>Los <strong>métodos</strong> son funciones asociadas a una <code class="docutils literal notranslate"><span class="pre">clase</span></code>. Por el momento pensemos a las clases como los tipos de datos. En particular, más adelante mostraremos algunos métodos para los tipos de datos <em>string</em> y <em>list</em></p>
+<p>El uso de los métodos tiene la siguiente sintaxis</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">varible</span><span class="o">.</span><span class="n">metodo</span><span class="p">()</span>
+<span class="n">variable</span><span class="o">.</span><span class="n">metodo</span><span class="p">(</span><span class="n">argumento1</span><span class="p">,</span><span class="o">...</span><span class="p">,</span><span class="n">argumenton</span><span class="p">)</span> <span class="c1">#cuando el argumento sea necesario</span>
+</pre></div>
+</div>
+<p>Para los datos tipo string se muestran tres métodos:</p>
+<iframe width="800" height="500" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=cadena1%20%3D%20%22camion%20de%20carne%22%0Acadena2%20%3D%20'oso'%0A%0Avar1%20%3D%20cadena1.capitalize%28%29%0Aprint%28var1%29%0A%0Avar2%20%3D%20cadena1.find%28'ca'%29%0Aprint%28var2%29%0A%0Avar4%20%3D%20cadena1.find%28'ca',6%29%0Aprint%28var4%29%0A%0Avar5%20%3D%20cadena1.find%28'ca',6,8%29%0Aprint%28var5%29%0A%0Avar6%20%3D%20%28cadena2%20%2B%20cadena1%29.split%28%29%0Aprint%28var6%29%0A%0Avar7%20%3D%20%28cadena2%20%2B%20cadena1%29.split%28'o'%29%0Aprint%28var7%29&codeDivHeight=400&codeDivWidth=350&cumulative=true&curInstr=14&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+<p>Para consultar la descripción de todos los métodos: <a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html?highlight=string#string-methods">Métodos para datos tipo string</a></p>
+<p>Para los datos tipo list se muestran un método y dos operaciones:</p>
+<iframe width="800" height="500" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=lista1%20%3D%20%5B'camion',%20'hola',%207.5,%20True%5D%0Alista2%20%3D%20%5B%5D%0Alista3%20%3D%20list%28%29%0A%0Alista2.append%28lista1%29%0A%0Aprint%28lista2%5B0%5D%29%0A%0Avar1%20%3D%20lista1%20%2B%20lista2%0Aprint%28var1%29%0A%0Alista3%20%3D%20lista1%20%0A%0Alista3%5B3%5D%20%3D%20'oso'%20%23%20mutabilidad%20de%20datos%0Aprint%28lista1%29%0A%0A%23%20Para%20evitar%20que%20se%20apunte%20a%20la%20misma%20lista%20puede%20%0A%23%20utilizar%20el%20m%C3%A9todo%20copy&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=1&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences="> </iframe>
+<p>Para consultar la descripción de todos los métodos: <a class="reference external" href="https://docs.python.org/3.8/tutorial/datastructures.html?highlight=list">Métodos para datos tipo list</a></p>
+<div class="section" id="ejemplo-modulo-matplotlib">
+<h2>Ejemplo: Módulo Matplotlib<a class="headerlink" href="#ejemplo-modulo-matplotlib" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Como es natural de pensar no podemos generar en una computadora conjuntos continuos (pues necesitariamos cantidad infinita de memoria) así que si queremos general gráficas de funciones cuyo dominio es un conjunto continuo, tomamos unas muestras (un subconjunto finito lo suficientemente «bueno») y aplicamos la función, posteriormente con ayuda de la represenación visual emulamos la aplicación de la función a un conjunto infinito. Como principal ayuda para esta parte se puede consultar:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://matplotlib.org/contents.html">Documentos de matplotlib</a> uno de los módulos escrito en Python para generar gráficas, un módulo extenso.</p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/gallery/index.html">Galeria de imágenes</a> proporciona el código de las imágenes que se observan</p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.html?highlight=plot#module-matplotlib.pyplot">Documentos de matplotlib.pyplot</a> submódulo de matplotlib para generar gráficas, donde se tiene una sintaxys tipo MATLAB (esto es bueno si sabes MATLAB)</p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib.pyplot.plot">Documento de plot</a> una de las descripciones que se puede encontrar en la página anterior</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
+
+
+<span class="c1">#Principio básico del plot</span>
+<span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Funcion $f(x)=x+4$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Valores de $x$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Valores de y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;ro&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/FuncionesMetodos_2_0.png" src="../../_images/FuncionesMetodos_2_0.png" />
+<img alt="../../_images/FuncionesMetodos_2_1.png" src="../../_images/FuncionesMetodos_2_1.png" />
+</div>
+</div>
+<p>Generar la gráfica de la siguiente función</p>
+<div class="math notranslate nohighlight">
+\[f_1(x)=e^{-0.5x}cos(3x),\;\;\text{ para }-2\leq x\leq 10\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">puntos_x</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">round</span><span class="p">((</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="n">h</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="p">[</span><span class="n">a</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="n">h</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="kn">import</span> <span class="nn">math</span>
+
+
+<span class="n">li</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>
+<span class="n">ls</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">paso</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+
+<span class="n">valores_x</span> <span class="o">=</span> <span class="n">puntos_x</span><span class="p">(</span><span class="n">li</span><span class="p">,</span> <span class="n">ls</span><span class="p">,</span> <span class="n">paso</span><span class="p">)</span>
+
+<span class="n">numero_puntos</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">valores_x</span><span class="p">)</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numero_puntos</span><span class="p">):</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">valores_x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">valores_x</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+
+<span class="c1">#print(f)    </span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">valores_x</span><span class="p">,</span><span class="n">f</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/FuncionesMetodos_4_0.png" src="../../_images/FuncionesMetodos_4_0.png" />
+</div>
+</div>
+<p>Se complica la generación de listas y sobre todo manipular y aplicar funciones a cada uno de los elementos (uso de ciclos). El módulo <strong>numpy</strong> nos porporciona un tipo de dato que se llama <strong>array</strong> el cual junto con las funciones matemáticas de numpy permite un uso directo de las evaluaciones de funciones a todos los elementos del <strong>array</strong>. El módulo es extenso y contiene submódulos al igual que <em>matplotlib</em> con diferentes herramientas matemáticas. La ayuda se puede encontrar en el siguiente enlace</p>
+<p>-<a class="reference external" href="https://www.numpy.org/devdocs/reference/">Documentos de numpy</a> Manual del módulo numpy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/FuncionesMetodos_6_0.png" src="../../_images/FuncionesMetodos_6_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+<span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Funcion $f_1(x)=e^{-0.5x}cos(3x)$&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Valores de $x$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Valores de y&#39;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_label_coords</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_label_coords</span><span class="p">(</span><span class="o">-</span><span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_ticks_position</span><span class="p">(</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">((</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_ticks_position</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">((</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">xlim</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">()</span>
+<span class="n">ylim</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">xlim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mf">0.9</span><span class="p">),</span> <span class="n">xlim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.1</span><span class="p">)),</span> <span class="nb">max</span><span class="p">(</span><span class="n">xlim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1.1</span><span class="p">,</span> <span class="n">xlim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.9</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">ylim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mf">0.9</span><span class="p">),</span> <span class="n">ylim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.1</span><span class="p">)),</span> <span class="nb">max</span><span class="p">(</span><span class="n">ylim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1.1</span><span class="p">,</span> <span class="n">ylim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.9</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/FuncionesMetodos_7_0.png" src="../../_images/FuncionesMetodos_7_0.png" />
+</div>
+</div>
+<p>Es un poco tardado dar un formato deseado a las gráficas, entonces el uso de funciones se vuelve fundamental. Los siguiente códigos grafican funciones, pensando que se quieren gráficar funciones de densidad de probablidlidad y de distribución acumulada.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gfdvac</span><span class="p">(</span><span class="n">Intervalo</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">titulo</span><span class="o">=</span><span class="s1">&#39;Funcion de densidad de probabilidad $f(x)$&#39;</span><span class="p">,</span> <span class="n">guardar</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+    <span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span><span class="c1">#</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">Intervalo</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">Intervalo</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="mi">300</span><span class="p">)</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">lw</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;Grafica de $f(x)$&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Valores de la variable aleatoria $X$&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Valores de $f(x)$&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Función de densidad de probabilidad $f(x)$&#39;</span><span class="p">,</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+    <span class="n">leg</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="n">shadow</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">fancybox</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="n">leg</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mf">0.9</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_label_coords</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_label_coords</span><span class="p">(</span><span class="o">-</span><span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_ticks_position</span><span class="p">(</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">((</span><span class="s1">&#39;data&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_ticks_position</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">((</span><span class="s1">&#39;data&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+    <span class="n">xlim</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">()</span>
+    <span class="n">ylim</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">xlim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mf">0.9</span><span class="p">),</span> <span class="n">xlim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.1</span><span class="p">)),</span> <span class="nb">max</span><span class="p">(</span><span class="n">xlim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1.1</span><span class="p">,</span> <span class="n">xlim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.9</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span><span class="nb">max</span><span class="p">(</span><span class="n">ylim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1.1</span><span class="p">,</span> <span class="n">ylim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.9</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">guardar</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;fvac.png&quot;</span><span class="p">)</span><span class="c1"># Se puede guardar solo en el formato deseado</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;fvac.pdf&quot;</span><span class="p">)</span><span class="c1">#</span>
+        <span class="c1">#plt.savefig(&quot;fvac.jpg&quot;)#</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gFdvac</span><span class="p">(</span><span class="n">Intervalo</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">titulo</span><span class="o">=</span><span class="s1">&#39;Función de distribucion de probabilidad $F(x)$&#39;</span><span class="p">,</span>\
+          <span class="n">guardar</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span><span class="c1">#</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">Intervalo</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">Intervalo</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="mi">300</span><span class="p">)</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">F</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Grafica de $F(x)$&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Valores de la variable aleatoria $X$&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Valores de $F(x)$&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Función de distribcucion de probabilidad $F(x)$&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">leg</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fancybox</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">leg</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mf">0.9</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_label_coords</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_label_coords</span><span class="p">(</span><span class="o">-</span><span class="mf">0.08</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_ticks_position</span><span class="p">(</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">((</span><span class="s1">&#39;data&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_ticks_position</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">((</span><span class="s1">&#39;data&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+    <span class="n">xlim</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">()</span>
+    <span class="n">ylim</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">xlim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mf">0.9</span><span class="p">),</span><span class="n">xlim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="mf">1.1</span><span class="p">)),</span><span class="nb">max</span><span class="p">(</span><span class="n">xlim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mf">1.1</span><span class="p">,</span><span class="n">xlim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mf">0.9</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span><span class="nb">max</span><span class="p">(</span><span class="n">ylim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mf">1.1</span><span class="p">,</span><span class="n">ylim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mf">0.9</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">guardar</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;Fvac.png&quot;</span><span class="p">)</span><span class="c1"># Se puede guardar solo en el formato deseado</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;Fvac.pdf&quot;</span><span class="p">)</span><span class="c1">#</span>
+        <span class="c1">#plt.savefig(&quot;Fvac.jpg&quot;)#</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejemplo-modulo-para-estadistica-stats">
+<h2>Ejemplo: Módulo para estadística <em>stats</em><a class="headerlink" href="#ejemplo-modulo-para-estadistica-stats" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><strong>stats</strong> es un submódulo de <strong>scipy</strong> para estadística</p>
+<p>-<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/tutorial/index.html">Documento Scipy</a>. Módulo para computación cientifica compatible con Numpy y Matplotlib, entre otros</p>
+<p>-<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/stats.html">scipy módulo stats</a>. Información de <strong>stats</strong></p>
+<p><strong>Variables aleatorias continuas</strong></p>
+<p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/tutorial/stats/continuous.html">Notación de scipy.stats</a></p>
+<ul class="simple">
+<li><p><em>pdf(x)</em> (Probability Density Function) Función de densidad <span class="math notranslate nohighlight">\(f(x)=F'(x)\)</span></p></li>
+<li><p><em>cdf(x)</em> (Cumulative Distribution Function) Funcion de distribución <span class="math notranslate nohighlight">\(F(x)\)</span></p></li>
+<li><p><em>ppf(x)</em> (Percent Point Function) Función inversa a cdf(x) <span class="math notranslate nohighlight">\(G(q)=F^{-1}(q)\)</span></p></li>
+</ul>
+<p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/tutorial/stats/continuous.html#continuous-distributions-in-scipy-stats">Distribuciones continuas</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span> <span class="c1"># importando scipy.stats</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ya se ha importando scipy.stats</span>
+<span class="c1"># loc=0, scale=1, df=n</span>
+<span class="n">vct</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">vct</span><span class="o">.</span><span class="n">pdf</span>
+<span class="n">F</span> <span class="o">=</span> <span class="n">vct</span><span class="o">.</span><span class="n">cdf</span>
+<span class="n">gfdvac</span><span class="p">((</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">f</span><span class="p">,</span> <span class="n">guardar</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="c1">#de acuerdo a como se programo </span>
+<span class="n">gFdvac</span><span class="p">((</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">F</span><span class="p">)</span>
+<span class="c1">#gFdfvac((-5,5),f)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vct</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vct</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vct</span><span class="o">.</span><span class="n">var</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vct</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/FuncionesMetodos_13_0.png" src="../../_images/FuncionesMetodos_13_0.png" />
+<img alt="../../_images/FuncionesMetodos_13_1.png" src="../../_images/FuncionesMetodos_13_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.80574793290978e-17
+1.25
+1.118033988749895
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejemplo-ecuacion-diferencial">
+<h2>Ejemplo: Ecuación diferencial<a class="headerlink" href="#ejemplo-ecuacion-diferencial" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Se pueden realizar aproximaciones numéricas a ecuaciones diferenciales. El siguiente es una motivación del método de Euler (la deducción es por medio de series de Taylor)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray}
+\dot{y}(t)&amp;=&amp;f(y(t),t),\;y(t_0)\\
+\lim_{h\to 0}\frac{y(t+h)-y(t)}{h}&amp;=&amp;f(y(t),t)\\
+\frac{y(t+h)-y(t)}{h}&amp;\approx&amp; f(y(t),t)\\
+y(t+h)&amp;\approx&amp; y(t)+f(y(t),t)h\\
+y(t_{n+1})&amp;\approx&amp; y(t_{n})+f(y(t_n),t_n)h
+\end{eqnarray}\end{split}\]</div>
+<div class = "video-w">
+<img src="https://raw.githubusercontent.com/rafneta/CienciaDatosPythonCIDE/master/imagenes/euler.png" widht=60%>
+</div>
+<div class="admonition-problema-1 admonition">
+<p class="admonition-title">Problema 1</p>
+<p>Encontrar una aproximación numérica a</p>
+<div class="math notranslate nohighlight">
+\[\dot{y}(t) = 3t^2,\;\;y(0)=2\]</div>
+<p>en el intervalo <span class="math notranslate nohighlight">\([0,5]\)</span> con paso <span class="math notranslate nohighlight">\(h=0.1\)</span></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">t</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">euler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">y0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">paso</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">sol</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    
+    <span class="n">vect</span> <span class="o">=</span> <span class="n">puntos_x</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">paso</span><span class="p">)</span>
+
+    <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">y0</span><span class="p">]</span>
+    
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">vect</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">paso</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">vect</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">euler</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.0, 0.1, 0.2, 0.30000000000000004, 0.4, 0.5, 0.6000000000000001, 0.7000000000000001, 0.8, 0.9, 1.0, 1.1, 1.2000000000000002, 1.3, 1.4000000000000001, 1.5, 1.6, 1.7000000000000002, 1.8, 1.9000000000000001, 2.0, 2.1, 2.2, 2.3000000000000003, 2.4000000000000004, 2.5, 2.6, 2.7, 2.8000000000000003, 2.9000000000000004, 3.0, 3.1, 3.2, 3.3000000000000003, 3.4000000000000004, 3.5, 3.6, 3.7, 3.8000000000000003, 3.9000000000000004, 4.0, 4.1000000000000005, 4.2, 4.3, 4.4, 4.5, 4.6000000000000005, 4.7, 4.800000000000001, 4.9, 5.0] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 2.0, 2.003, 2.015, 2.0420000000000003, 2.0900000000000003, 2.1650000000000005, 2.2730000000000006, 2.420000000000001, 2.612000000000001, 2.855000000000001, 3.155000000000001, 3.518000000000001, 3.950000000000001, 4.457000000000001, 5.045000000000001, 5.720000000000001, 6.488000000000001, 7.355000000000001, 8.327000000000002, 9.410000000000002, 10.610000000000003, 11.933000000000003, 13.385000000000003, 14.972000000000003, 16.700000000000003, 18.575000000000003, 20.603, 22.790000000000003, 25.142000000000003, 27.665000000000003, 30.365000000000002, 33.248000000000005, 36.32000000000001, 39.58700000000001, 43.055000000000014, 46.73000000000001, 50.61800000000001, 54.72500000000001, 59.05700000000001, 63.62000000000001, 68.42000000000002, 73.46300000000002, 78.75500000000002, 84.30200000000002, 90.11000000000003, 96.18500000000003, 102.53300000000003, 109.16000000000003, 116.07200000000003, 123.27500000000003]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">grafica</span><span class="p">(</span><span class="n">vect</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">solucion</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">titulo</span><span class="o">=</span><span class="s1">&#39;Aproximación a la solución&#39;</span><span class="p">,</span> <span class="n">guardar</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span><span class="c1">#</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vect</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Gráfica de $y$&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Valores de $t$&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Valores de $y$&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Aproximación a la solución $y$&#39;</span><span class="p">,</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+    <span class="n">leg</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="n">shadow</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">fancybox</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="n">leg</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mf">0.9</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_label_coords</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_label_coords</span><span class="p">(</span><span class="o">-</span><span class="mf">0.08</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_ticks_position</span><span class="p">(</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">((</span><span class="s1">&#39;data&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_ticks_position</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">((</span><span class="s1">&#39;data&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+    <span class="n">xlim</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">()</span>
+    <span class="n">ylim</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">xlim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mf">0.9</span><span class="p">),</span> <span class="n">xlim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.1</span><span class="p">)),</span> <span class="nb">max</span><span class="p">(</span><span class="n">xlim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1.1</span><span class="p">,</span> <span class="n">xlim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.9</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">ylim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1.1</span><span class="p">,</span> <span class="n">ylim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.9</span><span class="p">))</span>
+    
+    <span class="k">if</span> <span class="n">solucion</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vect</span><span class="p">,</span><span class="n">solucion</span><span class="p">)</span>
+    
+    
+    <span class="k">if</span> <span class="n">guardar</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;Fvac.png&quot;</span><span class="p">)</span><span class="c1"># Se puede guardar solo en el formato deseado</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;Fvac.pdf&quot;</span><span class="p">)</span><span class="c1">#</span>
+        <span class="c1">#plt.savefig(&quot;Fvac.jpg&quot;)#</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">euler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">y0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">paso</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">sol</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    
+    <span class="n">vect</span> <span class="o">=</span> <span class="n">puntos_x</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">paso</span><span class="p">)</span>
+
+    <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">y0</span><span class="p">]</span>
+    
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">vect</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">paso</span><span class="p">)</span>
+    <span class="n">grafica</span><span class="p">(</span><span class="n">vect</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">solucion</span> <span class="o">=</span> <span class="n">sol</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">euler</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/FuncionesMetodos_20_0.png" src="../../_images/FuncionesMetodos_20_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># solución analitica</span>
+
+
+<span class="k">def</span> <span class="nf">f1sol</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">t</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>
+
+
+<span class="k">def</span> <span class="nf">euler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">y0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">paso</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">sol</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    
+    <span class="n">vect</span> <span class="o">=</span> <span class="n">puntos_x</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">paso</span><span class="p">)</span>
+
+    <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">y0</span><span class="p">]</span>
+    
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">vect</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">paso</span><span class="p">)</span>
+        
+    <span class="k">if</span> <span class="n">sol</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ana</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">vect</span><span class="p">:</span>
+            <span class="n">ana</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sol</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+    
+    <span class="n">grafica</span><span class="p">(</span><span class="n">vect</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">solucion</span> <span class="o">=</span> <span class="n">ana</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">euler</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sol</span> <span class="o">=</span> <span class="n">f1sol</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/FuncionesMetodos_22_0.png" src="../../_images/FuncionesMetodos_22_0.png" />
+</div>
+</div>
+<div class="admonition-problema-2 admonition">
+<p class="admonition-title">Problema 2</p>
+<p>Encontrar una aproximación numérica a</p>
+<div class="math notranslate nohighlight">
+\[\dot{y}(t) = -t^2y,\;\;y(0)=2\]</div>
+<p>en el intervalo <span class="math notranslate nohighlight">\([0,2]\)</span> con paso <span class="math notranslate nohighlight">\(h=0.1\)</span></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span>
+
+<span class="k">def</span> <span class="nf">f2sol</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">t</span><span class="o">**</span><span class="mi">3</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">euler</span><span class="p">(</span><span class="n">f2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">f2sol</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/FuncionesMetodos_24_0.png" src="../../_images/FuncionesMetodos_24_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "rafneta/CienciaDatosPythonCIDE",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Laboratorios/Lab3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="lab3.html" title="previous page">Laboratorio 3</a>
+    <a class='right-next' id="next-link" href="../../Tareas/1_intro_tarea.html" title="next page">Tarea 1</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Rafael Martínez-Martínez and Federico Daverio<br/>
+        
+            &copy; Copyright .<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
