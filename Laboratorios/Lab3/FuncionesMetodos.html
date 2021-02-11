@@ -351,6 +351,11 @@
    Ejemplo: Ecuación diferencial
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejmplos-problemas-generales">
+   Ejmplos: Problemas generales
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -879,6 +884,237 @@ y(t_{n+1})&amp;\approx&amp; y(t_{n})+f(y(t_n),t_n)h
 </div>
 <div class="cell_output docutils container">
 <img alt="../../_images/FuncionesMetodos_24_0.png" src="../../_images/FuncionesMetodos_24_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="ejmplos-problemas-generales">
+<h2>Ejmplos: Problemas generales<a class="headerlink" href="#ejmplos-problemas-generales" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="admonition-problema admonition">
+<p class="admonition-title">Problema</p>
+<p>The number 3797 has an interesting property. Being prime itself, it is possible to continuously remove digits from left to right, and remain prime at each stage: 3797, 797, 97, and 7. Similarly we can work from right to left: 3797, 379, 37, and 3.</p>
+<p>Find the sum of the only eleven primes that are both truncatable from left to right and right to left.</p>
+<p>NOTE: 2, 3, 5, and 7 are not considered to be truncatable primes</p>
+</div>
+<ul class="simple">
+<li><p>No se implementará la solución, porque es un problema propuesto en un sitio especifico</p></li>
+<li><p>Se impleemntará un bosquejo de una solución, no necesariamente eficiente (con eficiente nos referimos a qeu tarde poco)</p></li>
+<li><p>Problemas de este tipo se encuentran en <a class="reference external" href="https://projecteuler.net">Proyect Euler</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Utilizamos la congetura de Agoh–Giuga para saber si un número es primo </span>
+
+<span class="k">def</span> <span class="nf">primo</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    
+    <span class="k">if</span> <span class="n">p</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">p</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="k">return</span> <span class="kc">False</span>
+    
+
+<span class="c1"># Buscamos de izquierda a derecha para saber si es primo truncable</span>
+
+<span class="k">def</span> <span class="nf">primo_id</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="n">ps</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ps</span><span class="p">)):</span>
+        <span class="n">ps_trun</span> <span class="o">=</span> <span class="n">ps</span><span class="p">[</span><span class="n">i</span><span class="p">:]</span>
+        <span class="c1"># print(i,ps_trun)</span>
+        <span class="n">ps_trun_i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">ps_trun</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">primo</span><span class="p">(</span><span class="n">ps_trun_i</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+
+<span class="c1"># Dada una secuencia nos quedamos con los primos truncables</span>
+
+<span class="k">def</span> <span class="nf">secuencia</span><span class="p">(</span><span class="n">lista</span><span class="p">):</span>
+    
+    <span class="n">truncables</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">lista</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">primo_id</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+            <span class="n">truncables</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">truncables</span>
+
+
+<span class="k">def</span> <span class="nf">mensaje</span><span class="p">():</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola, este programa implementa una solución parcial del problema 20 de</span><span class="se">\n\</span>
+<span class="s2">    Proyect Euler, dada una lista de numeros regresa la suma</span><span class="se">\n</span><span class="s2"> </span><span class="se">\</span>
+<span class="s2">    de los elementos que sean primos trucables de izquierda a derecha</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mensaje</span><span class="p">()</span>
+<span class="n">L</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">p_trun</span> <span class="o">=</span> <span class="n">secuencia</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;la lista es: &quot;</span><span class="p">,</span><span class="n">p_trun</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;la suma es:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">p_trun</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hola, este programa implementa una solución parcial del problema 20 de
+    Proyect Euler, dada una lista de numeros regresa la suma
+     de los elementos que sean primos trucables de izquierda a derecha
+
+la lista es:  [13, 17, 23, 37, 43, 47, 53, 67, 73, 83, 97, 103, 107, 113, 137, 167, 173, 197, 223, 283, 307, 313, 317, 337, 347, 353, 367, 373, 383, 397, 443, 467] 
+
+la suma es:6460
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">primo_id</span><span class="p">(</span><span class="mi">3797</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;hola&#39;</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Apéndice</span>
+
+<span class="o">**</span> <span class="n">Ayuda</span> <span class="n">y</span> <span class="n">docstring</span><span class="o">**</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-22-101adeca0898&gt;&quot;</span><span class="gt">, line </span><span class="mi">3</span>
+    <span class="o">**</span> <span class="n">Ayuda</span> <span class="n">y</span> <span class="n">docstring</span><span class="o">**</span>
+     <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on built-in function sum in module builtins:
+
+sum(iterable, start=0, /)
+    Return the sum of a &#39;start&#39; value (default: 0) plus an iterable of numbers
+    
+    When the iterable is empty, return the start value.
+    This function is intended specifically for use with numeric values and may
+    reject non-numeric types.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>sum
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">Signature:</span> sum<span class=" -Color -Color-Blue">(</span>iterable<span class=" -Color -Color-Blue">,</span> start<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Cyan">0</span><span class=" -Color -Color-Blue">,</span> <span class=" -Color -Color-Blue">/)</span>
+<span class=" -Color -Color-Red">Docstring:</span>
+Return the sum of a &#39;start&#39; value (default: 0) plus an iterable of numbers
+
+When the iterable is empty, return the start value.
+This function is intended specifically for use with numeric values and may
+reject non-numeric types.
+<span class=" -Color -Color-Red">Type:</span>      builtin_function_or_method
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;__call__&#39;,
+ &#39;__class__&#39;,
+ &#39;__delattr__&#39;,
+ &#39;__dir__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__eq__&#39;,
+ &#39;__format__&#39;,
+ &#39;__ge__&#39;,
+ &#39;__getattribute__&#39;,
+ &#39;__gt__&#39;,
+ &#39;__hash__&#39;,
+ &#39;__init__&#39;,
+ &#39;__init_subclass__&#39;,
+ &#39;__le__&#39;,
+ &#39;__lt__&#39;,
+ &#39;__module__&#39;,
+ &#39;__name__&#39;,
+ &#39;__ne__&#39;,
+ &#39;__new__&#39;,
+ &#39;__qualname__&#39;,
+ &#39;__reduce__&#39;,
+ &#39;__reduce_ex__&#39;,
+ &#39;__repr__&#39;,
+ &#39;__self__&#39;,
+ &#39;__setattr__&#39;,
+ &#39;__sizeof__&#39;,
+ &#39;__str__&#39;,
+ &#39;__subclasshook__&#39;,
+ &#39;__text_signature__&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on built-in function dir in module builtins:
+
+dir(...)
+    dir([object]) -&gt; list of strings
+    
+    If called without an argument, return the names in the current scope.
+    Else, return an alphabetized list of names comprising (some of) the attributes
+    of the given object, and of attributes reachable from it.
+    If the object supplies a method named __dir__, it will be used; otherwise
+    the default dir() logic is used and returns:
+      for a module object: the module&#39;s attributes.
+      for a class object:  its attributes, and recursively the attributes
+        of its bases.
+      for any other object: its attributes, its class&#39;s attributes, and
+        recursively the attributes of its class&#39;s base classes.
+</pre></div>
+</div>
 </div>
 </div>
 </div>
