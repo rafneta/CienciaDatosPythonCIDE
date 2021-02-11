@@ -424,7 +424,7 @@
 </div>
 <p>Los valores que podría calcular una función se pueden utilizar en cualquier parte del código (una vez definida esta) cuando en la implemenación aparezca <code class="docutils literal notranslate"><span class="pre">return</span></code> en el código de la implementación.</p>
 <p>Por ejemplo</p>
-<iframe width="100%" height="700" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=def%20funcion1%28%29%3A%0A%20%20%20%20a%20%3D%2045%0A%20%20%20%20b%20%3D%2023%0A%20%20%20%20return%20%20a%20%2B%20b%0A%20%20%20%20%0Adef%20funcion2%28%29%3A%0A%20%20%20%20a%20%3D%2045%0A%20%20%20%20b%20%3D%2023%0A%20%20%20%20a%20%2B%20b%0A%0Adef%20funcion3%28a,%20b%29%3A%0A%20%20%20%20c%20%3D%20a%20%2B%20b%0A%20%20%20%20return%20c%0A%0Avalor%20%3D%20funcion1%28%29%20*%208%20%2B%2030%0Aprint%28valor,%20funcion1%28%29%29%0A%0Avalor%20%3D%20funcion2%28%29%0A%0Aprint%28funcion3%282,4%29%29%0A%0Avar1%20%3D%2023%0Avar2%20%3D%20-3%0A%0A%23%20la%20variale%20se%20sustituyen%20en%20el%20lugar%20correspondiente%0A%0Aprint%28funcion3%28var1,var2%29%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+<iframe width="100%" height="700" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20funcion1%28%29%3A%0A%20%20%20%20a%20%3D%2045%0A%20%20%20%20b%20%3D%2023%0A%20%20%20%20return%20%20a%20%2B%20b%0A%20%20%20%20%0Adef%20funcion2%28%29%3A%0A%20%20%20%20a%20%3D%2045%0A%20%20%20%20b%20%3D%2023%0A%20%20%20%20a%20%2B%20b%0A%0Adef%20funcion3%28a,%20b%29%3A%0A%20%20%20%20c%20%3D%20a%20%2B%20b%0A%20%20%20%20return%20c%0A%0Avalor%20%3D%20funcion1%28%29%20*%208%20%2B%2030%0Aprint%28valor,%20funcion1%28%29%29%0A%0Avalor%20%3D%20funcion2%28%29%0A%0Aprint%28funcion3%282,4%29%29%0A%0Avar1%20%3D%2023%0Avar2%20%3D%20-3%0A%0A%23%20la%20variale%20se%20sustituyen%20en%20el%20lugar%20correspondiente%0A%0Aprint%28funcion3%28var1,var2%29%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
 <p>Los <strong>métodos</strong> son funciones asociadas a una <code class="docutils literal notranslate"><span class="pre">clase</span></code>. Por el momento pensemos a las clases como los tipos de datos. En particular, más adelante mostraremos algunos métodos para los tipos de datos <em>string</em> y <em>list</em></p>
 <p>El uso de los métodos tiene la siguiente sintaxis</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">varible</span><span class="o">.</span><span class="n">metodo</span><span class="p">()</span>
@@ -432,10 +432,10 @@
 </pre></div>
 </div>
 <p>Para los datos tipo string se muestran tres métodos:</p>
-<iframe width="800" height="500" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=cadena1%20%3D%20%22camion%20de%20carne%22%0Acadena2%20%3D%20'oso'%0A%0Avar1%20%3D%20cadena1.capitalize%28%29%0Aprint%28var1%29%0A%0Avar2%20%3D%20cadena1.find%28'ca'%29%0Aprint%28var2%29%0A%0Avar4%20%3D%20cadena1.find%28'ca',6%29%0Aprint%28var4%29%0A%0Avar5%20%3D%20cadena1.find%28'ca',6,8%29%0Aprint%28var5%29%0A%0Avar6%20%3D%20%28cadena2%20%2B%20cadena1%29.split%28%29%0Aprint%28var6%29%0A%0Avar7%20%3D%20%28cadena2%20%2B%20cadena1%29.split%28'o'%29%0Aprint%28var7%29&codeDivHeight=400&codeDivWidth=350&cumulative=true&curInstr=14&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+<iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=cadena1%20%3D%20%22camion%20de%20carne%22%0Acadena2%20%3D%20'oso'%0A%0Avar1%20%3D%20cadena1.capitalize%28%29%0Aprint%28var1%29%0A%0Avar2%20%3D%20cadena1.find%28'ca'%29%0Aprint%28var2%29%0A%0Avar4%20%3D%20cadena1.find%28'ca',6%29%0Aprint%28var4%29%0A%0Avar5%20%3D%20cadena1.find%28'ca',6,8%29%0Aprint%28var5%29%0A%0Avar6%20%3D%20%28cadena2%20%2B%20cadena1%29.split%28%29%0Aprint%28var6%29%0A%0Avar7%20%3D%20%28cadena2%20%2B%20cadena1%29.split%28'o'%29%0Aprint%28var7%29&codeDivHeight=400&codeDivWidth=350&cumulative=true&curInstr=14&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
 <p>Para consultar la descripción de todos los métodos: <a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html?highlight=string#string-methods">Métodos para datos tipo string</a></p>
 <p>Para los datos tipo list se muestran un método y dos operaciones:</p>
-<iframe width="800" height="500" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=lista1%20%3D%20%5B'camion',%20'hola',%207.5,%20True%5D%0Alista2%20%3D%20%5B%5D%0Alista3%20%3D%20list%28%29%0A%0Alista2.append%28lista1%29%0A%0Aprint%28lista2%5B0%5D%29%0A%0Avar1%20%3D%20lista1%20%2B%20lista2%0Aprint%28var1%29%0A%0Alista3%20%3D%20lista1%20%0A%0Alista3%5B3%5D%20%3D%20'oso'%20%23%20mutabilidad%20de%20datos%0Aprint%28lista1%29%0A%0A%23%20Para%20evitar%20que%20se%20apunte%20a%20la%20misma%20lista%20puede%20%0A%23%20utilizar%20el%20m%C3%A9todo%20copy&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=1&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences="> </iframe>
+<iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=lista1%20%3D%20%5B'camion',%20'hola',%207.5,%20True%5D%0Alista2%20%3D%20%5B%5D%0Alista3%20%3D%20list%28%29%0A%0Alista2.append%28lista1%29%0A%0Aprint%28lista2%5B0%5D%29%0A%0Avar1%20%3D%20lista1%20%2B%20lista2%0Aprint%28var1%29%0A%0Alista3%20%3D%20lista1%20%0A%0Alista3%5B3%5D%20%3D%20'oso'%20%23%20mutabilidad%20de%20datos%0Aprint%28lista1%29%0A%0A%23%20Para%20evitar%20que%20se%20apunte%20a%20la%20misma%20lista%20puede%20%0A%23%20utilizar%20el%20m%C3%A9todo%20copy&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=1&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences="> </iframe>
 <p>Para consultar la descripción de todos los métodos: <a class="reference external" href="https://docs.python.org/3.8/tutorial/datastructures.html?highlight=list">Métodos para datos tipo list</a></p>
 <div class="section" id="ejemplo-modulo-matplotlib">
 <h2>Ejemplo: Módulo Matplotlib<a class="headerlink" href="#ejemplo-modulo-matplotlib" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -670,9 +670,7 @@
 <img alt="../../_images/FuncionesMetodos_13_0.png" src="../../_images/FuncionesMetodos_13_0.png" />
 <img alt="../../_images/FuncionesMetodos_13_1.png" src="../../_images/FuncionesMetodos_13_1.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.80574793290978e-17
+6.80574793290978e-17
 1.25
 1.118033988749895
 </pre></div>
@@ -683,6 +681,11 @@
 <div class="section" id="ejemplo-ecuacion-diferencial">
 <h2>Ejemplo: Ecuación diferencial<a class="headerlink" href="#ejemplo-ecuacion-diferencial" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Se pueden realizar aproximaciones numéricas a ecuaciones diferenciales. El siguiente es una motivación del método de Euler (la deducción es por medio de series de Taylor)</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-body docutils">
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{eqnarray}
 \dot{y}(t)&amp;=&amp;f(y(t),t),\;y(t_0)\\
@@ -691,8 +694,19 @@
 y(t+h)&amp;\approx&amp; y(t)+f(y(t),t)h\\
 y(t_{n+1})&amp;\approx&amp; y(t_{n})+f(y(t_n),t_n)h
 \end{eqnarray}\end{split}\]</div>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-body docutils">
 <div class = "video-w">
 <img src="https://raw.githubusercontent.com/rafneta/CienciaDatosPythonCIDE/master/imagenes/euler.png" widht=60%>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="admonition-problema-1 admonition">
 <p class="admonition-title">Problema 1</p>
@@ -732,10 +746,7 @@ y(t_{n+1})&amp;\approx&amp; y(t_{n})+f(y(t_n),t_n)h
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.0, 0.1, 0.2, 0.30000000000000004, 0.4, 0.5, 0.6000000000000001, 0.7000000000000001, 0.8, 0.9, 1.0, 1.1, 1.2000000000000002, 1.3, 1.4000000000000001, 1.5, 1.6, 1.7000000000000002, 1.8, 1.9000000000000001, 2.0, 2.1, 2.2, 2.3000000000000003, 2.4000000000000004, 2.5, 2.6, 2.7, 2.8000000000000003, 2.9000000000000004, 3.0, 3.1, 3.2, 3.3000000000000003, 3.4000000000000004, 3.5, 3.6, 3.7, 3.8000000000000003, 3.9000000000000004, 4.0, 4.1000000000000005, 4.2, 4.3, 4.4, 4.5, 4.6000000000000005, 4.7, 4.800000000000001, 4.9, 5.0] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 2.0, 2.003, 2.015, 2.0420000000000003, 2.0900000000000003, 2.1650000000000005, 2.2730000000000006, 2.420000000000001, 2.612000000000001, 2.855000000000001, 3.155000000000001, 3.518000000000001, 3.950000000000001, 4.457000000000001, 5.045000000000001, 5.720000000000001, 6.488000000000001, 7.355000000000001, 8.327000000000002, 9.410000000000002, 10.610000000000003, 11.933000000000003, 13.385000000000003, 14.972000000000003, 16.700000000000003, 18.575000000000003, 20.603, 22.790000000000003, 25.142000000000003, 27.665000000000003, 30.365000000000002, 33.248000000000005, 36.32000000000001, 39.58700000000001, 43.055000000000014, 46.73000000000001, 50.61800000000001, 54.72500000000001, 59.05700000000001, 63.62000000000001, 68.42000000000002, 73.46300000000002, 78.75500000000002, 84.30200000000002, 90.11000000000003, 96.18500000000003, 102.53300000000003, 109.16000000000003, 116.07200000000003, 123.27500000000003]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.0, 0.1, 0.2, 0.30000000000000004, 0.4, 0.5, 0.6000000000000001, 0.7000000000000001, 0.8, 0.9, 1.0, 1.1, 1.2000000000000002, 1.3, 1.4000000000000001, 1.5, 1.6, 1.7000000000000002, 1.8, 1.9000000000000001, 2.0, 2.1, 2.2, 2.3000000000000003, 2.4000000000000004, 2.5, 2.6, 2.7, 2.8000000000000003, 2.9000000000000004, 3.0, 3.1, 3.2, 3.3000000000000003, 3.4000000000000004, 3.5, 3.6, 3.7, 3.8000000000000003, 3.9000000000000004, 4.0, 4.1000000000000005, 4.2, 4.3, 4.4, 4.5, 4.6000000000000005, 4.7, 4.800000000000001, 4.9, 5.0] [2, 2.0, 2.003, 2.015, 2.0420000000000003, 2.0900000000000003, 2.1650000000000005, 2.2730000000000006, 2.420000000000001, 2.612000000000001, 2.855000000000001, 3.155000000000001, 3.518000000000001, 3.950000000000001, 4.457000000000001, 5.045000000000001, 5.720000000000001, 6.488000000000001, 7.355000000000001, 8.327000000000002, 9.410000000000002, 10.610000000000003, 11.933000000000003, 13.385000000000003, 14.972000000000003, 16.700000000000003, 18.575000000000003, 20.603, 22.790000000000003, 25.142000000000003, 27.665000000000003, 30.365000000000002, 33.248000000000005, 36.32000000000001, 39.58700000000001, 43.055000000000014, 46.73000000000001, 50.61800000000001, 54.72500000000001, 59.05700000000001, 63.62000000000001, 68.42000000000002, 73.46300000000002, 78.75500000000002, 84.30200000000002, 90.11000000000003, 96.18500000000003, 102.53300000000003, 109.16000000000003, 116.07200000000003, 123.27500000000003]
 </pre></div>
 </div>
 </div>
