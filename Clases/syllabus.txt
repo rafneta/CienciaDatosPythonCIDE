@@ -1,0 +1,23 @@
+Fundamentos de programación
+-	Sesión 1: Introducción
+-	Sesión 2: Variables, Expresiones y Declaraciones
+-	Sesión 3: Funciones
+-	Sesión 4 y 5: Listas e Iteraciones
+-	Sesión 6: Programación funcional
+-	Sesión 7: Recursión*
+-	Sesión 8 y 9: Estructuras de Datos
+-	Sesión 10 y 11: Terminal y Clases*
+-	Sesión 12: Eficiencia Algorítmica*
+-	Sesión 13 - Examen Parcial
+-	Sesión 14: Expresiones regulares*
+-	Sesión 15: String Matching – Caso de Estudio^
+Pipeline del Data Scientist
+-	Sesión 16 y 17: Data scraping/APIs y Almacenamiento de datos*
+-	Sesión 18: Queries de datos / Algebra Relacional – SQL*
+-	Sesión 19 y 20: Numpy y Pandas
+-	Sesión 21 y 22: Pandas II – Analisis Exploratorio
+-	Sesión 23 y 24: Visualización de datos
+-	Sesión 25 y 26: Introducción a ML e implicaciones éticas*
+-	Sesión 27 y 28: Preprocesamiento de datos para ML*
+-	Sesión 29: Análisis Geoespacial^ - que es un shapefile, geopandas*
+-	Sesión 30: Presentación de proyectos

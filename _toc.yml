@@ -30,9 +30,10 @@
       - file: Laboratorios/Lab2/Varfunif
       - file: Laboratorios/Lab2/fundamentos
       - file: Laboratorios/Lab2/Introfunmod
-  #- file: Laboratorios/Lab3/lab3
-  #  sections:
-  #    - file: Laboratorios/Lab3/Funciones
+  - file: Laboratorios/Lab3/lab3
+    title: 3. Funciones, Métodos, Ciclos, Erorres 
+    sections:
+      - file: Laboratorios/Lab3/FuncionesMetodos
   #- file: Laboratorios/Lab4/lab4
   #  sections:
   #    - file: Laboratorios/Lab4/listas
