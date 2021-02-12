@@ -31,7 +31,7 @@
       - file: Laboratorios/Lab2/fundamentos
       - file: Laboratorios/Lab2/Introfunmod
   - file: Laboratorios/Lab3/lab3
-    title: 3. Funciones, Métodos, Ciclos, Errores 
+    title: 3. Funciones, Métodos, Ciclos 
     sections:
       - file: Laboratorios/Lab3/FuncionesMetodos
   #- file: Laboratorios/Lab4/lab4
@@ -58,16 +58,6 @@
 - part: Proyecto
   chapters:
   - file: docs/Proyecto
-
-
-
-#- part: Encuadre
-#  chapters:
-#  - file: intro
-#  - file: content
-#    sections:
-#      - file: markdown
-#      - file: notebooks
 
 
 #- part: Reference
