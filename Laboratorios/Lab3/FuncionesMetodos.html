@@ -190,7 +190,7 @@
  </li>
  <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="lab3.html">
-   3. Funciones, Métodos, Ciclos, Errores
+   3. Funciones, Métodos, Ciclos
   </a>
   <ul class="current collapse-ul">
    <li class="toctree-l2 current active">
@@ -928,6 +928,65 @@ y(t_{n+1})&amp;\approx&amp; y(t_{n})+f(y(t_n),t_n)h
 <img alt="../../_images/FuncionesMetodos_27_0.png" src="../../_images/FuncionesMetodos_27_0.png" />
 </div>
 </div>
+<p>Algunas ecuaciones no tendrán una aproximación numérica que se implemente de manera sencilla. Por lo que se pude recurrir funciones ya destiandas para resolver estos problemas, incluso con ello,  algunas funciones son lo bastante sofisticadas que  establecer algunos argumentos de entrada es complicado (de no conocerse la teoría del método). Por ejemplo revise la documentación de <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html#scipy.integrate.solve_ivp">solve_ivp</a> del submódulo integrate del módulo scipy, que es una función para resolver problemas de valor inicial.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
+
+
+<span class="k">def</span> <span class="nf">f3</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">f3</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">max_step</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  message: &#39;The solver successfully reached the end of the integration interval.&#39;
+     nfev: 68
+     njev: 0
+      nlu: 0
+      sol: None
+   status: 0
+  success: True
+        t: array([0. , 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1. , 1. ])
+ t_events: None
+        y: array([[2.        , 1.92038615, 1.83686967, 1.74905429, 1.65645985,
+        1.55849435, 1.45441243, 1.34325145, 1.22372797, 1.09405967,
+        0.9516335 , 0.9516335 ]])
+ y_events: None
+  message: &#39;The solver successfully reached the end of the integration interval.&#39;
+     nfev: 68
+     njev: 0
+      nlu: 0
+      sol: None
+   status: 0
+  success: True
+        t: array([0. , 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1. , 1. ])
+ t_events: None
+        y: array([[2.        , 1.92038615, 1.83686967, 1.74905429, 1.65645985,
+        1.55849435, 1.45441243, 1.34325145, 1.22372797, 1.09405967,
+        0.9516335 , 0.9516335 ]])
+ y_events: None
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#def grafica(vect, y, solucion = None, titulo=&#39;Aproximación a la solución&#39;, guardar=False):</span>
+
+<span class="n">grafica</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/FuncionesMetodos_30_0.png" src="../../_images/FuncionesMetodos_30_0.png" />
+</div>
+</div>
 </div>
 <div class="section" id="ejemplos-problemas-generales">
 <h2><a class="toc-backref" href="#id5">Ejemplos: Problemas generales</a><a class="headerlink" href="#ejemplos-problemas-generales" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -1167,9 +1226,9 @@ dir(...)
  &#39;L&#39;,
  &#39;Out&#39;,
  &#39;_&#39;,
- &#39;_21&#39;,
- &#39;_22&#39;,
- &#39;_26&#39;,
+ &#39;_23&#39;,
+ &#39;_24&#39;,
+ &#39;_28&#39;,
  &#39;__&#39;,
  &#39;___&#39;,
  &#39;__builtin__&#39;,
@@ -1202,7 +1261,9 @@ dir(...)
  &#39;_i26&#39;,
  &#39;_i27&#39;,
  &#39;_i28&#39;,
+ &#39;_i29&#39;,
  &#39;_i3&#39;,
+ &#39;_i30&#39;,
  &#39;_i4&#39;,
  &#39;_i5&#39;,
  &#39;_i6&#39;,
@@ -1242,6 +1303,8 @@ dir(...)
  &#39;puntos_x&#39;,
  &#39;quit&#39;,
  &#39;secuencia&#39;,
+ &#39;sol&#39;,
+ &#39;solve_ivp&#39;,
  &#39;stats&#39;,
  &#39;valores_x&#39;,
  &#39;vct&#39;,
@@ -1249,6 +1312,34 @@ dir(...)
  &#39;xlim&#39;,
  &#39;y&#39;,
  &#39;ylim&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Asigmación Múltiple</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tipo</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">variable</span> <span class="o">=</span> <span class="s1">&#39;Cadena&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.6</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tipo</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">tipo</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">variable</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cadena &lt;class &#39;str&#39;&gt;
+-1 &lt;class &#39;int&#39;&gt;
+2.6 &lt;class &#39;float&#39;&gt;
+10 &lt;class &#39;int&#39;&gt;
+True &lt;class &#39;bool&#39;&gt;
 </pre></div>
 </div>
 </div>
