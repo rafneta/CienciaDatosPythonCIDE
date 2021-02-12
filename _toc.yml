@@ -34,7 +34,7 @@
     title: 3. Funciones, Métodos, Ciclos 
     sections:
       - file: Laboratorios/Lab3/FuncionesMetodos
-  #- file: Laboratorios/Lab4/lab4
+      - file: Laboratorios/Lab3/ListasyCiclos
   #  sections:
   #    - file: Laboratorios/Lab4/listas
   #- file: Laboratorios/Lab5/lab5
