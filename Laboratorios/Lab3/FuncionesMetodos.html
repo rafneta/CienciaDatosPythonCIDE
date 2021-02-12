@@ -373,7 +373,7 @@
               <div>
                 
   <h1>Contenido<span class="tocSkip"></span></h1>
-<div class="toc"><ul class="toc-item"><li><span><a href="#Funciones-y-métodos" data-toc-modified-id="Funciones-y-métodos-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Funciones y métodos</a></span><ul class="toc-item"><li><span><a href="#Ejemplo:-Módulo-Matplotlib" data-toc-modified-id="Ejemplo:-Módulo-Matplotlib-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Ejemplo: Módulo Matplotlib</a></span></li><li><span><a href="#Ejemplo:-Módulo-para-estadística-stats" data-toc-modified-id="Ejemplo:-Módulo-para-estadística-stats-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Ejemplo: Módulo para estadística <em>stats</em></a></span></li><li><span><a href="#Ejemplo:-Ecuación-diferencial" data-toc-modified-id="Ejemplo:-Ecuación-diferencial-1.3"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>Ejemplo: Ecuación diferencial</a></span></li><li><span><a href="#Ejemplos:-Problemas-generales" data-toc-modified-id="Ejemplos:-Problemas-generales-1.4"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>Ejemplos: Problemas generales</a></span></li></ul></li></ul></div><div class="section" id="funciones-y-metodos">
+<div class="toc"><ul class="toc-item"><li><span><a href="#Funciones-y-métodos" data-toc-modified-id="Funciones-y-métodos-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Funciones y métodos</a></span><ul class="toc-item"><li><span><a href="#Ejemplo:-Módulo-Matplotlib" data-toc-modified-id="Ejemplo:-Módulo-Matplotlib-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Ejemplo: Módulo Matplotlib</a></span></li><li><span><a href="#Ejemplo:-Módulo-para-estadística-stats" data-toc-modified-id="Ejemplo:-Módulo-para-estadística-stats-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Ejemplo: Módulo para estadística <em>stats</em></a></span></li><li><span><a href="#Ejemplo:-Ecuación-diferencial" data-toc-modified-id="Ejemplo:-Ecuación-diferencial-1.3"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>Ejemplo: Ecuación diferencial</a></span></li><li><span><a href="#Ejemplos:-Problemas-generales" data-toc-modified-id="Ejemplos:-Problemas-generales-1.4"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>Ejemplos: Problemas generales</a></span></li><li><span><a href="#Apéndice" data-toc-modified-id="Apéndice-1.5"><span class="toc-item-num">1.5&nbsp;&nbsp;</span>Apéndice</a></span></li></ul></li></ul></div><div class="section" id="funciones-y-metodos">
 <h1>Funciones y métodos<a class="headerlink" href="#funciones-y-metodos" title="Enlazar permanentemente con este título">¶</a></h1>
 <p>Se pueden realizar cuatro tipos de <strong>funciones</strong> de acuerdo a sus valors de entrada  y salida.</p>
 <ul class="simple">
@@ -837,7 +837,7 @@ y(t_{n+1})&amp;\approx&amp; y(t_{n})+f(y(t_n),t_n)h
 
 
 <span class="k">def</span> <span class="nf">f1sol</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
-    <span class="k">return</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">t</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>
+    <span class="k">return</span>  <span class="n">t</span> <span class="o">**</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span>
 
 
 <span class="k">def</span> <span class="nf">euler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">y0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">paso</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">sol</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
@@ -906,7 +906,7 @@ y(t_{n+1})&amp;\approx&amp; y(t_{n})+f(y(t_n),t_n)h
 <li><p>Se impleemntará un bosquejo de una solución, no necesariamente eficiente (con eficiente nos referimos a qeu tarde poco)</p></li>
 <li><p>Problemas de este tipo se encuentran en <a class="reference external" href="https://projecteuler.net">Proyect Euler</a></p></li>
 </ul>
-<div class="cell tag_&quot;hide-input&quot; docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Utilizamos la congetura de Agoh–Giuga para saber si un número es primo </span>
 
@@ -1034,6 +1034,27 @@ sum(iterable, start=0, /)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">find</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method_descriptor:
+
+find(...)
+    S.find(sub[, start[, end]]) -&gt; int
+    
+    Return the lowest index in S where substring sub is found,
+    such that sub is contained within S[start:end].  Optional
+    arguments start and end are interpreted as in slice notation.
+    
+    Return -1 on failure.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1112,7 +1133,7 @@ dir(...)
  &#39;_&#39;,
  &#39;_20&#39;,
  &#39;_21&#39;,
- &#39;_24&#39;,
+ &#39;_25&#39;,
  &#39;__&#39;,
  &#39;___&#39;,
  &#39;__builtin__&#39;,
@@ -1143,6 +1164,7 @@ dir(...)
  &#39;_i24&#39;,
  &#39;_i25&#39;,
  &#39;_i26&#39;,
+ &#39;_i27&#39;,
  &#39;_i3&#39;,
  &#39;_i4&#39;,
  &#39;_i5&#39;,
