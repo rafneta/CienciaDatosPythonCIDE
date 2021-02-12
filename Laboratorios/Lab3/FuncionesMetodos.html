@@ -940,7 +940,7 @@ y(t_{n+1})&amp;\approx&amp; y(t_{n})+f(y(t_n),t_n)h
 <span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">f3</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">max_step</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -958,19 +958,9 @@ y(t_{n+1})&amp;\approx&amp; y(t_{n})+f(y(t_n),t_n)h
         1.55849435, 1.45441243, 1.34325145, 1.22372797, 1.09405967,
         0.9516335 , 0.9516335 ]])
  y_events: None
-  message: &#39;The solver successfully reached the end of the integration interval.&#39;
-     nfev: 68
-     njev: 0
-      nlu: 0
-      sol: None
-   status: 0
-  success: True
-        t: array([0. , 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1. , 1. ])
- t_events: None
-        y: array([[2.        , 1.92038615, 1.83686967, 1.74905429, 1.65645985,
-        1.55849435, 1.45441243, 1.34325145, 1.22372797, 1.09405967,
-        0.9516335 , 0.9516335 ]])
- y_events: None
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>scipy.integrate._ivp.ivp.OdeResult
 </pre></div>
 </div>
 </div>
@@ -1150,13 +1140,14 @@ find(...)
 </div>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;__call__&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;__add__&#39;,
  &#39;__class__&#39;,
+ &#39;__contains__&#39;,
  &#39;__delattr__&#39;,
  &#39;__dir__&#39;,
  &#39;__doc__&#39;,
@@ -1164,26 +1155,74 @@ find(...)
  &#39;__format__&#39;,
  &#39;__ge__&#39;,
  &#39;__getattribute__&#39;,
+ &#39;__getitem__&#39;,
+ &#39;__getnewargs__&#39;,
  &#39;__gt__&#39;,
  &#39;__hash__&#39;,
  &#39;__init__&#39;,
  &#39;__init_subclass__&#39;,
+ &#39;__iter__&#39;,
  &#39;__le__&#39;,
+ &#39;__len__&#39;,
  &#39;__lt__&#39;,
- &#39;__module__&#39;,
- &#39;__name__&#39;,
+ &#39;__mod__&#39;,
+ &#39;__mul__&#39;,
  &#39;__ne__&#39;,
  &#39;__new__&#39;,
- &#39;__qualname__&#39;,
  &#39;__reduce__&#39;,
  &#39;__reduce_ex__&#39;,
  &#39;__repr__&#39;,
- &#39;__self__&#39;,
+ &#39;__rmod__&#39;,
+ &#39;__rmul__&#39;,
  &#39;__setattr__&#39;,
  &#39;__sizeof__&#39;,
  &#39;__str__&#39;,
  &#39;__subclasshook__&#39;,
- &#39;__text_signature__&#39;]
+ &#39;capitalize&#39;,
+ &#39;casefold&#39;,
+ &#39;center&#39;,
+ &#39;count&#39;,
+ &#39;encode&#39;,
+ &#39;endswith&#39;,
+ &#39;expandtabs&#39;,
+ &#39;find&#39;,
+ &#39;format&#39;,
+ &#39;format_map&#39;,
+ &#39;index&#39;,
+ &#39;isalnum&#39;,
+ &#39;isalpha&#39;,
+ &#39;isascii&#39;,
+ &#39;isdecimal&#39;,
+ &#39;isdigit&#39;,
+ &#39;isidentifier&#39;,
+ &#39;islower&#39;,
+ &#39;isnumeric&#39;,
+ &#39;isprintable&#39;,
+ &#39;isspace&#39;,
+ &#39;istitle&#39;,
+ &#39;isupper&#39;,
+ &#39;join&#39;,
+ &#39;ljust&#39;,
+ &#39;lower&#39;,
+ &#39;lstrip&#39;,
+ &#39;maketrans&#39;,
+ &#39;partition&#39;,
+ &#39;replace&#39;,
+ &#39;rfind&#39;,
+ &#39;rindex&#39;,
+ &#39;rjust&#39;,
+ &#39;rpartition&#39;,
+ &#39;rsplit&#39;,
+ &#39;rstrip&#39;,
+ &#39;split&#39;,
+ &#39;splitlines&#39;,
+ &#39;startswith&#39;,
+ &#39;strip&#39;,
+ &#39;swapcase&#39;,
+ &#39;title&#39;,
+ &#39;translate&#39;,
+ &#39;upper&#39;,
+ &#39;zfill&#39;]
 </pre></div>
 </div>
 </div>
@@ -1226,6 +1265,7 @@ dir(...)
  &#39;L&#39;,
  &#39;Out&#39;,
  &#39;_&#39;,
+ &#39;_19&#39;,
  &#39;_23&#39;,
  &#39;_24&#39;,
  &#39;_28&#39;,
