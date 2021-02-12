@@ -31,7 +31,7 @@
       - file: Laboratorios/Lab2/fundamentos
       - file: Laboratorios/Lab2/Introfunmod
   - file: Laboratorios/Lab3/lab3
-    title: 3. Funciones, Métodos, Ciclos, Erorres 
+    title: 3. Funciones, Métodos, Ciclos, Errores 
     sections:
       - file: Laboratorios/Lab3/FuncionesMetodos
   #- file: Laboratorios/Lab4/lab4
