@@ -1,9 +1,9 @@
 # Proyecto
 
 
-Para la presentación del proyecto posiblemente sean útiles herramientas de visualización, paquetes especificos de Python, Datos, Heraientas para prsentar resultados, etc.
+Para la presentación del proyecto posiblemente sean útiles herramientas de visualización, paquetes especificos de Python, datos, herramientas para presentar resultados, etc.
 
-Aquí se compartiran algunas herramientas que pueden ser de útilidad
+Aquí se compartiran algunas herramientas que pueden ser de utilidad
 
 
 ## Sitios web estáticos
@@ -13,7 +13,7 @@ _Los sitios Web estáticos son aquellos sitios enfocados principalmente a mostra
 
 
 
-Existen software para generar sitios web estáticos que posteriormente se pueden alojar en [GitHub Pages](https://pages.github.com/), [NEtlify](https://www.netlify.com/), etc., de forma gratuita. En la siguiente [página](https://jamstack.org/generators/) se encuentran concentrados algunos generadores estáticos
+Existen software para generar sitios web estáticos que posteriormente se pueden alojar en [GitHub Pages](https://pages.github.com/), [Netlify](https://www.netlify.com/), etc., de forma gratuita. En la siguiente [página](https://jamstack.org/generators/) se encuentran concentrados algunos generadores estáticos
 
 
 
