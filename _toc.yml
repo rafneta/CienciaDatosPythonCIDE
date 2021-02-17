@@ -55,6 +55,7 @@
   - file: Tareas/1_intro_tarea
     sections:
       - file: Respuestas/1_intro_tarea_respuesta
+        title: Solución  
   - file: Tareas/tarea2
     title: Tarea 2
 
