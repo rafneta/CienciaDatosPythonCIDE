@@ -53,7 +53,7 @@
 - part: Tareas
   chapters:
   - file: Tareas/1_intro_tarea
-
+  - file: Tareas/tarea2
 
 - part: Proyecto
   chapters:
