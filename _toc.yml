@@ -54,6 +54,7 @@
   chapters:
   - file: Tareas/1_intro_tarea
   - file: Tareas/tarea2
+    title: Tarea 2
 
 - part: Proyecto
   chapters:
