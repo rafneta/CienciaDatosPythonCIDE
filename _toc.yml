@@ -53,6 +53,8 @@
 - part: Tareas
   chapters:
   - file: Tareas/1_intro_tarea
+    sections:
+      - file: Respuestas/1_intro_tarea_respuestas
   - file: Tareas/tarea2
     title: Tarea 2
 
