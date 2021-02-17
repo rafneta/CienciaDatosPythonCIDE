@@ -1,0 +1,1173 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modelado de epidemias &#8212; Introducción a la ciencia de datos</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/estilo-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/estilo-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Proyecto" href="../docs/Proyecto.html" />
+    <link rel="prev" title="Tarea 1" href="1_intro_tarea.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Introducción a la ciencia de datos</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Sobre este sitio
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Información del curso
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docs/encuadre.html">
+   Encuadre
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docs/calendarioLab.html">
+   Calendario Laboratorio
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docs/Navegacion.html">
+   Navegación en el libro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docs/Pizarron.html">
+   Pizarrón
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Clases
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Clases/1_intro.html">
+   1. Introducción a Python
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Laboratorios
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Laboratorios/Lab1/lab1.html">
+   1. Anaconda, GitHub
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Laboratorios/Lab1/instalacion.html">
+     Instalación Anaconda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Laboratorios/Lab1/GitHub.html">
+     Introducción a GitHub
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Laboratorios/Lab2/lab2.html">
+   2. Datos, flujo, funciones
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Laboratorios/Lab2/Varfunif.html">
+     Variables y Condiciones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Laboratorios/Lab2/fundamentos.html">
+     Operaciones con tipos de datos básicos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Laboratorios/Lab2/Introfunmod.html">
+     Introducción a funciones y módulos
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Laboratorios/Lab3/lab3.html">
+   3. Funciones, Métodos, Ciclos
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Laboratorios/Lab3/FuncionesMetodos.html">
+     Funciones y métodos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Laboratorios/Lab3/ListasyCiclos.html">
+     Listas y Ciclos
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Tareas
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_intro_tarea.html">
+   Tarea 1
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Modelado de epidemias
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Proyecto
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../docs/Proyecto.html">
+   Proyecto
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+            title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Tareas/tarea2.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/rafneta/CienciaDatosPythonCIDE"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/rafneta/CienciaDatosPythonCIDE/issues/new?title=Issue%20on%20page%20%2FTareas/tarea2.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+                title="Modo de pantalla completa"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contenido
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#el-modelo">
+   El modelo
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tus-tareas">
+   Tus tareas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#paso-1-contar-el-numero-de-personas-infectadas-en-una-ciudad">
+     Paso 1: Contar el número de personas infectadas en una ciudad
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#paso-2-esta-infectado-un-vecino">
+     Paso 2: ¿Está infectado un vecino?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#paso-3-avanzar-estado-de-persona">
+     Paso 3: Avanzar estado de persona
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#paso-4-avanzar-la-simulacion-un-solo-dia">
+     Paso 4: Avanzar la simulación un solo día
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#paso-5-correr-la-simulacion">
+     Paso 5: Correr la simulación
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#paso-6-vacunar-una-ciudad">
+     Paso 6: Vacunar una ciudad
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#paso-8-probabilidad-y-gravedad-de-contagio">
+     Paso 8: Probabilidad y gravedad de contagio
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#paso-9-la-gente-se-mueve">
+     Paso 9: La gente se mueve
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#paso-10-la-ciudad-se-complejiza">
+     Paso 10: La ciudad se complejiza
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#entregar-la-tarea">
+   Entregar la tarea
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="modelado-de-epidemias">
+<h1>Modelado de epidemias<a class="headerlink" href="#modelado-de-epidemias" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Fecha límite: jueves 25 de febrero a las 11:59 pm</p>
+<p>Las epidemias y el contagio son fenómenos increíblemente complejos que involucran factores biológicos y sociales. Los modelos informáticos, aunque imperfectos, pueden ofrecer información sobre la propagación de enfermedades y pueden representar infecciones con diversos grados de complejidad.
+SIR es un modelo simple, pero comúnmente utilizado, para epidemias. En el modelo SIR, una persona puede estar en uno de tres estados: susceptible a la enfermedad, infectada con la enfermedad o recuperada de la enfermedad después de la infección (el modelo lleva el nombre de estos tres estados: S-I-R). En este modelo, nos enfocamos en una red de personas, como una comunidad que podría estar experimentando una epidemia. Aunque simple, el modelo SIR captura tanto los factores sociales (como la forma de la red, por ejemplo, la frecuencia con la que las personas en la red interactúan entre sí) como los factores biológicos (como la duración de la infección) que median la propagación de la enfermedad.
+En esta tarea, escribirás código para simular una versión simplificada del modelo epidémico SIR. Su código modelará cómo se propaga la infección a través de una ciudad desde los residentes hasta sus vecinos. En un nivel alto, su código calculará de manera iterativa los estados de enfermedad en una ciudad día a día, realizando un seguimiento del estado de cada persona hasta el final de la simulación. Además, verá cómo utilizar funciones que se complementan entre sí para simplificar un proceso de modelado complejo.</p>
+<div class="section" id="el-modelo">
+<h2>El modelo<a class="headerlink" href="#el-modelo" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Para comenzar a construir nuestro modelo SIR, debemos especificar los detalles del modelo:</p>
+<ul class="simple">
+<li><p>Estados de enfermedad: las formas de describir la salud de cada persona en la simulación.</p></li>
+<li><p>Estructura de una ciudad: cómo se representa una ciudad y los vecinos de cada individuo en la ciudad.</p></li>
+<li><p>Reglas de transmisión para la propagación de enfermedades dentro de la ciudad,</p></li>
+<li><p>Reglas de contagio: las reglas para recuperarse y adquirir inmunidad a las enfermedades, y</p></li>
+<li><p>Condiciones de alto: cuándo detener la simulación.</p></li>
+</ul>
+<p>Especificamos cada uno de estos detalles a continuación.</p>
+<p><strong>Estados de enfermedad</strong>: todas las personas en la simulación pueden existir en uno de los tres estados, susceptible, infectado o recuperado.</p>
+<ul class="simple">
+<li><p>Susceptible: el individuo está sano pero puede infectarse en el futuro. Usaremos <code class="docutils literal notranslate"><span class="pre">'S'</span></code> para representar individuos susceptibles.</p></li>
+<li><p>Infectado: el individuo tiene una infección actualmente. Representaremos a estas personas con <code class="docutils literal notranslate"><span class="pre">'I0',</span> <span class="pre">'I1',</span> <span class="pre">'I2'</span></code>, etc. El número después de la I representa la cantidad de días que la persona ha estado infectada (consulte las “Reglas de contagio” a continuación).</p></li>
+<li><p>Recuperado: el individuo se ha recuperado de una infección y será inmune a la infección durante el resto de la simulación. Representamos a estas personas con <code class="docutils literal notranslate"><span class="pre">'R'</span></code>. (Algunas versiones del modelo SIR eliminan a las personas recuperadas del modelo. En nuestro modelo, las personas recuperadas permanecerán en la ciudad).</p></li>
+</ul>
+<p>Ten en cuenta que, en las tareas 6 y 7 de la tarea, introduciremos un estado adicional: Vacunado (representado con una <code class="docutils literal notranslate"><span class="pre">'V'</span></code>). No necesita preocuparse por este estado, o cualquier referencia a las vacunas, hasta que llegue a esas tareas finales.</p>
+<p><strong>Estructura de una ciudad</strong>: una ciudad en esta simulación se representa como una lista de personas, cada una representada por un estado de enfermedad. Por ejemplo, una ciudad de <code class="docutils literal notranslate"><span class="pre">['S',</span> <span class="pre">'I1',</span> <span class="pre">'R']</span></code> está compuesta por tres personas, la primera de las cuales es susceptible, la segunda de las cuales está infectada (y específicamente, está un día después de la infección), y el tercero de los cuales se recupera.</p>
+<p>Puedes asumir que cada ciudad tiene al menos una persona.</p>
+<p>Una persona en nuestro modelo simplificado tiene hasta dos vecinos, la persona inmediatamente antes de ellos en la lista (conocida como su vecino izquierdo) y la persona inmediatamente después de ellos en la lista (conocida como su vecino derecho). La primera persona de la lista no tiene un vecino de la izquierda y la última persona de la lista no tiene un vecino de la derecha. Por ejemplo, considere la siguiente lista de personas: [“Juan”, “Sara”, “Laura”, “Marco”]:</p>
+<p>Juan tiene una vecina: Sara.</p>
+<p>Sara tiene dos vecinos: Juan y Laura.</p>
+<p>Laura tiene dos vecinos: Sara y Marco.</p>
+<p>Marco tiene una vecina: Laura.</p>
+<p><strong>Reglas de transmisión</strong>: la infección siempre se transmite de personas infectadas (“I0”, “I1”, etc.) a personas susceptibles (“S”). En otras palabras, una persona susceptible con al menos un vecino infectado siempre se infectará al día siguiente.</p>
+<p><strong>Reglas de contagio</strong>: el número de días que una persona está infectada y permanece contagiosa es un parámetro de la simulación. Realizaremos un seguimiento del número de días que una persona ha estado infectada como parte de su estado. Las personas que se infectan comienzan en el estado “10”. Por cada día que una persona está infectada, incrementamos el contador en uno: “I0” se convierte en “I1”, “I1” se convierte en “I2”, etc. Cuando el contador alcanza el número especificado de días contagiosos, los declararemos contagiosos recuperado (“R”) y ya no es contagioso. En ese momento, son inmunes a la enfermedad y no pueden volver a infectarse. Por ejemplo, si estamos simulando una infección en la que las personas son contagiosas durante tres días, una persona recién infectada comenzará en el estado “I0”, pasará a “I1” después de un día, a “I2” después de dos días, y declarará “R”, donde permanecerán durante el resto de la simulación, después de tres días.</p>
+<p><strong>Condiciones de alto</strong>: la simulación debe detenerse cuando no haya más personas infectadas en la ciudad</p>
+</div>
+<div class="section" id="tus-tareas">
+<h2>Tus tareas<a class="headerlink" href="#tus-tareas" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Para esta tarea, especificaremos un conjunto de funciones que debes implementar.
+Comenzarás con funciones básicas y avanzará hasta tareas más complejas. También proporcionaremos un extenso código de prueba.</p>
+<div class="section" id="paso-1-contar-el-numero-de-personas-infectadas-en-una-ciudad">
+<h3>Paso 1: Contar el número de personas infectadas en una ciudad<a class="headerlink" href="#paso-1-contar-el-numero-de-personas-infectadas-en-una-ciudad" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>En Python, es común escribir funciones auxiliares que encapsulan definiciones de clave y solo tienen unas pocas líneas. Su primera tarea es completar una de estas funciones: <code class="docutils literal notranslate"><span class="pre">count_infected</span></code>.</p>
+<p>Aquí está el código que verá en el archivo sir.py:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_infected</span><span class="p">(</span><span class="n">city</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Cuenta el número de infectados</span>
+
+<span class="sd">    Inputs:</span>
+<span class="sd">      city (list of strings): El estado de una ciudad en un momento determinado</span>
+<span class="sd">    Returns (int): Conteo de cuánta gente está infecta</span>
+<span class="sd">      currently infected</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="c1"># TÚ CODIGO VA AQUÍ</span>
+
+</pre></div>
+</div>
+<p>El docstring de la función especifica los <em>inputs</em> de la función. Es suficiente asumir que la variable <code class="docutils literal notranslate"><span class="pre">city</span></code>  contendrá el valor especificado de contagio, más específicamente, una lista de  strings con el estado de todas las personas en la simulación al comienzo del día.</p>
+<p>Luego, debe escribir un código que tome esta variable de ciudad y cuente el número de vecinos infectados.</p>
+<p>Por ejemplo, dada la ciudad <code class="docutils literal notranslate"><span class="pre">['I0',</span> <span class="pre">'I0',</span> <span class="pre">'I2',</span> <span class="pre">'S',</span> <span class="pre">'R']</span></code>, la función devolvería <code class="docutils literal notranslate"><span class="pre">3</span></code> (observe cómo tenemos que tener en cuenta el hecho de que hay varios estados infectados). Dada una ciudad como <code class="docutils literal notranslate"><span class="pre">['S',</span> <span class="pre">'S',</span> <span class="pre">'S',</span> <span class="pre">'S']</span></code>, la función devolvería <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<p>Aquí hay algunas ciudades y el resultado esperado</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Ciudad</p></th>
+<th class="head"><p>Resultado esperado</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[‘I0’]</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>[‘I2000’]</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>[‘R’]</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>[‘S’]</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>[‘S’, ‘S’, ‘S’, ‘S’]</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>[‘R’, ‘R’, ‘R’, ‘R’]</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>[‘I1’, ‘S’, ‘S’, ‘S’]</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>[‘S’, ‘I1’, ‘S’, ‘S’]</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>[‘S’, ‘S’, ‘I1’, ‘S’]</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>[‘S’, ‘S’, ‘S’, ‘I1’]</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>[‘I1’, ‘R’, ‘R’, ‘R’]</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>[‘I0’, ‘S’, ‘I1’, ‘R’]</p></td>
+<td><p>2</p></td>
+</tr>
+</tbody>
+</table>
+<p>Es importe mencionar que para esta tarea hemos generado tests que uno debe correr para asegurar que la función cumple con los requisitos. Por favor abre el archivo <code class="docutils literal notranslate"><span class="pre">tarea_2.ipynb</span></code> para consultar estos tests</p>
+</div>
+<div class="section" id="paso-2-esta-infectado-un-vecino">
+<h3>Paso 2: ¿Está infectado un vecino?<a class="headerlink" href="#paso-2-esta-infectado-un-vecino" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>A continuación, escribirá una función llamada <code class="docutils literal notranslate"><span class="pre">has_an_infected_neighbor</span></code> que determinará si una persona susceptible en una posición determinada en una lista tiene al menos un vecino infectado.</p>
+<p>Más específicamente, dada la ciudad y la posición de la persona, su código computará las posiciones de los vecinos izquierdo y derecho de la persona especificada en la ciudad, si existen, y determinará si alguno de ellos está en un estado infectado.</p>
+<p>Recuerde que la primera persona en la ciudad tiene un vecino de la derecha, pero no un vecino de la izquierda y la última persona en la ciudad tiene un vecino de la izquierda, pero no un vecino de la derecha. Su código deberá manejar estos casos especiales.</p>
+<p>Solo tiene sentido llamar a esta función en una posición que contenga una persona susceptible, así que asegurate que esta función solo sirva para personas con estado susceptible.</p>
+<p>Algunos casos de uso de la función</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="n">has_an_infected_neighbor</span><span class="p">([</span><span class="s1">&#39;I1&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="kc">True</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">9</span><span class="p">]:</span> <span class="n">has_an_infected_neighbor</span><span class="p">([</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;I1&#39;</span><span class="p">,</span> <span class="s1">&#39;IO&#39;</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">9</span><span class="p">]:</span> <span class="kc">True</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">9</span><span class="p">]:</span> <span class="n">has_an_infected_neighbor</span><span class="p">([</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;IO&#39;</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">9</span><span class="p">]:</span> <span class="kc">False</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="n">has_an_infected_neighbor</span><span class="p">([</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;I0&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="kc">True</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="n">has_an_infected_neighbor</span><span class="p">([</span><span class="s1">&#39;S&#39;</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="kc">False</span>
+</pre></div>
+</div>
+<p>En la primera lllamada, comprobamos si la persona susceptible en la posición 1 tiene un vecino infectado. Dado que su vecino izquierdo (en la posición 0) está infectado, el resultado debería ser Verdadero.</p>
+<p>La siguiente llamada comprueba si la persona susceptible en la posición 0 tiene un vecino infectado. Esta persona no tiene vecino abandonado. Sin embargo, su vecino derecho, en la posición 1, está infectado y, por lo tanto, el resultado debería ser Verdadero.</p>
+<p>La tercera llamada también comprueba a la persona en la posición 0. En este caso, la persona en la posición 1 no está infectada, por lo que el resultado esperado es Falso.</p>
+<p>La cuarta llamada comprueba a la persona en la posición 2. Esta persona no tiene un vecino adecuado. Sin embargo, su vecino izquierdo, en la posición 1, está infectado, por lo que el resultado esperado es Verdadero.</p>
+<p>Finalmente, la última llamada devolverá <code class="docutils literal notranslate"><span class="pre">False</span></code>. ¿Por qué? Porque, la única persona en esta ciudad no tiene vecinos y, por lo tanto, por definición no tiene vecinos infectados. Tenga en cuenta que una solución correcta no necesita incluir una condición que verifique “si esta ciudad tiene una sola persona”. El código debería funcionar para ciudades de todos los tamaños, incluidas las ciudades con una sola persona. Pista: la persona en esta ciudad unipersonal es tanto el primer como el último elemento de la lista.</p>
+<p>Tests a la función:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Ciudad</p></th>
+<th class="head"><p>Posición</p></th>
+<th class="head"><p>Resultado esperado</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[‘I0’, ‘S’, ‘S’]</p></td>
+<td><p>1</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>[‘I1000’, ‘S’, ‘S’]</p></td>
+<td><p>1</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-even"><td><p>[‘R’, ‘S’, ‘I0’]</p></td>
+<td><p>1</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>[‘R’, ‘S’, ‘I1000’]</p></td>
+<td><p>1</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-even"><td><p>[‘I1’, ‘S’, ‘I0’]</p></td>
+<td><p>1</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>[‘S’, ‘S’, ‘R’]</p></td>
+<td><p>1</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td><p>[‘R’, ‘S’, ‘S’, ‘I1’]</p></td>
+<td><p>2</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>[‘R’, ‘I200’, ‘S’, ‘R’]</p></td>
+<td><p>2</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-even"><td><p>[‘I0’, ‘S’, ‘S’, ‘R’]</p></td>
+<td><p>2</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td><p>[‘S’, ‘S’, ‘S’, ‘I1’]</p></td>
+<td><p>0</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td><p>[‘S’, ‘I1’, ‘S’, ‘I1’]</p></td>
+<td><p>0</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>[‘I0’, ‘S’, ‘S’, ‘S’]</p></td>
+<td><p>3</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td><p>[‘I0’, ‘S’, ‘I10’, ‘S’]</p></td>
+<td><p>3</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>[‘S’]</p></td>
+<td><p>0</p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="paso-3-avanzar-estado-de-persona">
+<h3>Paso 3: Avanzar estado de persona<a class="headerlink" href="#paso-3-avanzar-estado-de-persona" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Su tercerp paso es completar la función <code class="docutils literal notranslate"><span class="pre">advance_person_at_position</span></code>. El objetivo de esta función es avanzar el estado de enfermedad de una persona de un día para otro. Dada una ciudad, la ubicación de una persona dentro de esa ciudad y la cantidad de días c la infección es contagiosa, su función debe determinar el próximo estado de la persona. Específicamente, si la persona es:</p>
+<p>Susceptible (“S”): debe determinar si tiene un vecino infectado (utilizando la función has_an_infected_neighbor) y, de ser así, cambiarlo al primer estado infectado (“I0”). De lo contrario, permanecen en el estado Susceptible (“S”).</p>
+<p>Infectado (“I”, seguido de un número entero; nos referiremos a ese número entero como x): determine si la persona permanece infectada (es decir, <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">1</span> <span class="pre">&lt;</span> <span class="pre">c</span></code> ) y pasa al siguiente estado infectado (por ejemplo, “I0” se convierte en “I1”, “ I1 “se convierte en” I2 “, etc.) o cambia al estado recuperado (“ R “). Para calcular el nuevo estado de una persona infectada, deberá extraer el número de días infectados del estado como una cadena, convertirlo en un número entero y luego compararlo con el número de días contagiosos c. Si determinó que la persona seguirá infectada, deberá construir una nueva cadena a partir de “I” y <code class="docutils literal notranslate"><span class="pre">c</span></code>.</p>
+<p>Recuperado (“R”): no debe hacer nada. Las personas recuperadas permanecen en ese estado.</p>
+<p>Como ejemplo, considere las siguientes llamadas a <code class="docutils literal notranslate"><span class="pre">advance_person_at_position</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">22</span><span class="p">]:</span> <span class="n">advance_person_at_position</span><span class="p">([</span><span class="s1">&#39;I0&#39;</span><span class="p">,</span> <span class="s1">&#39;I1&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">22</span><span class="p">]:</span> <span class="s2">&quot;I1&quot;</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">22</span><span class="p">]:</span> <span class="n">advance_person_at_position</span><span class="p">([</span><span class="s1">&#39;I0&#39;</span><span class="p">,</span> <span class="s1">&#39;I1&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">],</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">22</span><span class="p">]:</span> <span class="s2">&quot;R&quot;</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">22</span><span class="p">]:</span> <span class="n">advance_person_at_position</span><span class="p">([</span><span class="s1">&#39;I0&#39;</span><span class="p">,</span> <span class="s1">&#39;I1&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">],</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">22</span><span class="p">]:</span> <span class="s2">&quot;R&quot;</span>
+</pre></div>
+</div>
+<p>Tests a la función:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Ciudad</p></th>
+<th class="head"><p>Posición</p></th>
+<th class="head"><p>Días Contagiado</p></th>
+<th class="head"><p>Resultado</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[‘I1’, ‘S’, ‘S’]</p></td>
+<td><p>1</p></td>
+<td><p>3</p></td>
+<td><p>I0</p></td>
+</tr>
+<tr class="row-odd"><td><p>[‘S’, ‘S’, ‘I0’]</p></td>
+<td><p>1</p></td>
+<td><p>3</p></td>
+<td><p>I0</p></td>
+</tr>
+<tr class="row-even"><td><p>[‘I20’, ‘S’, ‘I0’]</p></td>
+<td><p>1</p></td>
+<td><p>3</p></td>
+<td><p>I0</p></td>
+</tr>
+<tr class="row-odd"><td><p>[‘R’, ‘S’, ‘R’]</p></td>
+<td><p>1</p></td>
+<td><p>3</p></td>
+<td><p>S</p></td>
+</tr>
+<tr class="row-even"><td><p>[‘I1’, ‘S’, ‘S’, ‘S’]</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>S</p></td>
+</tr>
+<tr class="row-odd"><td><p>[‘S’, ‘S’, ‘I0’]</p></td>
+<td><p>0</p></td>
+<td><p>3</p></td>
+<td><p>S</p></td>
+</tr>
+<tr class="row-even"><td><p>[‘S’, ‘I1500’, ‘I0’]</p></td>
+<td><p>0</p></td>
+<td><p>3</p></td>
+<td><p>I0</p></td>
+</tr>
+<tr class="row-odd"><td><p>[‘I1’, ‘R’, ‘S’]</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>S</p></td>
+</tr>
+<tr class="row-even"><td><p>[‘I1’, ‘I1500’, ‘S’]</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>I0</p></td>
+</tr>
+<tr class="row-odd"><td><p>[‘I1’, ‘I1500’, ‘S’]</p></td>
+<td><p>0</p></td>
+<td><p>3</p></td>
+<td><p>I2</p></td>
+</tr>
+<tr class="row-even"><td><p>[‘I2’, ‘I1500’, ‘S’]</p></td>
+<td><p>0</p></td>
+<td><p>3</p></td>
+<td><p>R</p></td>
+</tr>
+<tr class="row-odd"><td><p>[‘I2’, ‘I1500’, ‘S’]</p></td>
+<td><p>1</p></td>
+<td><p>2000</p></td>
+<td><p>I1501</p></td>
+</tr>
+<tr class="row-even"><td><p>[‘I2’, ‘I1500’, ‘S’]</p></td>
+<td><p>1</p></td>
+<td><p>1501</p></td>
+<td><p>R</p></td>
+</tr>
+<tr class="row-odd"><td><p>[‘I2’, ‘I1500’, ‘R’]</p></td>
+<td><p>2</p></td>
+<td><p>2000</p></td>
+<td><p>R</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="paso-4-avanzar-la-simulacion-un-solo-dia">
+<h3>Paso 4: Avanzar la simulación un solo día<a class="headerlink" href="#paso-4-avanzar-la-simulacion-un-solo-dia" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Su cuarto paso es completar la función <code class="docutils literal notranslate"><span class="pre">simulate_one_day</span></code>. Esta función modelará un día en una simulación y actuará como una función auxiliar para <code class="docutils literal notranslate"><span class="pre">run_simulation</span></code>. Más concretamente, <code class="docutils literal notranslate"><span class="pre">simulate_one_day</span></code> debe tomar el estado de la ciudad al comienzo del día y el número de días que una persona es contagiosa y devolver una nueva lista de estados de enfermedad (es decir, el estado de la ciudad después de un día).</p>
+<p>Su implementación para esta función debe usar <code class="docutils literal notranslate"><span class="pre">advance_person_at_position</span></code> para determinar el nuevo estado de cada persona en la ciudad.</p>
+<p>Por ejemplo:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">24</span><span class="p">]:</span> <span class="n">simulate_one_day</span><span class="p">([</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;I0&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">24</span><span class="p">]:</span> <span class="p">[</span><span class="s1">&#39;I0&#39;</span><span class="p">,</span> <span class="s1">&#39;I1&#39;</span><span class="p">,</span> <span class="s1">&#39;I0&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Nota cómo las personas susceptibles en las posiciones 0 y 2 se infectan (ambas tienen un vecino infectado) y la persona en la posición 1 avanza al siguiente estado de su infección (“I0” a “I1”).</p>
+<p>Tests</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Ciudad</p></th>
+<th class="head"><p>Días contagio</p></th>
+<th class="head"><p>Resultado esperado</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[‘I0’, ‘I1’, ‘I100’]</p></td>
+<td><p>200</p></td>
+<td><p>[‘I1’, ‘I2’, ‘I101’]</p></td>
+</tr>
+<tr class="row-odd"><td><p>[‘I2’, ‘I2’, ‘I2’]</p></td>
+<td><p>3</p></td>
+<td><p>[‘R’, ‘R’, ‘R’]</p></td>
+</tr>
+<tr class="row-even"><td><p>[‘R’, ‘R’, ‘R’]</p></td>
+<td><p>3</p></td>
+<td><p>[‘R’, ‘R’, ‘R’]</p></td>
+</tr>
+<tr class="row-odd"><td><p>[‘I1’, ‘S’, ‘I1’]</p></td>
+<td><p>3</p></td>
+<td><p>[‘I2’, ‘I0’, ‘I2’]</p></td>
+</tr>
+<tr class="row-even"><td><p>[‘I1’, ‘S’, ‘I1’]</p></td>
+<td><p>2</p></td>
+<td><p>[‘R’, ‘I0’, ‘R’]</p></td>
+</tr>
+<tr class="row-odd"><td><p>[‘S’, ‘I0’, ‘S’]</p></td>
+<td><p>2</p></td>
+<td><p>[‘I0’, ‘I1’, ‘I0’]</p></td>
+</tr>
+<tr class="row-even"><td><p>[‘S’, ‘S’, ‘S’]</p></td>
+<td><p>2</p></td>
+<td><p>[‘S’, ‘S’, ‘S’]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="paso-5-correr-la-simulacion">
+<h3>Paso 5: Correr la simulación<a class="headerlink" href="#paso-5-correr-la-simulacion" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Su quinto paso es completar la función <code class="docutils literal notranslate"><span class="pre">run_simulation</span></code>, que toma el estado inicial de la ciudad y el número de días que una persona es contagiosa, y devuelve tanto el estado final de la ciudad como el número de días simulados como una tupla. Notará que esta función también toma dos parámetros opcionales adicionales (random_seed y vaccionation_effectiveness); puede ignorar estos parámetros ya que no los utilizaremos hasta la siguiente tarea.</p>
+<p>La función debe ejecutar una simulación completa, llamando repetidamente a <code class="docutils literal notranslate"><span class="pre">simulate_one_day</span></code> hasta que llegue a la condición de parada de la simulación: cuando la ciudad no tenga personas infectadas. Al hacer esto, la función también debe contar el número de días simulados.</p>
+<p>Tenga en cuenta que, si la condición de parada es verdadera al inicio de la simulación, entonces el número de días simulados será cero.</p>
+<p>Aquí hay dos usos de esta función:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">32</span><span class="p">]:</span> <span class="n">run_simulation</span><span class="p">([</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;I0&#39;</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">32</span><span class="p">]:</span> <span class="p">([</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">],</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">33</span><span class="p">]:</span> <span class="n">run_simulation</span><span class="p">([</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;I0&#39;</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">33</span><span class="p">]:</span> <span class="p">([</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">],</span> <span class="mi">3</span>
+</pre></div>
+</div>
+<p>Tests</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Ciudad al inicio</p></th>
+<th class="head"><p>Días contagiado</p></th>
+<th class="head"><p>Resultado esperado: ciudad y días</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[‘S’, ‘S’, ‘I0’]</p></td>
+<td><p>3</p></td>
+<td><p>([‘R’, ‘R’, ‘R’], 5)</p></td>
+</tr>
+<tr class="row-odd"><td><p>[‘S’, ‘R’, ‘I0’]</p></td>
+<td><p>3</p></td>
+<td><p>([‘S’, ‘R’, ‘R’], 3)</p></td>
+</tr>
+<tr class="row-even"><td><p>[‘R’, ‘S’, ‘S’]</p></td>
+<td><p>2</p></td>
+<td><p>([‘R’, ‘S’, ‘S’], 0)</p></td>
+</tr>
+<tr class="row-odd"><td><p>[‘R’, ‘I0’, ‘S’, ‘I1’, ‘S’, ‘R’, ‘S’]</p></td>
+<td><p>10</p></td>
+<td><p>([‘R’, ‘R’, ‘R’, ‘R’,‘R’, ‘R’, ‘S’], 11)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="paso-6-vacunar-una-ciudad">
+<h3>Paso 6: Vacunar una ciudad<a class="headerlink" href="#paso-6-vacunar-una-ciudad" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Su próximo paso es modificar las funciones para un nuevo estado: vacunado (“V”). Esto implicará implementar la función <code class="docutils literal notranslate"><span class="pre">vaccinate_city</span></code> y actualizar la función <code class="docutils literal notranslate"><span class="pre">run_simulation</span></code>.</p>
+<p>El estado “V” en realidad se comporta exactamente como el estado “R”: una persona vacunada es inmune a la enfermedad y no puede infectarse. Sin embargo, mientras que el estado “R” se alcanza durante la simulación después de que una persona atraviesa una infección, el estado “V” se alcanza antes de que comience la simulación, cuando vacunaremos a todas las personas susceptibles de la ciudad.</p>
+<p>Sin embargo, ninguna vacuna es 100% efectiva, lo que significa que administrar una vacuna a una persona susceptible no la cambia incondicionalmente al estado “V”. En cambio, nuestra simulación tendrá un parámetro adicional: una tasa de efectividad de la vacuna v entre 0.0 y 1.0.</p>
+<p>En el contexto de este ejercicio, puede pensar que la efectividad de la vacuna es similar a lanzar una moneda ponderada. Esto significa que, si v es 0.8, la moneda caerá en “cara” el 80% de las veces y en “cruz” el 20% de las veces. Ahora, imagine que la moneda tiene «la vacuna confiere inmunidad» en lugar de «cara», y «la vacuna NO confiere inmunidad» en lugar de «cruz».</p>
+<p>Entonces, por cada persona susceptible que recibe una vacuna, lanzamos esta moneda ponderada para determinar si la vacuna funciona (la persona cambia al estado “V”) o no funciona (la persona permanece en el estado “S”).</p>
+<p>Para «lanzar una moneda» en Python, usaremos un generador de números aleatorios y, más específicamente, llamaremos random.random (), una función que devuelve un número de punto flotante aleatorio entre 0.0 y 1.0. Interpretaremos el valor devuelto de la siguiente manera:</p>
+<ul class="simple">
+<li><p>Si el número aleatorio es estrictamente menor que v, la vacuna funciona.</p></li>
+<li><p>Si el número aleatorio es mayor o igual av, la vacuna no funciona.</p></li>
+</ul>
+<p>Entonces, <code class="docutils literal notranslate"><span class="pre">vaccinate_city</span></code> tomará una ciudad y una tasa de efectividad de la vacuna, y devolverá una nueva ciudad donde cada persona susceptible ha sido vacunada de acuerdo con la regla anterior. Una vez que haya implementado <code class="docutils literal notranslate"><span class="pre">vaccinate_city</span></code>, deberá modificar <code class="docutils literal notranslate"><span class="pre">run_simulation</span></code> para llamar a vaccinate_city una vez antes de simular cualquier día. Notará que todas nuestras pruebas anteriores llamadas <code class="docutils literal notranslate"><span class="pre">run_simulation</span></code> con la efectividad de la vacuna establecida en 0.0, lo que significa que, una vez que complete esta tarea, las pruebas anteriores no se interrumpirán porque continuarán comportándose como antes: sin que nadie en la ciudad esté vacunado .</p>
+<p>También deberá asegurarse de que <code class="docutils literal notranslate"><span class="pre">advance_person_at_position</span></code> funcione correctamente con el estado “V”. En particular, alguien en el estado “V” debe permanecer en ese estado. Puede probar si su función está funcionando como se esperaba de esta manera:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">sir</span><span class="o">.</span><span class="n">advance_person_at_position</span><span class="p">([</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">],</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="s1">&#39;V&#39;</span>
+</pre></div>
+</div>
+<p>Si la llamada anterior devuelve algo que no sea “V”, asegúrese de estar manejando correctamente el estado “V” en advance_person_at_position.</p>
+<p>Ahora, hay un pequeño truco en el uso de números aleatorios. Intentemos random.random (); para hacerlo, primero tendrá que importar el módulo aleatorio:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="kn">import</span> <span class="nn">random</span>
+</pre></div>
+</div>
+<p>Ahora, intente llamar la función</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="mf">0.595299247755262</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="mf">0.8159606343474648</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="mf">0.30061626031208444</span>
+</pre></div>
+</div>
+<p>Aquí está lo complicado de los números aleatorios en Python: es casi seguro que verá números diferentes cuando pruebe random.random () (lo cual tiene sentido: ¡la función está destinada a devolver un número aleatorio!) Esto puede complicar la depuración y las pruebas, porque puede llamar a una función que se base en random.random () (como vaccinate_city) y obtenga resultados diferentes cada vez.</p>
+<p>Afortunadamente, podemos asegurarnos de que random.random () devuelva la misma secuencia de números cuando se llama al inicializarlo con un valor semilla. Es común establecer el valor inicial para un generador de números aleatorios durante la depuración. Si no establecemos activamente la semilla, los generadores de números aleatorios generalmente derivarán uno del sistema</p>
+<p>Dado que muchas de nuestras pruebas usan la misma semilla (20170217), hemos definido una constante, TEST_SEED, con este valor en sir.py para su conveniencia. Este valor debe usarse solo para pruebas; no debería aparecer en ninguna parte del código que escriba.</p>
+<p>Probemos a establecer la semilla usando el valor de TEST_SEED y luego hagamos algunas llamadas al generador de números aleatorios en ipython3:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="n">sir</span><span class="o">.</span><span class="n">TEST_SEED</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="mi">20170217</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">12</span><span class="p">]:</span> <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">sir</span><span class="o">.</span><span class="n">TEST_SEED</span><span class="p">)</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">13</span><span class="p">]:</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">13</span><span class="p">]:</span> <span class="mf">0.48971492504609215</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">14</span><span class="p">]:</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">14</span><span class="p">]:</span> <span class="mf">0.23010566619210782</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">15</span><span class="p">]:</span> <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">sir</span><span class="o">.</span><span class="n">TEST_SEED</span><span class="p">)</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">16</span><span class="p">]:</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">16</span><span class="p">]:</span> <span class="mf">0.48971492504609215</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">17</span><span class="p">]:</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">17</span><span class="p">]:</span> <span class="mf">0.23010566619210782</span>
+
+</pre></div>
+</div>
+<p>Observe que la tercera y cuarta llamadas a random.random () generan exactamente los mismos valores que las dos primeras llamadas. ¿Por qué? Porque establecemos la semilla exactamente en el mismo valor antes de la primera y tercera llamadas.</p>
+<p>Este comportamiento aleatorio tiene otra implicación: es <strong>crucial</strong> que <code class="docutils literal notranslate"><span class="pre">vaccinate_city</span></code> llame a random.random () solo cuando se encuentre con una persona susceptible. Si llama al generador de números aleatorios para cada persona (incluidas las personas que no están en el estado “S”), su código puede generar respuestas diferentes a las nuestras en pasos posteriores.</p>
+<p>Tests</p>
+<p>A diferencia de los pasos anteriores, debe tener cuidado de inicializar la semilla aleatoria antes de llamar a <code class="docutils literal notranslate"><span class="pre">vaccinate_city</span></code>, para asegurarse de obtener los resultados esperados. Por ejemplo:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">22</span><span class="p">]:</span> <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">sir</span><span class="o">.</span><span class="n">TEST_SEED</span><span class="p">)</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">23</span><span class="p">]:</span> <span class="n">sir</span><span class="o">.</span><span class="n">vaccinate_city</span><span class="p">([</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;I0&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">],</span> <span class="mf">0.8</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">23</span><span class="p">]:</span> <span class="p">[</span><span class="s1">&#39;V&#39;</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;I0&#39;</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">]</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">24</span><span class="p">]:</span> <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">sir</span><span class="o">.</span><span class="n">TEST_SEED</span><span class="p">)</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">25</span><span class="p">]:</span> <span class="n">sir</span><span class="o">.</span><span class="n">vaccinate_city</span><span class="p">([</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;I0&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">],</span> <span class="mf">0.3</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">25</span><span class="p">]:</span> <span class="p">[</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;I0&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Sin embargo, cuando pruebe su <code class="docutils literal notranslate"><span class="pre">run_simulation</span></code> actualizado, tenga en cuenta que la función toma la semilla aleatoria como parámetro, lo que significa que debe llamar a random.seed dentro de <code class="docutils literal notranslate"><span class="pre">run_simulation</span></code>. A continuación, se muestran algunos usos de ejemplo:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">34</span><span class="p">]:</span> <span class="n">sir</span><span class="o">.</span><span class="n">run_simulation</span><span class="p">([</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;I0&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">],</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sir</span><span class="o">.</span><span class="n">TEST_SEED</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">34</span><span class="p">]:</span> <span class="p">([</span><span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">],</span> <span class="mi">7</span><span class="p">)</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">35</span><span class="p">]:</span> <span class="n">sir</span><span class="o">.</span><span class="n">run_simulation</span><span class="p">([</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;I0&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">],</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sir</span><span class="o">.</span><span class="n">TEST_SEED</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">35</span><span class="p">]:</span> <span class="p">([</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">],</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">36</span><span class="p">]:</span> <span class="n">sir</span><span class="o">.</span><span class="n">run_simulation</span><span class="p">([</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;I0&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">],</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sir</span><span class="o">.</span><span class="n">TEST_SEED</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">36</span><span class="p">]:</span> <span class="p">([</span><span class="s1">&#39;V&#39;</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Observe cómo estos resultados tienen sentido: a medida que aumenta la efectividad de la vacuna, la duración de la epidemia disminuye.</p>
+<p>La siguiente tabla proporciona información sobre las pruebas automatizadas para <code class="docutils literal notranslate"><span class="pre">vaccinate_city</span></code>. Cada fila contiene la semilla utilizada para inicializar el generador de números aleatorios, los valores que se pasarán para la ciudad y los argumentos de efectividad de la vacuna para esa prueba, y el resultado esperado. La última columna describe brevemente la prueba.</p>
+<p>Tests para <code class="docutils literal notranslate"><span class="pre">vaccinate_city</span></code></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Semilla</p></th>
+<th class="head"><p>Ciudad</p></th>
+<th class="head"><p>Efectividad vacuna</p></th>
+<th class="head"><p>Resultado</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>20170217</p></td>
+<td><p>[‘S’, ‘S’, ‘S’, ‘S’, ‘S’, ‘I0’, ‘S’]</p></td>
+<td><p>0.0</p></td>
+<td><p>[‘S’, ‘S’, ‘S’, ‘S’, ‘S’, ‘I0’, ‘S’]</p></td>
+</tr>
+<tr class="row-odd"><td><p>20170217</p></td>
+<td><p>[‘S’, ‘S’, ‘S’, ‘S’, ‘S’, ‘I0’, ‘S’]</p></td>
+<td><p>1.0</p></td>
+<td><p>[‘V’, ‘V’, ‘V’, ‘V’, ‘V’, ‘I0’, ‘V’]</p></td>
+</tr>
+<tr class="row-even"><td><p>20170217</p></td>
+<td><p>[‘I0’, ‘I1’, ‘I2’, ‘R’]</p></td>
+<td><p>1.0</p></td>
+<td><p>[‘I0’, ‘I1’, ‘I2’, ‘R’]</p></td>
+</tr>
+<tr class="row-odd"><td><p>20170217</p></td>
+<td><p>[‘S’, ‘S’, ‘S’, ‘S’, ‘S’, ‘I0’, ‘S’]</p></td>
+<td><p>0.3</p></td>
+<td><p>[‘S’, ‘V’, ‘S’, ‘S’, ‘S’, ‘I0’, ‘S’]</p></td>
+</tr>
+<tr class="row-even"><td><p>20170217</p></td>
+<td><p>[‘S’, ‘S’, ‘S’, ‘S’, ‘S’, ‘I0’, ‘S’]</p></td>
+<td><p>0.8</p></td>
+<td><p>[‘V’, ‘V’, ‘V’, ‘V’, ‘S’, ‘I0’, ‘V’]</p></td>
+</tr>
+<tr class="row-odd"><td><p>20170218</p></td>
+<td><p>[‘S’, ‘S’, ‘S’, ‘S’, ‘S’, ‘I0’, ‘S’]</p></td>
+<td><p>0.8</p></td>
+<td><p>[‘V’, ‘V’, ‘V’, ‘V’, ‘V’, ‘I0’, ‘V’]</p></td>
+</tr>
+</tbody>
+</table>
+<p>Tests para <code class="docutils literal notranslate"><span class="pre">run_simulation</span></code> (con vacunas)</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Semilla</p></th>
+<th class="head"><p>Ciudad</p></th>
+<th class="head"><p>Días contagio</p></th>
+<th class="head"><p>Efectividad vacuna</p></th>
+<th class="head"><p>Resultado esperado</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>20170217</p></td>
+<td><p>[‘S’, ‘S’, ‘S’, ‘S’, ‘S’, ‘I0’, ‘S’]</p></td>
+<td><p>2</p></td>
+<td><p>0.0</p></td>
+<td><p>[[‘R’, ‘R’, ‘R’, ‘R’, ‘R’, ‘R’, ‘R’], 7]</p></td>
+</tr>
+<tr class="row-odd"><td><p>20170217</p></td>
+<td><p>[‘S’, ‘S’, ‘S’, ‘S’, ‘S’, ‘I0’, ‘S’]</p></td>
+<td><p>2</p></td>
+<td><p>0.3</p></td>
+<td><p>[[‘S’, ‘V’, ‘R’, ‘R’, ‘R’, ‘R’, ‘R’], 5]</p></td>
+</tr>
+<tr class="row-even"><td><p>20170218</p></td>
+<td><p>[‘S’, ‘S’, ‘S’, ‘S’, ‘S’, ‘I0’, ‘S’]</p></td>
+<td><p>2</p></td>
+<td><p>0.3</p></td>
+<td><p>[[‘S’, ‘S’, ‘S’, ‘V’, ‘V’, ‘R’, ‘R’], 3]</p></td>
+</tr>
+<tr class="row-odd"><td><p>20170217</p></td>
+<td><p>[‘S’, ‘S’, ‘S’, ‘S’, ‘S’, ‘I0’, ‘S’]</p></td>
+<td><p>2</p></td>
+<td><p>0.8</p></td>
+<td><p>[[‘V’, ‘V’, ‘V’, ‘V’, ‘R’, ‘R’, ‘V’], 3]</p></td>
+</tr>
+<tr class="row-even"><td><p>20170218</p></td>
+<td><p>[‘S’, ‘S’, ‘S’, ‘S’, ‘S’, ‘I0’, ‘S’]</p></td>
+<td><p>2</p></td>
+<td><p>0.8</p></td>
+<td><p>[[‘V’, ‘V’, ‘V’, ‘V’, ‘V’, ‘R’, ‘V’], 2]</p></td>
+</tr>
+<tr class="row-odd"><td><p>20170217</p></td>
+<td><p>[‘S’, ‘S’, ‘S’, ‘S’, ‘S’, ‘I0’, ‘S’]</p></td>
+<td><p>2</p></td>
+<td><p>1.0</p></td>
+<td><p>[[‘V’, ‘V’, ‘V’, ‘V’, ‘V’, ‘R’, ‘V’], 2]</p></td>
+</tr>
+</tbody>
+</table>
+<p>Paso 7: Determinación del tiempo promedio hasta cero infecciones
+Este paso consiste en completar la función <code class="docutils literal notranslate"><span class="pre">calc_avg_days_to_zero_infections</span></code>, que calcula el número promedio de días que le toma a una ciudad alcanzar cero infecciones. Esta función toma el estado inicial de la ciudad, la cantidad de días contagiosos, la semilla aleatoria, la tasa de efectividad de la vacuna y la cantidad de ensayos que se ejecutarán como argumentos y devuelve el número promedio de días hasta que una ciudad alcanza cero infecciones durante el número de ensayos. diferentes ejecuciones de prueba. El número de días hasta que una ciudad alcanza cero infecciones es simplemente el número de días devueltos por run_simulation.</p>
+<p>Cada vez que ejecute una simulación de prueba, debe aumentar la semilla aleatoria en 1. Es importante que incremente su semilla aleatoria. Si olvida incrementar su semilla, todas las pruebas serán idénticas, y si incrementa su semilla de una manera diferente a la especificada, su código puede producir un resultado diferente (y por lo tanto, no pasar nuestras pruebas).</p>
+<p>Su implementación debe llamar a run_simulation, que establece la semilla, por lo que a diferencia de la tarea anterior, no necesita llamar a random.seed antes de ejecutar esta función en ipython3.</p>
+<p>A continuación, se muestra un ejemplo de uso de esta función:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">52</span><span class="p">]:</span> <span class="n">sir</span><span class="o">.</span><span class="n">calc_avg_days_to_zero_infections</span><span class="p">([</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;I0&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">],</span>
+    <span class="o">...</span><span class="p">:</span>                                      <span class="mi">2</span><span class="p">,</span> <span class="n">sir</span><span class="o">.</span><span class="n">TEST_SEED</span><span class="p">,</span> <span class="mf">0.65</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">52</span><span class="p">]:</span> <span class="mf">2.6</span>
+</pre></div>
+</div>
+<p>Tests</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Semilla</p></th>
+<th class="head"><p>Ciudad</p></th>
+<th class="head"><p>Días Contagio</p></th>
+<th class="head"><p>Efectividad vacuna</p></th>
+<th class="head"><p>Número de prueba</p></th>
+<th class="head"><p>Resultado esperado</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>20170217</p></td>
+<td><p>[‘S’, ‘I1’, ‘S’, ‘I0’]</p></td>
+<td><p>2</p></td>
+<td><p>0.8</p></td>
+<td><p>5</p></td>
+<td><p>2.2</p></td>
+</tr>
+<tr class="row-odd"><td><p>20170217</p></td>
+<td><p>[‘S’, ‘I1’, ‘S’, ‘I0’]</p></td>
+<td><p>2</p></td>
+<td><p>0.3</p></td>
+<td><p>5</p></td>
+<td><p>2.8</p></td>
+</tr>
+<tr class="row-even"><td><p>20170219</p></td>
+<td><p>[‘S’, ‘I1’, ‘S’, ‘I0’]</p></td>
+<td><p>2</p></td>
+<td><p>0.8</p></td>
+<td><p>5</p></td>
+<td><p>2.4</p></td>
+</tr>
+<tr class="row-odd"><td><p>20170217</p></td>
+<td><p>[‘S’, ‘I1’, ‘S’, ‘I0’]</p></td>
+<td><p>2</p></td>
+<td><p>0.8</p></td>
+<td><p>100</p></td>
+<td><p>2.31</p></td>
+</tr>
+<tr class="row-even"><td><p>20170218</p></td>
+<td><p>[‘S’, ‘I1’, ‘S’, ‘I0’]</p></td>
+<td><p>2</p></td>
+<td><p>0.8</p></td>
+<td><p>100</p></td>
+<td><p>2.31</p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>         | 100              | 5.48               |
+</pre></div>
+</div>
+<p>| 20170217 | [‘S’, ‘S’, ‘I1’, ‘I1’, ‘I1’, ‘I1’, ‘I1’, ‘S’] | 2             | 0.5                | 1                | 3.0                |
+| 20170217 | [‘S’, ‘S’, ‘I1’, ‘I1’, ‘I1’, ‘I1’, ‘I1’, ‘S’] | 2             | 1.0                | 10               | 1.0                |
+| 20170217 | [‘R’, ‘R’, ‘R’, ‘R’]                          | 2             | 0.5                | 10               | 0.0                |</p>
+</div>
+<div class="section" id="paso-8-probabilidad-y-gravedad-de-contagio">
+<h3>Paso 8: Probabilidad y gravedad de contagio<a class="headerlink" href="#paso-8-probabilidad-y-gravedad-de-contagio" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Hasta ahora hemos asumido que tomo mundo con un vecino se contagia y que la gravedad de la enfermedad (cuántos días dura) es la misma para todos, pero ahora jugaremos con esos supuestos. Modifica las funciones correspondientes para parametrizar la variable <code class="docutils literal notranslate"><span class="pre">propensity</span></code> que da una probabilidad de contagio de una persona con base en cuántos vecinos enfermos tiene. La probabilidad de contagio será</p>
+<ul class="simple">
+<li><p>100% - Si tiene dos vecinos contagiado</p></li>
+<li><p>75% - Si tiene un vecino contagiado</p></li>
+</ul>
+<p>Al mismo tiempo, modifica el parámetro días contagiados <code class="docutils literal notranslate"><span class="pre">d</span></code> para que en lugar de ser un número constante sea un techo de contagio, es decir, el máximo de días contagiado será ese número pero es posible que las personas se enfermen menos tiempo, para determinar eso se usará una función random que asigne un número de días contagios entre 1 y <code class="docutils literal notranslate"><span class="pre">d</span></code>. Vuelve a correr la simulación completa con estas dos modificaciones.</p>
+<p>No hemos proporcionado tests para este código, por favor crea 5 tests que prueben que la función funciona</p>
+</div>
+<div class="section" id="paso-9-la-gente-se-mueve">
+<h3>Paso 9: La gente se mueve<a class="headerlink" href="#paso-9-la-gente-se-mueve" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Ahora vamos a asumir que la gente se mueve en su día e interactua con otra gente. Crea una función <code class="docutils literal notranslate"><span class="pre">advance_person_at_position_move</span></code> que modifique la función <code class="docutils literal notranslate"><span class="pre">advance_person_at_position</span></code> para que acepte como un parámetro adicional una lista de personas con las que se encontró en su día.</p>
+<p>Una persona se va a contagiar con probabilidad 100% si se cumple cualquiera de las siguientes condiciones:</p>
+<ul class="simple">
+<li><p>Si tiene dos vecinos contagiado</p></li>
+<li><p>Si toda la gente con la que se encontró estába contagiada</p></li>
+</ul>
+<p>Se contagia con probabilidad 75% si se cumple cualquiera de las siguientes condiciones:</p>
+<ul class="simple">
+<li><p>Si tiene un vecino contagiado</p></li>
+<li><p>Si 75% o más de la gente con la que se encontró estaba contagiada</p></li>
+</ul>
+<p>Se contagia con probabilidad 50% si se cumplen las siguientes condiciones:</p>
+<ul class="simple">
+<li><p>Sin vecinos contagiado</p></li>
+<li><p>Si 50% o más de la gente con la que se encontró estaba contagiada</p></li>
+</ul>
+<p>Se contagia con probabilidad 25% si se cumplen las siguientes condiciones:</p>
+<ul class="simple">
+<li><p>Sin vecinos contagiado</p></li>
+<li><p>Si 25% o más de la gente con la que se encontró estaba contagiada</p></li>
+</ul>
+<p>Sólo modifica esta función, un ejemplo sería</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">53</span><span class="p">]:</span> <span class="n">advance_person_at_position_move</span><span class="p">([</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;V&#39;</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;I0&quot;</span><span class="p">,</span> <span class="s2">&quot;I1&quot;</span><span class="p">,</span> <span class="s2">&quot;I2&quot;</span><span class="p">])</span>
+<span class="n">Out</span> <span class="p">[</span><span class="mi">53</span><span class="p">]:</span> <span class="s1">&#39;I0&#39;</span>
+
+</pre></div>
+</div>
+<p>En este caso, aunque la persona no tenía vecinos enfermos, toda la gente con la que se encontró afuera estaba enferma y por eso se contagió</p>
+</div>
+<div class="section" id="paso-10-la-ciudad-se-complejiza">
+<h3>Paso 10: La ciudad se complejiza<a class="headerlink" href="#paso-10-la-ciudad-se-complejiza" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Finalmente, modifica la función <code class="docutils literal notranslate"><span class="pre">has_an_infected_neighbor</span></code> para asegurarse que funciona con una matriz. En esta caso, crea una función <code class="docutils literal notranslate"><span class="pre">has_an_infected_neighbor_matrix</span></code> que debe revisar si la persona de arriba y abajo está contagiada (no hay contagios diagonales).</p>
+<p>Para representar una matriz usaremos una lista de listas de modo que la matriz</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>I0</p></td>
+<td><p>S</p></td>
+<td><p>I0</p></td>
+</tr>
+<tr class="row-odd"><td><p>S</p></td>
+<td><p>S</p></td>
+<td><p>R</p></td>
+</tr>
+<tr class="row-even"><td><p>S</p></td>
+<td><p>S</p></td>
+<td><p>I2</p></td>
+</tr>
+</tbody>
+</table>
+<p>Está representada por la lista:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">city_matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;I0&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;I0&quot;</span><span class="p">],[</span><span class="s2">&quot;S&quot;</span><span class="p">,</span> <span class="s2">&quot;S&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">],[</span><span class="s2">&quot;S&quot;</span><span class="p">,</span> <span class="s2">&quot;S&quot;</span><span class="p">,</span> <span class="s2">&quot;I2&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>En este llamar a la función has_an_infected_neighbor debería llamar a una coordenada x, y y regresar el valor</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">54</span><span class="p">]:</span> <span class="n">has_an_infected_neighbor_matriz</span><span class="p">(</span><span class="n">city_matriz</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">Out</span> <span class="p">[</span><span class="mi">54</span><span class="p">]:</span> <span class="kc">True</span>
+
+</pre></div>
+</div>
+<p>En este caso se evaluar si el caso R en la segunda fila y tercera columna tiene un vecino infectado, su vecino de al lado no está infectado pero el de arriba y abajo sí, y por eso marca infectado.</p>
+</div>
+</div>
+<div class="section" id="entregar-la-tarea">
+<h2>Entregar la tarea<a class="headerlink" href="#entregar-la-tarea" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Por favor entrega la tarea con las funciones completadas del archivo .py que mandamos. Recuerda documentar muy bien las funciones y probarlas en el notebook.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "rafneta/CienciaDatosPythonCIDE",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Tareas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="1_intro_tarea.html" title="previous page">Tarea 1</a>
+    <a class='right-next' id="next-link" href="../docs/Proyecto.html" title="next page">Proyecto</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Rafael Martínez-Martínez and Federico Daverio<br/>
+        
+            &copy; Copyright .<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
