@@ -35,11 +35,11 @@
     sections:
       - file: Laboratorios/Lab3/FuncionesMetodos
       - file: Laboratorios/Lab3/ListasyCiclos
-  #  sections:
-  #    - file: Laboratorios/Lab4/listas
-  #- file: Laboratorios/Lab5/lab5
-  #  sections:
-  #    - file: Laboratorios/Lab5/ControlDeFlujo
+  
+  - file: Laboratorios/Lab4/lab4
+    title: 4. Excepciones
+    sections:
+      - file: Laboratorios/Lab4/Excepciones
   #- file: Laboratorios/Lab6/lab6
   #  sections:
   #    - file: Laboratorios/Lab6/tuplas
