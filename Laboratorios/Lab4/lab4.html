@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Laboratorio 2 &#8212; Introducción a la ciencia de datos</title>
+    <title>Laboratorio 4 &#8212; Introducción a la ciencia de datos</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -62,8 +62,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="Variables y Condiciones" href="Varfunif.html" />
-    <link rel="prev" title="Introducción a GitHub" href="../Lab1/GitHub.html" />
+    <link rel="next" title="Control de Excepciones" href="Excepciones.html" />
+    <link rel="prev" title="Listas y Ciclos" href="../Lab3/ListasyCiclos.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -164,23 +164,23 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1 current active collapsible-parent">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab2/lab2.html">
    2. Datos, flujo, funciones
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="Varfunif.html">
+    <a class="reference internal" href="../Lab2/Varfunif.html">
      Variables y Condiciones
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="fundamentos.html">
+    <a class="reference internal" href="../Lab2/fundamentos.html">
      Operaciones con tipos de datos básicos
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="Introfunmod.html">
+    <a class="reference internal" href="../Lab2/Introfunmod.html">
      Introducción a funciones y módulos
     </a>
    </li>
@@ -207,13 +207,13 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../Lab4/lab4.html">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="current reference internal" href="#">
    4. Excepciones
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../Lab4/Excepciones.html">
+    <a class="reference internal" href="Excepciones.html">
      Control de Excepciones
     </a>
    </li>
@@ -295,7 +295,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/Laboratorios/Lab2/lab2.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/Laboratorios/Lab4/lab4.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -315,7 +315,7 @@
                 data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
                     class="fab fa-github"></i>repositorio</button></a>
         <a class="issues-button"
-            href="https://github.com/rafneta/CienciaDatosPythonCIDE/issues/new?title=Issue%20on%20page%20%2FLaboratorios/Lab2/lab2.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/rafneta/CienciaDatosPythonCIDE/issues/new?title=Issue%20on%20page%20%2FLaboratorios/Lab4/lab4.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
         
@@ -336,7 +336,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/rafneta/CienciaDatosPythonCIDE/master?urlpath=tree/Laboratorios/Lab2/lab2.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/rafneta/CienciaDatosPythonCIDE/master?urlpath=tree/Laboratorios/Lab4/lab4.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -344,7 +344,7 @@
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/rafneta/CienciaDatosPythonCIDE/blob/master/Laboratorios/Lab2/lab2.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/rafneta/CienciaDatosPythonCIDE/blob/master/Laboratorios/Lab4/lab4.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Lanzamiento Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -368,14 +368,13 @@
         
               <div>
                 
-  <div class="section" id="laboratorio-2">
-<h1>Laboratorio 2<a class="headerlink" href="#laboratorio-2" title="Enlazar permanentemente con este título">¶</a></h1>
+  <div class="section" id="laboratorio-4">
+<h1>Laboratorio 4<a class="headerlink" href="#laboratorio-4" title="Enlazar permanentemente con este título">¶</a></h1>
 <div class = "slide-w">
 <div class = "video-container">
-<iframe src="https://slides.com/ra_fa/labcdpcide/fullscreen#/2" width="100%" height="650px" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<iframe src="https://slides.com/ra_fa/labcdpcide/fullscreen#/4" width="100%" height="650px" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     </div>
-</div>
-<div class="toctree-wrapper compound">
+</div><div class="toctree-wrapper compound">
 </div>
 </div>
 
@@ -392,7 +391,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./Laboratorios/Lab2"
+            path: "./Laboratorios/Lab4"
         },
         predefinedOutput: true
     }
@@ -407,8 +406,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../Lab1/GitHub.html" title="previous page">Introducción a GitHub</a>
-    <a class='right-next' id="next-link" href="Varfunif.html" title="next page">Variables y Condiciones</a>
+    <a class='left-prev' id="prev-link" href="../Lab3/ListasyCiclos.html" title="previous page">Listas y Ciclos</a>
+    <a class='right-next' id="next-link" href="Excepciones.html" title="next page">Control de Excepciones</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
