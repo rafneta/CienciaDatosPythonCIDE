@@ -24,12 +24,14 @@
     sections:
       - file: Laboratorios/Lab1/instalacion
       - file: Laboratorios/Lab1/GitHub
+      
   - file: Laboratorios/Lab2/lab2
     title: 2. Datos, flujo, funciones 
     sections:
       - file: Laboratorios/Lab2/Varfunif
       - file: Laboratorios/Lab2/fundamentos
       - file: Laboratorios/Lab2/Introfunmod
+      
   - file: Laboratorios/Lab3/lab3
     title: 3. Funciones, Métodos, Ciclos 
     sections:
@@ -40,7 +42,13 @@
     title: 4. Excepciones
     sections:
       - file: Laboratorios/Lab4/Excepciones
-  #- file: Laboratorios/Lab6/lab6
+      
+  - file: Laboratorios/Lab5/lab5
+    title: 5. Paradigmas, lambda, recursión 
+    sections:
+      - file: Laboratorios/Lab5/ModulosEjemplos
+
+#- file: Laboratorios/Lab6/lab6
   #  sections:
   #    - file: Laboratorios/Lab6/tuplas
   #- file: Laboratorios/Lab7/lab7

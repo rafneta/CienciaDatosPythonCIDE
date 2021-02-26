@@ -1,6 +1,7 @@
 matplotlib
 numpy
 scipy
+seaborn
 ipywidgets
 jupyter_contrib_nbextensions
 rise
