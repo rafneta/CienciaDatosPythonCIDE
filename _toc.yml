@@ -39,18 +39,21 @@
       - file: Laboratorios/Lab3/ListasyCiclos
   
   - file: Laboratorios/Lab4/lab4
-    title: 4. Excepciones
+    title: 4. Ciclos, Excepciones
     sections:
+      - file: Laboratorios/Lab4/Ciclos
       - file: Laboratorios/Lab4/Excepciones
       
   - file: Laboratorios/Lab5/lab5
     title: 5. Paradigmas, lambda, recursión 
     sections:
       - file: Laboratorios/Lab5/ModulosEjemplos
+      - file: Laboratorios/Lab5/Recursion
 
-#- file: Laboratorios/Lab6/lab6
-  #  sections:
-  #    - file: Laboratorios/Lab6/tuplas
+  - file: Laboratorios/Lab6/lab6
+    title: 6. Árboles (clasificación), Estructuras
+    sections:
+      - file: Laboratorios/Lab6/Estructuras
   #- file: Laboratorios/Lab7/lab7
   #  sections:
   #    - file: Laboratorios/Lab7/ComplejidadAlgoritmica
