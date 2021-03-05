@@ -17,21 +17,19 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-a = input("escriba algo")
+Ciao Mamma
+
+for x in saludar:
+    if x== "m":
+        continue
+    print(x)
+    
 ------------------
 
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mStdinNotImplementedError[0m                  Traceback (most recent call last)
-[0;32m<ipython-input-1-e7bddc30a437>[0m in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0;31m [0ma[0m [0;34m=[0m [0minput[0m[0;34m([0m[0;34m"escriba algo"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m
-[0;32m~/opt/anaconda3/lib/python3.8/site-packages/ipykernel/kernelbase.py[0m in [0;36mraw_input[0;34m(self, prompt)[0m
-[1;32m    855[0m         """
-[1;32m    856[0m         [0;32mif[0m [0;32mnot[0m [0mself[0m[0;34m.[0m[0m_allow_stdin[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m--> 857[0;31m             raise StdinNotImplementedError(
-[0m[1;32m    858[0m                 [0;34m"raw_input was called, but this frontend does not support input requests."[0m[0;34m[0m[0;34m[0m[0m
-[1;32m    859[0m             )
+[0;36m  File [0;32m"<ipython-input-3-9f13097c85e8>"[0;36m, line [0;32m1[0m
+[0;31m    Ciao Mamma[0m
+[0m         ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
 
-[0;31mStdinNotImplementedError[0m: raw_input was called, but this frontend does not support input requests.
-StdinNotImplementedError: raw_input was called, but this frontend does not support input requests.
+SyntaxError: invalid syntax (<ipython-input-3-9f13097c85e8>, line 1)
 

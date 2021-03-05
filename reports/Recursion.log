@@ -17,14 +17,25 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-a = input("escriba algo")
+def potenciamod(base,exp):
+    if(exp==1):
+        return(base)
+    if(exp!=1):
+        return(base*potenciamod(base,exp-1))
+base=int(input("Ingresa la base: "))
+exp=int(input("Ingresa el valor del exponente: "))
+print("Resultado:",potenciamod(base,exp))
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mStdinNotImplementedError[0m                  Traceback (most recent call last)
-[0;32m<ipython-input-1-e7bddc30a437>[0m in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0;31m [0ma[0m [0;34m=[0m [0minput[0m[0;34m([0m[0;34m"escriba algo"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m
+[0;32m<ipython-input-1-47caf81218a4>[0m in [0;36m<module>[0;34m[0m
+[1;32m      4[0m     [0;32mif[0m[0;34m([0m[0mexp[0m[0;34m!=[0m[0;36m1[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m         [0;32mreturn[0m[0;34m([0m[0mbase[0m[0;34m*[0m[0mpotenciamod[0m[0;34m([0m[0mbase[0m[0;34m,[0m[0mexp[0m[0;34m-[0m[0;36m1[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m [0mbase[0m[0;34m=[0m[0mint[0m[0;34m([0m[0minput[0m[0;34m([0m[0;34m"Ingresa la base: "[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0mexp[0m[0;34m=[0m[0mint[0m[0;34m([0m[0minput[0m[0;34m([0m[0;34m"Ingresa el valor del exponente: "[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m [0mprint[0m[0;34m([0m[0;34m"Resultado:"[0m[0;34m,[0m[0mpotenciamod[0m[0;34m([0m[0mbase[0m[0;34m,[0m[0mexp[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
 [0;32m~/opt/anaconda3/lib/python3.8/site-packages/ipykernel/kernelbase.py[0m in [0;36mraw_input[0;34m(self, prompt)[0m
 [1;32m    855[0m         """
 [1;32m    856[0m         [0;32mif[0m [0;32mnot[0m [0mself[0m[0;34m.[0m[0m_allow_stdin[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m

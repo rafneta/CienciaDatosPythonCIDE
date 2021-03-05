@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Instalación Anaconda &#8212; Introducción a la ciencia de datos</title>
     
-  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -25,8 +25,8 @@
     href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.37f24b989f4638ff9c27c22dc7559d4f.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -38,19 +38,20 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
 
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
     <script src="../../_static/translations.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -209,9 +210,14 @@
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../Lab4/lab4.html">
-   4. Excepciones
+   4. Ciclos, Excepciones
   </a>
   <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab4/Ciclos.html">
+     Ciclos
+    </a>
+   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Lab4/Excepciones.html">
      Control de Excepciones
@@ -229,6 +235,25 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../Lab5/ModulosEjemplos.html">
      Comprensión, lambdas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab5/Recursion.html">
+     Recursión
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab6/lab6.html">
+   6. Árboles (clasificación), Estructuras
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab6/Estructuras.html">
+     Estructuras
     </a>
    </li>
   </ul>
@@ -286,21 +311,21 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
-            title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
             class="fas fa-download"></i></button>
@@ -318,7 +343,7 @@
     </div>
 </div>
 
-        <!-- Source interaction buttons -->
+            <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -337,13 +362,13 @@
 </div>
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
-                title="Modo de pantalla completa"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+                    title="Modo de pantalla completa"><i
+                        class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -370,11 +395,11 @@
     </div>
 </div>
 
-    </div>
+        </div>
 
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
         <div class="tocsection onthispage pt-5 pb-3">
             <i class="fas fa-list"></i> Contenido
         </div>
@@ -404,6 +429,7 @@
 
         </nav>
         
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -442,8 +468,8 @@
 </div>
 <p>De acuerdo a tu equipo, selecciona la pestaña indicada</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="bdd2cceb-2405-4c26-b2b9-af4f45f52e72" name="7d0194cc-cc02-4f10-aa76-f59c275867c1" type="radio">
-</input><label class="tabbed-label" for="bdd2cceb-2405-4c26-b2b9-af4f45f52e72">
+<input checked="checked" id="727152a6-ea86-4378-9ea5-32ff5c467583" name="64cd4bb6-3756-4a10-a1ee-a2a9a1dddb76" type="radio">
+</input><label class="tabbed-label" for="727152a6-ea86-4378-9ea5-32ff5c467583">
 macOS</label><div class="tabbed-content docutils">
 <p>La documentación oficial de <a class="reference external" href="https://docs.anaconda.com/anaconda/install/mac-os/">instalación macOS</a>, puede llegar a parecer muy complicada, pero si se requiere algo en especifico vale la pena seguir.</p>
 <p>Se presenta un resumen de los pasos. Las imagenes  pueden ser distintas dependiendo de la versión del instalador</p>
@@ -474,8 +500,8 @@ https://docs.anaconda.com/_images/Navigator_Launchpad_icon.png"  width="20" heig
 <img src="https://raw.githubusercontent.com/rafneta/CienciaDatosPythonCIDE/master/imagenes/ana_mac.png" widht=60%>
 </div>
 </div>
-<input id="792edf78-e4b3-4d43-a7dc-076938795df1" name="7d0194cc-cc02-4f10-aa76-f59c275867c1" type="radio">
-</input><label class="tabbed-label" for="792edf78-e4b3-4d43-a7dc-076938795df1">
+<input id="ce580a1c-c864-49ee-a120-1f1ebf8f5f9c" name="64cd4bb6-3756-4a10-a1ee-a2a9a1dddb76" type="radio">
+</input><label class="tabbed-label" for="ce580a1c-c864-49ee-a120-1f1ebf8f5f9c">
 Windows</label><div class="tabbed-content docutils">
 <p>La documentación oficial de <a class="reference external" href="https://docs.anaconda.com/anaconda/install/windows/#installing-on-windows">instalación Windows</a>, puede llegar a parecer muy complicada, pero si se requiere algo en especifico vale la pena seguir.</p>
 <p>Se presenta un resumen de los pasos. Las imagenes  pueden ser distintas dependiendo de la versión del instalador</p>
@@ -507,8 +533,8 @@ https://docs.anaconda.com/_images/win-navigator2.png"  width="40" height="60"> y
 <img src="https://docs.anaconda.com/_images/nav-defaults.png" widht=60%>
 </div>
 </div>
-<input id="18965722-1877-4c43-bde2-6006aea65150" name="7d0194cc-cc02-4f10-aa76-f59c275867c1" type="radio">
-</input><label class="tabbed-label" for="18965722-1877-4c43-bde2-6006aea65150">
+<input id="463c0812-ed72-4cca-b181-dd83859ac543" name="64cd4bb6-3756-4a10-a1ee-a2a9a1dddb76" type="radio">
+</input><label class="tabbed-label" for="463c0812-ed72-4cca-b181-dd83859ac543">
 Linux</label><div class="tabbed-content docutils">
 <p>La documentación oficial de <a class="reference external" href="https://docs.anaconda.com/anaconda/install/linux/#installing-on-linux">instalación Linux</a>, puede llegar a parecer muy complicada, pero si se requiere algo en especifico vale la pena seguir.</p>
 <ol class="simple">
@@ -692,23 +718,23 @@ activate mientorno
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="lab1.html" title="previous page">Laboratorio 1</a>
     <a class='right-next' id="next-link" href="GitHub.html" title="next page">Introducción a GitHub</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
       <p>
         
-          By Rafael Martínez-Martínez and Federico Daverio<br/>
+          Por Rafael Martínez-Martínez and Federico Daverio<br/>
         
-            &copy; Copyright .<br/>
+            &copy; Derechos de autor .<br/>
       </p>
     </div>
   </footer>
@@ -719,7 +745,7 @@ activate mientorno
     </div>
 
     
-  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     
