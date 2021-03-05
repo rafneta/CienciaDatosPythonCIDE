@@ -13,3 +13,18 @@
 # ---
 
 import sympy
+
+
+
+def taylor(f, x, x0,n):
+  
+    if n == 0:
+        return f.subs(x, x0)
+    else:
+        return sympy.diff(f,x,n).subs(x,x0)/sympy.factorial(n) * (x - x0) ** n + taylor(f,x,x0,n-1)
+    
+    
+
+
+
+
