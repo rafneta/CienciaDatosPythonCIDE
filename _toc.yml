@@ -53,6 +53,7 @@
   - file: Laboratorios/Lab6/lab6
     title: 6. Árboles (clasificación), Estructuras
     sections:
+      - file: Laboratorios/Lab6/Arboles
       - file: Laboratorios/Lab6/Estructuras
   #- file: Laboratorios/Lab7/lab7
   #  sections:
