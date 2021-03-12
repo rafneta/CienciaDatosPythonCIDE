@@ -55,7 +55,9 @@
     sections:
       - file: Laboratorios/Lab6/Arboles
       - file: Laboratorios/Lab6/Estructuras
-  #- file: Laboratorios/Lab7/lab7
+  
+  - file: Laboratorios/Lab7/lab7
+    title: 7. Repaso 
   #  sections:
   #    - file: Laboratorios/Lab7/ComplejidadAlgoritmica
   #- file: Laboratorios/Lab8/lab8
