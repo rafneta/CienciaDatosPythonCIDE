@@ -67,12 +67,10 @@
 - part: Tareas
   chapters:
   - file: Tareas/1_intro_tarea
-    sections:
-      - file: Respuestas/1_intro_tarea_respuesta
-        title: Solución  
   - file: Tareas/tarea2
     title: Tarea 2
-
+  - file: Tareas/soluciones
+  
 - part: Proyecto
   chapters:
   - file: docs/Proyecto
