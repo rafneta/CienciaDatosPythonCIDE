@@ -58,6 +58,31 @@
   
   - file: Laboratorios/Lab7/lab7
     title: 7. Repaso 
+  
+  - file: Laboratorios/Lab8/lab8
+    title: 8. Numpy y Pandas
+    sections:
+      - file: Laboratorios/Lab8/numpy
+      - file: Laboratorios/Lab8/Pandas
+      
+
+  - file: Laboratorios/Lab9/lab9
+    title: 9. Numpy II y Pandas II
+    sections:
+      - file: Laboratorios/Lab9/numpy2
+
+  - file: Laboratorios/Lab10/lab10
+    title: 10. Ejemplos Numpy y pandas
+    sections:
+      - file: Laboratorios/Lab10/EjemploPandas
+    
+  - file: Laboratorios/Lab11/lab11
+    title: 11. Scraping, APIS
+
+  
+  
+  
+  
   #  sections:
   #    - file: Laboratorios/Lab7/ComplejidadAlgoritmica
   #- file: Laboratorios/Lab8/lab8
