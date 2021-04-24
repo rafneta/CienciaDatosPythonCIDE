@@ -1,0 +1,1021 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NumPy &#8212; Introducción a la ciencia de datos</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.37f24b989f4638ff9c27c22dc7559d4f.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/estilo-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/estilo-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="Laboratorio 10" href="../Lab10/lab10.html" />
+    <link rel="prev" title="Laboratorio 9" href="lab9.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Introducción a la ciencia de datos</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Sobre este sitio
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Información del curso
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/encuadre.html">
+   Encuadre
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/calendarioLab.html">
+   Calendario Laboratorio
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/Navegacion.html">
+   Navegación en el libro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/Pizarron.html">
+   Pizarrón
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Clases
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Clases/1_intro.html">
+   1. Introducción a Python
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Laboratorios
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab1/lab1.html">
+   1. Anaconda, GitHub
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab1/instalacion.html">
+     Instalación Anaconda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab1/GitHub.html">
+     Introducción a GitHub
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab2/lab2.html">
+   2. Datos, flujo, funciones
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab2/Varfunif.html">
+     Variables y Condiciones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab2/fundamentos.html">
+     Operaciones con tipos de datos básicos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab2/Introfunmod.html">
+     Introducción a funciones y módulos
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab3/lab3.html">
+   3. Funciones, Métodos, Ciclos
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab3/FuncionesMetodos.html">
+     Funciones y métodos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab3/ListasyCiclos.html">
+     Listas y Ciclos
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab4/lab4.html">
+   4. Ciclos, Excepciones
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab4/Ciclos.html">
+     Ciclos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab4/Excepciones.html">
+     Control de Excepciones
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab5/lab5.html">
+   5. Paradigmas, lambda, recursión
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab5/ModulosEjemplos.html">
+     Comprensión, lambdas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab5/Recursion.html">
+     Recursión
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab6/lab6.html">
+   6. Árboles (clasificación), Estructuras
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab6/Arboles.html">
+     Arboles de Decisiones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab6/Estructuras.html">
+     Estructuras
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab7/lab7.html">
+   7. Repaso
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab8/lab8.html">
+   8. Numpy y Pandas
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab8/numpy.html">
+     NumPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab8/numpy.html#ejemplo-econometria">
+     Ejemplo Econometría
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab8/Pandas.html">
+     Pandas
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="lab9.html">
+   9. Numpy II y Pandas II
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     NumPy
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab10/lab10.html">
+   10. Ejemplos Numpy y pandas
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab10/EjemploPandas.html">
+     Ejemplos Pandas
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab11/lab11.html">
+   11. Scraping, APIS
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Tareas
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Tareas/1_intro_tarea.html">
+   Tarea 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Tareas/tarea2.html">
+   Tarea 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Tareas/soluciones.html">
+   Soluciones
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Proyecto
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/Proyecto.html">
+   Proyecto
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Laboratorios/Lab9/numpy2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/rafneta/CienciaDatosPythonCIDE"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/rafneta/CienciaDatosPythonCIDE/issues/new?title=Issue%20on%20page%20%2FLaboratorios/Lab9/numpy2.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+                    title="Modo de pantalla completa"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/rafneta/CienciaDatosPythonCIDE/master?urlpath=tree/Laboratorios/Lab9/numpy2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/rafneta/CienciaDatosPythonCIDE/blob/master/Laboratorios/Lab9/numpy2.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Lanzamiento Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Lanzamiento Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contenido
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regresion-simple">
+   Regresión Simple
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wooldridge-2016-ejemplo-2-3">
+     Wooldridge 2016, ejemplo-2-3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cargamos-las-regresiones">
+     Cargamos las regresiones
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bondad-de-ajuste">
+     Bondad de ajuste
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#errores-estandar">
+     Errores estándar
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#estadisticos">
+     Estadísticos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#valor-p">
+     Valor
+     <span class="math notranslate nohighlight">
+      \(p\)
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regresion-multiple">
+   Regresión Múltiple
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p><img alt="" src="https://raw.githubusercontent.com/rafneta/CienciaDatosPythonCIDE/master/imagenes/banner.png" /></p>
+<div class="section" id="numpy">
+<h1>NumPy<a class="headerlink" href="#numpy" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">wooldridge</span> <span class="k">as</span> <span class="nn">woo</span>
+<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="regresion-simple">
+<h2>Regresión Simple<a class="headerlink" href="#regresion-simple" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="math notranslate nohighlight">
+\[y = \beta_0 +\beta_1 x + u\]</div>
+<div class="math notranslate nohighlight">
+\[\hat\beta_0 = \bar{y}-\hat\beta_1 \bar{x}\]</div>
+<div class="math notranslate nohighlight">
+\[\hat\beta_1= \frac{Cov(x,y)}{Var(x)}\]</div>
+<div class="section" id="wooldridge-2016-ejemplo-2-3">
+<h3>Wooldridge 2016, ejemplo-2-3<a class="headerlink" href="#wooldridge-2016-ejemplo-2-3" title="Enlazar permanentemente con este título">¶</a></h3>
+</div>
+<div class="section" id="cargamos-las-regresiones">
+<h3>Cargamos las regresiones<a class="headerlink" href="#cargamos-las-regresiones" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">archi_o</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;../Lab8/regsmf.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+<span class="n">reg_smf</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">archi_o</span><span class="p">)</span>
+<span class="n">archi_o</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reg_smf</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="simpletable">
+<caption>OLS Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>         <td>salary</td>      <th>  R-squared:         </th> <td>   0.013</td>
+</tr>
+<tr>
+  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared:    </th> <td>   0.008</td>
+</tr>
+<tr>
+  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   2.767</td>
+</tr>
+<tr>
+  <th>Date:</th>             <td>Sat, 24 Apr 2021</td> <th>  Prob (F-statistic):</th>  <td>0.0978</td> 
+</tr>
+<tr>
+  <th>Time:</th>                 <td>13:20:08</td>     <th>  Log-Likelihood:    </th> <td> -1804.5</td>
+</tr>
+<tr>
+  <th>No. Observations:</th>      <td>   209</td>      <th>  AIC:               </th> <td>   3613.</td>
+</tr>
+<tr>
+  <th>Df Residuals:</th>          <td>   207</td>      <th>  BIC:               </th> <td>   3620.</td>
+</tr>
+<tr>
+  <th>Df Model:</th>              <td>     1</td>      <th>                     </th>     <td> </td>   
+</tr>
+<tr>
+  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>     <td> </td>   
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+      <td></td>         <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>Intercept</th> <td>  963.1913</td> <td>  213.240</td> <td>    4.517</td> <td> 0.000</td> <td>  542.790</td> <td> 1383.592</td>
+</tr>
+<tr>
+  <th>roe</th>       <td>   18.5012</td> <td>   11.123</td> <td>    1.663</td> <td> 0.098</td> <td>   -3.428</td> <td>   40.431</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Omnibus:</th>       <td>311.096</td> <th>  Durbin-Watson:     </th> <td>   2.105</td> 
+</tr>
+<tr>
+  <th>Prob(Omnibus):</th> <td> 0.000</td>  <th>  Jarque-Bera (JB):  </th> <td>31120.902</td>
+</tr>
+<tr>
+  <th>Skew:</th>          <td> 6.915</td>  <th>  Prob(JB):          </th> <td>    0.00</td> 
+</tr>
+<tr>
+  <th>Kurtosis:</th>      <td>61.158</td>  <th>  Cond. No.          </th> <td>    43.3</td> 
+</tr>
+</table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div></div>
+</div>
+</div>
+<div class="section" id="bondad-de-ajuste">
+<h3>Bondad de ajuste<a class="headerlink" href="#bondad-de-ajuste" title="Enlazar permanentemente con este título">¶</a></h3>
+<ul class="simple">
+<li><p>Suma Total de Cuadrados</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{STC} \equiv \sum_{i=1}^{n}\left(y_{i}-\bar{y}\right)^{2}
+\]</div>
+<ul class="simple">
+<li><p>Suma Explicada de Cuadrados</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{SEC} \equiv \sum_{i=1}^{n}\left(\hat{y}_{i}-\bar{y}\right)^{2}
+\]</div>
+<ul class="simple">
+<li><p>Suma Residual de Cuadrados</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{SRC} \equiv \sum_{i=1}^{n} \hat{u}_{i}^{2}
+\]</div>
+<p><strong>Bondad de ajuste</strong></p>
+<div class="math notranslate nohighlight">
+\[
+R^{2} \equiv \mathrm{SEC} / \mathrm{STC}=1-\mathrm{SRC} / \mathrm{STC}
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">reg_smf</span><span class="o">.</span><span class="n">endog</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">reg_smf</span><span class="o">.</span><span class="n">exog</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">ym</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">yh</span> <span class="o">=</span> <span class="n">reg_smf</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">fittedvalues</span>
+<span class="n">yh</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="c1"># imprimir tipos de datos</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1224.058071
+1    1164.854261
+2    1397.969216
+3    1072.348338
+4    1218.507712
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yh</span> <span class="o">=</span> <span class="n">reg_smf</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">exog</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">roe</span><span class="o">=</span><span class="n">x</span><span class="p">))</span>
+<span class="n">yh</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1224.058071
+1    1164.854261
+2    1397.969216
+3    1072.348338
+4    1218.507712
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">ym</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">stc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>391732982.00956935
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">yh</span><span class="o">-</span><span class="n">ym</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">sec</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5166419.039866708
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uh</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">yh</span>   <span class="c1"># residuales</span>
+
+<span class="n">src</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">uh</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">src</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>386566562.96970266
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stc</span> <span class="o">==</span> <span class="n">sec</span> <span class="o">+</span> <span class="n">src</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r2</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">src</span><span class="o">/</span><span class="n">stc</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bondad de ajuste&quot;</span><span class="p">,</span><span class="n">r2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bondad de ajuste 0.01318862408103405
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="errores-estandar">
+<h3>Errores estándar<a class="headerlink" href="#errores-estandar" title="Enlazar permanentemente con este título">¶</a></h3>
+<ul class="simple">
+<li><p>Estimador de la varianza <span class="math notranslate nohighlight">\(\sigma^2\)</span> de los errores <span class="math notranslate nohighlight">\(u_i\)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\hat{\sigma}^{2}=\frac{1}{(n-2)} \sum_{i=1}^{n} \hat{u}_{i}^{2}=\operatorname{SRC} /(n-2)
+\]</div>
+<ul class="simple">
+<li><p>Error estándar de la regresion (EER, error estandar de la estimación, raí&lt; del error cuadratico medio) es la estimación de la desviación estandar <span class="math notranslate nohighlight">\(\sigma\)</span> de los errores <span class="math notranslate nohighlight">\(u_i\)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\hat\sigma = \sqrt{\hat{\sigma}^{2}}=\sqrt{\frac{1}{(n-2)} \sum_{i=1}^{n} \hat{u}_{i}^{2}}=\sqrt{\operatorname{SRC} /(n-2)}\]</div>
+<ul class="simple">
+<li><p>Error estándar de <span class="math notranslate nohighlight">\(\hat\beta_0\)</span>, es el estimador de la desviación estándar de <span class="math notranslate nohighlight">\(\hat\beta_0\)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+ee(\beta_0)=\hat{\operatorname{de}}\left(\hat{\beta}_{0}\right)=\hat{\sigma}  \sqrt{\frac{\mathrm{SC}_x}{n\mathrm{STC}_x}}=\hat{\sigma} \sqrt{\frac{\sum_{i=1}^{n}x_i^2}{n\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}}}
+\]</div>
+<ul class="simple">
+<li><p>Error estándar de <span class="math notranslate nohighlight">\(\hat\beta_1\)</span>, es el estimador de la desviación estándar de <span class="math notranslate nohighlight">\(\hat\beta_1\)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+ee(\beta_1)=\hat{\operatorname{de}}\left(\hat{\beta}_{1}\right)=\hat{\sigma} / \sqrt{\mathrm{STC}_x}=\hat{\sigma} /\sqrt{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}}
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="n">reg_smf</span><span class="o">.</span><span class="n">nobs</span>
+<span class="n">varhu</span> <span class="o">=</span> <span class="n">src</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">varhu</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1867471.3186942157
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eer</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">varhu</span><span class="p">)</span>
+<span class="n">eer</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1366.5545428903363
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">stcx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">xm</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">scx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">eeb0</span> <span class="o">=</span> <span class="n">eer</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">scx</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">stcx</span><span class="p">))</span>
+<span class="n">eeb0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>213.24025690501887
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eeb1</span> <span class="o">=</span> <span class="n">eer</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">stcx</span><span class="p">)</span>
+<span class="n">eeb1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11.123250903287637
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="estadisticos">
+<h3>Estadísticos<a class="headerlink" href="#estadisticos" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Bajo las condiciones adecuadas se tiene que:</p>
+<div class="math notranslate nohighlight">
+\[
+\left(\hat{\beta}_{j}-\beta_{j}\right) / \operatorname{ee}\left(\hat{\beta}_{j}\right) \sim t_{n-2},\quad j\in\{0,1\}
+\]</div>
+<p>Se pueden plantear las siguientes pruebas de hipótesis</p>
+<div class="math notranslate nohighlight">
+\[H_0:\beta_j=0   \qquad H_a: \beta_j\neq 0\]</div>
+<p>Para cada muestra de datos <span class="math notranslate nohighlight">\((x,y)_m\)</span> se tienen las estimaciones <span class="math notranslate nohighlight">\(\hat\beta_j\)</span> de <span class="math notranslate nohighlight">\(\beta_j\)</span>, es por ello que se habla de la distribución de la variable aleatoria indicada.</p>
+<p>Para una muestra dada, si aplicamos la hipótesis nula</p>
+<div class="math notranslate nohighlight">
+\[\hat{\beta}_{j}/ \operatorname{ee}\left(\hat{\beta}_{j}\right)=t_{\hat\beta_j}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regresion</span> <span class="o">=</span> <span class="n">reg_smf</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">b0</span><span class="o">=</span><span class="n">regresion</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">tb0</span> <span class="o">=</span> <span class="n">b0</span><span class="o">/</span><span class="n">eeb0</span>
+<span class="n">tb0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.516930107158806
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b1</span><span class="o">=</span><span class="n">regresion</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">tb1</span> <span class="o">=</span> <span class="n">b1</span><span class="o">/</span><span class="n">eeb1</span>
+<span class="n">tb1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.66328949208065
+</pre></div>
+</div>
+</div>
+</div>
+<div class = "slide-w">
+<div class = "video-container">
+<iframe src="https://www.desmos.com/calculator/jh4tz6vbyw" width="100%" height="650px" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    </div>
+</div><div class = "slide-w">
+<div class = "video-container">
+<iframe src="https://www.desmos.com/calculator/qsklmkjpxf" width="100%" height="650px" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    </div>
+</div>
+</div>
+<div class="section" id="valor-p">
+<h3>Valor <span class="math notranslate nohighlight">\(p\)</span><a class="headerlink" href="#valor-p" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[p_{\hat\beta_j}\text{-value}=P(|t_{n-2}|&gt; |t_{\hat\beta_j}|) = P(t_{n-2}&lt;-|t_{\hat\beta_j}|\cup |t_{\hat\beta_j}|&lt;t_{n-2})=P(t_{n-2}&lt;-|t_{\hat\beta_j}|)+P(|t_{\hat\beta_j}|&lt;t_{n-2})\]</div>
+<p>Para ello necesitamos el submódulo de scipy: <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/stats.html">stats</a>, en este caso la distribución <span class="math notranslate nohighlight">\(t\)</span> tiene la siguiente descripción</p>
+<div class="math notranslate nohighlight">
+\[
+f(x, \nu)=\frac{\Gamma((\nu+1) / 2)}{\sqrt{\pi \nu} \Gamma(\nu / 2)}\left(1+x^{2} / \nu\right)^{-(\nu+1) / 2}
+\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\nu\)</span> son los grados de libertad, y <code class="docutils literal notranslate"><span class="pre">t.pdf(x,</span> <span class="pre">df,</span> <span class="pre">loc,</span> <span class="pre">scale)</span></code>, con la sigeuinte tranformación <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">(x</span> <span class="pre">-</span> <span class="pre">loc)</span> <span class="pre">/</span> <span class="pre">scale.</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">t</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="mi">207</span>
+
+<span class="n">rv</span> <span class="o">=</span> <span class="n">t</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="n">pb0</span> <span class="o">=</span> <span class="n">rv</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="o">-</span><span class="n">tb0</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">rv</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">tb0</span><span class="p">))</span> <span class="c1"># argumentos de cdf: loc = 0, scale = 1 </span>
+<span class="n">pb0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0533519915197438e-05
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pb1</span> <span class="o">=</span> <span class="n">rv</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="o">-</span><span class="n">tb1</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">rv</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">tb1</span><span class="p">))</span>
+<span class="n">pb1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.09776774891928593
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regresion</span><span class="o">.</span><span class="n">pvalues</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Intercept    0.000011
+roe          0.097768
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="regresion-multiple">
+<h2>Regresión Múltiple<a class="headerlink" href="#regresion-multiple" title="Enlazar permanentemente con este título">¶</a></h2>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "rafneta/CienciaDatosPythonCIDE",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Laboratorios/Lab9"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="lab9.html" title="previous page">Laboratorio 9</a>
+    <a class='right-next' id="next-link" href="../Lab10/lab10.html" title="next page">Laboratorio 10</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          Por Rafael Martínez-Martínez and Federico Daverio<br/>
+        
+            &copy; Derechos de autor .<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

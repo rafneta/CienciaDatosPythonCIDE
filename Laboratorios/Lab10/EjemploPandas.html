@@ -1,0 +1,2345 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejemplos Pandas &#8212; Introducción a la ciencia de datos</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.37f24b989f4638ff9c27c22dc7559d4f.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/estilo-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/estilo-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="Laboratorio 11" href="../Lab11/lab11.html" />
+    <link rel="prev" title="Laboratorio 10" href="lab10.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Introducción a la ciencia de datos</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Sobre este sitio
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Información del curso
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/encuadre.html">
+   Encuadre
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/calendarioLab.html">
+   Calendario Laboratorio
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/Navegacion.html">
+   Navegación en el libro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/Pizarron.html">
+   Pizarrón
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Clases
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Clases/1_intro.html">
+   1. Introducción a Python
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Laboratorios
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab1/lab1.html">
+   1. Anaconda, GitHub
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab1/instalacion.html">
+     Instalación Anaconda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab1/GitHub.html">
+     Introducción a GitHub
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab2/lab2.html">
+   2. Datos, flujo, funciones
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab2/Varfunif.html">
+     Variables y Condiciones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab2/fundamentos.html">
+     Operaciones con tipos de datos básicos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab2/Introfunmod.html">
+     Introducción a funciones y módulos
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab3/lab3.html">
+   3. Funciones, Métodos, Ciclos
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab3/FuncionesMetodos.html">
+     Funciones y métodos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab3/ListasyCiclos.html">
+     Listas y Ciclos
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab4/lab4.html">
+   4. Ciclos, Excepciones
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab4/Ciclos.html">
+     Ciclos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab4/Excepciones.html">
+     Control de Excepciones
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab5/lab5.html">
+   5. Paradigmas, lambda, recursión
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab5/ModulosEjemplos.html">
+     Comprensión, lambdas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab5/Recursion.html">
+     Recursión
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab6/lab6.html">
+   6. Árboles (clasificación), Estructuras
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab6/Arboles.html">
+     Arboles de Decisiones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab6/Estructuras.html">
+     Estructuras
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab7/lab7.html">
+   7. Repaso
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab8/lab8.html">
+   8. Numpy y Pandas
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab8/numpy.html">
+     NumPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab8/numpy.html#ejemplo-econometria">
+     Ejemplo Econometría
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab8/Pandas.html">
+     Pandas
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab9/lab9.html">
+   9. Numpy II y Pandas II
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab9/numpy2.html">
+     NumPy
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="lab10.html">
+   10. Ejemplos Numpy y pandas
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Ejemplos Pandas
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab11/lab11.html">
+   11. Scraping, APIS
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Tareas
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Tareas/1_intro_tarea.html">
+   Tarea 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Tareas/tarea2.html">
+   Tarea 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Tareas/soluciones.html">
+   Soluciones
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Proyecto
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/Proyecto.html">
+   Proyecto
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Laboratorios/Lab10/EjemploPandas.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/rafneta/CienciaDatosPythonCIDE"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/rafneta/CienciaDatosPythonCIDE/issues/new?title=Issue%20on%20page%20%2FLaboratorios/Lab10/EjemploPandas.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+                    title="Modo de pantalla completa"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/rafneta/CienciaDatosPythonCIDE/master?urlpath=tree/Laboratorios/Lab10/EjemploPandas.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/rafneta/CienciaDatosPythonCIDE/blob/master/Laboratorios/Lab10/EjemploPandas.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Lanzamiento Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Lanzamiento Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contenido
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#base-de-datos-esru-emovi-2017">
+   Base de datos ESRU-EMOVI 2017
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#encuesta-nacional-de-ingresos-y-gastos-de-los-hogares-enigh-2016">
+   Encuesta Nacional de Ingresos y Gastos de los Hogares (ENIGH) 2016
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p><img alt="" src="https://raw.githubusercontent.com/rafneta/CienciaDatosPythonCIDE/master/imagenes/banner.png" /></p>
+<div class="section" id="ejemplos-pandas">
+<h1>Ejemplos Pandas<a class="headerlink" href="#ejemplos-pandas" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="base-de-datos-esru-emovi-2017">
+<h2>Base de datos ESRU-EMOVI 2017<a class="headerlink" href="#base-de-datos-esru-emovi-2017" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Por primera vez y gracias al enfoque territorial de la ESRU – EMOVI 2017, es posible medir la movilidad social por regiones. La encuesta de 2017, al igual que las anteriores, tiene como finalidad principal medir la movilidad social intergeneracional. Cuenta con 17,665 entrevistas y es representativa de hombres y mujeres entre 25 y 64 años a nivel nacional, para la Ciudad de México y cinco regiones del país: norte, norte-occidente, centro, centro-norte y sur. Los objetivos de la ESRU-EMOVI 2017 son:</p>
+<ul class="simple">
+<li><p>Contar con información actualizada en las distintas dimensiones de la movilidad social a nivel nacional.</p></li>
+<li><p>Generar estimaciones de movilidad para cinco regiones del país y la Ciudad de México.</p></li>
+<li><p>Analizar los patrones de movilidad social desde la perspectiva de la desigualdad de oportunidades.</p></li>
+</ul>
+<p>Encuesta financiada por la Fundación ESRU. <a class="reference external" href="https://ceey.org.mx/contenido/que-hacemos/emovi/">CEEY</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">string</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_stata</span><span class="p">(</span><span class="s1">&#39;ESRU-EMOVI-2017-Entrevistado.dta&#39;</span><span class="p">,</span>
+                   <span class="n">convert_categoricals</span><span class="o">=</span> <span class="kc">False</span>
+                  <span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>folio           object
+Estado         float64
+folio_ageb      object
+consecutivo     object
+Origen         float64
+                ...   
+cmo2_2          object
+cmo3_2          object
+cmo4_2          object
+cmo5_2          object
+tamhog         float64
+Length: 366, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>folio</th>
+      <th>Estado</th>
+      <th>folio_ageb</th>
+      <th>consecutivo</th>
+      <th>Origen</th>
+      <th>Latitud</th>
+      <th>Longitud</th>
+      <th>LatitudGP</th>
+      <th>LongitudGP</th>
+      <th>recontacto</th>
+      <th>...</th>
+      <th>region</th>
+      <th>cdmx</th>
+      <th>tot_int</th>
+      <th>rururb</th>
+      <th>cmo1_2</th>
+      <th>cmo2_2</th>
+      <th>cmo3_2</th>
+      <th>cmo4_2</th>
+      <th>cmo5_2</th>
+      <th>tamhog</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0100100010286020830102</td>
+      <td>1.0</td>
+      <td>0100100010286</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>21.901323</td>
+      <td>-102.310598</td>
+      <td>21.901477</td>
+      <td>-102.310429</td>
+      <td>2</td>
+      <td>...</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>5.0</td>
+      <td>0.0</td>
+      <td>41</td>
+      <td>.</td>
+      <td>.</td>
+      <td>13</td>
+      <td>.</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0100100010286020850201</td>
+      <td>1.0</td>
+      <td>0100100010286</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>21.901323</td>
+      <td>-102.310598</td>
+      <td>21.900773</td>
+      <td>-102.311138</td>
+      <td>1</td>
+      <td>...</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>41</td>
+      <td>.</td>
+      <td>.</td>
+      <td>41</td>
+      <td>.</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0100100010286025830201</td>
+      <td>1.0</td>
+      <td>0100100010286</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>21.900830</td>
+      <td>-102.311818</td>
+      <td>21.900549</td>
+      <td>-102.313361</td>
+      <td>1</td>
+      <td>...</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>81</td>
+      <td>.</td>
+      <td>.</td>
+      <td>11</td>
+      <td>.</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0100100010286025840101</td>
+      <td>1.0</td>
+      <td>0100100010286</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>21.901188</td>
+      <td>-102.310700</td>
+      <td>21.900765</td>
+      <td>-102.313144</td>
+      <td>1</td>
+      <td>...</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>52</td>
+      <td>.</td>
+      <td>.</td>
+      <td>.</td>
+      <td>.</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0100100010286025850101</td>
+      <td>1.0</td>
+      <td>0100100010286</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>21.901188</td>
+      <td>-102.310700</td>
+      <td>21.900577</td>
+      <td>-102.312733</td>
+      <td>1</td>
+      <td>...</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>52</td>
+      <td>.</td>
+      <td>.</td>
+      <td>.</td>
+      <td>.</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>17660</th>
+      <td>3205700010022019460402</td>
+      <td>32.0</td>
+      <td>3205700010022</td>
+      <td>2</td>
+      <td>1.0</td>
+      <td>22.755409</td>
+      <td>-102.513985</td>
+      <td>22.755409</td>
+      <td>-102.513985</td>
+      <td>1</td>
+      <td>...</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>71</td>
+      <td>.</td>
+      <td>.</td>
+      <td>.</td>
+      <td>71</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>17661</th>
+      <td>3205700010022025450501</td>
+      <td>32.0</td>
+      <td>3205700010022</td>
+      <td>2</td>
+      <td>1.0</td>
+      <td>22.288405</td>
+      <td>-101.577532</td>
+      <td>22.288405</td>
+      <td>-101.577532</td>
+      <td>1</td>
+      <td>...</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>.</td>
+      <td>.</td>
+      <td>.</td>
+      <td>82</td>
+      <td>71</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>17662</th>
+      <td>3205700010022025460301</td>
+      <td>32.0</td>
+      <td>3205700010022</td>
+      <td>2</td>
+      <td>1.0</td>
+      <td>22.758625</td>
+      <td>-102.499375</td>
+      <td>22.758625</td>
+      <td>-102.499375</td>
+      <td>1</td>
+      <td>...</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>6.0</td>
+      <td>0.0</td>
+      <td>.</td>
+      <td>.</td>
+      <td>.</td>
+      <td>53</td>
+      <td>52</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>17663</th>
+      <td>3205700010022025460302</td>
+      <td>32.0</td>
+      <td>3205700010022</td>
+      <td>2</td>
+      <td>1.0</td>
+      <td>22.755420</td>
+      <td>-102.513997</td>
+      <td>22.755420</td>
+      <td>-102.513997</td>
+      <td>1</td>
+      <td>...</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>5.0</td>
+      <td>0.0</td>
+      <td>.</td>
+      <td>52</td>
+      <td>.</td>
+      <td>53</td>
+      <td>62</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>17664</th>
+      <td>3205700010022025460501</td>
+      <td>32.0</td>
+      <td>3205700010022</td>
+      <td>7</td>
+      <td>1.0</td>
+      <td>22.758625</td>
+      <td>-102.499375</td>
+      <td>22.758625</td>
+      <td>-102.499375</td>
+      <td>1</td>
+      <td>...</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>10.0</td>
+      <td>0.0</td>
+      <td>.</td>
+      <td>.</td>
+      <td>.</td>
+      <td>.</td>
+      <td>41</td>
+      <td>10.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>17665 rows × 366 columns</p>
+</div></div></div>
+</div>
+<p>De acuerdo a las preguntas, hacemos un filtro de acuerdo lo que necesitemos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pregunta p02, comparten el mimso gasto para comer: 1 ) Si 2 ) No</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">p02</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">]</span>
+
+<span class="c1"># pregunta p08, es el jefe del hogar: 1 ) Si </span>
+<span class="c1">#df2 = df2[df2.p08 == 1 ]</span>
+
+<span class="c1"># pregunta p12. actualmente estudia, 1)Si 2)No</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="n">df2</span><span class="o">.</span><span class="n">p12</span> <span class="o">==</span> <span class="mi">2</span> <span class="p">]</span>
+
+<span class="c1"># aós alacnazado podria ser importante p14</span>
+
+<span class="c1"># p13, nivel escuela 1-12. 97 = no fue a la escuela</span>
+<span class="c1">#df2 = df2[df2.p13 = 97 ] # quitamos la no asistencia</span>
+<span class="c1">#print(df2.p13.unique())</span>
+
+
+<span class="c1"># p63, Escuela publica o privada, 8 = No aplica </span>
+<span class="c1"># estonces sino aplica con quedamos con el más alto </span>
+<span class="c1"># esta valirvale es mas complicada, por el momento no la utiizamos</span>
+<span class="c1"># (preguntas por cada caso)</span>
+
+
+
+<span class="c1"># p68, Personas que trabajan, 1. Si, 2. No</span>
+<span class="c1"># p69, negocio vacaciones, 1. Si, 2. No</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[(</span><span class="n">df2</span><span class="o">.</span><span class="n">p68</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">p69</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)]</span> <span class="c1"># quitamos los no ocupados</span>
+
+
+<span class="c1"># p120, material de la casa opciones: 1,2,3</span>
+
+<span class="c1"># p121, numero de cuartos para dormir, libre</span>
+
+<span class="c1"># p122, numeor totales de cuartos, libre</span>
+
+<span class="c1"># p123, casa propia o  del conyugue, 1. Sí, 2. No </span>
+
+<span class="c1"># p125, servicios básicos de la vivienda, </span>
+<span class="c1"># 125a - 125e (preguntas por cada caso, 1. Si, 2. No)</span>
+
+<span class="c1"># p126, articulos propiedad del hogar </span>
+<span class="c1"># 126a - 126r (preguntas por cada caso, 1. Si , 2. No)</span>
+
+<span class="c1"># p127, prestamo variable 1-9, 8 es otro caso</span>
+<span class="c1">#df2 = df2[df2.p127 != 8 ] # quitamos la otra posibilidad</span>
+
+<span class="c1"># p128, ahorros, tarjeta de credito, cuent abancaria, </span>
+<span class="c1"># a-f (preguntas por cada caso) 1. Si 2. No</span>
+
+<span class="c1"># p129, pertenencias propias o de conyugue, </span>
+<span class="c1"># a-e (pregunta por cada caso) 1. Si, 2. No</span>
+
+<span class="c1"># p130, apoyo economico porgramas u otro medio, </span>
+<span class="c1"># a-f, (preguntas por cada caso)  </span>
+
+<span class="c1"># p131, numero de automoviles propios, libre</span>
+
+<span class="c1"># p132,  numero de miembros que aportan ingreso al hogar</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="n">df2</span><span class="o">.</span><span class="n">p132</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span> <span class="c1"># un solo sosten</span>
+
+<span class="c1"># Cohort  de ingreso todas las personas que aportan ingresos</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[(</span><span class="n">df2</span><span class="o">.</span><span class="n">p133</span> <span class="o">!=</span> <span class="mi">8</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span> <span class="n">df2</span><span class="o">.</span><span class="n">p133</span> <span class="o">!=</span> <span class="mi">9</span><span class="p">)</span> <span class="p">]</span> <span class="c1">#ingreso no reportado o no diponible</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;valores cohort de ingreso&#39;</span><span class="p">,</span><span class="n">df2</span><span class="o">.</span><span class="n">p133</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+
+
+<span class="c1"># p134, condiciones del barrio</span>
+<span class="c1"># a-i, (preguntas por cada caso) 1. Si , 2. No, 8 son respuesta </span>
+<span class="n">p</span> <span class="o">=</span> <span class="s2">&quot;p134&quot;</span>
+
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="s2">&quot;abcdefghi&quot;</span><span class="p">:</span>
+    <span class="n">df2</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="n">df2</span><span class="p">[</span><span class="n">p</span><span class="o">+</span><span class="n">_</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">8</span><span class="p">]</span>
+
+
+<span class="c1"># p147 percepción de 1 más pobre + 10 más rico</span>
+    
+    
+<span class="c1">#df2.p08.plot.hist()</span>
+
+
+<span class="c1">#df2.p133.plot.hist()</span>
+
+<span class="n">Estado</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Estado&quot;</span><span class="p">]</span>
+<span class="n">p5</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;p05&#39;</span><span class="p">]</span>
+<span class="n">p6</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;p06&#39;</span><span class="p">]</span>
+<span class="n">p13</span>  <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;p13&#39;</span><span class="p">]</span>
+<span class="n">SINCO</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SINCO3&#39;</span><span class="p">]</span>
+<span class="n">p63</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;p63a&#39;</span><span class="p">,</span><span class="s1">&#39;p63b&#39;</span><span class="p">,</span><span class="s1">&#39;p63c&#39;</span><span class="p">,</span><span class="s1">&#39;p63d&#39;</span><span class="p">]</span> <span class="c1"># por el momento la  quitamos de la estimación</span>
+<span class="n">p120</span>  <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;p120&#39;</span><span class="p">]</span>
+<span class="n">p121</span>  <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;p121&#39;</span><span class="p">]</span>
+<span class="n">p122</span>  <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;p122&#39;</span><span class="p">]</span>
+<span class="n">p123</span>  <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;p123&#39;</span><span class="p">]</span>
+<span class="n">p125</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;p125a&#39;</span><span class="p">,</span><span class="s1">&#39;p125b&#39;</span><span class="p">,</span><span class="s1">&#39;p125c&#39;</span><span class="p">,</span><span class="s1">&#39;p125d&#39;</span><span class="p">,</span><span class="s1">&#39;p125e&#39;</span><span class="p">]</span>
+<span class="kn">import</span> <span class="nn">string</span>
+<span class="n">p126</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;p126&#39;</span> <span class="o">+</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_lowercase</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">18</span><span class="p">]</span> <span class="p">]</span>
+<span class="n">p127</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;p127&#39;</span><span class="p">]</span>
+<span class="n">p128</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;p128a&#39;</span><span class="p">,</span><span class="s1">&#39;p128b&#39;</span><span class="p">,</span><span class="s1">&#39;p128c&#39;</span><span class="p">,</span><span class="s1">&#39;p128d&#39;</span><span class="p">,</span><span class="s1">&#39;p128e&#39;</span><span class="p">,</span><span class="s1">&#39;p128f&#39;</span><span class="p">]</span>
+<span class="n">p129</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;p129a&#39;</span><span class="p">,</span><span class="s1">&#39;p129b&#39;</span><span class="p">,</span><span class="s1">&#39;p129c&#39;</span><span class="p">,</span><span class="s1">&#39;p129d&#39;</span><span class="p">,</span><span class="s1">&#39;p129e&#39;</span><span class="p">]</span>
+<span class="n">p130</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;p130a&#39;</span><span class="p">,</span><span class="s1">&#39;p130b&#39;</span><span class="p">,</span><span class="s1">&#39;p130c&#39;</span><span class="p">,</span><span class="s1">&#39;p130d&#39;</span><span class="p">,</span><span class="s1">&#39;p130e&#39;</span><span class="p">,</span> <span class="s1">&#39;p130f&#39;</span><span class="p">]</span>
+<span class="n">p131</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;p131&#39;</span><span class="p">]</span>
+<span class="n">p132</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;p132&#39;</span><span class="p">]</span>
+<span class="n">p134</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;p134a&#39;</span><span class="p">,</span><span class="s1">&#39;p134b&#39;</span><span class="p">,</span><span class="s1">&#39;p134c&#39;</span><span class="p">,</span><span class="s1">&#39;p134d&#39;</span><span class="p">,</span><span class="s1">&#39;p134e&#39;</span><span class="p">,</span> <span class="s1">&#39;p134f&#39;</span><span class="p">,</span><span class="s1">&#39;p134g&#39;</span><span class="p">,</span><span class="s1">&#39;p134h&#39;</span><span class="p">,</span><span class="s1">&#39;p134i&#39;</span><span class="p">]</span>
+<span class="n">p147</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;p147&#39;</span><span class="p">]</span>
+
+<span class="c1">#indexX =  p13  +  p120  + p121 +  p122  + p123 + p125  + p126 + p127 + p128 + p129  + p130 + p131  </span>
+
+<span class="c1">#indexX =  p13   + p121 +  p122 + p127 + p131 </span>
+
+
+<span class="c1">#indexX =  p13  + p131 </span>
+
+<span class="n">indexX</span> <span class="o">=</span> <span class="n">Estado</span> <span class="o">+</span> <span class="n">p5</span> <span class="o">+</span> <span class="n">p6</span> <span class="o">+</span> <span class="n">p13</span> <span class="o">+</span> <span class="n">SINCO</span>
+
+
+<span class="n">indexY</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;p133&#39;</span><span class="p">]</span>
+
+<span class="n">M</span>  <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="n">indexX</span><span class="o">+</span><span class="n">indexY</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span> 
+
+<span class="n">M</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">M</span><span class="o">.</span><span class="n">p133</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span><span class="s1">&#39;p133&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">M</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">M</span><span class="o">.</span><span class="n">p133</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">,</span><span class="s1">&#39;p133&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">p133</span> <span class="o">-</span> <span class="mi">1</span>
+
+
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="n">indexX</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">Xc</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="n">indexX</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="n">indexY</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">yc</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="n">indexY</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>valores cohort de ingreso [4 3 7 5 1 2 6]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Xc</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 3699 entries, 6 to 17653
+Data columns (total 5 columns):
+ #   Column  Non-Null Count  Dtype   
+---  ------  --------------  -----   
+ 0   Estado  3699 non-null   category
+ 1   p05     3699 non-null   category
+ 2   p06     3699 non-null   category
+ 3   p13     3699 non-null   category
+ 4   SINCO3  3699 non-null   category
+dtypes: category(5)
+memory usage: 226.8 KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Xc</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Estado</th>
+      <th>p05</th>
+      <th>p06</th>
+      <th>p13</th>
+      <th>SINCO3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>3699.0</td>
+      <td>3699.0</td>
+      <td>3699</td>
+      <td>3699.0</td>
+      <td>3699</td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td>32.0</td>
+      <td>40.0</td>
+      <td>2</td>
+      <td>13.0</td>
+      <td>305</td>
+    </tr>
+    <tr>
+      <th>top</th>
+      <td>9.0</td>
+      <td>40.0</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>4111</td>
+    </tr>
+    <tr>
+      <th>freq</th>
+      <td>600.0</td>
+      <td>146.0</td>
+      <td>2254</td>
+      <td>943.0</td>
+      <td>489</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Xc</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estado  p05   p06  p13   SINCO3
+7.0     25.0  2    3.0   9998      4
+        62.0  1    2.0   6111      4
+4.0     64.0  1    2.0   6111      3
+6.0     62.0  1    2.0   7121      3
+9.0     26.0  1    6.0   4211      3
+                                  ..
+19.0    27.0  2    11.0  1511      1
+                   4.0   4111      1
+                   2.0   7513      1
+              1    6.0   5114      1
+1.0     25.0  1    6.0   2815      1
+Length: 3606, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Xc</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estado    category
+p05       category
+p06       category
+p13       category
+SINCO3    category
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Xc</span><span class="o">.</span><span class="n">p06</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">categories</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Int64Index([1, 2], dtype=&#39;int64&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Xc</span><span class="o">.</span><span class="n">p06</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1    2254
+2    1445
+Name: p06, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Mc</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;p133&quot;</span><span class="p">,</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">Mc</span><span class="p">,</span>
+            <span class="n">col</span><span class="o">=</span><span class="s2">&quot;p13&quot;</span><span class="p">,</span> 
+            <span class="n">col_wrap</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+           <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;count&#39;</span><span class="p">,</span>
+           <span class="n">hue</span> <span class="o">=</span> <span class="s1">&#39;p06&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/EjemploPandas_14_0.png" src="../../_images/EjemploPandas_14_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="encuesta-nacional-de-ingresos-y-gastos-de-los-hogares-enigh-2016">
+<h2>Encuesta Nacional de Ingresos y Gastos de los Hogares (ENIGH) 2016<a class="headerlink" href="#encuesta-nacional-de-ingresos-y-gastos-de-los-hogares-enigh-2016" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La Encuesta Nacional de Ingresos y Gastos de los Hogares 2016 se llevó a cabo del 21 de agosto al 28 de noviembre de 2016. Su objetivo es proporcionar un panorama estadístico del comportamiento de los ingresos y gastos de los hogares en cuanto a su monto, procedencia y distribución; adicionalmente, ofrece información sobre las características ocupacionales y sociodemográficas de los integrantes del hogar, así como las características de la infraestructura de la vivienda y el equipamiento del hogar. <a class="reference external" href="https://www.inegi.org.mx/programas/enigh/nc/2016/">ENIGH-2016</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;ingresos.dta&quot;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_stata</span><span class="p">(</span><span class="n">url</span><span class="p">,</span>
+                   <span class="n">convert_categoricals</span><span class="o">=</span> <span class="kc">False</span>
+                  <span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>folioviv     object
+foliohog     object
+numren       object
+clave        object
+mes_1        object
+mes_2        object
+mes_3        object
+mes_4        object
+mes_5        object
+mes_6        object
+ing_1       float64
+ing_2       float64
+ing_3       float64
+ing_4       float64
+ing_5       float64
+ing_6       float64
+ing_tri     float64
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>folioviv</th>
+      <th>foliohog</th>
+      <th>numren</th>
+      <th>clave</th>
+      <th>mes_1</th>
+      <th>mes_2</th>
+      <th>mes_3</th>
+      <th>mes_4</th>
+      <th>mes_5</th>
+      <th>mes_6</th>
+      <th>ing_1</th>
+      <th>ing_2</th>
+      <th>ing_3</th>
+      <th>ing_4</th>
+      <th>ing_5</th>
+      <th>ing_6</th>
+      <th>ing_tri</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0100003801</td>
+      <td>1</td>
+      <td>02</td>
+      <td>P009</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>7500.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1844.26</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0100003801</td>
+      <td>1</td>
+      <td>01</td>
+      <td>P001</td>
+      <td>09</td>
+      <td>08</td>
+      <td>07</td>
+      <td>06</td>
+      <td>05</td>
+      <td>04</td>
+      <td>18000.0</td>
+      <td>18000.0</td>
+      <td>18000.0</td>
+      <td>18000.0</td>
+      <td>18000.0</td>
+      <td>18000.0</td>
+      <td>53114.75</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0100003801</td>
+      <td>1</td>
+      <td>02</td>
+      <td>P001</td>
+      <td>09</td>
+      <td>08</td>
+      <td>07</td>
+      <td>06</td>
+      <td>05</td>
+      <td>04</td>
+      <td>15000.0</td>
+      <td>15000.0</td>
+      <td>15000.0</td>
+      <td>15000.0</td>
+      <td>15000.0</td>
+      <td>15000.0</td>
+      <td>44262.29</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0100003801</td>
+      <td>1</td>
+      <td>01</td>
+      <td>P009</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>6000.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1475.40</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0100003802</td>
+      <td>1</td>
+      <td>02</td>
+      <td>P040</td>
+      <td>10</td>
+      <td>09</td>
+      <td>08</td>
+      <td>07</td>
+      <td>06</td>
+      <td>05</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>5000.0</td>
+      <td>0.0</td>
+      <td>2459.01</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>334332</th>
+      <td>3260801906</td>
+      <td>1</td>
+      <td>02</td>
+      <td>P022</td>
+      <td>10</td>
+      <td>09</td>
+      <td>08</td>
+      <td>07</td>
+      <td>06</td>
+      <td>05</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2200.0</td>
+      <td>2000.0</td>
+      <td>2000.0</td>
+      <td>2000.0</td>
+      <td>4010.86</td>
+    </tr>
+    <tr>
+      <th>334333</th>
+      <td>3260801906</td>
+      <td>1</td>
+      <td>02</td>
+      <td>P053</td>
+      <td>10</td>
+      <td>09</td>
+      <td>08</td>
+      <td>07</td>
+      <td>06</td>
+      <td>05</td>
+      <td>500.0</td>
+      <td>0.0</td>
+      <td>300.0</td>
+      <td>200.0</td>
+      <td>0.0</td>
+      <td>300.0</td>
+      <td>635.86</td>
+    </tr>
+    <tr>
+      <th>334334</th>
+      <td>3260801906</td>
+      <td>1</td>
+      <td>04</td>
+      <td>P014</td>
+      <td>10</td>
+      <td>09</td>
+      <td>08</td>
+      <td>07</td>
+      <td>06</td>
+      <td>05</td>
+      <td>1080.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>528.26</td>
+    </tr>
+    <tr>
+      <th>334335</th>
+      <td>3260801906</td>
+      <td>1</td>
+      <td>04</td>
+      <td>P001</td>
+      <td>10</td>
+      <td>09</td>
+      <td>08</td>
+      <td>07</td>
+      <td>06</td>
+      <td>05</td>
+      <td>1200.0</td>
+      <td>500.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>831.52</td>
+    </tr>
+    <tr>
+      <th>334336</th>
+      <td>3260801906</td>
+      <td>1</td>
+      <td>01</td>
+      <td>P053</td>
+      <td>10</td>
+      <td>09</td>
+      <td>08</td>
+      <td>07</td>
+      <td>06</td>
+      <td>05</td>
+      <td>700.0</td>
+      <td>300.0</td>
+      <td>200.0</td>
+      <td>1200.0</td>
+      <td>200.0</td>
+      <td>200.0</td>
+      <td>1369.56</td>
+    </tr>
+  </tbody>
+</table>
+<p>334337 rows × 17 columns</p>
+</div></div></div>
+</div>
+<p>Creamos una función para filtar los folios de hogares y el tipo de persona deseada. ¿Qué es cada tipo de dato creado dentro de la función?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">familiasintegrantes</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">foliohog</span><span class="p">,</span><span class="n">numren</span><span class="p">):</span>
+    
+    <span class="n">confolio</span> <span class="o">=</span> <span class="p">[</span> <span class="n">df</span><span class="o">.</span><span class="n">foliohog</span> <span class="o">==</span> <span class="n">_</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">foliohog</span><span class="p">]</span>
+    <span class="n">confnum</span> <span class="o">=</span> <span class="p">[</span> <span class="n">df</span><span class="o">.</span><span class="n">numren</span> <span class="o">==</span> <span class="n">_</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">numren</span><span class="p">]</span>
+    
+    <span class="n">aconfolio</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">confolio</span><span class="p">:</span>
+        <span class="n">aconfolio</span> <span class="o">=</span> <span class="n">aconfolio</span> <span class="o">|</span> <span class="n">c</span> 
+    
+    <span class="n">aconfnum</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">confnum</span><span class="p">:</span>
+        <span class="n">aconfnum</span> <span class="o">=</span> <span class="n">aconfnum</span> <span class="o">|</span> <span class="n">c</span> 
+    
+    <span class="n">con</span> <span class="o">=</span> <span class="n">aconfolio</span> <span class="o">&amp;</span> <span class="n">aconfnum</span>
+    
+    <span class="k">return</span> <span class="n">df</span><span class="p">[</span><span class="n">con</span><span class="p">]</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">familiasintegrantes</span><span class="p">(</span><span class="n">df</span><span class="p">,[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;2&#39;</span><span class="p">],[</span><span class="s1">&#39;01&#39;</span><span class="p">])</span>
+<span class="n">df1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>folioviv</th>
+      <th>foliohog</th>
+      <th>numren</th>
+      <th>clave</th>
+      <th>mes_1</th>
+      <th>mes_2</th>
+      <th>mes_3</th>
+      <th>mes_4</th>
+      <th>mes_5</th>
+      <th>mes_6</th>
+      <th>ing_1</th>
+      <th>ing_2</th>
+      <th>ing_3</th>
+      <th>ing_4</th>
+      <th>ing_5</th>
+      <th>ing_6</th>
+      <th>ing_tri</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>0100003801</td>
+      <td>1</td>
+      <td>01</td>
+      <td>P001</td>
+      <td>09</td>
+      <td>08</td>
+      <td>07</td>
+      <td>06</td>
+      <td>05</td>
+      <td>04</td>
+      <td>18000.0</td>
+      <td>18000.0</td>
+      <td>18000.0</td>
+      <td>18000.0</td>
+      <td>18000.0</td>
+      <td>18000.0</td>
+      <td>53114.75</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0100003801</td>
+      <td>1</td>
+      <td>01</td>
+      <td>P009</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>6000.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1475.40</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0100003802</td>
+      <td>1</td>
+      <td>01</td>
+      <td>P001</td>
+      <td>10</td>
+      <td>09</td>
+      <td>08</td>
+      <td>07</td>
+      <td>06</td>
+      <td>05</td>
+      <td>16000.0</td>
+      <td>16000.0</td>
+      <td>16000.0</td>
+      <td>16000.0</td>
+      <td>16000.0</td>
+      <td>16000.0</td>
+      <td>47213.11</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0100003803</td>
+      <td>1</td>
+      <td>01</td>
+      <td>P001</td>
+      <td>09</td>
+      <td>08</td>
+      <td>07</td>
+      <td>06</td>
+      <td>05</td>
+      <td>04</td>
+      <td>28000.0</td>
+      <td>28000.0</td>
+      <td>28000.0</td>
+      <td>28000.0</td>
+      <td>28000.0</td>
+      <td>28000.0</td>
+      <td>82622.95</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>0100003804</td>
+      <td>1</td>
+      <td>01</td>
+      <td>P001</td>
+      <td>09</td>
+      <td>08</td>
+      <td>07</td>
+      <td>06</td>
+      <td>05</td>
+      <td>04</td>
+      <td>10000.0</td>
+      <td>10000.0</td>
+      <td>10000.0</td>
+      <td>10000.0</td>
+      <td>10000.0</td>
+      <td>10000.0</td>
+      <td>29508.19</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>334328</th>
+      <td>3260801904</td>
+      <td>1</td>
+      <td>01</td>
+      <td>P072</td>
+      <td>10</td>
+      <td>09</td>
+      <td>08</td>
+      <td>07</td>
+      <td>06</td>
+      <td>05</td>
+      <td>1750.0</td>
+      <td>1750.0</td>
+      <td>1750.0</td>
+      <td>1750.0</td>
+      <td>1750.0</td>
+      <td>1750.0</td>
+      <td>5135.86</td>
+    </tr>
+    <tr>
+      <th>334329</th>
+      <td>3260801905</td>
+      <td>1</td>
+      <td>01</td>
+      <td>P032</td>
+      <td>10</td>
+      <td>09</td>
+      <td>08</td>
+      <td>07</td>
+      <td>06</td>
+      <td>05</td>
+      <td>6000.0</td>
+      <td>6000.0</td>
+      <td>6000.0</td>
+      <td>6000.0</td>
+      <td>6000.0</td>
+      <td>6000.0</td>
+      <td>17608.69</td>
+    </tr>
+    <tr>
+      <th>334330</th>
+      <td>3260801905</td>
+      <td>1</td>
+      <td>01</td>
+      <td>P044</td>
+      <td>10</td>
+      <td>09</td>
+      <td>08</td>
+      <td>07</td>
+      <td>06</td>
+      <td>05</td>
+      <td>1100.0</td>
+      <td>0.0</td>
+      <td>1100.0</td>
+      <td>0.0</td>
+      <td>1100.0</td>
+      <td>0.0</td>
+      <td>1614.13</td>
+    </tr>
+    <tr>
+      <th>334331</th>
+      <td>3260801906</td>
+      <td>1</td>
+      <td>01</td>
+      <td>P001</td>
+      <td>10</td>
+      <td>09</td>
+      <td>08</td>
+      <td>07</td>
+      <td>06</td>
+      <td>05</td>
+      <td>2200.0</td>
+      <td>2200.0</td>
+      <td>2200.0</td>
+      <td>2000.0</td>
+      <td>2000.0</td>
+      <td>2000.0</td>
+      <td>6163.04</td>
+    </tr>
+    <tr>
+      <th>334336</th>
+      <td>3260801906</td>
+      <td>1</td>
+      <td>01</td>
+      <td>P053</td>
+      <td>10</td>
+      <td>09</td>
+      <td>08</td>
+      <td>07</td>
+      <td>06</td>
+      <td>05</td>
+      <td>700.0</td>
+      <td>300.0</td>
+      <td>200.0</td>
+      <td>1200.0</td>
+      <td>200.0</td>
+      <td>200.0</td>
+      <td>1369.56</td>
+    </tr>
+  </tbody>
+</table>
+<p>151177 rows × 17 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">foliohog</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;1&#39;, &#39;2&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como cada persona está repetida de acuerdo al tipo de ingresos que tiene, creamos una función para sumar los ingresos de cada persona, y una nueva variable (<code class="docutils literal notranslate"><span class="pre">ing_men</span></code>) para tener el ingreso mensual acumulado</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ingresosacu</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;numren&#39;</span><span class="p">,</span><span class="s1">&#39;foliohog&#39;</span><span class="p">,</span><span class="s1">&#39;folioviv&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">df2</span><span class="p">[</span><span class="s1">&#39;claves&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;numren&#39;</span><span class="p">,</span><span class="s1">&#39;foliohog&#39;</span><span class="p">,</span><span class="s1">&#39;folioviv&#39;</span><span class="p">])[</span><span class="s1">&#39;clave&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">df2</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df2</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df2</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">df2</span><span class="p">[</span><span class="s1">&#39;ing_men&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df2</span><span class="o">.</span><span class="n">ing_tri</span><span class="o">/</span><span class="mi">3</span>
+    <span class="k">return</span> <span class="n">df2</span>
+
+<span class="n">df2</span> <span class="o">=</span> <span class="n">ingresosacu</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span>
+<span class="n">df2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>folioviv</th>
+      <th>foliohog</th>
+      <th>numren</th>
+      <th>ing_1</th>
+      <th>ing_2</th>
+      <th>ing_3</th>
+      <th>ing_4</th>
+      <th>ing_5</th>
+      <th>ing_6</th>
+      <th>ing_tri</th>
+      <th>claves</th>
+      <th>ing_men</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0100003801</td>
+      <td>1</td>
+      <td>01</td>
+      <td>24000.0</td>
+      <td>18000.0</td>
+      <td>18000.0</td>
+      <td>18000.0</td>
+      <td>18000.0</td>
+      <td>18000.0</td>
+      <td>54590.15</td>
+      <td>P001P009</td>
+      <td>18196.716667</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0100003802</td>
+      <td>1</td>
+      <td>01</td>
+      <td>16000.0</td>
+      <td>16000.0</td>
+      <td>16000.0</td>
+      <td>16000.0</td>
+      <td>16000.0</td>
+      <td>16000.0</td>
+      <td>47213.11</td>
+      <td>P001</td>
+      <td>15737.703333</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0100003803</td>
+      <td>1</td>
+      <td>01</td>
+      <td>28000.0</td>
+      <td>28000.0</td>
+      <td>28000.0</td>
+      <td>28000.0</td>
+      <td>28000.0</td>
+      <td>28000.0</td>
+      <td>82622.95</td>
+      <td>P001</td>
+      <td>27540.983333</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0100003804</td>
+      <td>1</td>
+      <td>01</td>
+      <td>15000.0</td>
+      <td>10000.0</td>
+      <td>10000.0</td>
+      <td>10000.0</td>
+      <td>10000.0</td>
+      <td>10000.0</td>
+      <td>30737.69</td>
+      <td>P001P009</td>
+      <td>10245.896667</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0100003805</td>
+      <td>1</td>
+      <td>01</td>
+      <td>40000.0</td>
+      <td>12000.0</td>
+      <td>12000.0</td>
+      <td>12000.0</td>
+      <td>12000.0</td>
+      <td>12000.0</td>
+      <td>42295.07</td>
+      <td>P001P009</td>
+      <td>14098.356667</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>67814</th>
+      <td>3260438625</td>
+      <td>2</td>
+      <td>01</td>
+      <td>4000.0</td>
+      <td>4000.0</td>
+      <td>4000.0</td>
+      <td>4000.0</td>
+      <td>4000.0</td>
+      <td>4000.0</td>
+      <td>11803.27</td>
+      <td>P001</td>
+      <td>3934.423333</td>
+    </tr>
+    <tr>
+      <th>67815</th>
+      <td>3260547718</td>
+      <td>2</td>
+      <td>01</td>
+      <td>6000.0</td>
+      <td>6000.0</td>
+      <td>6000.0</td>
+      <td>6000.0</td>
+      <td>6000.0</td>
+      <td>6000.0</td>
+      <td>17704.91</td>
+      <td>P001</td>
+      <td>5901.636667</td>
+    </tr>
+    <tr>
+      <th>67816</th>
+      <td>3260547909</td>
+      <td>2</td>
+      <td>01</td>
+      <td>1700.0</td>
+      <td>750.0</td>
+      <td>1700.0</td>
+      <td>3200.0</td>
+      <td>4150.0</td>
+      <td>3200.0</td>
+      <td>7190.21</td>
+      <td>P042P022</td>
+      <td>2396.736667</td>
+    </tr>
+    <tr>
+      <th>67817</th>
+      <td>3260601317</td>
+      <td>2</td>
+      <td>01</td>
+      <td>950.0</td>
+      <td>0.0</td>
+      <td>950.0</td>
+      <td>0.0</td>
+      <td>950.0</td>
+      <td>0.0</td>
+      <td>1394.02</td>
+      <td>P042</td>
+      <td>464.673333</td>
+    </tr>
+    <tr>
+      <th>67818</th>
+      <td>3260610709</td>
+      <td>2</td>
+      <td>01</td>
+      <td>3600.0</td>
+      <td>3600.0</td>
+      <td>3600.0</td>
+      <td>3600.0</td>
+      <td>3600.0</td>
+      <td>3600.0</td>
+      <td>10622.95</td>
+      <td>P001</td>
+      <td>3540.983333</td>
+    </tr>
+  </tbody>
+</table>
+<p>67819 rows × 12 columns</p>
+</div></div></div>
+</div>
+<p>Cremos una variable para indicar en que rango de ingreso cae cada perosona. Los rangos están predefinidos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cohorts</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    
+    <span class="n">cohorts</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="o">+</span> <span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="s1">&#39;123456&#39;</span><span class="p">]</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2400</span><span class="p">),(</span><span class="mi">2400</span><span class="p">,</span> <span class="mi">4800</span><span class="p">),(</span><span class="mi">4800</span><span class="p">,</span><span class="mi">7200</span><span class="p">),(</span><span class="mi">7200</span><span class="p">,</span><span class="mi">12000</span><span class="p">),(</span><span class="mi">12000</span><span class="p">,</span><span class="mi">24000</span><span class="p">),(</span><span class="mi">24000</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)]</span>
+    <span class="c1">#L = [(c,i) for c,i in zip(cohorts,I)]</span>
+
+    <span class="n">df3</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    
+    <span class="k">def</span> <span class="nf">coho</span><span class="p">(</span><span class="n">ing_men</span><span class="p">,</span><span class="n">cohorts</span><span class="p">,</span><span class="n">I</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">I</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">I</span><span class="p">[</span><span class="n">a</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">ing_men</span> <span class="o">&lt;=</span> <span class="n">I</span><span class="p">[</span><span class="n">a</span><span class="p">][</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="k">return</span> <span class="n">cohorts</span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    
+    <span class="n">df3</span><span class="p">[</span><span class="s1">&#39;cohort&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df3</span><span class="p">[</span><span class="s1">&#39;ing_men&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">coho</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">cohorts</span><span class="p">,</span><span class="n">I</span><span class="p">))</span>
+    
+    <span class="k">return</span> <span class="n">df3</span>
+
+<span class="n">df3</span> <span class="o">=</span> <span class="n">cohorts</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
+<span class="n">df3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>folioviv</th>
+      <th>foliohog</th>
+      <th>numren</th>
+      <th>ing_1</th>
+      <th>ing_2</th>
+      <th>ing_3</th>
+      <th>ing_4</th>
+      <th>ing_5</th>
+      <th>ing_6</th>
+      <th>ing_tri</th>
+      <th>claves</th>
+      <th>ing_men</th>
+      <th>cohort</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0100003801</td>
+      <td>1</td>
+      <td>01</td>
+      <td>24000.0</td>
+      <td>18000.0</td>
+      <td>18000.0</td>
+      <td>18000.0</td>
+      <td>18000.0</td>
+      <td>18000.0</td>
+      <td>54590.15</td>
+      <td>P001P009</td>
+      <td>18196.716667</td>
+      <td>C5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0100003802</td>
+      <td>1</td>
+      <td>01</td>
+      <td>16000.0</td>
+      <td>16000.0</td>
+      <td>16000.0</td>
+      <td>16000.0</td>
+      <td>16000.0</td>
+      <td>16000.0</td>
+      <td>47213.11</td>
+      <td>P001</td>
+      <td>15737.703333</td>
+      <td>C5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0100003803</td>
+      <td>1</td>
+      <td>01</td>
+      <td>28000.0</td>
+      <td>28000.0</td>
+      <td>28000.0</td>
+      <td>28000.0</td>
+      <td>28000.0</td>
+      <td>28000.0</td>
+      <td>82622.95</td>
+      <td>P001</td>
+      <td>27540.983333</td>
+      <td>C6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0100003804</td>
+      <td>1</td>
+      <td>01</td>
+      <td>15000.0</td>
+      <td>10000.0</td>
+      <td>10000.0</td>
+      <td>10000.0</td>
+      <td>10000.0</td>
+      <td>10000.0</td>
+      <td>30737.69</td>
+      <td>P001P009</td>
+      <td>10245.896667</td>
+      <td>C4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0100003805</td>
+      <td>1</td>
+      <td>01</td>
+      <td>40000.0</td>
+      <td>12000.0</td>
+      <td>12000.0</td>
+      <td>12000.0</td>
+      <td>12000.0</td>
+      <td>12000.0</td>
+      <td>42295.07</td>
+      <td>P001P009</td>
+      <td>14098.356667</td>
+      <td>C5</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>67814</th>
+      <td>3260438625</td>
+      <td>2</td>
+      <td>01</td>
+      <td>4000.0</td>
+      <td>4000.0</td>
+      <td>4000.0</td>
+      <td>4000.0</td>
+      <td>4000.0</td>
+      <td>4000.0</td>
+      <td>11803.27</td>
+      <td>P001</td>
+      <td>3934.423333</td>
+      <td>C2</td>
+    </tr>
+    <tr>
+      <th>67815</th>
+      <td>3260547718</td>
+      <td>2</td>
+      <td>01</td>
+      <td>6000.0</td>
+      <td>6000.0</td>
+      <td>6000.0</td>
+      <td>6000.0</td>
+      <td>6000.0</td>
+      <td>6000.0</td>
+      <td>17704.91</td>
+      <td>P001</td>
+      <td>5901.636667</td>
+      <td>C3</td>
+    </tr>
+    <tr>
+      <th>67816</th>
+      <td>3260547909</td>
+      <td>2</td>
+      <td>01</td>
+      <td>1700.0</td>
+      <td>750.0</td>
+      <td>1700.0</td>
+      <td>3200.0</td>
+      <td>4150.0</td>
+      <td>3200.0</td>
+      <td>7190.21</td>
+      <td>P042P022</td>
+      <td>2396.736667</td>
+      <td>C1</td>
+    </tr>
+    <tr>
+      <th>67817</th>
+      <td>3260601317</td>
+      <td>2</td>
+      <td>01</td>
+      <td>950.0</td>
+      <td>0.0</td>
+      <td>950.0</td>
+      <td>0.0</td>
+      <td>950.0</td>
+      <td>0.0</td>
+      <td>1394.02</td>
+      <td>P042</td>
+      <td>464.673333</td>
+      <td>C1</td>
+    </tr>
+    <tr>
+      <th>67818</th>
+      <td>3260610709</td>
+      <td>2</td>
+      <td>01</td>
+      <td>3600.0</td>
+      <td>3600.0</td>
+      <td>3600.0</td>
+      <td>3600.0</td>
+      <td>3600.0</td>
+      <td>3600.0</td>
+      <td>10622.95</td>
+      <td>P001</td>
+      <td>3540.983333</td>
+      <td>C2</td>
+    </tr>
+  </tbody>
+</table>
+<p>67819 rows × 13 columns</p>
+</div></div></div>
+</div>
+<p>Visualizamos cuantas personas caen en cada cohort de ingreso</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">histogramacohort</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    
+    <span class="c1"># hacemos a la variables cohort categorica ordenada</span>
+    
+    <span class="n">df</span><span class="o">.</span><span class="n">cohort</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">cohort</span><span class="p">,</span> 
+                      <span class="n">categories</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="o">+</span> <span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="s1">&#39;123456&#39;</span><span class="p">],</span>
+                      <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    
+    <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;cohort&quot;</span><span class="p">,</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span>
+            <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;count&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">histogramacohort</span><span class="p">(</span><span class="n">df3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/EjemploPandas_27_0.png" src="../../_images/EjemploPandas_27_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "rafneta/CienciaDatosPythonCIDE",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Laboratorios/Lab10"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="lab10.html" title="previous page">Laboratorio 10</a>
+    <a class='right-next' id="next-link" href="../Lab11/lab11.html" title="next page">Laboratorio 11</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          Por Rafael Martínez-Martínez and Federico Daverio<br/>
+        
+            &copy; Derechos de autor .<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

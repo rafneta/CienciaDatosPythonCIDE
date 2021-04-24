@@ -1,0 +1,4414 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pandas &#8212; Introducción a la ciencia de datos</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.37f24b989f4638ff9c27c22dc7559d4f.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/estilo-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/estilo-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="Laboratorio 9" href="../Lab9/lab9.html" />
+    <link rel="prev" title="NumPy" href="numpy.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Introducción a la ciencia de datos</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Sobre este sitio
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Información del curso
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/encuadre.html">
+   Encuadre
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/calendarioLab.html">
+   Calendario Laboratorio
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/Navegacion.html">
+   Navegación en el libro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/Pizarron.html">
+   Pizarrón
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Clases
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Clases/1_intro.html">
+   1. Introducción a Python
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Laboratorios
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab1/lab1.html">
+   1. Anaconda, GitHub
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab1/instalacion.html">
+     Instalación Anaconda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab1/GitHub.html">
+     Introducción a GitHub
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab2/lab2.html">
+   2. Datos, flujo, funciones
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab2/Varfunif.html">
+     Variables y Condiciones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab2/fundamentos.html">
+     Operaciones con tipos de datos básicos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab2/Introfunmod.html">
+     Introducción a funciones y módulos
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab3/lab3.html">
+   3. Funciones, Métodos, Ciclos
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab3/FuncionesMetodos.html">
+     Funciones y métodos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab3/ListasyCiclos.html">
+     Listas y Ciclos
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab4/lab4.html">
+   4. Ciclos, Excepciones
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab4/Ciclos.html">
+     Ciclos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab4/Excepciones.html">
+     Control de Excepciones
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab5/lab5.html">
+   5. Paradigmas, lambda, recursión
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab5/ModulosEjemplos.html">
+     Comprensión, lambdas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab5/Recursion.html">
+     Recursión
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab6/lab6.html">
+   6. Árboles (clasificación), Estructuras
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab6/Arboles.html">
+     Arboles de Decisiones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab6/Estructuras.html">
+     Estructuras
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab7/lab7.html">
+   7. Repaso
+  </a>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="lab8.html">
+   8. Numpy y Pandas
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="numpy.html">
+     NumPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="numpy.html#ejemplo-econometria">
+     Ejemplo Econometría
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Pandas
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab9/lab9.html">
+   9. Numpy II y Pandas II
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab9/numpy2.html">
+     NumPy
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab10/lab10.html">
+   10. Ejemplos Numpy y pandas
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab10/EjemploPandas.html">
+     Ejemplos Pandas
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab11/lab11.html">
+   11. Scraping, APIS
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Tareas
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Tareas/1_intro_tarea.html">
+   Tarea 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Tareas/tarea2.html">
+   Tarea 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Tareas/soluciones.html">
+   Soluciones
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Proyecto
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/Proyecto.html">
+   Proyecto
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Laboratorios/Lab8/Pandas.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/rafneta/CienciaDatosPythonCIDE"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/rafneta/CienciaDatosPythonCIDE/issues/new?title=Issue%20on%20page%20%2FLaboratorios/Lab8/Pandas.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+                    title="Modo de pantalla completa"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/rafneta/CienciaDatosPythonCIDE/master?urlpath=tree/Laboratorios/Lab8/Pandas.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/rafneta/CienciaDatosPythonCIDE/blob/master/Laboratorios/Lab8/Pandas.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Lanzamiento Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Lanzamiento Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contenido
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-que-nos-sirve">
+   ¿A que nos sirve?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#crear-un-diccionario">
+   Crear un diccionario
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#los-valores-faltantes">
+   Los valores faltantes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#entender-el-db">
+   Entender el DB
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#seleccionar-y-slice">
+   Seleccionar y «slice»
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ordenar">
+   Ordenar
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p><img alt="" src="https://raw.githubusercontent.com/rafneta/CienciaDatosPythonCIDE/master/imagenes/banner.png" /></p>
+<div class="contents topic" id="contenido">
+<p class="topic-title">Contenido</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#pandas" id="id1">Pandas</a></p>
+<ul>
+<li><p><a class="reference internal" href="#a-que-nos-sirve" id="id2">¿A que nos sirve?</a></p></li>
+<li><p><a class="reference internal" href="#crear-un-diccionario" id="id3">Crear un diccionario</a></p></li>
+<li><p><a class="reference internal" href="#los-valores-faltantes" id="id4">Los valores faltantes</a></p></li>
+<li><p><a class="reference internal" href="#entender-el-db" id="id5">Entender el DB</a></p></li>
+<li><p><a class="reference internal" href="#seleccionar-y-slice" id="id6">Seleccionar y «slice»</a></p></li>
+<li><p><a class="reference internal" href="#ordenar" id="id7">Ordenar</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="pandas">
+<h1><a class="toc-backref" href="#id1">Pandas</a><a class="headerlink" href="#pandas" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="a-que-nos-sirve">
+<h2><a class="toc-backref" href="#id2">¿A que nos sirve?</a><a class="headerlink" href="#a-que-nos-sirve" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Con Pandas podemos manejar nuestros datos, <strong>modificandolos</strong>, <strong>transformandolos</strong> y <strong>analizandolos</strong>.</p>
+<p>En particular podemos:</p>
+<ul class="simple">
+<li><p>limpiar los datos presentes en un DataFrame</p></li>
+<li><p>Visualizar los datos con la ayuda de Matplotlib</p></li>
+<li><p>Almacenar los datos trasformados en otro archivo CSV</p></li>
+</ul>
+<p>Panda está construido con base en Numpy y normalmente su output preferido es <strong>Scipy</strong> o <strong>Scikit-learn</strong>.</p>
+<p>Antes que todo tendremos que importar los paquetes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Las dos componentes principales de Pandas son:</p>
+<ul class="simple">
+<li><p>Series: es un vector vertical</p></li>
+<li><p>DataFrame: es una Tabla (una matriz)</p></li>
+</ul>
+<p>Las dos estructuras comparten muchas operaciones, que pueden ser hechas en ambos (como calcular la media).</p>
+</div>
+<div class="section" id="crear-un-diccionario">
+<h2><a class="toc-backref" href="#id3">Crear un diccionario</a><a class="headerlink" href="#crear-un-diccionario" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Tenemos diferentes maneras de construir un diccionario:</p>
+<ul class="simple">
+<li><p>Por medio de un diccionario</p></li>
+</ul>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Inter&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> 
+    <span class="s1">&#39;Juventus&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">106</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">equipos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">equipos</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Inter</th>
+      <th>Juventus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>106</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Cuando creamos un DataFrame de default nos dará un indice numerico, através del cual poemos acceder a las observaciones:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">equipos</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Inter       3
+Juventus    3
+Name: 0, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pero resultaria mucho mas facil por medio de un indice «autoexplicativo», para asignarlo es suficiente especificarlo:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">teams</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Europa League&#39;</span><span class="p">,</span> <span class="s1">&#39;Champions&#39;</span><span class="p">,</span> <span class="s1">&#39;Ligas Robadas&#39;</span><span class="p">,</span> <span class="s1">&#39;Arbitros comprados&#39;</span><span class="p">])</span>
+<span class="n">teams</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Inter</th>
+      <th>Juventus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Europa League</th>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Champions</th>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Ligas Robadas</th>
+      <td>0</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>Arbitros comprados</th>
+      <td>0</td>
+      <td>106</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Podemos crearlo también a partir de listas:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]]</span>
+<span class="n">prueba</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<span class="n">prueba</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Podemos además importar un database:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;C:\DAVE2\CIDE\Tesis\Base de Datos\Ageb_2010_DA_indice_de_rezago_social.csv&#39;</span><span class="p">)</span>
+
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="n">d2a432c264d2</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;C:\DAVE2\CIDE\Tesis\Base de Datos\Ageb_2010_DA_indice_de_rezago_social.csv&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">df</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/pandas/io/parsers.py</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, dialect, error_bad_lines, warn_bad_lines, delim_whitespace, low_memory, memory_map, float_precision)</span>
+<span class="g g-Whitespace">    </span><span class="mi">684</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">685</span> 
+<span class="ne">--&gt; </span><span class="mi">686</span>     <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">687</span> 
+<span class="g g-Whitespace">    </span><span class="mi">688</span> 
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/pandas/io/parsers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">450</span> 
+<span class="g g-Whitespace">    </span><span class="mi">451</span>     <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">452</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">fp_or_buf</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">453</span> 
+<span class="g g-Whitespace">    </span><span class="mi">454</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">944</span>             <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">945</span> 
+<span class="ne">--&gt; </span><span class="mi">946</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">947</span> 
+<span class="g g-Whitespace">    </span><span class="mi">948</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/pandas/io/parsers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1176</span>     <span class="k">def</span> <span class="nf">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;c&quot;</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1177</span>         <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1178</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="n">CParserWrapper</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1179</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1180</span>             <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;python&quot;</span><span class="p">:</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, src, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2006</span>         <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;usecols&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">usecols</span>
+<span class="g g-Whitespace">   </span><span class="mi">2007</span> 
+<span class="ne">-&gt; </span><span class="mi">2008</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span> <span class="o">=</span> <span class="n">parsers</span><span class="o">.</span><span class="n">TextReader</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2009</span>         <span class="bp">self</span><span class="o">.</span><span class="n">unnamed_cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span><span class="o">.</span><span class="n">unnamed_cols</span>
+<span class="g g-Whitespace">   </span><span class="mi">2010</span> 
+
+<span class="nn">pandas/_libs/parsers.pyx</span> in <span class="ni">pandas._libs.parsers.TextReader.__cinit__</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/parsers.pyx</span> in <span class="ni">pandas._libs.parsers.TextReader._setup_parser_source</span><span class="nt">()</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;C:\\DAVE2\\CIDE\\Tesis\\Base de Datos\\Ageb_2010_DA_indice_de_rezago_social.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para saber las dimensiones de nuestros DB es suficiente:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(51034, 25)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cve_ent
+ent
+cve_mun
+mun
+cve_loc
+loc
+cve_ageb
+folio_ageb
+pob_tot
+viv_par_hab
+porc_pob_15_mas_basic_incom
+porc_pob_15_24_noasiste
+porc_pob_snservsal
+porc_vivhacina
+porc_vivsnsan
+porc_vivsnlavadora
+porc_vivsnrefri
+porc_vivstelefono
+porc_pob_15_mas_analfa
+porc_pob6_14_noasiste
+porc_vivpisotierra
+porc_snaguaent
+porc_vivsndren
+porc_vivsnenergia
+gdo_rezsoc
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;cve_ent&#39;, &#39;ent&#39;, &#39;cve_mun&#39;, &#39;mun&#39;, &#39;cve_loc&#39;, &#39;loc&#39;, &#39;cve_ageb&#39;,
+       &#39;folio_ageb&#39;, &#39;pob_tot&#39;, &#39;viv_par_hab&#39;, &#39;porc_pob_15_mas_basic_incom&#39;,
+       &#39;porc_pob_15_24_noasiste&#39;, &#39;porc_pob_snservsal&#39;, &#39;porc_vivhacina&#39;,
+       &#39;porc_vivsnsan&#39;, &#39;porc_vivsnlavadora&#39;, &#39;porc_vivsnrefri&#39;,
+       &#39;porc_vivstelefono&#39;, &#39;porc_pob_15_mas_analfa&#39;, &#39;porc_pob6_14_noasiste&#39;,
+       &#39;porc_vivpisotierra&#39;, &#39;porc_snaguaent&#39;, &#39;porc_vivsndren&#39;,
+       &#39;porc_vivsnenergia&#39;, &#39;gdo_rezsoc&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;C:\DAVE2\CIDE\Tesis\Base de Datos\Ageb_2010_DA_indice_de_rezago_social.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">df2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ent</th>
+      <th>cve_mun</th>
+      <th>mun</th>
+      <th>cve_loc</th>
+      <th>loc</th>
+      <th>cve_ageb</th>
+      <th>folio_ageb</th>
+      <th>pob_tot</th>
+      <th>viv_par_hab</th>
+      <th>porc_pob_15_mas_basic_incom</th>
+      <th>...</th>
+      <th>porc_vivsnlavadora</th>
+      <th>porc_vivsnrefri</th>
+      <th>porc_vivstelefono</th>
+      <th>porc_pob_15_mas_analfa</th>
+      <th>porc_pob6_14_noasiste</th>
+      <th>porc_vivpisotierra</th>
+      <th>porc_snaguaent</th>
+      <th>porc_vivsndren</th>
+      <th>porc_vivsnenergia</th>
+      <th>gdo_rezsoc</th>
+    </tr>
+    <tr>
+      <th>cve_ent</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>AGUASCALIENTES</td>
+      <td>0229</td>
+      <td>0100100010229</td>
+      <td>410</td>
+      <td>104</td>
+      <td>35.1</td>
+      <td>...</td>
+      <td>18.3</td>
+      <td>9.6</td>
+      <td>39.4</td>
+      <td>4.7</td>
+      <td>3.4</td>
+      <td>2.9</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>AGUASCALIENTES</td>
+      <td>0233</td>
+      <td>0100100010233</td>
+      <td>1536</td>
+      <td>421</td>
+      <td>35.5</td>
+      <td>...</td>
+      <td>21.9</td>
+      <td>9.3</td>
+      <td>40.9</td>
+      <td>3.4</td>
+      <td>7.1</td>
+      <td>1.7</td>
+      <td>0.5</td>
+      <td>1.0</td>
+      <td>0.2</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>AGUASCALIENTES</td>
+      <td>0286</td>
+      <td>0100100010286</td>
+      <td>3469</td>
+      <td>986</td>
+      <td>16.0</td>
+      <td>...</td>
+      <td>6.8</td>
+      <td>1.2</td>
+      <td>14.9</td>
+      <td>1.0</td>
+      <td>1.8</td>
+      <td>2.6</td>
+      <td>0.4</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>AGUASCALIENTES</td>
+      <td>0290</td>
+      <td>0100100010290</td>
+      <td>1884</td>
+      <td>504</td>
+      <td>18.5</td>
+      <td>...</td>
+      <td>4.6</td>
+      <td>0.6</td>
+      <td>13.5</td>
+      <td>0.9</td>
+      <td>1.8</td>
+      <td>0.2</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>AGUASCALIENTES</td>
+      <td>0303</td>
+      <td>0100100010303</td>
+      <td>2397</td>
+      <td>625</td>
+      <td>30.3</td>
+      <td>...</td>
+      <td>8.6</td>
+      <td>3.0</td>
+      <td>25.9</td>
+      <td>1.9</td>
+      <td>3.8</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.0</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>Zacatecas</td>
+      <td>57</td>
+      <td>Trancoso</td>
+      <td>1</td>
+      <td>TRANCOSO</td>
+      <td>0412</td>
+      <td>3205700010412</td>
+      <td>12</td>
+      <td>2</td>
+      <td>ND</td>
+      <td>...</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>Alto</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>Zacatecas</td>
+      <td>57</td>
+      <td>Trancoso</td>
+      <td>1</td>
+      <td>TRANCOSO</td>
+      <td>0431</td>
+      <td>3205700010431</td>
+      <td>14</td>
+      <td>3</td>
+      <td>42.9</td>
+      <td>...</td>
+      <td>33.3</td>
+      <td>0.0</td>
+      <td>100.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>66.7</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>Alto</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>Zacatecas</td>
+      <td>58</td>
+      <td>Santa Mar�a de la Paz</td>
+      <td>1</td>
+      <td>SANTA MAR�A DE LA PAZ</td>
+      <td>0015</td>
+      <td>3205800010015</td>
+      <td>651</td>
+      <td>175</td>
+      <td>54.6</td>
+      <td>...</td>
+      <td>19.4</td>
+      <td>12.0</td>
+      <td>40.6</td>
+      <td>7.0</td>
+      <td>1.0</td>
+      <td>1.1</td>
+      <td>3.4</td>
+      <td>0.0</td>
+      <td>1.1</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>Zacatecas</td>
+      <td>58</td>
+      <td>Santa Mar�a de la Paz</td>
+      <td>1</td>
+      <td>SANTA MAR�A DE LA PAZ</td>
+      <td>002A</td>
+      <td>320580001002A</td>
+      <td>945</td>
+      <td>251</td>
+      <td>55.8</td>
+      <td>...</td>
+      <td>18.7</td>
+      <td>14.3</td>
+      <td>37.1</td>
+      <td>6.8</td>
+      <td>4.5</td>
+      <td>1.6</td>
+      <td>1.6</td>
+      <td>1.2</td>
+      <td>1.6</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>Zacatecas</td>
+      <td>58</td>
+      <td>Santa Mar�a de la Paz</td>
+      <td>1</td>
+      <td>SANTA MAR�A DE LA PAZ</td>
+      <td>0104</td>
+      <td>3205800010104</td>
+      <td>86</td>
+      <td>25</td>
+      <td>42.9</td>
+      <td>...</td>
+      <td>52.0</td>
+      <td>32.0</td>
+      <td>100.0</td>
+      <td>6.1</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>Medio</td>
+    </tr>
+  </tbody>
+</table>
+<p>51034 rows × 24 columns</p>
+</div></div></div>
+</div>
+<p>Con <em>pd.read_json(“purchases.json”)</em> podemos leer file json, de igual forma podemos también leer file <em>sql</em>.</p>
+<p>Podemos cambiar el indice escogido</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;ent&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cve_mun</th>
+      <th>mun</th>
+      <th>cve_loc</th>
+      <th>loc</th>
+      <th>cve_ageb</th>
+      <th>folio_ageb</th>
+      <th>pob_tot</th>
+      <th>viv_par_hab</th>
+      <th>porc_pob_15_mas_basic_incom</th>
+      <th>porc_pob_15_24_noasiste</th>
+      <th>...</th>
+      <th>porc_vivsnlavadora</th>
+      <th>porc_vivsnrefri</th>
+      <th>porc_vivstelefono</th>
+      <th>porc_pob_15_mas_analfa</th>
+      <th>porc_pob6_14_noasiste</th>
+      <th>porc_vivpisotierra</th>
+      <th>porc_snaguaent</th>
+      <th>porc_vivsndren</th>
+      <th>porc_vivsnenergia</th>
+      <th>gdo_rezsoc</th>
+    </tr>
+    <tr>
+      <th>ent</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Aguascalientes</th>
+      <td>1</td>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>AGUASCALIENTES</td>
+      <td>0229</td>
+      <td>0100100010229</td>
+      <td>410</td>
+      <td>104</td>
+      <td>35.1</td>
+      <td>52.5</td>
+      <td>...</td>
+      <td>18.3</td>
+      <td>9.6</td>
+      <td>39.4</td>
+      <td>4.7</td>
+      <td>3.4</td>
+      <td>2.9</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>Aguascalientes</th>
+      <td>1</td>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>AGUASCALIENTES</td>
+      <td>0233</td>
+      <td>0100100010233</td>
+      <td>1536</td>
+      <td>421</td>
+      <td>35.5</td>
+      <td>57.7</td>
+      <td>...</td>
+      <td>21.9</td>
+      <td>9.3</td>
+      <td>40.9</td>
+      <td>3.4</td>
+      <td>7.1</td>
+      <td>1.7</td>
+      <td>0.5</td>
+      <td>1.0</td>
+      <td>0.2</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>Aguascalientes</th>
+      <td>1</td>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>AGUASCALIENTES</td>
+      <td>0286</td>
+      <td>0100100010286</td>
+      <td>3469</td>
+      <td>986</td>
+      <td>16.0</td>
+      <td>32.4</td>
+      <td>...</td>
+      <td>6.8</td>
+      <td>1.2</td>
+      <td>14.9</td>
+      <td>1.0</td>
+      <td>1.8</td>
+      <td>2.6</td>
+      <td>0.4</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>Aguascalientes</th>
+      <td>1</td>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>AGUASCALIENTES</td>
+      <td>0290</td>
+      <td>0100100010290</td>
+      <td>1884</td>
+      <td>504</td>
+      <td>18.5</td>
+      <td>31.8</td>
+      <td>...</td>
+      <td>4.6</td>
+      <td>0.6</td>
+      <td>13.5</td>
+      <td>0.9</td>
+      <td>1.8</td>
+      <td>0.2</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>Aguascalientes</th>
+      <td>1</td>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>AGUASCALIENTES</td>
+      <td>0303</td>
+      <td>0100100010303</td>
+      <td>2397</td>
+      <td>625</td>
+      <td>30.3</td>
+      <td>42.7</td>
+      <td>...</td>
+      <td>8.6</td>
+      <td>3.0</td>
+      <td>25.9</td>
+      <td>1.9</td>
+      <td>3.8</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.0</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>Zacatecas</th>
+      <td>57</td>
+      <td>Trancoso</td>
+      <td>1</td>
+      <td>TRANCOSO</td>
+      <td>0412</td>
+      <td>3205700010412</td>
+      <td>12</td>
+      <td>2</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>...</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>Alto</td>
+    </tr>
+    <tr>
+      <th>Zacatecas</th>
+      <td>57</td>
+      <td>Trancoso</td>
+      <td>1</td>
+      <td>TRANCOSO</td>
+      <td>0431</td>
+      <td>3205700010431</td>
+      <td>14</td>
+      <td>3</td>
+      <td>42.9</td>
+      <td>100.0</td>
+      <td>...</td>
+      <td>33.3</td>
+      <td>0.0</td>
+      <td>100.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>66.7</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>Alto</td>
+    </tr>
+    <tr>
+      <th>Zacatecas</th>
+      <td>58</td>
+      <td>Santa Mar�a de la Paz</td>
+      <td>1</td>
+      <td>SANTA MAR�A DE LA PAZ</td>
+      <td>0015</td>
+      <td>3205800010015</td>
+      <td>651</td>
+      <td>175</td>
+      <td>54.6</td>
+      <td>59.0</td>
+      <td>...</td>
+      <td>19.4</td>
+      <td>12.0</td>
+      <td>40.6</td>
+      <td>7.0</td>
+      <td>1.0</td>
+      <td>1.1</td>
+      <td>3.4</td>
+      <td>0.0</td>
+      <td>1.1</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>Zacatecas</th>
+      <td>58</td>
+      <td>Santa Mar�a de la Paz</td>
+      <td>1</td>
+      <td>SANTA MAR�A DE LA PAZ</td>
+      <td>002A</td>
+      <td>320580001002A</td>
+      <td>945</td>
+      <td>251</td>
+      <td>55.8</td>
+      <td>56.6</td>
+      <td>...</td>
+      <td>18.7</td>
+      <td>14.3</td>
+      <td>37.1</td>
+      <td>6.8</td>
+      <td>4.5</td>
+      <td>1.6</td>
+      <td>1.6</td>
+      <td>1.2</td>
+      <td>1.6</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>Zacatecas</th>
+      <td>58</td>
+      <td>Santa Mar�a de la Paz</td>
+      <td>1</td>
+      <td>SANTA MAR�A DE LA PAZ</td>
+      <td>0104</td>
+      <td>3205800010104</td>
+      <td>86</td>
+      <td>25</td>
+      <td>42.9</td>
+      <td>66.7</td>
+      <td>...</td>
+      <td>52.0</td>
+      <td>32.0</td>
+      <td>100.0</td>
+      <td>6.1</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>Medio</td>
+    </tr>
+  </tbody>
+</table>
+<p>51034 rows × 23 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Podemos</span> <span class="n">luego</span> <span class="n">guardar</span> <span class="n">los</span> <span class="n">resultados</span> <span class="n">en</span> <span class="n">un</span> <span class="n">archivo</span> <span class="n">CSV</span><span class="p">:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;nueva_base.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Primero</span> <span class="n">de</span> <span class="n">todo</span> <span class="n">necesitamos</span> <span class="n">usualmente</span> <span class="n">analizar</span> <span class="n">los</span> <span class="n">primeros</span> <span class="n">datos</span> <span class="n">de</span> <span class="n">nuestro</span> <span class="n">DB</span><span class="p">:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cve_ent</th>
+      <th>ent</th>
+      <th>cve_mun</th>
+      <th>mun</th>
+      <th>cve_loc</th>
+      <th>loc</th>
+      <th>cve_ageb</th>
+      <th>folio_ageb</th>
+      <th>pob_tot</th>
+      <th>viv_par_hab</th>
+      <th>...</th>
+      <th>porc_vivsnlavadora</th>
+      <th>porc_vivsnrefri</th>
+      <th>porc_vivstelefono</th>
+      <th>porc_pob_15_mas_analfa</th>
+      <th>porc_pob6_14_noasiste</th>
+      <th>porc_vivpisotierra</th>
+      <th>porc_snaguaent</th>
+      <th>porc_vivsndren</th>
+      <th>porc_vivsnenergia</th>
+      <th>gdo_rezsoc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>AGUASCALIENTES</td>
+      <td>0229</td>
+      <td>0100100010229</td>
+      <td>410</td>
+      <td>104</td>
+      <td>...</td>
+      <td>18.3</td>
+      <td>9.6</td>
+      <td>39.4</td>
+      <td>4.7</td>
+      <td>3.4</td>
+      <td>2.9</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>AGUASCALIENTES</td>
+      <td>0233</td>
+      <td>0100100010233</td>
+      <td>1536</td>
+      <td>421</td>
+      <td>...</td>
+      <td>21.9</td>
+      <td>9.3</td>
+      <td>40.9</td>
+      <td>3.4</td>
+      <td>7.1</td>
+      <td>1.7</td>
+      <td>0.5</td>
+      <td>1.0</td>
+      <td>0.2</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>AGUASCALIENTES</td>
+      <td>0286</td>
+      <td>0100100010286</td>
+      <td>3469</td>
+      <td>986</td>
+      <td>...</td>
+      <td>6.8</td>
+      <td>1.2</td>
+      <td>14.9</td>
+      <td>1.0</td>
+      <td>1.8</td>
+      <td>2.6</td>
+      <td>0.4</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>AGUASCALIENTES</td>
+      <td>0290</td>
+      <td>0100100010290</td>
+      <td>1884</td>
+      <td>504</td>
+      <td>...</td>
+      <td>4.6</td>
+      <td>0.6</td>
+      <td>13.5</td>
+      <td>0.9</td>
+      <td>1.8</td>
+      <td>0.2</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>AGUASCALIENTES</td>
+      <td>0303</td>
+      <td>0100100010303</td>
+      <td>2397</td>
+      <td>625</td>
+      <td>...</td>
+      <td>8.6</td>
+      <td>3.0</td>
+      <td>25.9</td>
+      <td>1.9</td>
+      <td>3.8</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.0</td>
+      <td>Bajo</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 25 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cve_ent</th>
+      <th>ent</th>
+      <th>cve_mun</th>
+      <th>mun</th>
+      <th>cve_loc</th>
+      <th>loc</th>
+      <th>cve_ageb</th>
+      <th>folio_ageb</th>
+      <th>pob_tot</th>
+      <th>viv_par_hab</th>
+      <th>...</th>
+      <th>porc_vivsnlavadora</th>
+      <th>porc_vivsnrefri</th>
+      <th>porc_vivstelefono</th>
+      <th>porc_pob_15_mas_analfa</th>
+      <th>porc_pob6_14_noasiste</th>
+      <th>porc_vivpisotierra</th>
+      <th>porc_snaguaent</th>
+      <th>porc_vivsndren</th>
+      <th>porc_vivsnenergia</th>
+      <th>gdo_rezsoc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>51027</th>
+      <td>32</td>
+      <td>Zacatecas</td>
+      <td>57</td>
+      <td>Trancoso</td>
+      <td>1</td>
+      <td>TRANCOSO</td>
+      <td>0361</td>
+      <td>3205700010361</td>
+      <td>20</td>
+      <td>5</td>
+      <td>...</td>
+      <td>20.0</td>
+      <td>40.0</td>
+      <td>100.0</td>
+      <td>20.0</td>
+      <td>14.3</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>20.0</td>
+      <td>20.0</td>
+      <td>Alto</td>
+    </tr>
+    <tr>
+      <th>51028</th>
+      <td>32</td>
+      <td>Zacatecas</td>
+      <td>57</td>
+      <td>Trancoso</td>
+      <td>1</td>
+      <td>TRANCOSO</td>
+      <td>0408</td>
+      <td>3205700010408</td>
+      <td>143</td>
+      <td>25</td>
+      <td>...</td>
+      <td>52.0</td>
+      <td>56.0</td>
+      <td>96.0</td>
+      <td>18.3</td>
+      <td>8.1</td>
+      <td>0.0</td>
+      <td>28.0</td>
+      <td>48.0</td>
+      <td>8.0</td>
+      <td>Medio</td>
+    </tr>
+    <tr>
+      <th>51029</th>
+      <td>32</td>
+      <td>Zacatecas</td>
+      <td>57</td>
+      <td>Trancoso</td>
+      <td>1</td>
+      <td>TRANCOSO</td>
+      <td>0412</td>
+      <td>3205700010412</td>
+      <td>12</td>
+      <td>2</td>
+      <td>...</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>Alto</td>
+    </tr>
+    <tr>
+      <th>51030</th>
+      <td>32</td>
+      <td>Zacatecas</td>
+      <td>57</td>
+      <td>Trancoso</td>
+      <td>1</td>
+      <td>TRANCOSO</td>
+      <td>0431</td>
+      <td>3205700010431</td>
+      <td>14</td>
+      <td>3</td>
+      <td>...</td>
+      <td>33.3</td>
+      <td>0.0</td>
+      <td>100.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>66.7</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>Alto</td>
+    </tr>
+    <tr>
+      <th>51031</th>
+      <td>32</td>
+      <td>Zacatecas</td>
+      <td>58</td>
+      <td>Santa Mar�a de la Paz</td>
+      <td>1</td>
+      <td>SANTA MAR�A DE LA PAZ</td>
+      <td>0015</td>
+      <td>3205800010015</td>
+      <td>651</td>
+      <td>175</td>
+      <td>...</td>
+      <td>19.4</td>
+      <td>12.0</td>
+      <td>40.6</td>
+      <td>7.0</td>
+      <td>1.0</td>
+      <td>1.1</td>
+      <td>3.4</td>
+      <td>0.0</td>
+      <td>1.1</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>51032</th>
+      <td>32</td>
+      <td>Zacatecas</td>
+      <td>58</td>
+      <td>Santa Mar�a de la Paz</td>
+      <td>1</td>
+      <td>SANTA MAR�A DE LA PAZ</td>
+      <td>002A</td>
+      <td>320580001002A</td>
+      <td>945</td>
+      <td>251</td>
+      <td>...</td>
+      <td>18.7</td>
+      <td>14.3</td>
+      <td>37.1</td>
+      <td>6.8</td>
+      <td>4.5</td>
+      <td>1.6</td>
+      <td>1.6</td>
+      <td>1.2</td>
+      <td>1.6</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>51033</th>
+      <td>32</td>
+      <td>Zacatecas</td>
+      <td>58</td>
+      <td>Santa Mar�a de la Paz</td>
+      <td>1</td>
+      <td>SANTA MAR�A DE LA PAZ</td>
+      <td>0104</td>
+      <td>3205800010104</td>
+      <td>86</td>
+      <td>25</td>
+      <td>...</td>
+      <td>52.0</td>
+      <td>32.0</td>
+      <td>100.0</td>
+      <td>6.1</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>Medio</td>
+    </tr>
+  </tbody>
+</table>
+<p>7 rows × 25 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;C:\DAVE2\CIDE\Tesis\Base de Datos\Ageb_2010_DA_indice_de_rezago_social.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;ent&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df3</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cve_ent</th>
+      <th>cve_mun</th>
+      <th>mun</th>
+      <th>cve_loc</th>
+      <th>loc</th>
+      <th>cve_ageb</th>
+      <th>folio_ageb</th>
+      <th>pob_tot</th>
+      <th>viv_par_hab</th>
+      <th>porc_pob_15_mas_basic_incom</th>
+      <th>...</th>
+      <th>porc_vivsnlavadora</th>
+      <th>porc_vivsnrefri</th>
+      <th>porc_vivstelefono</th>
+      <th>porc_pob_15_mas_analfa</th>
+      <th>porc_pob6_14_noasiste</th>
+      <th>porc_vivpisotierra</th>
+      <th>porc_snaguaent</th>
+      <th>porc_vivsndren</th>
+      <th>porc_vivsnenergia</th>
+      <th>gdo_rezsoc</th>
+    </tr>
+    <tr>
+      <th>ent</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Aguascalientes</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>AGUASCALIENTES</td>
+      <td>0229</td>
+      <td>0100100010229</td>
+      <td>410</td>
+      <td>104</td>
+      <td>35.1</td>
+      <td>...</td>
+      <td>18.3</td>
+      <td>9.6</td>
+      <td>39.4</td>
+      <td>4.7</td>
+      <td>3.4</td>
+      <td>2.9</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>Aguascalientes</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>AGUASCALIENTES</td>
+      <td>0233</td>
+      <td>0100100010233</td>
+      <td>1536</td>
+      <td>421</td>
+      <td>35.5</td>
+      <td>...</td>
+      <td>21.9</td>
+      <td>9.3</td>
+      <td>40.9</td>
+      <td>3.4</td>
+      <td>7.1</td>
+      <td>1.7</td>
+      <td>0.5</td>
+      <td>1.0</td>
+      <td>0.2</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>Aguascalientes</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>AGUASCALIENTES</td>
+      <td>0286</td>
+      <td>0100100010286</td>
+      <td>3469</td>
+      <td>986</td>
+      <td>16.0</td>
+      <td>...</td>
+      <td>6.8</td>
+      <td>1.2</td>
+      <td>14.9</td>
+      <td>1.0</td>
+      <td>1.8</td>
+      <td>2.6</td>
+      <td>0.4</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>Aguascalientes</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>AGUASCALIENTES</td>
+      <td>0290</td>
+      <td>0100100010290</td>
+      <td>1884</td>
+      <td>504</td>
+      <td>18.5</td>
+      <td>...</td>
+      <td>4.6</td>
+      <td>0.6</td>
+      <td>13.5</td>
+      <td>0.9</td>
+      <td>1.8</td>
+      <td>0.2</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>Aguascalientes</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>AGUASCALIENTES</td>
+      <td>0303</td>
+      <td>0100100010303</td>
+      <td>2397</td>
+      <td>625</td>
+      <td>30.3</td>
+      <td>...</td>
+      <td>8.6</td>
+      <td>3.0</td>
+      <td>25.9</td>
+      <td>1.9</td>
+      <td>3.8</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.0</td>
+      <td>Bajo</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 24 columns</p>
+</div></div></div>
+</div>
+<p>Podemos obtener información con respecto a nuestro DB:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df3</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Index: 51034 entries, Aguascalientes to Zacatecas
+Data columns (total 24 columns):
+ #   Column                       Non-Null Count  Dtype 
+---  ------                       --------------  ----- 
+ 0   cve_ent                      51034 non-null  int64 
+ 1   cve_mun                      51034 non-null  int64 
+ 2   mun                          51034 non-null  object
+ 3   cve_loc                      51034 non-null  int64 
+ 4   loc                          51034 non-null  object
+ 5   cve_ageb                     51034 non-null  object
+ 6   folio_ageb                   51034 non-null  object
+ 7   pob_tot                      51034 non-null  int64 
+ 8   viv_par_hab                  51034 non-null  int64 
+ 9   porc_pob_15_mas_basic_incom  51034 non-null  object
+ 10  porc_pob_15_24_noasiste      51034 non-null  object
+ 11  porc_pob_snservsal           51034 non-null  object
+ 12  porc_vivhacina               51034 non-null  object
+ 13  porc_vivsnsan                51034 non-null  object
+ 14  porc_vivsnlavadora           51034 non-null  object
+ 15  porc_vivsnrefri              51034 non-null  object
+ 16  porc_vivstelefono            51034 non-null  object
+ 17  porc_pob_15_mas_analfa       51034 non-null  object
+ 18  porc_pob6_14_noasiste        51034 non-null  object
+ 19  porc_vivpisotierra           51034 non-null  object
+ 20  porc_snaguaent               51034 non-null  object
+ 21  porc_vivsndren               51034 non-null  object
+ 22  porc_vivsnenergia            51034 non-null  object
+ 23  gdo_rezsoc                   51034 non-null  object
+dtypes: int64(5), object(19)
+memory usage: 9.7+ MB
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos mergear dos DB verticalmente con la siguiente función:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp_df</span> <span class="o">=</span> <span class="n">df3</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df3</span><span class="p">)</span>
+
+<span class="n">temp_df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(102068, 24)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Para</span> <span class="n">eliminar</span> <span class="n">duplicados</span> <span class="n">será</span> <span class="n">suficiente</span> <span class="n">hacer</span><span class="p">:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp_df</span> <span class="o">=</span> <span class="n">temp_df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+
+<span class="n">temp_df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(51034, 24)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Siempre estaremos regresando una copia del DB, si queremos modificarlo directamente tendremos que ocupar la funcion inplace</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp_df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(51034, 24)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp_df2</span> <span class="o">=</span> <span class="n">df3</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df3</span><span class="p">)</span>
+
+<span class="n">temp_df2</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+
+<span class="n">temp_df2</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(102068, 24)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp_df2</span> <span class="o">=</span> <span class="n">df3</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df3</span><span class="p">)</span>
+<span class="n">temp_df2</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1">#temp_df2.shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0, 24)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Keep especifica cual de los duplicados considerar:</p>
+<ul class="simple">
+<li><p>false dropea todo</p></li>
+<li><p>first mantiene el primero</p></li>
+<li><p>last mantiene el ultimo</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Para</span> <span class="n">ver</span> <span class="n">los</span> <span class="n">nombres</span> <span class="n">de</span> <span class="n">las</span> <span class="n">columnas</span> <span class="n">podemos</span> <span class="n">utilizar</span> <span class="n">la</span> <span class="n">siguiente</span> <span class="n">función</span><span class="p">:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df3</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;cve_ent&#39;, &#39;cve_mun&#39;, &#39;mun&#39;, &#39;cve_loc&#39;, &#39;loc&#39;, &#39;cve_ageb&#39;, &#39;folio_ageb&#39;,
+       &#39;pob_tot&#39;, &#39;viv_par_hab&#39;, &#39;porc_pob_15_mas_basic_incom&#39;,
+       &#39;porc_pob_15_24_noasiste&#39;, &#39;porc_pob_snservsal&#39;, &#39;porc_vivhacina&#39;,
+       &#39;porc_vivsnsan&#39;, &#39;porc_vivsnlavadora&#39;, &#39;porc_vivsnrefri&#39;,
+       &#39;porc_vivstelefono&#39;, &#39;porc_pob_15_mas_analfa&#39;, &#39;porc_pob6_14_noasiste&#39;,
+       &#39;porc_vivpisotierra&#39;, &#39;porc_snaguaent&#39;, &#39;porc_vivsndren&#39;,
+       &#39;porc_vivsnenergia&#39;, &#39;gdo_rezsoc&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para cambiar el nombre de una columna haremos lo siguiente:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df3</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;mun&#39;</span><span class="p">:</span> <span class="s1">&#39;municipio&#39;</span><span class="p">,</span> 
+        <span class="s1">&#39;pob_tot&#39;</span><span class="p">:</span> <span class="s1">&#39;poblacion total&#39;</span>
+    <span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">df3</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cve_ent</th>
+      <th>cve_mun</th>
+      <th>municipio</th>
+      <th>cve_loc</th>
+      <th>loc</th>
+      <th>cve_ageb</th>
+      <th>folio_ageb</th>
+      <th>poblacion total</th>
+      <th>viv_par_hab</th>
+      <th>porc_pob_15_mas_basic_incom</th>
+      <th>...</th>
+      <th>porc_vivsnlavadora</th>
+      <th>porc_vivsnrefri</th>
+      <th>porc_vivstelefono</th>
+      <th>porc_pob_15_mas_analfa</th>
+      <th>porc_pob6_14_noasiste</th>
+      <th>porc_vivpisotierra</th>
+      <th>porc_snaguaent</th>
+      <th>porc_vivsndren</th>
+      <th>porc_vivsnenergia</th>
+      <th>gdo_rezsoc</th>
+    </tr>
+    <tr>
+      <th>ent</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Aguascalientes</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>AGUASCALIENTES</td>
+      <td>0229</td>
+      <td>0100100010229</td>
+      <td>410</td>
+      <td>104</td>
+      <td>35.1</td>
+      <td>...</td>
+      <td>18.3</td>
+      <td>9.6</td>
+      <td>39.4</td>
+      <td>4.7</td>
+      <td>3.4</td>
+      <td>2.9</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>Aguascalientes</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>AGUASCALIENTES</td>
+      <td>0233</td>
+      <td>0100100010233</td>
+      <td>1536</td>
+      <td>421</td>
+      <td>35.5</td>
+      <td>...</td>
+      <td>21.9</td>
+      <td>9.3</td>
+      <td>40.9</td>
+      <td>3.4</td>
+      <td>7.1</td>
+      <td>1.7</td>
+      <td>0.5</td>
+      <td>1.0</td>
+      <td>0.2</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>Aguascalientes</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>AGUASCALIENTES</td>
+      <td>0286</td>
+      <td>0100100010286</td>
+      <td>3469</td>
+      <td>986</td>
+      <td>16.0</td>
+      <td>...</td>
+      <td>6.8</td>
+      <td>1.2</td>
+      <td>14.9</td>
+      <td>1.0</td>
+      <td>1.8</td>
+      <td>2.6</td>
+      <td>0.4</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>Aguascalientes</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>AGUASCALIENTES</td>
+      <td>0290</td>
+      <td>0100100010290</td>
+      <td>1884</td>
+      <td>504</td>
+      <td>18.5</td>
+      <td>...</td>
+      <td>4.6</td>
+      <td>0.6</td>
+      <td>13.5</td>
+      <td>0.9</td>
+      <td>1.8</td>
+      <td>0.2</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>Aguascalientes</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Aguascalientes</td>
+      <td>1</td>
+      <td>AGUASCALIENTES</td>
+      <td>0303</td>
+      <td>0100100010303</td>
+      <td>2397</td>
+      <td>625</td>
+      <td>30.3</td>
+      <td>...</td>
+      <td>8.6</td>
+      <td>3.0</td>
+      <td>25.9</td>
+      <td>1.9</td>
+      <td>3.8</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.0</td>
+      <td>Bajo</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 24 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df3</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Podemos</span> <span class="n">tambien</span> <span class="n">asignarlos</span> <span class="n">por</span> <span class="n">medio</span> <span class="n">de</span> <span class="n">una</span> <span class="n">lista</span><span class="p">:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">teams</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">col</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">teams</span><span class="p">]</span>
+<span class="n">teams</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;inter&#39;, &#39;juventus&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">teams</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Internazionale&#39;</span><span class="p">,</span><span class="s1">&#39;Rubentus&#39;</span><span class="p">]</span>
+
+<span class="n">teams</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Internazionale</th>
+      <th>Rubentus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Europa League</th>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Champions</th>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Ligas Robadas</th>
+      <td>0</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>Arbitros comprados</th>
+      <td>0</td>
+      <td>106</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Es buena norma utilizar caracteres minuscolos, quitar espacio y utilizar underscores y evitar accentos.</p>
+</div>
+<div class="section" id="los-valores-faltantes">
+<h2><a class="toc-backref" href="#id4">Los valores faltantes</a><a class="headerlink" href="#los-valores-faltantes" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Cuando analizamos unas bases, en particular las del INEGI ;) , tenemos que estar cuidado con el manejo de los valores faltantes. Esto podrán aparecernos como np.nan (Numpy) o como None (Python). A veces el manejo de los dos diferentes tipos puede ser distinto.</p>
+<p>cuando tenemos valores mancantes tenemos distintas manera con que resolver el problema:</p>
+<ul class="simple">
+<li><p>Eliminar la observación</p></li>
+<li><p>Remplazar el valor nulo por medio de una <em>imputación</em></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;C:\DAVE2\CIDE\Tesis\Base de Datos\Ageb_2010_DA_indice_de_rezago_social2.csv&#39;</span><span class="p">)</span>
+
+<span class="n">db</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 51034 entries, 0 to 51033
+Data columns (total 25 columns):
+ #   Column                       Non-Null Count  Dtype  
+---  ------                       --------------  -----  
+ 0   cve_ent                      51034 non-null  int64  
+ 1   ent                          51034 non-null  object 
+ 2   cve_mun                      51025 non-null  float64
+ 3   mun                          51025 non-null  object 
+ 4   cve_loc                      51025 non-null  float64
+ 5   loc                          51025 non-null  object 
+ 6   cve_ageb                     51021 non-null  object 
+ 7   folio_ageb                   51021 non-null  object 
+ 8   pob_tot                      51021 non-null  float64
+ 9   viv_par_hab                  51013 non-null  float64
+ 10  porc_pob_15_mas_basic_incom  51013 non-null  object 
+ 11  porc_pob_15_24_noasiste      51013 non-null  object 
+ 12  porc_pob_snservsal           51004 non-null  object 
+ 13  porc_vivhacina               51004 non-null  object 
+ 14  porc_vivsnsan                51008 non-null  object 
+ 15  porc_vivsnlavadora           51008 non-null  object 
+ 16  porc_vivsnrefri              51008 non-null  object 
+ 17  porc_vivstelefono            51017 non-null  object 
+ 18  porc_pob_15_mas_analfa       51017 non-null  object 
+ 19  porc_pob6_14_noasiste        51017 non-null  object 
+ 20  porc_vivpisotierra           51023 non-null  object 
+ 21  porc_snaguaent               51023 non-null  object 
+ 22  porc_vivsndren               51023 non-null  object 
+ 23  porc_vivsnenergia            51023 non-null  object 
+ 24  gdo_rezsoc                   51034 non-null  object 
+dtypes: float64(4), int64(1), object(20)
+memory usage: 9.7+ MB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cve_ent</th>
+      <th>ent</th>
+      <th>cve_mun</th>
+      <th>mun</th>
+      <th>cve_loc</th>
+      <th>loc</th>
+      <th>cve_ageb</th>
+      <th>folio_ageb</th>
+      <th>pob_tot</th>
+      <th>viv_par_hab</th>
+      <th>...</th>
+      <th>porc_vivsnlavadora</th>
+      <th>porc_vivsnrefri</th>
+      <th>porc_vivstelefono</th>
+      <th>porc_pob_15_mas_analfa</th>
+      <th>porc_pob6_14_noasiste</th>
+      <th>porc_vivpisotierra</th>
+      <th>porc_snaguaent</th>
+      <th>porc_vivsndren</th>
+      <th>porc_vivsnenergia</th>
+      <th>gdo_rezsoc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>...</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>...</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>...</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>51029</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>51030</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>51031</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>51032</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>51033</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>...</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+<p>51034 rows × 25 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(51034, 25)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cve_ent                         0
+ent                             0
+cve_mun                         9
+mun                             9
+cve_loc                         9
+loc                             9
+cve_ageb                       13
+folio_ageb                     13
+pob_tot                        13
+viv_par_hab                    21
+porc_pob_15_mas_basic_incom    21
+porc_pob_15_24_noasiste        21
+porc_pob_snservsal             30
+porc_vivhacina                 30
+porc_vivsnsan                  26
+porc_vivsnlavadora             26
+porc_vivsnrefri                26
+porc_vivstelefono              17
+porc_pob_15_mas_analfa         17
+porc_pob6_14_noasiste          17
+porc_vivpisotierra             11
+porc_snaguaent                 11
+porc_vivsndren                 11
+porc_vivsnenergia              11
+gdo_rezsoc                      0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si queremos eliminar las observaciones con por lo menos un <em>NaN</em> utilizaremos la siguiente expresión:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db2</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="n">db2</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(50993, 25)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Podemos</span> <span class="n">tambié</span> <span class="n">escoger</span> <span class="n">de</span> <span class="n">eliminar</span> <span class="n">las</span> <span class="n">columnas</span> <span class="n">con</span> <span class="n">valores</span> <span class="n">nulos</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db3</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">db3</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(51034, 3)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Para</span> <span class="n">poder</span> <span class="n">imputar</span> <span class="n">nuestro</span> <span class="n">valores</span> <span class="n">mancantes</span> <span class="n">podemos</span> <span class="n">hacer</span> <span class="n">lo</span> <span class="n">siguiente</span><span class="p">:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cvep</span><span class="o">=</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;cve_mun&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cvep_mean</span><span class="o">=</span><span class="n">cvep</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cvep</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">cvep_mean</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cve_ent                         0
+ent                             0
+cve_mun                         0
+mun                             9
+cve_loc                         9
+loc                             9
+cve_ageb                       13
+folio_ageb                     13
+pob_tot                        13
+viv_par_hab                    21
+porc_pob_15_mas_basic_incom    21
+porc_pob_15_24_noasiste        21
+porc_pob_snservsal             30
+porc_vivhacina                 30
+porc_vivsnsan                  26
+porc_vivsnlavadora             26
+porc_vivsnrefri                26
+porc_vivstelefono              17
+porc_pob_15_mas_analfa         17
+porc_pob6_14_noasiste          17
+porc_vivpisotierra             11
+porc_snaguaent                 11
+porc_vivsndren                 11
+porc_vivsnenergia              11
+gdo_rezsoc                      0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="entender-el-db">
+<h2><a class="toc-backref" href="#id5">Entender el DB</a><a class="headerlink" href="#entender-el-db" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Para mejor comprender la estructura dle DB podmeos utilizar :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cve_ent</th>
+      <th>cve_mun</th>
+      <th>cve_loc</th>
+      <th>pob_tot</th>
+      <th>viv_par_hab</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>51034.000000</td>
+      <td>51034.000000</td>
+      <td>51025.000000</td>
+      <td>51021.000000</td>
+      <td>51013.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>16.870263</td>
+      <td>51.984478</td>
+      <td>21.763822</td>
+      <td>1703.227534</td>
+      <td>434.833297</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>8.306986</td>
+      <td>71.438801</td>
+      <td>110.321950</td>
+      <td>1726.229945</td>
+      <td>441.300656</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>2.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>11.000000</td>
+      <td>12.000000</td>
+      <td>1.000000</td>
+      <td>294.000000</td>
+      <td>74.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>15.000000</td>
+      <td>31.000000</td>
+      <td>1.000000</td>
+      <td>1268.000000</td>
+      <td>325.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>24.000000</td>
+      <td>64.000000</td>
+      <td>1.000000</td>
+      <td>2555.000000</td>
+      <td>653.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>32.000000</td>
+      <td>570.000000</td>
+      <td>4705.000000</td>
+      <td>22876.000000</td>
+      <td>6160.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;gdo_rezsoc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count     51034
+unique        3
+top        Bajo
+freq      33024
+Name: gdo_rezsoc, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora bien para contar los valores en una columna haremos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;gdo_rezsoc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bajo     33024
+Medio    12305
+Alto      5705
+Name: gdo_rezsoc, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos también analizar la correlacion entre variables, por medio de una matriz de correlación. Puede ser utili particularmente cuando queremos analizar una variable resultado con respecto a alguna potencial explicativa:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cve_ent</th>
+      <th>cve_mun</th>
+      <th>cve_loc</th>
+      <th>pob_tot</th>
+      <th>viv_par_hab</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>cve_ent</th>
+      <td>1.000000</td>
+      <td>0.193240</td>
+      <td>-0.079972</td>
+      <td>-0.089065</td>
+      <td>-0.089841</td>
+    </tr>
+    <tr>
+      <th>cve_mun</th>
+      <td>0.193240</td>
+      <td>1.000000</td>
+      <td>-0.052669</td>
+      <td>-0.054085</td>
+      <td>-0.063511</td>
+    </tr>
+    <tr>
+      <th>cve_loc</th>
+      <td>-0.079972</td>
+      <td>-0.052669</td>
+      <td>1.000000</td>
+      <td>-0.029778</td>
+      <td>-0.029908</td>
+    </tr>
+    <tr>
+      <th>pob_tot</th>
+      <td>-0.089065</td>
+      <td>-0.054085</td>
+      <td>-0.029778</td>
+      <td>1.000000</td>
+      <td>0.986179</td>
+    </tr>
+    <tr>
+      <th>viv_par_hab</th>
+      <td>-0.089841</td>
+      <td>-0.063511</td>
+      <td>-0.029908</td>
+      <td>0.986179</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="seleccionar-y-slice">
+<h2><a class="toc-backref" href="#id6">Seleccionar y «slice»</a><a class="headerlink" href="#seleccionar-y-slice" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Para seleccionar una columna podremos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pob_col</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;pob_tot&#39;</span><span class="p">]</span>
+
+<span class="nb">type</span><span class="p">(</span><span class="n">pob_col</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si queremos extraer una columna como dataframe tendremos que:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pob_col2</span><span class="o">=</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;pob_tot&#39;</span><span class="p">]]</span>
+
+<span class="nb">type</span><span class="p">(</span><span class="n">pob_col2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Siendo</span> <span class="n">una</span> <span class="n">lista</span> <span class="n">podemos</span> <span class="n">extrer</span> <span class="n">todas</span> <span class="n">las</span> <span class="n">olumnas</span> <span class="n">que</span> <span class="n">queremos</span><span class="p">:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sub</span><span class="o">=</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;pob_tot&#39;</span><span class="p">,</span><span class="s1">&#39;cve_ent&#39;</span><span class="p">,</span><span class="s1">&#39;ent&#39;</span><span class="p">]]</span>
+<span class="n">sub</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pob_tot</th>
+      <th>cve_ent</th>
+      <th>ent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>410</td>
+      <td>1</td>
+      <td>Aguascalientes</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1536</td>
+      <td>1</td>
+      <td>Aguascalientes</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3469</td>
+      <td>1</td>
+      <td>Aguascalientes</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1884</td>
+      <td>1</td>
+      <td>Aguascalientes</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2397</td>
+      <td>1</td>
+      <td>Aguascalientes</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Para seleccionar los renglones tenemos dos opciones:</p>
+<ul class="simple">
+<li><p>loc</p></li>
+<li><p>iloc</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prueba</span> <span class="o">=</span> <span class="n">teams</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Champions&#39;</span><span class="p">]</span>
+
+<span class="n">prueba</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Internazionale    3
+Rubentus          2
+Name: Champions, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">teams</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Internazionale</th>
+      <th>Rubentus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Europa League</th>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Champions</th>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Ligas Robadas</th>
+      <td>0</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>Arbitros comprados</th>
+      <td>0</td>
+      <td>106</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prueba2</span><span class="o">=</span><span class="n">teams</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">prueba2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos de igual manera seleccionar más de un renglon:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prueba3</span><span class="o">=</span><span class="n">teams</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="n">prueba3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Internazionale</th>
+      <th>Rubentus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Europa League</th>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Champions</th>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Ligas Robadas</th>
+      <td>0</td>
+      <td>7</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prueba4</span><span class="o">=</span><span class="n">teams</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Europa League&#39;</span><span class="p">:</span><span class="s1">&#39;Ligas Robadas&#39;</span><span class="p">]</span>
+
+<span class="n">prueba4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Internazionale</th>
+      <th>Rubentus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Europa League</th>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Champions</th>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Ligas Robadas</th>
+      <td>0</td>
+      <td>7</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Podemos también seleccionar con base en un criterio:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">condition</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ent&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Guerrero&#39;</span><span class="p">)</span>
+
+<span class="n">condition</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+
+<span class="n">condition</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2000
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ent&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Guerrero&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cve_ent</th>
+      <th>ent</th>
+      <th>cve_mun</th>
+      <th>mun</th>
+      <th>cve_loc</th>
+      <th>loc</th>
+      <th>cve_ageb</th>
+      <th>folio_ageb</th>
+      <th>pob_tot</th>
+      <th>viv_par_hab</th>
+      <th>...</th>
+      <th>porc_vivsnlavadora</th>
+      <th>porc_vivsnrefri</th>
+      <th>porc_vivstelefono</th>
+      <th>porc_pob_15_mas_analfa</th>
+      <th>porc_pob6_14_noasiste</th>
+      <th>porc_vivpisotierra</th>
+      <th>porc_snaguaent</th>
+      <th>porc_vivsndren</th>
+      <th>porc_vivsnenergia</th>
+      <th>gdo_rezsoc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>14944</th>
+      <td>12</td>
+      <td>Guerrero</td>
+      <td>1</td>
+      <td>Acapulco de Ju�rez</td>
+      <td>1</td>
+      <td>ACAPULCO DE JU�REZ</td>
+      <td>0034</td>
+      <td>1200100010034</td>
+      <td>4049</td>
+      <td>982</td>
+      <td>...</td>
+      <td>41.4</td>
+      <td>9.1</td>
+      <td>46.0</td>
+      <td>7.1</td>
+      <td>4.3</td>
+      <td>6.5</td>
+      <td>2.4</td>
+      <td>0.6</td>
+      <td>0.2</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>14945</th>
+      <td>12</td>
+      <td>Guerrero</td>
+      <td>1</td>
+      <td>Acapulco de Ju�rez</td>
+      <td>1</td>
+      <td>ACAPULCO DE JU�REZ</td>
+      <td>0049</td>
+      <td>1200100010049</td>
+      <td>4275</td>
+      <td>1017</td>
+      <td>...</td>
+      <td>40.8</td>
+      <td>9.6</td>
+      <td>44.4</td>
+      <td>8.4</td>
+      <td>3.9</td>
+      <td>5.3</td>
+      <td>0.9</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>14946</th>
+      <td>12</td>
+      <td>Guerrero</td>
+      <td>1</td>
+      <td>Acapulco de Ju�rez</td>
+      <td>1</td>
+      <td>ACAPULCO DE JU�REZ</td>
+      <td>0091</td>
+      <td>1200100010091</td>
+      <td>3080</td>
+      <td>914</td>
+      <td>...</td>
+      <td>22.5</td>
+      <td>7.9</td>
+      <td>37.9</td>
+      <td>1.4</td>
+      <td>1.9</td>
+      <td>6.5</td>
+      <td>4.7</td>
+      <td>2.6</td>
+      <td>0.3</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>14947</th>
+      <td>12</td>
+      <td>Guerrero</td>
+      <td>1</td>
+      <td>Acapulco de Ju�rez</td>
+      <td>1</td>
+      <td>ACAPULCO DE JU�REZ</td>
+      <td>0104</td>
+      <td>1200100010104</td>
+      <td>2299</td>
+      <td>610</td>
+      <td>...</td>
+      <td>31.6</td>
+      <td>5.2</td>
+      <td>38.9</td>
+      <td>5.8</td>
+      <td>1.4</td>
+      <td>1.5</td>
+      <td>1.5</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>14948</th>
+      <td>12</td>
+      <td>Guerrero</td>
+      <td>1</td>
+      <td>Acapulco de Ju�rez</td>
+      <td>1</td>
+      <td>ACAPULCO DE JU�REZ</td>
+      <td>0231</td>
+      <td>1200100010231</td>
+      <td>3609</td>
+      <td>1022</td>
+      <td>...</td>
+      <td>29.5</td>
+      <td>5.9</td>
+      <td>35.3</td>
+      <td>1.6</td>
+      <td>4.0</td>
+      <td>1.5</td>
+      <td>1.3</td>
+      <td>0.0</td>
+      <td>0.5</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>16939</th>
+      <td>12</td>
+      <td>Guerrero</td>
+      <td>80</td>
+      <td>Juchit�n</td>
+      <td>1</td>
+      <td>JUCHIT�N</td>
+      <td>0127</td>
+      <td>1208000010127</td>
+      <td>53</td>
+      <td>11</td>
+      <td>...</td>
+      <td>36.4</td>
+      <td>27.3</td>
+      <td>90.9</td>
+      <td>51.6</td>
+      <td>0.0</td>
+      <td>18.2</td>
+      <td>27.3</td>
+      <td>36.4</td>
+      <td>9.1</td>
+      <td>Alto</td>
+    </tr>
+    <tr>
+      <th>16940</th>
+      <td>12</td>
+      <td>Guerrero</td>
+      <td>81</td>
+      <td>Iliatenco</td>
+      <td>1</td>
+      <td>ILIATENCO</td>
+      <td>0016</td>
+      <td>1208100010016</td>
+      <td>1492</td>
+      <td>294</td>
+      <td>...</td>
+      <td>81.0</td>
+      <td>26.2</td>
+      <td>81.0</td>
+      <td>11.1</td>
+      <td>1.0</td>
+      <td>15.0</td>
+      <td>22.4</td>
+      <td>13.6</td>
+      <td>3.4</td>
+      <td>Medio</td>
+    </tr>
+    <tr>
+      <th>16941</th>
+      <td>12</td>
+      <td>Guerrero</td>
+      <td>81</td>
+      <td>Iliatenco</td>
+      <td>1</td>
+      <td>ILIATENCO</td>
+      <td>004A</td>
+      <td>120810001004A</td>
+      <td>61</td>
+      <td>13</td>
+      <td>...</td>
+      <td>84.6</td>
+      <td>38.5</td>
+      <td>92.3</td>
+      <td>14.3</td>
+      <td>0.0</td>
+      <td>15.4</td>
+      <td>23.1</td>
+      <td>53.8</td>
+      <td>15.4</td>
+      <td>Alto</td>
+    </tr>
+    <tr>
+      <th>16942</th>
+      <td>12</td>
+      <td>Guerrero</td>
+      <td>81</td>
+      <td>Iliatenco</td>
+      <td>1</td>
+      <td>ILIATENCO</td>
+      <td>0054</td>
+      <td>1208100010054</td>
+      <td>11</td>
+      <td>1</td>
+      <td>...</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>ND</td>
+      <td>Alto</td>
+    </tr>
+    <tr>
+      <th>16943</th>
+      <td>12</td>
+      <td>Guerrero</td>
+      <td>81</td>
+      <td>Iliatenco</td>
+      <td>1</td>
+      <td>ILIATENCO</td>
+      <td>0069</td>
+      <td>1208100010069</td>
+      <td>143</td>
+      <td>26</td>
+      <td>...</td>
+      <td>84.6</td>
+      <td>34.6</td>
+      <td>69.2</td>
+      <td>12.5</td>
+      <td>2.3</td>
+      <td>7.7</td>
+      <td>42.3</td>
+      <td>3.8</td>
+      <td>0.0</td>
+      <td>Medio</td>
+    </tr>
+  </tbody>
+</table>
+<p>2000 rows × 25 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;pob_tot&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">20000</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cve_ent</th>
+      <th>ent</th>
+      <th>cve_mun</th>
+      <th>mun</th>
+      <th>cve_loc</th>
+      <th>loc</th>
+      <th>cve_ageb</th>
+      <th>folio_ageb</th>
+      <th>pob_tot</th>
+      <th>viv_par_hab</th>
+      <th>...</th>
+      <th>porc_vivsnlavadora</th>
+      <th>porc_vivsnrefri</th>
+      <th>porc_vivstelefono</th>
+      <th>porc_pob_15_mas_analfa</th>
+      <th>porc_pob6_14_noasiste</th>
+      <th>porc_vivpisotierra</th>
+      <th>porc_snaguaent</th>
+      <th>porc_vivsndren</th>
+      <th>porc_vivsnenergia</th>
+      <th>gdo_rezsoc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>23295</th>
+      <td>15</td>
+      <td>M�xico</td>
+      <td>39</td>
+      <td>Ixtapaluca</td>
+      <td>1</td>
+      <td>IXTAPALUCA</td>
+      <td>075A</td>
+      <td>150390001075A</td>
+      <td>22876</td>
+      <td>6160</td>
+      <td>...</td>
+      <td>13.6</td>
+      <td>4.3</td>
+      <td>32.3</td>
+      <td>0.7</td>
+      <td>1.7</td>
+      <td>1.1</td>
+      <td>0.3</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>Bajo</td>
+    </tr>
+    <tr>
+      <th>24459</th>
+      <td>15</td>
+      <td>M�xico</td>
+      <td>81</td>
+      <td>Tec�mac</td>
+      <td>19</td>
+      <td>OJO DE AGUA</td>
+      <td>1130</td>
+      <td>1508100191130</td>
+      <td>20183</td>
+      <td>5929</td>
+      <td>...</td>
+      <td>15.2</td>
+      <td>4.6</td>
+      <td>41.2</td>
+      <td>0.3</td>
+      <td>1.7</td>
+      <td>0.6</td>
+      <td>0.1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>Bajo</td>
+    </tr>
+  </tbody>
+</table>
+<p>2 rows × 25 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;pob_tot&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">20000</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;viv_par_hab&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">6000</span><span class="p">)]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cve_ent</th>
+      <th>ent</th>
+      <th>cve_mun</th>
+      <th>mun</th>
+      <th>cve_loc</th>
+      <th>loc</th>
+      <th>cve_ageb</th>
+      <th>folio_ageb</th>
+      <th>pob_tot</th>
+      <th>viv_par_hab</th>
+      <th>...</th>
+      <th>porc_vivsnlavadora</th>
+      <th>porc_vivsnrefri</th>
+      <th>porc_vivstelefono</th>
+      <th>porc_pob_15_mas_analfa</th>
+      <th>porc_pob6_14_noasiste</th>
+      <th>porc_vivpisotierra</th>
+      <th>porc_snaguaent</th>
+      <th>porc_vivsndren</th>
+      <th>porc_vivsnenergia</th>
+      <th>gdo_rezsoc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>23295</th>
+      <td>15</td>
+      <td>M�xico</td>
+      <td>39</td>
+      <td>Ixtapaluca</td>
+      <td>1</td>
+      <td>IXTAPALUCA</td>
+      <td>075A</td>
+      <td>150390001075A</td>
+      <td>22876</td>
+      <td>6160</td>
+      <td>...</td>
+      <td>13.6</td>
+      <td>4.3</td>
+      <td>32.3</td>
+      <td>0.7</td>
+      <td>1.7</td>
+      <td>1.1</td>
+      <td>0.3</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>Bajo</td>
+    </tr>
+  </tbody>
+</table>
+<p>1 rows × 25 columns</p>
+</div></div></div>
+</div>
+<p>Podemos finalmente utilizar funciones junto con Pandas, tanto lambda como unas ya definidas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add</span> <span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="n">y</span>
+
+<span class="n">teams</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Internazionale</th>
+      <th>Rubentus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Europa League</th>
+      <td>4</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>Champions</th>
+      <td>4</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Ligas Robadas</th>
+      <td>1</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>Arbitros comprados</th>
+      <td>1</td>
+      <td>107</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">teams</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ordenar">
+<h2><a class="toc-backref" href="#id7">Ordenar</a><a class="headerlink" href="#ordenar" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">teams</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="s1">&#39;Internazionale&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Internazionale</th>
+      <th>Rubentus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Europa League</th>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Champions</th>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Ligas Robadas</th>
+      <td>0</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>Arbitros comprados</th>
+      <td>0</td>
+      <td>106</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">teams</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Internazionale&#39;</span><span class="p">,</span><span class="s1">&#39;Rubentus&#39;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="kc">False</span><span class="p">,</span><span class="kc">True</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Internazionale</th>
+      <th>Rubentus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Champions</th>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Europa League</th>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Ligas Robadas</th>
+      <td>0</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>Arbitros comprados</th>
+      <td>0</td>
+      <td>106</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "rafneta/CienciaDatosPythonCIDE",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Laboratorios/Lab8"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="numpy.html" title="previous page">NumPy</a>
+    <a class='right-next' id="next-link" href="../Lab9/lab9.html" title="next page">Laboratorio 9</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          Por Rafael Martínez-Martínez and Federico Daverio<br/>
+        
+            &copy; Derechos de autor .<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
