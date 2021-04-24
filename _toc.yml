@@ -76,7 +76,7 @@
   - file: Laboratorios/Lab10/lab10
     title: 10. Ejemplos Numpy y pandas
     sections:
-      - file: Laboratorios/Lab9/PandasII
+      - file: Laboratorios/Lab10/PandasII
       - file: Laboratorios/Lab10/EjemploPandas
     
   - file: Laboratorios/Lab11/lab11
