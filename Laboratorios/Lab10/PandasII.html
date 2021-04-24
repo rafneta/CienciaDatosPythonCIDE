@@ -1,0 +1,2531 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pandas &#8212; Introducción a la ciencia de datos</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.37f24b989f4638ff9c27c22dc7559d4f.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/estilo-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/estilo-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="Ejemplos Pandas" href="EjemploPandas.html" />
+    <link rel="prev" title="Laboratorio 10" href="lab10.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Introducción a la ciencia de datos</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Sobre este sitio
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Información del curso
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/encuadre.html">
+   Encuadre
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/calendarioLab.html">
+   Calendario Laboratorio
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/Navegacion.html">
+   Navegación en el libro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/Pizarron.html">
+   Pizarrón
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Clases
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Clases/1_intro.html">
+   1. Introducción a Python
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Laboratorios
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab1/lab1.html">
+   1. Anaconda, GitHub
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab1/instalacion.html">
+     Instalación Anaconda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab1/GitHub.html">
+     Introducción a GitHub
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab2/lab2.html">
+   2. Datos, flujo, funciones
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab2/Varfunif.html">
+     Variables y Condiciones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab2/fundamentos.html">
+     Operaciones con tipos de datos básicos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab2/Introfunmod.html">
+     Introducción a funciones y módulos
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab3/lab3.html">
+   3. Funciones, Métodos, Ciclos
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab3/FuncionesMetodos.html">
+     Funciones y métodos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab3/ListasyCiclos.html">
+     Listas y Ciclos
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab4/lab4.html">
+   4. Ciclos, Excepciones
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab4/Ciclos.html">
+     Ciclos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab4/Excepciones.html">
+     Control de Excepciones
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab5/lab5.html">
+   5. Paradigmas, lambda, recursión
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab5/ModulosEjemplos.html">
+     Comprensión, lambdas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab5/Recursion.html">
+     Recursión
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab6/lab6.html">
+   6. Árboles (clasificación), Estructuras
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab6/Arboles.html">
+     Arboles de Decisiones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab6/Estructuras.html">
+     Estructuras
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab7/lab7.html">
+   7. Repaso
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab8/lab8.html">
+   8. Numpy y Pandas
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab8/numpy.html">
+     NumPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab8/numpy.html#ejemplo-econometria">
+     Ejemplo Econometría
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab8/Pandas.html">
+     Pandas
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab9/lab9.html">
+   9. Numpy II y Pandas II
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab9/numpy2.html">
+     NumPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab9/PandasI.html">
+     Pandas
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="lab10.html">
+   10. Ejemplos Numpy y pandas
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="EjemploPandas.html">
+     Ejemplos Pandas
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab11/lab11.html">
+   11. Scraping, APIS
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Tareas
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Tareas/1_intro_tarea.html">
+   Tarea 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Tareas/tarea2.html">
+   Tarea 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Tareas/soluciones.html">
+   Soluciones
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Proyecto
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/Proyecto.html">
+   Proyecto
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Laboratorios/Lab10/PandasII.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/rafneta/CienciaDatosPythonCIDE"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/rafneta/CienciaDatosPythonCIDE/issues/new?title=Issue%20on%20page%20%2FLaboratorios/Lab10/PandasII.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+                    title="Modo de pantalla completa"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/rafneta/CienciaDatosPythonCIDE/master?urlpath=tree/Laboratorios/Lab10/PandasII.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/rafneta/CienciaDatosPythonCIDE/blob/master/Laboratorios/Lab10/PandasII.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Lanzamiento Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Lanzamiento Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contenido
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-que-nos-sirve">
+   ¿A que nos sirve?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#merge-and-append">
+     Merge and append
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#merge">
+   Merge
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tipos-join">
+     Tipos Join
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sql">
+   SQL
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#que-es-sql">
+     ¿Qué es SQL?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#que-podemos-hacer-con-sql">
+     ¿Qué podemos hacer con SQL?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rdbms">
+     RDBMS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tablas">
+     Tablas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-statements">
+     SQL Statements
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p><img alt="" src="https://raw.githubusercontent.com/rafneta/CienciaDatosPythonCIDE/master/imagenes/banner.png" /></p>
+<div class="contents topic" id="contenido">
+<p class="topic-title">Contenido</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#pandas" id="id1">Pandas</a></p>
+<ul>
+<li><p><a class="reference internal" href="#a-que-nos-sirve" id="id2">¿A que nos sirve?</a></p>
+<ul>
+<li><p><a class="reference internal" href="#merge-and-append" id="id3">Merge and append</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#merge" id="id4">Merge</a></p>
+<ul>
+<li><p><a class="reference internal" href="#tipos-join" id="id5">Tipos Join</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#sql" id="id6">SQL</a></p>
+<ul>
+<li><p><a class="reference internal" href="#que-es-sql" id="id7">¿Qué es SQL?</a></p></li>
+<li><p><a class="reference internal" href="#que-podemos-hacer-con-sql" id="id8">¿Qué podemos hacer con SQL?</a></p></li>
+<li><p><a class="reference internal" href="#rdbms" id="id9">RDBMS</a></p></li>
+<li><p><a class="reference internal" href="#tablas" id="id10">Tablas</a></p></li>
+<li><p><a class="reference internal" href="#sql-statements" id="id11">SQL Statements</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="pandas">
+<h1><a class="toc-backref" href="#id1">Pandas</a><a class="headerlink" href="#pandas" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="a-que-nos-sirve">
+<h2><a class="toc-backref" href="#id2">¿A que nos sirve?</a><a class="headerlink" href="#a-que-nos-sirve" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Con Pandas podemos manejar nuestros datos, <strong>modificandolos</strong>, <strong>transformandolos</strong> y <strong>analizandolos</strong>.</p>
+<p>En particular podemos:</p>
+<ul class="simple">
+<li><p>limpiar los datos presentes en un DataFrame</p></li>
+<li><p>Visualizar los datos con la ayuda de Matplotlib</p></li>
+<li><p>Almacenar los datos trasformados en otro archivo CSV</p></li>
+</ul>
+<p>Panda está construido con base en Numpy y normalmente su output preferido es <strong>Scipy</strong> o <strong>Scikit-learn</strong>.</p>
+<p>Antes que todo tendremos que importar los paquetes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="merge-and-append">
+<h3><a class="toc-backref" href="#id3">Merge and append</a><a class="headerlink" href="#merge-and-append" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Una de las cosas que utilizaremos más cuando harémos data cleaning es juntar data frame así de poder obtener una base más funcional. Para hacer esto tenemos diferentes funciones con Python.</p>
+<p><img alt="" src="Laboratorios/Lab10/join.jpg" /></p>
+<p>Antes de ver los Join analizaremos como podemos concatenar data frames:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+      <span class="p">{</span>
+          <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;A0&quot;</span><span class="p">,</span> <span class="s2">&quot;A1&quot;</span><span class="p">,</span> <span class="s2">&quot;A2&quot;</span><span class="p">,</span> <span class="s2">&quot;A3&quot;</span><span class="p">],</span>
+          <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;B0&quot;</span><span class="p">,</span> <span class="s2">&quot;B1&quot;</span><span class="p">,</span> <span class="s2">&quot;B2&quot;</span><span class="p">,</span> <span class="s2">&quot;B3&quot;</span><span class="p">],</span>
+          <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;C0&quot;</span><span class="p">,</span> <span class="s2">&quot;C1&quot;</span><span class="p">,</span> <span class="s2">&quot;C2&quot;</span><span class="p">,</span> <span class="s2">&quot;C3&quot;</span><span class="p">],</span>
+       <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;D0&quot;</span><span class="p">,</span> <span class="s2">&quot;D1&quot;</span><span class="p">,</span> <span class="s2">&quot;D2&quot;</span><span class="p">,</span> <span class="s2">&quot;D3&quot;</span><span class="p">],</span>
+       <span class="p">},</span>
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+   <span class="p">)</span>
+
+
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+     <span class="p">{</span>
+         <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;A4&quot;</span><span class="p">,</span> <span class="s2">&quot;A5&quot;</span><span class="p">,</span> <span class="s2">&quot;A6&quot;</span><span class="p">,</span> <span class="s2">&quot;A7&quot;</span><span class="p">],</span>
+         <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;B4&quot;</span><span class="p">,</span> <span class="s2">&quot;B5&quot;</span><span class="p">,</span> <span class="s2">&quot;B6&quot;</span><span class="p">,</span> <span class="s2">&quot;B7&quot;</span><span class="p">],</span>
+         <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;C4&quot;</span><span class="p">,</span> <span class="s2">&quot;C5&quot;</span><span class="p">,</span> <span class="s2">&quot;C6&quot;</span><span class="p">,</span> <span class="s2">&quot;C7&quot;</span><span class="p">],</span>
+         <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;D4&quot;</span><span class="p">,</span> <span class="s2">&quot;D5&quot;</span><span class="p">,</span> <span class="s2">&quot;D6&quot;</span><span class="p">,</span> <span class="s2">&quot;D7&quot;</span><span class="p">],</span>
+     <span class="p">},</span>
+ <span class="p">)</span>
+ 
+
+<span class="n">df3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">{</span>
+         <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;A8&quot;</span><span class="p">,</span> <span class="s2">&quot;A9&quot;</span><span class="p">,</span> <span class="s2">&quot;A10&quot;</span><span class="p">,</span> <span class="s2">&quot;A11&quot;</span><span class="p">],</span>
+         <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;B8&quot;</span><span class="p">,</span> <span class="s2">&quot;B9&quot;</span><span class="p">,</span> <span class="s2">&quot;B10&quot;</span><span class="p">,</span> <span class="s2">&quot;B11&quot;</span><span class="p">],</span>
+         <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;C8&quot;</span><span class="p">,</span> <span class="s2">&quot;C9&quot;</span><span class="p">,</span> <span class="s2">&quot;C10&quot;</span><span class="p">,</span> <span class="s2">&quot;C11&quot;</span><span class="p">],</span>
+         <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;D8&quot;</span><span class="p">,</span> <span class="s2">&quot;D9&quot;</span><span class="p">,</span> <span class="s2">&quot;D10&quot;</span><span class="p">,</span> <span class="s2">&quot;D11&quot;</span><span class="p">],</span>
+     <span class="p">},</span>
+     <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span>
+ <span class="p">)</span>
+ 
+
+<span class="n">frames</span> <span class="o">=</span> <span class="p">[</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">df3</span><span class="p">]</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">frames</span><span class="p">)</span>
+
+<span class="n">result</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>A0</td>
+      <td>B0</td>
+      <td>C0</td>
+      <td>D0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>A1</td>
+      <td>B1</td>
+      <td>C1</td>
+      <td>D1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>A2</td>
+      <td>B2</td>
+      <td>C2</td>
+      <td>D2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>A3</td>
+      <td>B3</td>
+      <td>C3</td>
+      <td>D3</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>A4</td>
+      <td>B4</td>
+      <td>C4</td>
+      <td>D4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>A5</td>
+      <td>B5</td>
+      <td>C5</td>
+      <td>D5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>A6</td>
+      <td>B6</td>
+      <td>C6</td>
+      <td>D6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>A7</td>
+      <td>B7</td>
+      <td>C7</td>
+      <td>D7</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>A8</td>
+      <td>B8</td>
+      <td>C8</td>
+      <td>D8</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>A9</td>
+      <td>B9</td>
+      <td>C9</td>
+      <td>D9</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>A10</td>
+      <td>B10</td>
+      <td>C10</td>
+      <td>D10</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>A11</td>
+      <td>B11</td>
+      <td>C11</td>
+      <td>D11</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Nuestra función tiene las siguientes propriedades:</p>
+<p>pd.concat(
+objs,
+axis=0,
+join=»outer»,
+ignore_index=False,
+keys=None,
+levels=None,
+names=None,
+verify_integrity=False,
+copy=True,
+)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">frames</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">])</span>
+    
+<span class="n">result</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="4" valign="top">x</th>
+      <th>0</th>
+      <td>A0</td>
+      <td>B0</td>
+      <td>C0</td>
+      <td>D0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>A1</td>
+      <td>B1</td>
+      <td>C1</td>
+      <td>D1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>A2</td>
+      <td>B2</td>
+      <td>C2</td>
+      <td>D2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>A3</td>
+      <td>B3</td>
+      <td>C3</td>
+      <td>D3</td>
+    </tr>
+    <tr>
+      <th rowspan="4" valign="top">y</th>
+      <th>0</th>
+      <td>A4</td>
+      <td>B4</td>
+      <td>C4</td>
+      <td>D4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>A5</td>
+      <td>B5</td>
+      <td>C5</td>
+      <td>D5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>A6</td>
+      <td>B6</td>
+      <td>C6</td>
+      <td>D6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>A7</td>
+      <td>B7</td>
+      <td>C7</td>
+      <td>D7</td>
+    </tr>
+    <tr>
+      <th rowspan="4" valign="top">z</th>
+      <th>8</th>
+      <td>A8</td>
+      <td>B8</td>
+      <td>C8</td>
+      <td>D8</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>A9</td>
+      <td>B9</td>
+      <td>C9</td>
+      <td>D9</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>A10</td>
+      <td>B10</td>
+      <td>C10</td>
+      <td>D10</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>A11</td>
+      <td>B11</td>
+      <td>C11</td>
+      <td>D11</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Tendremos por lo tanto un objecto con un idnice jerarquizado:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>A4</td>
+      <td>B4</td>
+      <td>C4</td>
+      <td>D4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>A5</td>
+      <td>B5</td>
+      <td>C5</td>
+      <td>D5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>A6</td>
+      <td>B6</td>
+      <td>C6</td>
+      <td>D6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>A7</td>
+      <td>B7</td>
+      <td>C7</td>
+      <td>D7</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Podemos tambien definir el eje de donde queremos hacer el appen y decidir si queremos la union (join=outer) o la interseccion (join=inner):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df4</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+     <span class="p">{</span>
+         <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;B2&quot;</span><span class="p">,</span> <span class="s2">&quot;B3&quot;</span><span class="p">,</span> <span class="s2">&quot;B6&quot;</span><span class="p">,</span> <span class="s2">&quot;B7&quot;</span><span class="p">],</span>
+         <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;D2&quot;</span><span class="p">,</span> <span class="s2">&quot;D3&quot;</span><span class="p">,</span> <span class="s2">&quot;D6&quot;</span><span class="p">,</span> <span class="s2">&quot;D7&quot;</span><span class="p">],</span>
+         <span class="s2">&quot;F&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;F2&quot;</span><span class="p">,</span> <span class="s2">&quot;F3&quot;</span><span class="p">,</span> <span class="s2">&quot;F6&quot;</span><span class="p">,</span> <span class="s2">&quot;F7&quot;</span><span class="p">],</span>
+     <span class="p">},</span>
+     <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
+ <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df4</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">result</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>B</th>
+      <th>D</th>
+      <th>F</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>A0</td>
+      <td>B0</td>
+      <td>C0</td>
+      <td>D0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>A1</td>
+      <td>B1</td>
+      <td>C1</td>
+      <td>D1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>A2</td>
+      <td>B2</td>
+      <td>C2</td>
+      <td>D2</td>
+      <td>B2</td>
+      <td>D2</td>
+      <td>F2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>A3</td>
+      <td>B3</td>
+      <td>C3</td>
+      <td>D3</td>
+      <td>B3</td>
+      <td>D3</td>
+      <td>F3</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>B6</td>
+      <td>D6</td>
+      <td>F6</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>B7</td>
+      <td>D7</td>
+      <td>F7</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df4</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">)</span>
+
+<span class="n">result</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>B</th>
+      <th>D</th>
+      <th>F</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>A2</td>
+      <td>B2</td>
+      <td>C2</td>
+      <td>D2</td>
+      <td>B2</td>
+      <td>D2</td>
+      <td>F2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>A3</td>
+      <td>B3</td>
+      <td>C3</td>
+      <td>D3</td>
+      <td>B3</td>
+      <td>D3</td>
+      <td>F3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Para concatenar podemos utilizar tambien el append, de hecho era una función antes del concat y funciona solo pr el eje 0, nuestros renglones:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
+
+<span class="n">result</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>A0</td>
+      <td>B0</td>
+      <td>C0</td>
+      <td>D0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>A1</td>
+      <td>B1</td>
+      <td>C1</td>
+      <td>D1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>A2</td>
+      <td>B2</td>
+      <td>C2</td>
+      <td>D2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>A3</td>
+      <td>B3</td>
+      <td>C3</td>
+      <td>D3</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>A4</td>
+      <td>B4</td>
+      <td>C4</td>
+      <td>D4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>A5</td>
+      <td>B5</td>
+      <td>C5</td>
+      <td>D5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>A6</td>
+      <td>B6</td>
+      <td>C6</td>
+      <td>D6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>A7</td>
+      <td>B7</td>
+      <td>C7</td>
+      <td>D7</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>¿Qué pasa si hacemos un append de los siguientes dataframes?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>A0</td>
+      <td>B0</td>
+      <td>C0</td>
+      <td>D0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>A1</td>
+      <td>B1</td>
+      <td>C1</td>
+      <td>D1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>A2</td>
+      <td>B2</td>
+      <td>C2</td>
+      <td>D2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>A3</td>
+      <td>B3</td>
+      <td>C3</td>
+      <td>D3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>B</th>
+      <th>D</th>
+      <th>F</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>B2</td>
+      <td>D2</td>
+      <td>F2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>B3</td>
+      <td>D3</td>
+      <td>F3</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>B6</td>
+      <td>D6</td>
+      <td>F6</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>B7</td>
+      <td>D7</td>
+      <td>F7</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df4</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">result</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>F</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>A0</td>
+      <td>B0</td>
+      <td>C0</td>
+      <td>D0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>A1</td>
+      <td>B1</td>
+      <td>C1</td>
+      <td>D1</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>A2</td>
+      <td>B2</td>
+      <td>C2</td>
+      <td>D2</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>A3</td>
+      <td>B3</td>
+      <td>C3</td>
+      <td>D3</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NaN</td>
+      <td>B2</td>
+      <td>NaN</td>
+      <td>D2</td>
+      <td>F2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>NaN</td>
+      <td>B3</td>
+      <td>NaN</td>
+      <td>D3</td>
+      <td>F3</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>NaN</td>
+      <td>B6</td>
+      <td>NaN</td>
+      <td>D6</td>
+      <td>F6</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>NaN</td>
+      <td>B7</td>
+      <td>NaN</td>
+      <td>D7</td>
+      <td>F7</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Podemos hacer append de multiples dataframe a la vez:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">df2</span><span class="p">,</span> <span class="n">df3</span><span class="p">])</span>
+
+<span class="n">result</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>A0</td>
+      <td>B0</td>
+      <td>C0</td>
+      <td>D0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>A1</td>
+      <td>B1</td>
+      <td>C1</td>
+      <td>D1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>A2</td>
+      <td>B2</td>
+      <td>C2</td>
+      <td>D2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>A3</td>
+      <td>B3</td>
+      <td>C3</td>
+      <td>D3</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>A4</td>
+      <td>B4</td>
+      <td>C4</td>
+      <td>D4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>A5</td>
+      <td>B5</td>
+      <td>C5</td>
+      <td>D5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>A6</td>
+      <td>B6</td>
+      <td>C6</td>
+      <td>D6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>A7</td>
+      <td>B7</td>
+      <td>C7</td>
+      <td>D7</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>A8</td>
+      <td>B8</td>
+      <td>C8</td>
+      <td>D8</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>A9</td>
+      <td>B9</td>
+      <td>C9</td>
+      <td>D9</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>A10</td>
+      <td>B10</td>
+      <td>C10</td>
+      <td>D10</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>A11</td>
+      <td>B11</td>
+      <td>C11</td>
+      <td>D11</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><a class="reference external" href="https://pandas.pydata.org/docs/user_guide/merging.html">Más tipos de concatenación</a></p>
+</div>
+</div>
+<div class="section" id="merge">
+<h2><a class="toc-backref" href="#id4">Merge</a><a class="headerlink" href="#merge" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Pandas nos permite de juntar dataframe de manera computacionalmente eficaz con una sintaxis similar a la de SQL. Resulta mucho más eficaz que otros lenguajes como R. Tenemos una unica función atraves de la cual, especificando los distintos argumentos, podemos obtener los diferentes join:</p>
+<p><img alt="" src="Laboratorios/Lab10/join.jpg" /></p>
+<p>pd.merge(
+left,
+right,
+how=»inner»,
+on=None,
+left_on=None,
+right_on=None,
+left_index=False,
+right_index=False,
+sort=True,
+suffixes=(«_x», «_y»),
+copy=True,
+indicator=False,
+validate=None,
+)</p>
+<p>Uno de los conceptos principales es el tipo de relación que tenemos entre las llaves de los distintos data frames:</p>
+<ul class="simple">
+<li><p>1:1: juntamos los dos data frames por medio de una llave que debe ser unica</p></li>
+<li><p>m:1: la llave unica es presente solo en el segundo data frame, en el primero puede ser repetida</p></li>
+<li><p>m:m: el join viene efectuado sobre columna, si la llave que nos sirve para juntar los data frames es repetida obtendremos un producto cartesiano de los dos data frames</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">left</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+     <span class="p">{</span>
+       <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;K0&quot;</span><span class="p">,</span> <span class="s2">&quot;K1&quot;</span><span class="p">,</span> <span class="s2">&quot;K2&quot;</span><span class="p">,</span> <span class="s2">&quot;K3&quot;</span><span class="p">],</span>
+       <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;A0&quot;</span><span class="p">,</span> <span class="s2">&quot;A1&quot;</span><span class="p">,</span> <span class="s2">&quot;A2&quot;</span><span class="p">,</span> <span class="s2">&quot;A3&quot;</span><span class="p">],</span>
+       <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;B0&quot;</span><span class="p">,</span> <span class="s2">&quot;B1&quot;</span><span class="p">,</span> <span class="s2">&quot;B2&quot;</span><span class="p">,</span> <span class="s2">&quot;B3&quot;</span><span class="p">],</span>
+    <span class="p">}</span>
+ <span class="p">)</span>
+
+<span class="n">right</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+     <span class="p">{</span>
+         <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;K0&quot;</span><span class="p">,</span> <span class="s2">&quot;K1&quot;</span><span class="p">,</span> <span class="s2">&quot;K2&quot;</span><span class="p">,</span> <span class="s2">&quot;K3&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;C0&quot;</span><span class="p">,</span> <span class="s2">&quot;C1&quot;</span><span class="p">,</span> <span class="s2">&quot;C2&quot;</span><span class="p">,</span> <span class="s2">&quot;C3&quot;</span><span class="p">],</span>
+         <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;D0&quot;</span><span class="p">,</span> <span class="s2">&quot;D1&quot;</span><span class="p">,</span> <span class="s2">&quot;D2&quot;</span><span class="p">,</span> <span class="s2">&quot;D3&quot;</span><span class="p">],</span>
+     <span class="p">}</span>
+ <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">left</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>key</th>
+      <th>A</th>
+      <th>B</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>K0</td>
+      <td>A0</td>
+      <td>B0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>K1</td>
+      <td>A1</td>
+      <td>B1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>K2</td>
+      <td>A2</td>
+      <td>B2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>K3</td>
+      <td>A3</td>
+      <td>B3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">right</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>key</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>K0</td>
+      <td>C0</td>
+      <td>D0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>K1</td>
+      <td>C1</td>
+      <td>D1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>K2</td>
+      <td>C2</td>
+      <td>D2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>K3</td>
+      <td>C3</td>
+      <td>D3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;key&quot;</span><span class="p">)</span>
+<span class="n">result</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>key</th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>K0</td>
+      <td>A0</td>
+      <td>B0</td>
+      <td>C0</td>
+      <td>D0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>K1</td>
+      <td>A1</td>
+      <td>B1</td>
+      <td>C1</td>
+      <td>D1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>K2</td>
+      <td>A2</td>
+      <td>B2</td>
+      <td>C2</td>
+      <td>D2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>K3</td>
+      <td>A3</td>
+      <td>B3</td>
+      <td>C3</td>
+      <td>D3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Podemos tener llaves multiples:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">left</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">{</span>
+         <span class="s2">&quot;key1&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;K0&quot;</span><span class="p">,</span> <span class="s2">&quot;K0&quot;</span><span class="p">,</span> <span class="s2">&quot;K1&quot;</span><span class="p">,</span> <span class="s2">&quot;K2&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;key2&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;K0&quot;</span><span class="p">,</span> <span class="s2">&quot;K1&quot;</span><span class="p">,</span> <span class="s2">&quot;K0&quot;</span><span class="p">,</span> <span class="s2">&quot;K1&quot;</span><span class="p">],</span>
+         <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;A0&quot;</span><span class="p">,</span> <span class="s2">&quot;A1&quot;</span><span class="p">,</span> <span class="s2">&quot;A2&quot;</span><span class="p">,</span> <span class="s2">&quot;A3&quot;</span><span class="p">],</span>
+         <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;B0&quot;</span><span class="p">,</span> <span class="s2">&quot;B1&quot;</span><span class="p">,</span> <span class="s2">&quot;B2&quot;</span><span class="p">,</span> <span class="s2">&quot;B3&quot;</span><span class="p">],</span>
+     <span class="p">}</span>
+ <span class="p">)</span>
+ 
+
+<span class="n">right</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+     <span class="p">{</span>
+      <span class="s2">&quot;key1&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;K0&quot;</span><span class="p">,</span> <span class="s2">&quot;K1&quot;</span><span class="p">,</span> <span class="s2">&quot;K1&quot;</span><span class="p">,</span> <span class="s2">&quot;K2&quot;</span><span class="p">],</span>
+       <span class="s2">&quot;key2&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;K0&quot;</span><span class="p">,</span> <span class="s2">&quot;K0&quot;</span><span class="p">,</span> <span class="s2">&quot;K0&quot;</span><span class="p">,</span> <span class="s2">&quot;K0&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;C0&quot;</span><span class="p">,</span> <span class="s2">&quot;C1&quot;</span><span class="p">,</span> <span class="s2">&quot;C2&quot;</span><span class="p">,</span> <span class="s2">&quot;C3&quot;</span><span class="p">],</span>
+         <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;D0&quot;</span><span class="p">,</span> <span class="s2">&quot;D1&quot;</span><span class="p">,</span> <span class="s2">&quot;D2&quot;</span><span class="p">,</span> <span class="s2">&quot;D3&quot;</span><span class="p">],</span>
+     <span class="p">}</span>
+ <span class="p">)</span>
+ 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">left</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>key1</th>
+      <th>key2</th>
+      <th>A</th>
+      <th>B</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>K0</td>
+      <td>K0</td>
+      <td>A0</td>
+      <td>B0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>K0</td>
+      <td>K1</td>
+      <td>A1</td>
+      <td>B1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>K1</td>
+      <td>K0</td>
+      <td>A2</td>
+      <td>B2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>K2</td>
+      <td>K1</td>
+      <td>A3</td>
+      <td>B3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">right</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>key1</th>
+      <th>key2</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>K0</td>
+      <td>K0</td>
+      <td>C0</td>
+      <td>D0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>K1</td>
+      <td>K0</td>
+      <td>C1</td>
+      <td>D1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>K1</td>
+      <td>K0</td>
+      <td>C2</td>
+      <td>D2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>K2</td>
+      <td>K0</td>
+      <td>C3</td>
+      <td>D3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="p">)</span><span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;key1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">]</span>
+
+<span class="n">result</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-20-f84d9bef89ee&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="p">)</span><span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;key1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">]</span>
+                                    <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="tipos-join">
+<h3><a class="toc-backref" href="#id5">Tipos Join</a><a class="headerlink" href="#tipos-join" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>En el argumento <em>how</em> podemos especificar que tipo de join queremos efectuar:</p>
+<ul class="simple">
+<li><p>left: left outer join, utilizamos las llaves del df de la izquierda</p></li>
+<li><p>right: right outer join, utilizamos las llaves del df de la derecha</p></li>
+<li><p>outer:utilizamos la union de las llaves de ambos df</p></li>
+<li><p>inner: utilizamos la intersección entre las dos llaves</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;key1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">])</span>
+<span class="n">result</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>key1</th>
+      <th>key2</th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>K0</td>
+      <td>K0</td>
+      <td>A0</td>
+      <td>B0</td>
+      <td>C0</td>
+      <td>D0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>K0</td>
+      <td>K1</td>
+      <td>A1</td>
+      <td>B1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>K1</td>
+      <td>K0</td>
+      <td>A2</td>
+      <td>B2</td>
+      <td>C1</td>
+      <td>D1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>K1</td>
+      <td>K0</td>
+      <td>A2</td>
+      <td>B2</td>
+      <td>C2</td>
+      <td>D2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>K2</td>
+      <td>K1</td>
+      <td>A3</td>
+      <td>B3</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;key1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">])</span>
+<span class="n">result</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>key1</th>
+      <th>key2</th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>K0</td>
+      <td>K0</td>
+      <td>A0</td>
+      <td>B0</td>
+      <td>C0</td>
+      <td>D0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>K1</td>
+      <td>K0</td>
+      <td>A2</td>
+      <td>B2</td>
+      <td>C1</td>
+      <td>D1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>K1</td>
+      <td>K0</td>
+      <td>A2</td>
+      <td>B2</td>
+      <td>C2</td>
+      <td>D2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>K2</td>
+      <td>K0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>C3</td>
+      <td>D3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;outer&quot;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;key1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">])</span>
+<span class="n">result</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>key1</th>
+      <th>key2</th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>K0</td>
+      <td>K0</td>
+      <td>A0</td>
+      <td>B0</td>
+      <td>C0</td>
+      <td>D0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>K0</td>
+      <td>K1</td>
+      <td>A1</td>
+      <td>B1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>K1</td>
+      <td>K0</td>
+      <td>A2</td>
+      <td>B2</td>
+      <td>C1</td>
+      <td>D1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>K1</td>
+      <td>K0</td>
+      <td>A2</td>
+      <td>B2</td>
+      <td>C2</td>
+      <td>D2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>K2</td>
+      <td>K1</td>
+      <td>A3</td>
+      <td>B3</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>K2</td>
+      <td>K0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>C3</td>
+      <td>D3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;key1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">])</span>
+<span class="n">result</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>key1</th>
+      <th>key2</th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>K0</td>
+      <td>K0</td>
+      <td>A0</td>
+      <td>B0</td>
+      <td>C0</td>
+      <td>D0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>K1</td>
+      <td>K0</td>
+      <td>A2</td>
+      <td>B2</td>
+      <td>C1</td>
+      <td>D1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>K1</td>
+      <td>K0</td>
+      <td>A2</td>
+      <td>B2</td>
+      <td>C2</td>
+      <td>D2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Tenemos que estar cuidados cuando tenemos indices multiples</p>
+</div>
+</div>
+<div class="section" id="sql">
+<h2><a class="toc-backref" href="#id6">SQL</a><a class="headerlink" href="#sql" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="que-es-sql">
+<h3><a class="toc-backref" href="#id7">¿Qué es SQL?</a><a class="headerlink" href="#que-es-sql" title="Enlazar permanentemente con este título">¶</a></h3>
+<ul class="simple">
+<li><p>SQL son las siglas de Structured Query Language</p></li>
+<li><p>SQL permite acceder y manipular bases de datos</p></li>
+<li><p>SQL se convirtió en un estándar del American National Standards Institute (ANSI) en 1986, y de la International Organization for Standardization (ISO) en 1987.</p></li>
+<li><p>A pesar de ser estándar hay diferentes «mutaciones» de SQL</p></li>
+</ul>
+</div>
+<div class="section" id="que-podemos-hacer-con-sql">
+<h3><a class="toc-backref" href="#id8">¿Qué podemos hacer con SQL?</a><a class="headerlink" href="#que-podemos-hacer-con-sql" title="Enlazar permanentemente con este título">¶</a></h3>
+<ul class="simple">
+<li><p>ejecutar consultas en una base de datos</p></li>
+<li><p>recuperar datos de una base de datos</p></li>
+<li><p>insertar registros en una base de datos</p></li>
+<li><p>actualizar registros en una base de datos</p></li>
+<li><p>eliminar registros de una base de datos</p></li>
+<li><p>crear nuevas bases de datos</p></li>
+<li><p>crear nuevas tablas en una base de datos</p></li>
+<li><p>crear procedimientos almacenados en una base de datos</p></li>
+<li><p>crear vistas en una base de datos</p></li>
+<li><p>establecer permisos en tablas, procedimientos y vistas</p></li>
+</ul>
+</div>
+<div class="section" id="rdbms">
+<h3><a class="toc-backref" href="#id9">RDBMS</a><a class="headerlink" href="#rdbms" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>RDBMS son las siglas de Relational Database Management System.</p>
+<p>RDBMS es la base de SQL y de todos los sistemas de bases de datos modernos como MS SQL Server, IBM DB2, Oracle, MySQL y Microsoft Access.</p>
+<p>Los datos en RDBMS se almacenan en objetos llamados tablas. Una tabla es una colección de entradas de datos relacionados y consta de columnas y filas.</p>
+<p>Cada tabla se divide en entidades más pequeñas llamadas campos. Los campos de la tabla Clientes constan de CustomerID, CustomerName, ContactName, Address, City, PostalCode y Country. Un campo es una columna de una tabla diseñada para mantener información específica sobre cada registro de la tabla.</p>
+<p>Un registro, también llamado fila, es cada entrada individual que existe en una tabla.  Un registro es una entidad horizontal en una tabla.</p>
+<p>Una columna es una entidad vertical en una tabla que contiene toda la información asociada con un campo específico en una tabla.</p>
+</div>
+<div class="section" id="tablas">
+<h3><a class="toc-backref" href="#id10">Tablas</a><a class="headerlink" href="#tablas" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Una base de datos suele contener una o más tablas. Cada tabla se identifica con un nombre (por ejemplo, «Clientes» u «Pedidos»). Las tablas contienen registros (filas) con datos.</p>
+<p><img alt="" src="Laboratorios/Lab10/tablas.png" /></p>
+<p>Tenemos 5 records y 7 campos.</p>
+</div>
+<div class="section" id="sql-statements">
+<h3><a class="toc-backref" href="#id11">SQL Statements</a><a class="headerlink" href="#sql-statements" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Los statements son la sintaxis através de las cuales pedimos informaciones o modificaciones a la base de datos.</p>
+<p>** A diferencia que en Python los statements no son case sensitive **</p>
+<p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">Customers;</span> </code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span></code>: extrae datos de una base de datos</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UPDATE</span></code>: actualiza los datos en una base de datos</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DELETE</span></code>: elimina datos de una base de datos</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INSERT</span> <span class="pre">INTO</span></code>: inserta nuevos datos en una base de datos</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">DATABASE</span></code>: crea una nueva base de datos</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">DATABASE</span></code>: modifica una base de datos</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">TABLE</span></code>: crea una nueva tabla</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ALTER</span>&#160; <span class="pre">TABLE</span></code>: modifica una tabla</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DROP</span> <span class="pre">TABLE</span></code>:elimina una tabla</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">INDEX</span></code>: crea un índice (clave de búsqueda)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DROP</span> <span class="pre">INDEX</span></code>: elimina un índice</p></li>
+</ul>
+<p>La instrucción SELECT se utiliza para seleccionar datos de una base de datos.</p>
+<p>Los datos devueltos se almacenan en una tabla de resultados, denominada conjunto result set.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">column1</span><span class="p">,</span> <span class="n">column2</span><span class="p">,</span> <span class="o">...</span>
+<span class="n">FROM</span> <span class="n">table_name</span><span class="p">;</span>
+
+<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">table_name</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Si queremos seleccionar solo valores distintos utilizaremos el siguiente comando:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">DISTINCT</span> <span class="n">column1</span><span class="p">,</span> <span class="n">column2</span><span class="p">,</span> <span class="o">...</span>
+<span class="n">FROM</span> <span class="n">table_name</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Si queremos saber cuantos valores distintos tenemos para cada campo usaremos:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">COUNT</span><span class="p">(</span><span class="n">DISTINCT</span> <span class="n">Country</span><span class="p">)</span> <span class="n">FROM</span> <span class="n">Customers</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Cuando queremos especificar alguna condición parrticular utilizaremos el <em>where</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">column1</span><span class="p">,</span> <span class="n">column2</span><span class="p">,</span> <span class="o">...</span>
+<span class="n">FROM</span> <span class="n">table_name</span>
+<span class="n">WHERE</span> <span class="n">condition</span><span class="p">;</span>
+
+<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">Customers</span>
+<span class="n">WHERE</span> <span class="n">Country</span><span class="o">=</span><span class="s1">&#39;Mexico&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Si queremos poner una condición numerica:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">Customers</span>
+<span class="n">WHERE</span> <span class="n">CustomerID</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Las condiciones que podemos utilizar son ligeramente diferente con respecto a python:</p>
+<p><img alt="" src="Laboratorios/Lab10/tabla2.png" /></p>
+<p>La condición de <em>where</em> podemos combinarla con los operadores <em>AND,OR,NOT</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">column1</span><span class="p">,</span> <span class="n">column2</span><span class="p">,</span> <span class="o">...</span>
+<span class="n">FROM</span> <span class="n">table_name</span>
+<span class="n">WHERE</span> <span class="n">condition1</span> <span class="n">AND</span> <span class="n">condition2</span> <span class="n">OR</span> <span class="n">condition3</span> <span class="o">...</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">column1</span><span class="p">,</span> <span class="n">column2</span><span class="p">,</span> <span class="o">...</span>
+<span class="n">FROM</span> <span class="n">table_name</span>
+<span class="n">WHERE</span> <span class="n">NOT</span> <span class="n">condition</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">Customers</span>
+<span class="n">WHERE</span> <span class="n">Country</span><span class="o">=</span><span class="s1">&#39;Germany&#39;</span> <span class="n">AND</span> <span class="p">(</span><span class="n">City</span><span class="o">=</span><span class="s1">&#39;Berlin&#39;</span> <span class="n">OR</span> <span class="n">City</span><span class="o">=</span><span class="s1">&#39;München&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Para ordenar nuestra tabolas de resultados podemos utilizar el <em>ORDER BY</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">column1</span><span class="p">,</span> <span class="n">column2</span><span class="p">,</span> <span class="o">...</span>
+<span class="n">FROM</span> <span class="n">table_name</span>
+<span class="n">ORDER</span> <span class="n">BY</span> <span class="n">column1</span><span class="p">,</span> <span class="n">column2</span><span class="p">,</span> <span class="o">...</span> <span class="n">ASC</span><span class="o">|</span><span class="n">DESC</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Podemos utilizar más de un orden como vimos en Pandas:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">Customers</span>
+<span class="n">ORDER</span> <span class="n">BY</span> <span class="n">Country</span><span class="p">,</span> <span class="n">CustomerName</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>para manejar los <em>NULL</em>, que son los equivalente de los NA de pandas, podemos utilziar las operadores <code class="docutils literal notranslate"><span class="pre">IS</span> <span class="pre">NULL</span></code> y <code class="docutils literal notranslate"><span class="pre">IS</span> <span class="pre">NOT</span> <span class="pre">NULL</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">CustomerName</span><span class="p">,</span> <span class="n">ContactName</span><span class="p">,</span> <span class="n">Address</span>
+<span class="n">FROM</span> <span class="n">Customers</span>
+<span class="n">WHERE</span> <span class="n">Address</span> <span class="n">IS</span> <span class="n">NULL</span><span class="p">;</span>
+
+</pre></div>
+</div>
+<p>Con <em>UPDATE</em> podemos utiliactualziar los records:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">UPDATE</span> <span class="n">Customers</span>
+<span class="n">SET</span> <span class="n">ContactName</span> <span class="o">=</span> <span class="s1">&#39;Alfred Schmidt&#39;</span><span class="p">,</span> <span class="n">City</span><span class="o">=</span> <span class="s1">&#39;Frankfurt&#39;</span>
+<span class="n">WHERE</span> <span class="n">CustomerID</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">COUNT</span><span class="p">(</span><span class="n">column_name</span><span class="p">)</span>
+<span class="n">FROM</span> <span class="n">table_name</span>
+<span class="n">WHERE</span> <span class="n">condition</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">SUM</span><span class="p">(</span><span class="n">column_name</span><span class="p">)</span>
+<span class="n">FROM</span> <span class="n">table_name</span>
+<span class="n">WHERE</span> <span class="n">condition</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">AVG</span><span class="p">(</span><span class="n">column_name</span><span class="p">)</span>
+<span class="n">FROM</span> <span class="n">table_name</span>
+<span class="n">WHERE</span> <span class="n">condition</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Otra función muy utili es el like:</p>
+<p><img alt="" src="Laboratorios/Lab10/miao.png" /></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "rafneta/CienciaDatosPythonCIDE",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Laboratorios/Lab10"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="lab10.html" title="previous page">Laboratorio 10</a>
+    <a class='right-next' id="next-link" href="EjemploPandas.html" title="next page">Ejemplos Pandas</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          Por Rafael Martínez-Martínez and Federico Daverio<br/>
+        
+            &copy; Derechos de autor .<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
