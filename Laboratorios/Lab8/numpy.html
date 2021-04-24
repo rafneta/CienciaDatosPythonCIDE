@@ -306,6 +306,11 @@
      NumPy
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab9/PandasI.html">
+     Pandas
+    </a>
+   </li>
   </ul>
   <i class="fas fa-chevron-down">
   </i>
@@ -3604,9 +3609,7 @@ reshape(a, newshape, order=&#39;C&#39;)
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 1.  2.  3.  4.  5.  6.  7.  8.  9. 10. 11. 12. 13. 14. 15.]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(15,)
+(15,)
 [[ 1.  2.  3.  4.  5.]
  [ 6.  7.  8.  9. 10.]
  [11. 12. 13. 14. 15.]]
@@ -3894,9 +3897,7 @@ multi_dot(arrays, *, out=None)
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 1.   5.5 10. ]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1.  2.  3.  4.  5.]
+[[ 1.  2.  3.  4.  5.]
  [ 6.  7.  8.  9. 10.]
  [11. 12. 13. 14. 15.]]
 [144.  160.5 177.  193.5 210. ]
@@ -4027,11 +4028,11 @@ multi_dot(arrays, *, out=None)
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: wooldridge in /Users/rafamtz/opt/anaconda3/lib/python3.8/site-packages (0.4.2)
 Requirement already satisfied: pandas in /Users/rafamtz/opt/anaconda3/lib/python3.8/site-packages (from wooldridge) (1.1.3)
-Requirement already satisfied: numpy&gt;=1.15.4 in /Users/rafamtz/opt/anaconda3/lib/python3.8/site-packages (from pandas-&gt;wooldridge) (1.19.2)
-Requirement already satisfied: python-dateutil&gt;=2.7.3 in /Users/rafamtz/opt/anaconda3/lib/python3.8/site-packages (from pandas-&gt;wooldridge) (2.8.1)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pytz&gt;=2017.2 in /Users/rafamtz/opt/anaconda3/lib/python3.8/site-packages (from pandas-&gt;wooldridge) (2020.1)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy&gt;=1.15.4 in /Users/rafamtz/opt/anaconda3/lib/python3.8/site-packages (from pandas-&gt;wooldridge) (1.19.2)
+Requirement already satisfied: python-dateutil&gt;=2.7.3 in /Users/rafamtz/opt/anaconda3/lib/python3.8/site-packages (from pandas-&gt;wooldridge) (2.8.1)
+Requirement already satisfied: pytz&gt;=2017.2 in /Users/rafamtz/opt/anaconda3/lib/python3.8/site-packages (from pandas-&gt;wooldridge) (2020.1)
 Requirement already satisfied: six&gt;=1.5 in /Users/rafamtz/opt/anaconda3/lib/python3.8/site-packages (from python-dateutil&gt;=2.7.3-&gt;pandas-&gt;wooldridge) (1.15.0)
 </pre></div>
 </div>
@@ -4403,7 +4404,10 @@ Use help(str) for help on the str class.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>963.1913364725579 18.501186345214922
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>963.1913364725579
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 18.501186345214922
 </pre></div>
 </div>
 </div>
@@ -4516,9 +4520,6 @@ var(a, axis=None, dtype=None, out=None, ddof=0, keepdims=&lt;no value&gt;)
     0.20249999932944759 # may vary
     &gt;&gt;&gt; ((1-0.55)**2 + (0.1-0.55)**2)/2
     0.2025
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -5422,7 +5423,7 @@ dtype: float64
   <th>Date:</th>             <td>Sat, 24 Apr 2021</td> <th>  Prob (F-statistic):</th>  <td>0.0978</td> 
 </tr>
 <tr>
-  <th>Time:</th>                 <td>13:19:51</td>     <th>  Log-Likelihood:    </th> <td> -1804.5</td>
+  <th>Time:</th>                 <td>13:53:50</td>     <th>  Log-Likelihood:    </th> <td> -1804.5</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>   209</td>      <th>  AIC:               </th> <td>   3613.</td>
@@ -6099,7 +6100,7 @@ dtype: float64
   <th>Date:</th>             <td>Sat, 24 Apr 2021</td> <th>  Prob (F-statistic):</th>  <td>0.0978</td> 
 </tr>
 <tr>
-  <th>Time:</th>                 <td>13:19:57</td>     <th>  Log-Likelihood:    </th> <td> -1804.5</td>
+  <th>Time:</th>                 <td>13:53:53</td>     <th>  Log-Likelihood:    </th> <td> -1804.5</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>   209</td>      <th>  AIC:               </th> <td>   3613.</td>
