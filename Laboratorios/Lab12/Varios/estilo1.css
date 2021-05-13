@@ -1,0 +1,286 @@
+<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:100,300,400,500,700,800,900,100italic,300italic,400italic,500italic,700italic,800italic,900italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Mono' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Nixie+One' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+<style>
+
+@font-face {
+    font-family: "Computer Modern";
+    src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunss.otf');
+}
+
+#notebook_panel { /* main background */
+    background: rgb(255,255,255);/*rgb(245,245,245);*/
+}
+
+div.cell { /* set cell width */
+    background: rgb(255,255,255);
+    width: 1000px;/* 850 */
+    margin-left:auto;
+    margin-right:auto;
+
+}
+
+div #notebook { /* centre the content */
+    background: rgb(255,255,255); /*#fff; white background for content */
+    width: 1150px;
+    margin: auto;
+    margin-left:auto;
+    margin-right:auto;
+
+}
+
+#notebook li { /* More space between bullet points */
+    margin-top:0.8em;
+}
+
+/* draw border around running cells */
+div.cell.border-box-sizing.code_cell.running { 
+    border: 1px solid #111;
+}
+
+/* Put a solid color box around each cell and its output, visually linking them*/
+div.cell.code_cell {
+    background-color: rgb(255,255,255);/*rgb(256,256,256);*/ 
+    border-radius: 0px; 
+    padding: 2em;
+    margin-left:2em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    margin-left:auto;
+    margin-right:auto;
+    width:1000px;
+
+}
+
+div.text_cell_render{
+    font-family: 'Alegreya Sans' sans-serif;
+    line-height: 140%;
+    font-size: 130%;
+    font-weight: 400;
+    width:850px;
+    margin-left:auto;
+    margin-right:auto;
+    padding-left: 0px;
+}
+
+
+/* Formatting for header cells */
+.text_cell_render h1 {
+    font-family: 'Nixie One', serif;
+    font-style:regular;
+    font-weight: 400;    
+    font-size: 45pt;
+    line-height: 100%;
+    color: rgb(0,51,102);
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    display: block;
+}
+
+.text_cell_render h2 {
+    font-family: 'Nixie One', serif;
+    font-weight: 400;
+    font-size: 30pt;
+    line-height: 100%;
+    color: rgb(0,51,102);
+    margin-bottom: 0.1em;
+    margin-top: 0.3em;
+    display: block;
+}	
+
+.text_cell_render h3 {
+    font-family: 'Nixie One', serif;
+    margin-top:16px;
+    font-size: 22pt;
+    font-weight: 600;
+    margin-bottom: 3px;
+    font-style: regular;
+    color: rgb(102,102,0);
+}
+
+.text_cell_render h4 {    /*Use this for captions*/
+    font-family: 'Nixie One', serif;
+    font-size: 14pt;
+    text-align: center;
+    margin-top: 0em;
+    margin-bottom: 2em;
+    font-style: regular;
+}
+
+.text_cell_render h5 {  /*Use this for small titles*/
+    font-family: 'Nixie One', sans-serif;
+    font-weight: 400;
+    font-size: 16pt;
+    color: rgb(163,0,0);
+    font-style: italic;
+    margin-bottom: .1em;
+    margin-top: 0.8em;
+    display: block;
+}
+
+.text_cell_render h6 { /*use this for copyright note*/
+    font-family: 'PT Mono', sans-serif;
+    font-weight: 300;
+    font-size: 9pt;
+    line-height: 100%;
+    color: grey;
+    margin-bottom: 1px;
+    margin-top: 1px;
+}
+
+.CodeMirror{
+    font-family: "Source Code Pro";
+    font-size: 90%;
+}
+
+.alert-box {
+    padding:10px 10px 10px 36px;
+    margin:5px;
+}
+
+.success {
+    color:#666600;
+    background:rgb(240,242,229);
+}
+
+
+.def {	
+    border-style:solid;
+    border-width:4px;
+    /*-webkit-border-radius:15px;
+	border-radius: 15px;*/
+    border-color:rgba(102,194,163,0.9);/**  #366272;#CD853F;/**rgba(112, 156, 169, 0.66);*/
+    /*background: #366272;rgba(54, 98, 114, 0.9);/*#366272;*/
+	/*border-top-left-radius:10%;*/
+	color:black;
+	font-size: 1em;
+	/*box-shadow: 10px 10px 10px #2178a3;*/
+	/*overflow:scroll;*/
+	padding: 2% 4% 2% 4%;
+	box-sizing: border-box;
+	width:80%;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:2%;
+    margin-top:2%; 
+    background:rgba(102,194,163,0.2);/*1(0.40000000596046448, 0.7607843279838562, 0.64705884456634521)*/
+}
+
+.visual {	
+    border-style:solid;
+    border-width:4px;
+    /*-webkit-border-radius:15px;
+	border-radius: 15px;*/
+    border-color: rgba(249,140,97,0.9);/*#CD853F ; #366272*#CD853F;/**rgba(112, 156, 169, 0.66);*/
+    /*background: #366272;rgba(54, 98, 114, 0.9);/*#366272;*/
+	/*border-top-left-radius:10%;*/
+	color:black;
+	font-size: 1em;
+	/*box-shadow: 10px 10px 10px #2178a3;*/
+	/*overflow:scroll;*/
+	padding: 2% 4% 2% 4%;
+	box-sizing: border-box;
+	width:80%;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:2%;
+    margin-top:2%; 
+    background:rgba(249,140,97,0.2) /*2(0.98131487965583808, 0.55538641635109398, 0.38740485135246722)*/;
+}
+
+
+.problemas {	
+    border-style:solid;
+    border-width:4px;
+    /*-webkit-border-radius:15px;
+	border-radius: 15px;*/
+    border-color:rgba(0, 121, 53);/**  #366272;#CD853F;/**rgba(112, 156, 169, 0.66);*/
+    /*background: #366272;rgba(54, 98, 114, 0.9);/*#366272;*/
+	/*border-top-left-radius:10%;*/
+	color:black;
+	font-size: 1em;
+	/*box-shadow: 10px 10px 10px #2178a3;*/
+	/*overflow:scroll;*/
+	padding: 2% 4% 2% 4%;
+	box-sizing: border-box;
+	width:95%;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:2%;
+    margin-top:2%; 
+    background:rgba(0, 121, 53, 0.3);/*3(0.55432528607985565, 0.62711267120697922, 0.79595541393055635)*/
+}
+
+
+
+
+.text_cell_render p {
+	font-size: 1.0em;
+	line-height: 1.6;
+	font-weight: 300;
+	text-align: justify;
+    color: black;
+}
+
+div pre
+{
+    color: red;
+    padding: 0.5em;
+    /*margin-left:1em;
+    margin-top: 1em;*/
+    margin-left:auto;
+    margin-right:auto;
+    }
+
+
+.polaroid {
+  width: 80%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:2%;
+}
+
+.despolaroid p{
+  text-align: center;
+  padding: 10px 20px;
+    margin-left:auto;
+    margin-right:auto;
+    font-size: 0.8em;
+	line-height: 1;
+	font-weight: 200;
+
+}
+
+
+ img {
+    /*display: block;
+    margin: auto;*/
+    width: 95%;
+    border-bottom: 4px solid #ddd;
+    padding: 5px;
+}
+
+
+</style>
+<script>
+    MathJax.Hub.Config({
+                        TeX: {
+                           extensions: ["AMSmath.js"],
+                           equationNumbers: { autoNumber: "AMS", useLabelIds: true}
+                           },
+                tex2jax: {
+                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+                },
+                displayAlign: 'center', // Change this to 'center' to center equations.
+                "HTML-CSS": {
+                    styles: {'.MathJax_Display': {"margin": 4}}
+                }
+});
+</script>

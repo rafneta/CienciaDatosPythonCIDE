@@ -80,9 +80,16 @@
       - file: Laboratorios/Lab10/EjemploPandas
     
   - file: Laboratorios/Lab11/lab11
-    title: 11. Scraping, APIS
+    title: 11. AED, Exp. Reg., Scraping
+    sections:
+      - file: Laboratorios/Lab11/EDA
+      - file: Laboratorios/Lab11/ExpresionesRegulares
+      - file: Laboratorios/Lab11/Scraping
 
-  
+  - file: Laboratorios/Lab12/lab12
+    title: 12. Widgets, Visualización
+    sections:
+      - file: Laboratorios/Lab12/Widgets
   
   
   
