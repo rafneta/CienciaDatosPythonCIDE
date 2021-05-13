@@ -1,0 +1,3043 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EDA &#8212; Introducción a la ciencia de datos</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.37f24b989f4638ff9c27c22dc7559d4f.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/estilo-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/estilo-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="Cadenas, Expresiones regulares" href="ExpresionesRegulares.html" />
+    <link rel="prev" title="Laboratorio 11" href="lab11.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Introducción a la ciencia de datos</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Buscar este libro ..." aria-label="Buscar este libro ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Sobre este sitio
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Información del curso
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/encuadre.html">
+   Encuadre
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/calendarioLab.html">
+   Calendario Laboratorio
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/Navegacion.html">
+   Navegación en el libro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/Pizarron.html">
+   Pizarrón
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Clases
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Clases/1_intro.html">
+   1. Introducción a Python
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Laboratorios
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab1/lab1.html">
+   1. Anaconda, GitHub
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab1/instalacion.html">
+     Instalación Anaconda
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab1/GitHub.html">
+     Introducción a GitHub
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab2/lab2.html">
+   2. Datos, flujo, funciones
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab2/Varfunif.html">
+     Variables y Condiciones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab2/fundamentos.html">
+     Operaciones con tipos de datos básicos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab2/Introfunmod.html">
+     Introducción a funciones y módulos
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab3/lab3.html">
+   3. Funciones, Métodos, Ciclos
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab3/FuncionesMetodos.html">
+     Funciones y métodos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab3/ListasyCiclos.html">
+     Listas y Ciclos
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab4/lab4.html">
+   4. Ciclos, Excepciones
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab4/Ciclos.html">
+     Ciclos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab4/Excepciones.html">
+     Control de Excepciones
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab5/lab5.html">
+   5. Paradigmas, lambda, recursión
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab5/ModulosEjemplos.html">
+     Comprensión, lambdas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab5/Recursion.html">
+     Recursión
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab6/lab6.html">
+   6. Árboles (clasificación), Estructuras
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab6/Arboles.html">
+     Arboles de Decisiones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab6/Estructuras.html">
+     Estructuras
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lab7/lab7.html">
+   7. Repaso
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab8/lab8.html">
+   8. Numpy y Pandas
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab8/numpy.html">
+     NumPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab8/numpy.html#ejemplo-econometria">
+     Ejemplo Econometría
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab8/Pandas.html">
+     Pandas
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab9/lab9.html">
+   9. Numpy II y Pandas II
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab9/numpy2.html">
+     NumPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab9/PandasI.html">
+     Pandas
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab10/lab10.html">
+   10. Ejemplos Numpy y pandas
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab10/PandasII.html">
+     Pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab10/EjemploPandas.html">
+     Ejemplos Pandas
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="lab11.html">
+   11. AED, Exp. Reg., Scraping
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     EDA
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ExpresionesRegulares.html">
+     Cadenas, Expresiones regulares
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ExpresionesRegulares.html#expresiones-regulares">
+     Expresiones regulares
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab12/lab12.html">
+   12. Widgets, Visualización
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab12/Widgets.html">
+     ipywidgets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab12/Widgets.html#numeros-complejos-y-el-plano-complejo">
+     1. Números complejos y el plano complejo
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Tareas
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Tareas/1_intro_tarea.html">
+   Tarea 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Tareas/tarea2.html">
+   Tarea 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Tareas/soluciones.html">
+   Soluciones
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Proyecto
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/Proyecto.html">
+   Proyecto
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navegación de palanca" aria-controls="site-navigation"
+                title="Navegación de palanca" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Descarga esta pagina"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Laboratorios/Lab11/EDA.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Descargar archivo fuente" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Imprimir en PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/rafneta/CienciaDatosPythonCIDE"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Repositorio de origen"><i
+                    class="fab fa-github"></i>repositorio</button></a>
+        <a class="issues-button"
+            href="https://github.com/rafneta/CienciaDatosPythonCIDE/issues/new?title=Issue%20on%20page%20%2FLaboratorios/Lab11/EDA.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Abrir un problema"><i class="fas fa-lightbulb"></i>Tema abierto</button></a>
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Modo de pantalla completa"
+                    title="Modo de pantalla completa"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/rafneta/CienciaDatosPythonCIDE/master?urlpath=tree/Laboratorios/Lab11/EDA.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Lanzamiento Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/rafneta/CienciaDatosPythonCIDE/blob/master/Laboratorios/Lab11/EDA.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Lanzamiento Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Lanzamiento Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contenido
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-es">
+   ¿Qué es?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recompilacion-y-carga-de-datos">
+     Recompilación y carga de datos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#limpieza-datos">
+     2. Limpieza datos
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#outliers">
+       Outliers
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analisis-univariado-de-variable-categorica-no-ordenada">
+       Analisis univariado de variable categorica no ordenada
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analisis-univariada-variable-categorica-ordenada">
+       Analisis univariada Variable categorica ordenada
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analisis-bivariada">
+     Analisis bivariada
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#scatter-plot">
+       Scatter plot
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pair-plot">
+       Pair plot
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#qq-plot">
+       QQ-Plot
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#matrices-de-correlacion">
+       Matrices de correlación
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#variables-categoricas-numericas">
+       variables categoricas numericas
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analisis-variables-categoricas">
+       Analisis variables categoricas
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analisis-multivariado">
+     Analisis multivariado
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#apis-y-carca-de-datos">
+   Apis y carca de datos
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p><img alt="" src="https://raw.githubusercontent.com/rafneta/CienciaDatosPythonCIDE/master/imagenes/banner.png" /></p>
+<div class="contents topic" id="contenido">
+<p class="topic-title">Contenido</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#eda" id="id1">EDA</a></p>
+<ul>
+<li><p><a class="reference internal" href="#que-es" id="id2">¿Qué es?</a></p>
+<ul>
+<li><p><a class="reference internal" href="#recompilacion-y-carga-de-datos" id="id3">Recompilación y carga de datos</a></p></li>
+<li><p><a class="reference internal" href="#limpieza-datos" id="id4">2. Limpieza datos</a></p>
+<ul>
+<li><p><a class="reference internal" href="#outliers" id="id5">Outliers</a></p></li>
+<li><p><a class="reference internal" href="#analisis-univariado-de-variable-categorica-no-ordenada" id="id6">Analisis univariado de variable categorica no ordenada</a></p></li>
+<li><p><a class="reference internal" href="#analisis-univariada-variable-categorica-ordenada" id="id7">Analisis univariada Variable categorica ordenada</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#analisis-bivariada" id="id8">Analisis bivariada</a></p>
+<ul>
+<li><p><a class="reference internal" href="#scatter-plot" id="id9">Scatter plot</a></p></li>
+<li><p><a class="reference internal" href="#pair-plot" id="id10">Pair plot</a></p></li>
+<li><p><a class="reference internal" href="#qq-plot" id="id11">QQ-Plot</a></p></li>
+<li><p><a class="reference internal" href="#matrices-de-correlacion" id="id12">Matrices de correlación</a></p></li>
+<li><p><a class="reference internal" href="#variables-categoricas-numericas" id="id13">variables categoricas numericas</a></p></li>
+<li><p><a class="reference internal" href="#analisis-variables-categoricas" id="id14">Analisis variables categoricas</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#analisis-multivariado" id="id15">Analisis multivariado</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#apis-y-carca-de-datos" id="id16">Apis y carca de datos</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="eda">
+<h1><a class="toc-backref" href="#id1">EDA</a><a class="headerlink" href="#eda" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="que-es">
+<h2><a class="toc-backref" href="#id2">¿Qué es?</a><a class="headerlink" href="#que-es" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La EDA (Exploratory Data Anlayisis) nos permite analizar los datos que tenemos en un database de manera intuitiva y grafíca asi de poder mejor comprender sus peculiaridades y llegar a una mejor comprensión así de facilitar las fases sucesivas.</p>
+<p>La definición formal es:</p>
+<blockquote>
+<div><p>En estadística, el análisis exploratorio de datos es un enfoque para analizar conjuntos de datos para resumir sus principales características, a menudo con métodos visuales. Se puede usar o no un modelo estadístico, pero principalmente EDA es para ver qué nos pueden decir los datos más allá del modelado formal o la tarea de prueba de hipótesis.</p>
+</div></blockquote>
+<p>Podemos por lo tanto tener unos insight que nos serán utilzes luego tanto para preparar los datos para las faces sucesivas (removiendo las irregularidades) y tener una visión aproximativa de los mismos.</p>
+<p>Basandonos en este anlísis podemos empezar a toamr algunas decisiones en la estructuración de los datos y en la definición de los modelos a utilizar:</p>
+<ul class="simple">
+<li><p>si la hacemos bien podemos ahorrarnos mucho trabajo</p></li>
+<li><p>si la hacemos mal arriesgamos a perder información valiosa</p></li>
+</ul>
+<p>Temos 5 fases principales en el EDA:</p>
+<ol class="simple">
+<li><p>Recompilación y carga de datos</p></li>
+<li><p>Limpieza datos</p></li>
+<li><p>Analísis univariada</p></li>
+<li><p>Analísis bivariada</p></li>
+<li><p>Analísis multivariada</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="recompilacion-y-carga-de-datos">
+<h3><a class="toc-backref" href="#id3">Recompilación y carga de datos</a><a class="headerlink" href="#recompilacion-y-carga-de-datos" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Ya vimos en varios laboratorios como podemos cargar los datos de diferentes archivos, con apis e introducirlos manualmente. Cuidados con las fuentes de los datos y como tenemos que citarlos y como lo podemos compartir.</p>
+<p>Subimos por lo tantos los datos que pueden encontrar <a class="reference external" href="https://raw.githubusercontent.com/Kaushik-Varma/Marketing_Data_Analysis/master/Marketing_Analysis.csv">aquí</a> para replicas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Marketing_Analysis.csv&quot;</span><span class="p">,</span><span class="n">low_memory</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">469</span><span class="n">d18f944a3</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">db</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Marketing_Analysis.csv&quot;</span><span class="p">,</span><span class="n">low_memory</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/pandas/io/parsers.py</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, dialect, error_bad_lines, warn_bad_lines, delim_whitespace, low_memory, memory_map, float_precision)</span>
+<span class="g g-Whitespace">    </span><span class="mi">684</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">685</span> 
+<span class="ne">--&gt; </span><span class="mi">686</span>     <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">687</span> 
+<span class="g g-Whitespace">    </span><span class="mi">688</span> 
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/pandas/io/parsers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">450</span> 
+<span class="g g-Whitespace">    </span><span class="mi">451</span>     <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">452</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">fp_or_buf</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">453</span> 
+<span class="g g-Whitespace">    </span><span class="mi">454</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">944</span>             <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">945</span> 
+<span class="ne">--&gt; </span><span class="mi">946</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">947</span> 
+<span class="g g-Whitespace">    </span><span class="mi">948</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/pandas/io/parsers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1176</span>     <span class="k">def</span> <span class="nf">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;c&quot;</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1177</span>         <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1178</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="n">CParserWrapper</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1179</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1180</span>             <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;python&quot;</span><span class="p">:</span>
+
+<span class="nn">~/opt/anaconda3/lib/python3.8/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, src, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2006</span>         <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;usecols&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">usecols</span>
+<span class="g g-Whitespace">   </span><span class="mi">2007</span> 
+<span class="ne">-&gt; </span><span class="mi">2008</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span> <span class="o">=</span> <span class="n">parsers</span><span class="o">.</span><span class="n">TextReader</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2009</span>         <span class="bp">self</span><span class="o">.</span><span class="n">unnamed_cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span><span class="o">.</span><span class="n">unnamed_cols</span>
+<span class="g g-Whitespace">   </span><span class="mi">2010</span> 
+
+<span class="nn">pandas/_libs/parsers.pyx</span> in <span class="ni">pandas._libs.parsers.TextReader.__cinit__</span><span class="nt">()</span>
+
+<span class="nn">pandas/_libs/parsers.pyx</span> in <span class="ni">pandas._libs.parsers.TextReader._setup_parser_source</span><span class="nt">()</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;Marketing_Analysis.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(45211, 19)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>customerid</th>
+      <th>age</th>
+      <th>salary</th>
+      <th>balance</th>
+      <th>marital</th>
+      <th>jobedu</th>
+      <th>targeted</th>
+      <th>default</th>
+      <th>housing</th>
+      <th>loan</th>
+      <th>contact</th>
+      <th>day</th>
+      <th>month</th>
+      <th>duration</th>
+      <th>campaign</th>
+      <th>pdays</th>
+      <th>previous</th>
+      <th>poutcome</th>
+      <th>response</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>58.0</td>
+      <td>100000</td>
+      <td>2143</td>
+      <td>married</td>
+      <td>management,tertiary</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>unknown</td>
+      <td>5</td>
+      <td>may, 2017</td>
+      <td>261 sec</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>44.0</td>
+      <td>60000</td>
+      <td>29</td>
+      <td>single</td>
+      <td>technician,secondary</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>unknown</td>
+      <td>5</td>
+      <td>may, 2017</td>
+      <td>151 sec</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>33.0</td>
+      <td>120000</td>
+      <td>2</td>
+      <td>married</td>
+      <td>entrepreneur,secondary</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>unknown</td>
+      <td>5</td>
+      <td>may, 2017</td>
+      <td>76 sec</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>47.0</td>
+      <td>20000</td>
+      <td>1506</td>
+      <td>married</td>
+      <td>blue-collar,unknown</td>
+      <td>no</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>unknown</td>
+      <td>5</td>
+      <td>may, 2017</td>
+      <td>92 sec</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>33.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>single</td>
+      <td>unknown,unknown</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>unknown</td>
+      <td>5</td>
+      <td>may, 2017</td>
+      <td>198 sec</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;customerid&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span>  <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>salary</th>
+      <th>balance</th>
+      <th>marital</th>
+      <th>jobedu</th>
+      <th>targeted</th>
+      <th>default</th>
+      <th>housing</th>
+      <th>loan</th>
+      <th>contact</th>
+      <th>day</th>
+      <th>month</th>
+      <th>duration</th>
+      <th>campaign</th>
+      <th>pdays</th>
+      <th>previous</th>
+      <th>poutcome</th>
+      <th>response</th>
+    </tr>
+    <tr>
+      <th>customerid</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>58.0</td>
+      <td>100000</td>
+      <td>2143</td>
+      <td>married</td>
+      <td>management,tertiary</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>unknown</td>
+      <td>5</td>
+      <td>may, 2017</td>
+      <td>261 sec</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>44.0</td>
+      <td>60000</td>
+      <td>29</td>
+      <td>single</td>
+      <td>technician,secondary</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>unknown</td>
+      <td>5</td>
+      <td>may, 2017</td>
+      <td>151 sec</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>33.0</td>
+      <td>120000</td>
+      <td>2</td>
+      <td>married</td>
+      <td>entrepreneur,secondary</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>unknown</td>
+      <td>5</td>
+      <td>may, 2017</td>
+      <td>76 sec</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 45211 entries, 1 to 45211
+Data columns (total 18 columns):
+ #   Column    Non-Null Count  Dtype  
+---  ------    --------------  -----  
+ 0   age       45191 non-null  float64
+ 1   salary    45211 non-null  int64  
+ 2   balance   45211 non-null  int64  
+ 3   marital   45211 non-null  object 
+ 4   jobedu    45211 non-null  object 
+ 5   targeted  45211 non-null  object 
+ 6   default   45211 non-null  object 
+ 7   housing   45211 non-null  object 
+ 8   loan      45211 non-null  object 
+ 9   contact   45211 non-null  object 
+ 10  day       45211 non-null  int64  
+ 11  month     45161 non-null  object 
+ 12  duration  45211 non-null  object 
+ 13  campaign  45211 non-null  int64  
+ 14  pdays     45211 non-null  int64  
+ 15  previous  45211 non-null  int64  
+ 16  poutcome  45211 non-null  object 
+ 17  response  45181 non-null  object 
+dtypes: float64(1), int64(6), object(11)
+memory usage: 6.6+ MB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;age&#39;, &#39;salary&#39;, &#39;balance&#39;, &#39;marital&#39;, &#39;jobedu&#39;, &#39;targeted&#39;, &#39;default&#39;,
+       &#39;housing&#39;, &#39;loan&#39;, &#39;contact&#39;, &#39;day&#39;, &#39;month&#39;, &#39;duration&#39;, &#39;campaign&#39;,
+       &#39;pdays&#39;, &#39;previous&#39;, &#39;poutcome&#39;, &#39;response&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora si nada más checkamos valores null:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>age         20
+salary       0
+balance      0
+marital      0
+jobedu       0
+targeted     0
+default      0
+housing      0
+loan         0
+contact      0
+day          0
+month       50
+duration     0
+campaign     0
+pdays        0
+previous     0
+poutcome     0
+response    30
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="limpieza-datos">
+<h3><a class="toc-backref" href="#id4">2. Limpieza datos</a><a class="headerlink" href="#limpieza-datos" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Ahora procedemos a la limpieza del D:</p>
+<ol class="simple">
+<li><p>Eliminamos eventuales columnas/renglones de resume</p></li>
+<li><p>Unimos eventualmetne columna para entender mejor los datos</p></li>
+<li><p>de igual forma dividir eventaules otras columnas</p></li>
+<li><p>Averiguamos que todos las columnas tengan nombre y sobre todo el indice</p></li>
+</ol>
+<p>En nuestro caso tenemos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>salary</th>
+      <th>balance</th>
+      <th>marital</th>
+      <th>jobedu</th>
+      <th>targeted</th>
+      <th>default</th>
+      <th>housing</th>
+      <th>loan</th>
+      <th>contact</th>
+      <th>day</th>
+      <th>month</th>
+      <th>duration</th>
+      <th>campaign</th>
+      <th>pdays</th>
+      <th>previous</th>
+      <th>poutcome</th>
+      <th>response</th>
+    </tr>
+    <tr>
+      <th>customerid</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>58.0</td>
+      <td>100000</td>
+      <td>2143</td>
+      <td>married</td>
+      <td>management,tertiary</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>unknown</td>
+      <td>5</td>
+      <td>may, 2017</td>
+      <td>261 sec</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>44.0</td>
+      <td>60000</td>
+      <td>29</td>
+      <td>single</td>
+      <td>technician,secondary</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>unknown</td>
+      <td>5</td>
+      <td>may, 2017</td>
+      <td>151 sec</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>33.0</td>
+      <td>120000</td>
+      <td>2</td>
+      <td>married</td>
+      <td>entrepreneur,secondary</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>unknown</td>
+      <td>5</td>
+      <td>may, 2017</td>
+      <td>76 sec</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>47.0</td>
+      <td>20000</td>
+      <td>1506</td>
+      <td>married</td>
+      <td>blue-collar,unknown</td>
+      <td>no</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>unknown</td>
+      <td>5</td>
+      <td>may, 2017</td>
+      <td>92 sec</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>33.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>single</td>
+      <td>unknown,unknown</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>unknown</td>
+      <td>5</td>
+      <td>may, 2017</td>
+      <td>198 sec</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>¿Qué notamos?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;job&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="s2">&quot;jobedu&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">db</span><span class="p">[</span><span class="s1">&#39;education&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="s2">&quot;jobedu&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">db</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>salary</th>
+      <th>balance</th>
+      <th>marital</th>
+      <th>jobedu</th>
+      <th>targeted</th>
+      <th>default</th>
+      <th>housing</th>
+      <th>loan</th>
+      <th>contact</th>
+      <th>day</th>
+      <th>month</th>
+      <th>duration</th>
+      <th>campaign</th>
+      <th>pdays</th>
+      <th>previous</th>
+      <th>poutcome</th>
+      <th>response</th>
+      <th>job</th>
+      <th>education</th>
+    </tr>
+    <tr>
+      <th>customerid</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>58.0</td>
+      <td>100000</td>
+      <td>2143</td>
+      <td>married</td>
+      <td>management,tertiary</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>unknown</td>
+      <td>5</td>
+      <td>may, 2017</td>
+      <td>261 sec</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+      <td>management</td>
+      <td>tertiary</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>44.0</td>
+      <td>60000</td>
+      <td>29</td>
+      <td>single</td>
+      <td>technician,secondary</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>unknown</td>
+      <td>5</td>
+      <td>may, 2017</td>
+      <td>151 sec</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+      <td>technician</td>
+      <td>secondary</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>33.0</td>
+      <td>120000</td>
+      <td>2</td>
+      <td>married</td>
+      <td>entrepreneur,secondary</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>unknown</td>
+      <td>5</td>
+      <td>may, 2017</td>
+      <td>76 sec</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+      <td>entrepreneur</td>
+      <td>secondary</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>47.0</td>
+      <td>20000</td>
+      <td>1506</td>
+      <td>married</td>
+      <td>blue-collar,unknown</td>
+      <td>no</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>unknown</td>
+      <td>5</td>
+      <td>may, 2017</td>
+      <td>92 sec</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+      <td>blue-collar</td>
+      <td>unknown</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>33.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>single</td>
+      <td>unknown,unknown</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>unknown</td>
+      <td>5</td>
+      <td>may, 2017</td>
+      <td>198 sec</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+      <td>unknown</td>
+      <td>unknown</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>45207</th>
+      <td>51.0</td>
+      <td>60000</td>
+      <td>825</td>
+      <td>married</td>
+      <td>technician,tertiary</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>cellular</td>
+      <td>17</td>
+      <td>nov, 2017</td>
+      <td>16.2833333333333 min</td>
+      <td>3</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>yes</td>
+      <td>technician</td>
+      <td>tertiary</td>
+    </tr>
+    <tr>
+      <th>45208</th>
+      <td>71.0</td>
+      <td>55000</td>
+      <td>1729</td>
+      <td>divorced</td>
+      <td>retired,primary</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>cellular</td>
+      <td>17</td>
+      <td>nov, 2017</td>
+      <td>7.6 min</td>
+      <td>2</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>yes</td>
+      <td>retired</td>
+      <td>primary</td>
+    </tr>
+    <tr>
+      <th>45209</th>
+      <td>72.0</td>
+      <td>55000</td>
+      <td>5715</td>
+      <td>married</td>
+      <td>retired,secondary</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>cellular</td>
+      <td>17</td>
+      <td>nov, 2017</td>
+      <td>18.7833333333333 min</td>
+      <td>5</td>
+      <td>184</td>
+      <td>3</td>
+      <td>success</td>
+      <td>yes</td>
+      <td>retired</td>
+      <td>secondary</td>
+    </tr>
+    <tr>
+      <th>45210</th>
+      <td>57.0</td>
+      <td>20000</td>
+      <td>668</td>
+      <td>married</td>
+      <td>blue-collar,secondary</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>telephone</td>
+      <td>17</td>
+      <td>nov, 2017</td>
+      <td>8.46666666666667 min</td>
+      <td>4</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+      <td>blue-collar</td>
+      <td>secondary</td>
+    </tr>
+    <tr>
+      <th>45211</th>
+      <td>37.0</td>
+      <td>120000</td>
+      <td>2971</td>
+      <td>married</td>
+      <td>entrepreneur,secondary</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>cellular</td>
+      <td>17</td>
+      <td>nov, 2017</td>
+      <td>6.01666666666667 min</td>
+      <td>2</td>
+      <td>188</td>
+      <td>11</td>
+      <td>other</td>
+      <td>no</td>
+      <td>entrepreneur</td>
+      <td>secondary</td>
+    </tr>
+  </tbody>
+</table>
+<p>45211 rows × 20 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="s1">&#39;jobedu&#39;</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">db</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>salary</th>
+      <th>balance</th>
+      <th>marital</th>
+      <th>targeted</th>
+      <th>default</th>
+      <th>housing</th>
+      <th>loan</th>
+      <th>contact</th>
+      <th>day</th>
+      <th>month</th>
+      <th>duration</th>
+      <th>campaign</th>
+      <th>pdays</th>
+      <th>previous</th>
+      <th>poutcome</th>
+      <th>response</th>
+      <th>job</th>
+      <th>education</th>
+    </tr>
+    <tr>
+      <th>customerid</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>58.0</td>
+      <td>100000</td>
+      <td>2143</td>
+      <td>married</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>unknown</td>
+      <td>5</td>
+      <td>may, 2017</td>
+      <td>261 sec</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+      <td>management</td>
+      <td>tertiary</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>44.0</td>
+      <td>60000</td>
+      <td>29</td>
+      <td>single</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>unknown</td>
+      <td>5</td>
+      <td>may, 2017</td>
+      <td>151 sec</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+      <td>technician</td>
+      <td>secondary</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>33.0</td>
+      <td>120000</td>
+      <td>2</td>
+      <td>married</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>unknown</td>
+      <td>5</td>
+      <td>may, 2017</td>
+      <td>76 sec</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+      <td>entrepreneur</td>
+      <td>secondary</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>47.0</td>
+      <td>20000</td>
+      <td>1506</td>
+      <td>married</td>
+      <td>no</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>unknown</td>
+      <td>5</td>
+      <td>may, 2017</td>
+      <td>92 sec</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+      <td>blue-collar</td>
+      <td>unknown</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>33.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>single</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>unknown</td>
+      <td>5</td>
+      <td>may, 2017</td>
+      <td>198 sec</td>
+      <td>1</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+      <td>unknown</td>
+      <td>unknown</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>45207</th>
+      <td>51.0</td>
+      <td>60000</td>
+      <td>825</td>
+      <td>married</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>cellular</td>
+      <td>17</td>
+      <td>nov, 2017</td>
+      <td>16.2833333333333 min</td>
+      <td>3</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>yes</td>
+      <td>technician</td>
+      <td>tertiary</td>
+    </tr>
+    <tr>
+      <th>45208</th>
+      <td>71.0</td>
+      <td>55000</td>
+      <td>1729</td>
+      <td>divorced</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>cellular</td>
+      <td>17</td>
+      <td>nov, 2017</td>
+      <td>7.6 min</td>
+      <td>2</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>yes</td>
+      <td>retired</td>
+      <td>primary</td>
+    </tr>
+    <tr>
+      <th>45209</th>
+      <td>72.0</td>
+      <td>55000</td>
+      <td>5715</td>
+      <td>married</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>cellular</td>
+      <td>17</td>
+      <td>nov, 2017</td>
+      <td>18.7833333333333 min</td>
+      <td>5</td>
+      <td>184</td>
+      <td>3</td>
+      <td>success</td>
+      <td>yes</td>
+      <td>retired</td>
+      <td>secondary</td>
+    </tr>
+    <tr>
+      <th>45210</th>
+      <td>57.0</td>
+      <td>20000</td>
+      <td>668</td>
+      <td>married</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>telephone</td>
+      <td>17</td>
+      <td>nov, 2017</td>
+      <td>8.46666666666667 min</td>
+      <td>4</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>unknown</td>
+      <td>no</td>
+      <td>blue-collar</td>
+      <td>secondary</td>
+    </tr>
+    <tr>
+      <th>45211</th>
+      <td>37.0</td>
+      <td>120000</td>
+      <td>2971</td>
+      <td>married</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>cellular</td>
+      <td>17</td>
+      <td>nov, 2017</td>
+      <td>6.01666666666667 min</td>
+      <td>2</td>
+      <td>188</td>
+      <td>11</td>
+      <td>other</td>
+      <td>no</td>
+      <td>entrepreneur</td>
+      <td>secondary</td>
+    </tr>
+  </tbody>
+</table>
+<p>45211 rows × 19 columns</p>
+</div></div></div>
+</div>
+<p>Ahora manejamos los valores faltantes, podemos tener de tres tipos:</p>
+<ol class="simple">
+<li><p>MCAR(Missing completely at random): no dependen de alguna caracteristica en particular</p></li>
+<li><p>MAR(Missing at random): pueden depender de alguna caracteristica</p></li>
+<li><p>MNAR(Missing not at random): hay alguna razón para faltar</p></li>
+</ol>
+<p>Droppamos todos lo que no tienen edad definida:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="o">~</span><span class="n">db</span><span class="o">.</span><span class="n">age</span><span class="o">.</span><span class="n">isnull</span><span class="p">()]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">db</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">db</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(45161, 20)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora imputamos los valores para los meses:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">month_mode</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">month</span><span class="o">.</span><span class="n">mode</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">month_mode</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;may, 2017&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora procedemos a substituir este valor en nuestra columna con faltante:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">month</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">month_mode</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">db</span><span class="o">.</span><span class="n">month</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora manejamos los faltantes en nuestra variable dependiente <em>(response)</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="o">~</span><span class="n">db</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">isnull</span><span class="p">()]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">db</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>age          0
+salary       0
+balance      0
+marital      0
+targeted     0
+default      0
+housing      0
+loan         0
+contact      0
+day          0
+month        0
+duration     0
+campaign     0
+pdays        0
+previous     0
+poutcome     0
+response     0
+job          0
+education    0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podriamos sobstituir nuestro valores faltantes con <strong>NaN</strong> para que no haya afectaciones cuando procedemos al analisís estadistico</p>
+<div class="section" id="outliers">
+<h4><a class="toc-backref" href="#id5">Outliers</a><a class="headerlink" href="#outliers" title="Enlazar permanentemente con este título">¶</a></h4>
+<p>Son unos datos que se discostan remarcablemente  del siguiente punto más cercano. Podemos tener:</p>
+<ol class="simple">
+<li><p>Outlier univariado</p></li>
+<li><p>Outlier multivariado/bivariado: cuando ploteamos una variable con otra el valor se discosta del valor esperado de manera anormal</p></li>
+</ol>
+<p>Antes de proceder a eso tenemos que estandardizar los valores para que escalas diferentes no nos lleven a conclusiones equivocadas. Tenemos diferentes tipologias de datos que podemos encontrar</p>
+</div>
+<div class="section" id="analisis-univariado-de-variable-categorica-no-ordenada">
+<h4><a class="toc-backref" href="#id6">Analisis univariado de variable categorica no ordenada</a><a class="headerlink" href="#analisis-univariado-de-variable-categorica-no-ordenada" title="Enlazar permanentemente con este título">¶</a></h4>
+<ul class="simple">
+<li><p>no tienen peso o medida</p></li>
+<li><p>no tienen orden</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">job</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>blue-collar      9722
+management       9451
+technician       7589
+admin.           5165
+services         4148
+retired          2262
+self-employed    1574
+entrepreneur     1484
+unemployed       1302
+housemaid        1238
+student           938
+unknown           288
+Name: job, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">job</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>blue-collar      0.215274
+management       0.209273
+technician       0.168043
+admin.           0.114369
+services         0.091849
+retired          0.050087
+self-employed    0.034853
+entrepreneur     0.032860
+unemployed       0.028830
+housemaid        0.027413
+student          0.020770
+unknown          0.006377
+Name: job, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Podemo</span> <span class="n">plotear</span> <span class="n">nuestro</span> <span class="n">analisis</span><span class="p">:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">job</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/EDA_30_0.png" src="../../_images/EDA_30_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="analisis-univariada-variable-categorica-ordenada">
+<h4><a class="toc-backref" href="#id7">Analisis univariada Variable categorica ordenada</a><a class="headerlink" href="#analisis-univariada-variable-categorica-ordenada" title="Enlazar permanentemente con este título">¶</a></h4>
+<p>Estas variables tienen un orden natural, por ejemplo:</p>
+<ul class="simple">
+<li><p>Meses</p></li>
+<li><p>Educación</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">education</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">education</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pie</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/EDA_33_0.png" src="../../_images/EDA_33_0.png" />
+</div>
+</div>
+<p>Si tenemos una variable con valores numericos podemos calcular</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">salary</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count     45161.000000
+mean      57004.849317
+std       32087.698810
+min           0.000000
+25%       20000.000000
+50%       60000.000000
+75%       70000.000000
+max      120000.000000
+Name: salary, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finalmente podemos plotear una densidad de la distribución  de la varaible numerica:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;salary&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\ProgramData\Anaconda3\lib\site-packages\seaborn\distributions.py:2557: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
+  warnings.warn(msg, FutureWarning)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;salary&#39;, ylabel=&#39;Density&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../_images/EDA_37_2.png" src="../../_images/EDA_37_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;salary&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x15f1d76c348&gt;
+</pre></div>
+</div>
+<img alt="../../_images/EDA_38_1.png" src="../../_images/EDA_38_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;balance&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">8019</span><span class="p">,</span> <span class="mi">102127</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0, 3000.0)
+</pre></div>
+</div>
+<img alt="../../_images/EDA_39_1.png" src="../../_images/EDA_39_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">balance</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count     45161.000000
+mean       1362.850690
+std        3045.939589
+min       -8019.000000
+25%          72.000000
+50%         448.000000
+75%        1428.000000
+max      102127.000000
+Name: balance, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="analisis-bivariada">
+<h3><a class="toc-backref" href="#id8">Analisis bivariada</a><a class="headerlink" href="#analisis-bivariada" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Cuando hacemos un analisis bivariada el uso de graficas nos puede ser extremadamente utíl. En particular los más ocupados son:</p>
+<ul class="simple">
+<li><p>scatter plot</p></li>
+<li><p>pair plot</p></li>
+<li><p>matriz de correlación</p></li>
+</ul>
+<div class="section" id="scatter-plot">
+<h4><a class="toc-backref" href="#id9">Scatter plot</a><a class="headerlink" href="#scatter-plot" title="Enlazar permanentemente con este título">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">salary</span><span class="p">,</span><span class="n">db</span><span class="o">.</span><span class="n">balance</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">db</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;age&quot;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;balance&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/EDA_42_0.png" src="../../_images/EDA_42_0.png" />
+<img alt="../../_images/EDA_42_1.png" src="../../_images/EDA_42_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="pair-plot">
+<h4><a class="toc-backref" href="#id10">Pair plot</a><a class="headerlink" href="#pair-plot" title="Enlazar permanentemente con este título">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">db</span><span class="p">,</span> <span class="nb">vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;salary&#39;</span><span class="p">,</span><span class="s1">&#39;balance&#39;</span><span class="p">,</span><span class="s1">&#39;age&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/EDA_44_0.png" src="../../_images/EDA_44_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="qq-plot">
+<h4><a class="toc-backref" href="#id11">QQ-Plot</a><a class="headerlink" href="#qq-plot" title="Enlazar permanentemente con este título">¶</a></h4>
+<p>Es un método gráfico para el diagnóstico de diferencias entre la distribución de probabilidad de una población de la que se ha extraído una muestra aleatoria y una distribución usada para la comparación.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="n">iris</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;iris&#39;</span><span class="p">)</span>
+
+
+<span class="n">rvs</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">normal_sample</span> <span class="o">=</span> <span class="n">rvs</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">100000</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">normal_sample</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\ProgramData\Anaconda3\lib\site-packages\seaborn\distributions.py:2557: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
+  warnings.warn(msg, FutureWarning)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Density&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../_images/EDA_46_2.png" src="../../_images/EDA_46_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">normal_sample</span> <span class="o">=</span> <span class="n">rvs</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">stats</span><span class="o">.</span><span class="n">probplot</span><span class="p">(</span><span class="n">normal_sample</span><span class="p">,</span> <span class="n">dist</span><span class="o">=</span><span class="s2">&quot;norm&quot;</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="n">plt</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/EDA_47_0.png" src="../../_images/EDA_47_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">expon</span><span class="p">()</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\ProgramData\Anaconda3\lib\site-packages\seaborn\distributions.py:2557: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
+  warnings.warn(msg, FutureWarning)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Density&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../_images/EDA_48_2.png" src="../../_images/EDA_48_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expon_rvs</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">expon</span><span class="p">()</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">100000</span><span class="p">)</span>
+<span class="n">normal_rvs</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">()</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">100000</span><span class="p">)</span>
+<span class="n">stats</span><span class="o">.</span><span class="n">probplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">expon_rvs</span><span class="p">,</span> <span class="n">dist</span><span class="o">=</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">(),</span> <span class="n">plot</span><span class="o">=</span><span class="n">plt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((array([-4.34602155, -4.14724578, -4.03913009, ...,  4.03913009,
+          4.14724578,  4.34602155]),
+  array([2.16825700e-06, 1.57624189e-05, 2.93375619e-05, ...,
+         1.16652885e+01, 1.21702078e+01, 1.34591407e+01])),
+ (0.8996537488205563, 0.9969476608219366, 0.9033984542371438))
+</pre></div>
+</div>
+<img alt="../../_images/EDA_49_1.png" src="../../_images/EDA_49_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expon_rvs</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">expon</span><span class="p">()</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">100000</span><span class="p">)</span>
+<span class="n">stats</span><span class="o">.</span><span class="n">probplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">expon_rvs</span><span class="p">,</span> <span class="n">dist</span><span class="o">=</span><span class="s2">&quot;expon&quot;</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="n">plt</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/EDA_50_0.png" src="../../_images/EDA_50_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="matrices-de-correlacion">
+<h4><a class="toc-backref" href="#id12">Matrices de correlación</a><a class="headerlink" href="#matrices-de-correlacion" title="Enlazar permanentemente con este título">¶</a></h4>
+<p>Cuando queremos ver en un unico grafico las relaciones entre más de una variable de forma sintetica</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="p">[[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span><span class="s1">&#39;salary&#39;</span><span class="p">,</span><span class="s1">&#39;balance&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>salary</th>
+      <th>balance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>age</th>
+      <td>1.000000</td>
+      <td>0.024513</td>
+      <td>0.097710</td>
+    </tr>
+    <tr>
+      <th>salary</th>
+      <td>0.024513</td>
+      <td>1.000000</td>
+      <td>0.055489</td>
+    </tr>
+    <tr>
+      <th>balance</th>
+      <td>0.097710</td>
+      <td>0.055489</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">db</span><span class="p">[[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span><span class="s1">&#39;salary&#39;</span><span class="p">,</span><span class="s1">&#39;balance&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">corr</span><span class="p">(),</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;Blues&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/EDA_53_0.png" src="../../_images/EDA_53_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="variables-categoricas-numericas">
+<h4><a class="toc-backref" href="#id13">variables categoricas numericas</a><a class="headerlink" href="#variables-categoricas-numericas" title="Enlazar permanentemente con este título">¶</a></h4>
+<p>Normalmente se analizan con base en su media, mediana y un instrumento particularmente util es el <em>boxplot</em>.</p>
+<p>Calculamolos a manita:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;response&#39;</span><span class="p">)[</span><span class="s1">&#39;salary&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>response
+no     56769.510482
+yes    58780.510880
+Name: salary, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;response&#39;</span><span class="p">)[</span><span class="s1">&#39;salary&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>response
+no     60000
+yes    60000
+Name: salary, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pareciera no haber grandes diferencias, pero analizando los boxplot descubrimos que:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">response</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">salary</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/EDA_58_0.png" src="../../_images/EDA_58_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;response&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;salary&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">db</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">artists</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0, 1]), [Text(0, 0, &#39;no&#39;), Text(1, 0, &#39;yes&#39;)])
+</pre></div>
+</div>
+<img alt="../../_images/EDA_59_1.png" src="../../_images/EDA_59_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="analisis-variables-categoricas">
+<h4><a class="toc-backref" href="#id14">Analisis variables categoricas</a><a class="headerlink" href="#analisis-variables-categoricas" title="Enlazar permanentemente con este título">¶</a></h4>
+<p>Queremos analizar como diferentes varbles categoricas (como la educación) tienen impacto en la variable dependiente.. Para hacer eso necesitamos convertir <em>Response</em> en una variable binaria.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;response_rate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">response</span><span class="o">==</span><span class="s1">&#39;yes&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">db</span><span class="o">.</span><span class="n">response_rate</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    39876
+1     5285
+Name: response_rate, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Analizando</span> <span class="n">ahora</span> <span class="n">como</span> <span class="n">se</span> <span class="n">distribuye</span> <span class="n">frente</span> <span class="n">distintos</span> <span class="n">valores</span> <span class="n">de</span> <span class="n">la</span> <span class="n">una</span> <span class="n">variable</span> <span class="n">categorica</span> <span class="n">tendremos</span><span class="p">:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;marital&#39;</span><span class="p">)[</span><span class="s1">&#39;response_rate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/EDA_63_0.png" src="../../_images/EDA_63_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="analisis-multivariado">
+<h3><a class="toc-backref" href="#id15">Analisis multivariado</a><a class="headerlink" href="#analisis-multivariado" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Antes tenemos crear una tabla pivot con en las columnas los diferentes status civiles:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">db</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s1">&#39;education&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;marital&#39;</span><span class="p">,</span><span class="n">values</span><span class="o">=</span><span class="s1">&#39;response_rate&#39;</span><span class="p">)</span>
+<span class="n">result</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>marital</th>
+      <th>divorced</th>
+      <th>married</th>
+      <th>single</th>
+    </tr>
+    <tr>
+      <th>education</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>primary</th>
+      <td>0.138852</td>
+      <td>0.075601</td>
+      <td>0.106808</td>
+    </tr>
+    <tr>
+      <th>secondary</th>
+      <td>0.103559</td>
+      <td>0.094650</td>
+      <td>0.129271</td>
+    </tr>
+    <tr>
+      <th>tertiary</th>
+      <td>0.137415</td>
+      <td>0.129835</td>
+      <td>0.183737</td>
+    </tr>
+    <tr>
+      <th>unknown</th>
+      <td>0.142012</td>
+      <td>0.122519</td>
+      <td>0.162879</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Ahora como antes vamos a imprimir una mapa de calor.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;RdYlGn&#39;</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="mf">0.117</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/EDA_67_0.png" src="../../_images/EDA_67_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="apis-y-carca-de-datos">
+<h2><a class="toc-backref" href="#id16">Apis y carca de datos</a><a class="headerlink" href="#apis-y-carca-de-datos" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Podemos cargar los datos de local, commo hicimos antes en nuestro ejercicio, por medio de una url o con unas APIs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#metodo URL</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://climatedataapi.worldbank.org/climateweb/rest/v1/country/cru/tas/year/ROU.csv&quot;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pero ahora sí pasamos a las APis</p>
+<blockquote>
+<div><p>Blockquote
+Una API, o interfaz de programación de aplicaciones, es un servidor que puede utilizar para recuperar y enviar datos mediante código. Las API se utilizan con mayor frecuencia para recuperar datos.</p>
+</div></blockquote>
+<p>¿Por que usar una API?</p>
+<ol class="simple">
+<li><p>Los datos cambía rápido, y no tiene sentido estar generando un dataset y bajandolo cada munuto.</p></li>
+<li><p>Necesitas acceder a sólo una parte de los datos</p></li>
+<li><p>Hay una computación repetida involucrada</p></li>
+</ol>
+<p>Podemos hacer diferentes acciones con las API:</p>
+<ul class="simple">
+<li><p>GET</p></li>
+<li><p>POST</p></li>
+<li><p>PUT</p></li>
+<li><p>DELETE</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://google.com/&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Response [200]&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="" src="Laboratorios/Lab11/response.PNG" /></p>
+<p>La libreria request tiene algunas funciones especificas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">response</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Request is successful.&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Request returned an error.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Request is successful.
+</pre></div>
+</div>
+</div>
+</div>
+<p>El endpoint es una dirección, usuaklmente, hacía donde apunta nuestro pedido. Normalmente el nombre de esta dirección es autodescriptivo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://api.open-notify.org/astros.json&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;people&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>craft</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Mark Vande Hei</td>
+      <td>ISS</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Oleg Novitskiy</td>
+      <td>ISS</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Pyotr Dubrov</td>
+      <td>ISS</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Thomas Pesquet</td>
+      <td>ISS</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Megan McArthur</td>
+      <td>ISS</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Shane Kimbrough</td>
+      <td>ISS</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Akihiko Hoshide</td>
+      <td>ISS</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Muchas veces necesitamos una llave para poder acceder a los datos que requerimos. Igual hay un verdadero mercado y sitio especializados para esto.</p>
+<p>Por medio de los encabezaados HTTPS se manejan algunas informaciones sobre las APIs</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://api.thedogapi.com/v1/breeds/1&quot;</span><span class="p">)</span>
+<span class="n">response</span><span class="o">.</span><span class="n">headers</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Content-Encoding&#39;: &#39;gzip&#39;, &#39;Content-Type&#39;: &#39;application/json; charset=utf-8&#39;, &#39;Date&#39;: &#39;Fri, 07 May 2021 12:19:43 GMT&#39;, &#39;Server&#39;: &#39;Apache/2.4.46 (Amazon)&#39;, &#39;Strict-Transport-Security&#39;: &#39;max-age=15552000; includeSubDomains&#39;, &#39;Vary&#39;: &#39;Origin,Accept-Encoding&#39;, &#39;X-Content-Type-Options&#39;: &#39;nosniff&#39;, &#39;X-DNS-Prefetch-Control&#39;: &#39;off&#39;, &#39;X-Download-Options&#39;: &#39;noopen&#39;, &#39;X-Frame-Options&#39;: &#39;SAMEORIGIN&#39;, &#39;X-Response-Time&#39;: &#39;2ms&#39;, &#39;X-XSS-Protection&#39;: &#39;1; mode=block&#39;, &#39;Content-Length&#39;: &#39;265&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ya sabiendo que es un json, podemos acceder a el atravez de:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Affenpinscher&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;https://www.googleapis.com/books/v1/volumes&quot;</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;la divina comedia&quot;</span>
+
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">query</span><span class="p">,</span> <span class="s2">&quot;maxResults&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">book</span> <span class="ow">in</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;items&quot;</span><span class="p">]:</span>
+    <span class="n">volume</span> <span class="o">=</span> <span class="n">book</span><span class="p">[</span><span class="s2">&quot;volumeInfo&quot;</span><span class="p">]</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">volume</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span>
+    <span class="n">published</span> <span class="o">=</span> <span class="n">volume</span><span class="p">[</span><span class="s2">&quot;authors&quot;</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">title</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">published</span><span class="si">}</span><span class="s2"> &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>La Divina Comedia [&#39;Dante Alighieri&#39;] 
+La divina comedia [&#39;Dante Alghieri&#39;] 
+La Divina Comedia por Dante Alighieri [&#39;Dante Alighieri&#39;] 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;kind&#39;: &#39;books#volumes&#39;,
+ &#39;totalItems&#39;: 734,
+ &#39;items&#39;: [{&#39;kind&#39;: &#39;books#volume&#39;,
+   &#39;id&#39;: &#39;WrPCDwAAQBAJ&#39;,
+   &#39;etag&#39;: &#39;j6ynahmNPaE&#39;,
+   &#39;selfLink&#39;: &#39;https://www.googleapis.com/books/v1/volumes/WrPCDwAAQBAJ&#39;,
+   &#39;volumeInfo&#39;: {&#39;title&#39;: &#39;La Divina Comedia&#39;,
+    &#39;authors&#39;: [&#39;Dante Alighieri&#39;],
+    &#39;publisher&#39;: &#39;Good Press&#39;,
+    &#39;publishedDate&#39;: &#39;2019-11-11&#39;,
+    &#39;description&#39;: &#39;&quot;La Divina Comedia&quot; de Dante Alighieri (traducido por Manuel Aranda y Sanjuan) de la Editorial Good Press. Good Press publica una gran variedad de títulos que abarca todos los géneros. Van desde los títulos clásicos famosos, novelas, textos documentales y crónicas de la vida real, hasta temas ignorados o por ser descubiertos de la literatura universal. Editorial Good Press divulga libros que son una lectura imprescindible. Cada publicación de Good Press ha sido corregida y formateada al detalle, para elevar en gran medida su facilidad de lectura en todos los equipos y programas de lectura electrónica. Nuestra meta es la producción de Libros electrónicos que sean versátiles y accesibles para el lector y para todos, en un formato digital de alta calidad.&#39;,
+    &#39;industryIdentifiers&#39;: [{&#39;type&#39;: &#39;OTHER&#39;,
+      &#39;identifier&#39;: &#39;EAN:4057664122674&#39;}],
+    &#39;readingModes&#39;: {&#39;text&#39;: True, &#39;image&#39;: True},
+    &#39;pageCount&#39;: 941,
+    &#39;printType&#39;: &#39;BOOK&#39;,
+    &#39;categories&#39;: [&#39;Fiction&#39;],
+    &#39;maturityRating&#39;: &#39;NOT_MATURE&#39;,
+    &#39;allowAnonLogging&#39;: True,
+    &#39;contentVersion&#39;: &#39;1.5.5.0.preview.3&#39;,
+    &#39;panelizationSummary&#39;: {&#39;containsEpubBubbles&#39;: False,
+     &#39;containsImageBubbles&#39;: False},
+    &#39;imageLinks&#39;: {&#39;smallThumbnail&#39;: &#39;http://books.google.com/books/content?id=WrPCDwAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=5&amp;edge=curl&amp;source=gbs_api&#39;,
+     &#39;thumbnail&#39;: &#39;http://books.google.com/books/content?id=WrPCDwAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;edge=curl&amp;source=gbs_api&#39;},
+    &#39;language&#39;: &#39;es&#39;,
+    &#39;previewLink&#39;: &#39;http://books.google.com.mx/books?id=WrPCDwAAQBAJ&amp;pg=PP1&amp;dq=la+divina+comedia&amp;hl=&amp;cd=1&amp;source=gbs_api&#39;,
+    &#39;infoLink&#39;: &#39;https://play.google.com/store/books/details?id=WrPCDwAAQBAJ&amp;source=gbs_api&#39;,
+    &#39;canonicalVolumeLink&#39;: &#39;https://play.google.com/store/books/details?id=WrPCDwAAQBAJ&#39;},
+   &#39;saleInfo&#39;: {&#39;country&#39;: &#39;MX&#39;,
+    &#39;saleability&#39;: &#39;FOR_SALE&#39;,
+    &#39;isEbook&#39;: True,
+    &#39;listPrice&#39;: {&#39;amount&#39;: 25, &#39;currencyCode&#39;: &#39;MXN&#39;},
+    &#39;retailPrice&#39;: {&#39;amount&#39;: 25, &#39;currencyCode&#39;: &#39;MXN&#39;},
+    &#39;buyLink&#39;: &#39;https://play.google.com/store/books/details?id=WrPCDwAAQBAJ&amp;rdid=book-WrPCDwAAQBAJ&amp;rdot=1&amp;source=gbs_api&#39;,
+    &#39;offers&#39;: [{&#39;finskyOfferType&#39;: 1,
+      &#39;listPrice&#39;: {&#39;amountInMicros&#39;: 25000000, &#39;currencyCode&#39;: &#39;MXN&#39;},
+      &#39;retailPrice&#39;: {&#39;amountInMicros&#39;: 25000000, &#39;currencyCode&#39;: &#39;MXN&#39;},
+      &#39;giftable&#39;: True}]},
+   &#39;accessInfo&#39;: {&#39;country&#39;: &#39;MX&#39;,
+    &#39;viewability&#39;: &#39;PARTIAL&#39;,
+    &#39;embeddable&#39;: True,
+    &#39;publicDomain&#39;: False,
+    &#39;textToSpeechPermission&#39;: &#39;ALLOWED&#39;,
+    &#39;epub&#39;: {&#39;isAvailable&#39;: True},
+    &#39;pdf&#39;: {&#39;isAvailable&#39;: True},
+    &#39;webReaderLink&#39;: &#39;http://play.google.com/books/reader?id=WrPCDwAAQBAJ&amp;hl=&amp;printsec=frontcover&amp;source=gbs_api&#39;,
+    &#39;accessViewStatus&#39;: &#39;SAMPLE&#39;,
+    &#39;quoteSharingAllowed&#39;: False},
+   &#39;searchInfo&#39;: {&#39;textSnippet&#39;: &#39;&amp;quot;La Divina Comedia&amp;quot; de Dante Alighieri (traducido por Manuel Aranda y Sanjuan) de la Editorial Good Press.&#39;}},
+  {&#39;kind&#39;: &#39;books#volume&#39;,
+   &#39;id&#39;: &#39;wGPSDgAAQBAJ&#39;,
+   &#39;etag&#39;: &#39;NOQVX9XaqiA&#39;,
+   &#39;selfLink&#39;: &#39;https://www.googleapis.com/books/v1/volumes/wGPSDgAAQBAJ&#39;,
+   &#39;volumeInfo&#39;: {&#39;title&#39;: &#39;La divina comedia&#39;,
+    &#39;subtitle&#39;: &#39;&#39;,
+    &#39;authors&#39;: [&#39;Dante Alghieri&#39;],
+    &#39;publisher&#39;: &#39;NoBooks Editorial&#39;,
+    &#39;publishedDate&#39;: &#39;1976&#39;,
+    &#39;readingModes&#39;: {&#39;text&#39;: True, &#39;image&#39;: True},
+    &#39;pageCount&#39;: 441,
+    &#39;printType&#39;: &#39;BOOK&#39;,
+    &#39;maturityRating&#39;: &#39;NOT_MATURE&#39;,
+    &#39;allowAnonLogging&#39;: True,
+    &#39;contentVersion&#39;: &#39;preview-1.0.0&#39;,
+    &#39;panelizationSummary&#39;: {&#39;containsEpubBubbles&#39;: False,
+     &#39;containsImageBubbles&#39;: False},
+    &#39;imageLinks&#39;: {&#39;smallThumbnail&#39;: &#39;http://books.google.com/books/content?id=wGPSDgAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=5&amp;edge=curl&amp;source=gbs_api&#39;,
+     &#39;thumbnail&#39;: &#39;http://books.google.com/books/content?id=wGPSDgAAQBAJ&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;edge=curl&amp;source=gbs_api&#39;},
+    &#39;language&#39;: &#39;es&#39;,
+    &#39;previewLink&#39;: &#39;http://books.google.com.mx/books?id=wGPSDgAAQBAJ&amp;printsec=frontcover&amp;dq=la+divina+comedia&amp;hl=&amp;cd=2&amp;source=gbs_api&#39;,
+    &#39;infoLink&#39;: &#39;https://play.google.com/store/books/details?id=wGPSDgAAQBAJ&amp;source=gbs_api&#39;,
+    &#39;canonicalVolumeLink&#39;: &#39;https://play.google.com/store/books/details?id=wGPSDgAAQBAJ&#39;},
+   &#39;saleInfo&#39;: {&#39;country&#39;: &#39;MX&#39;,
+    &#39;saleability&#39;: &#39;FOR_SALE&#39;,
+    &#39;isEbook&#39;: True,
+    &#39;listPrice&#39;: {&#39;amount&#39;: 28.84, &#39;currencyCode&#39;: &#39;MXN&#39;},
+    &#39;retailPrice&#39;: {&#39;amount&#39;: 28.84, &#39;currencyCode&#39;: &#39;MXN&#39;},
+    &#39;buyLink&#39;: &#39;https://play.google.com/store/books/details?id=wGPSDgAAQBAJ&amp;rdid=book-wGPSDgAAQBAJ&amp;rdot=1&amp;source=gbs_api&#39;,
+    &#39;offers&#39;: [{&#39;finskyOfferType&#39;: 1,
+      &#39;listPrice&#39;: {&#39;amountInMicros&#39;: 28840000, &#39;currencyCode&#39;: &#39;MXN&#39;},
+      &#39;retailPrice&#39;: {&#39;amountInMicros&#39;: 28840000, &#39;currencyCode&#39;: &#39;MXN&#39;},
+      &#39;giftable&#39;: True}]},
+   &#39;accessInfo&#39;: {&#39;country&#39;: &#39;MX&#39;,
+    &#39;viewability&#39;: &#39;PARTIAL&#39;,
+    &#39;embeddable&#39;: True,
+    &#39;publicDomain&#39;: False,
+    &#39;textToSpeechPermission&#39;: &#39;ALLOWED&#39;,
+    &#39;epub&#39;: {&#39;isAvailable&#39;: True},
+    &#39;pdf&#39;: {&#39;isAvailable&#39;: True},
+    &#39;webReaderLink&#39;: &#39;http://play.google.com/books/reader?id=wGPSDgAAQBAJ&amp;hl=&amp;printsec=frontcover&amp;source=gbs_api&#39;,
+    &#39;accessViewStatus&#39;: &#39;SAMPLE&#39;,
+    &#39;quoteSharingAllowed&#39;: False}},
+  {&#39;kind&#39;: &#39;books#volume&#39;,
+   &#39;id&#39;: &#39;O0ESIQu9_7wC&#39;,
+   &#39;etag&#39;: &#39;bzi0xAGR2sk&#39;,
+   &#39;selfLink&#39;: &#39;https://www.googleapis.com/books/v1/volumes/O0ESIQu9_7wC&#39;,
+   &#39;volumeInfo&#39;: {&#39;title&#39;: &#39;La Divina Comedia por Dante Alighieri&#39;,
+    &#39;subtitle&#39;: &#39;El Infierno&#39;,
+    &#39;authors&#39;: [&#39;Dante Alighieri&#39;],
+    &#39;publishedDate&#39;: &#39;1870&#39;,
+    &#39;industryIdentifiers&#39;: [{&#39;type&#39;: &#39;OTHER&#39;,
+      &#39;identifier&#39;: &#39;IBNF:CF005685501&#39;}],
+    &#39;readingModes&#39;: {&#39;text&#39;: False, &#39;image&#39;: False},
+    &#39;pageCount&#39;: 232,
+    &#39;printType&#39;: &#39;BOOK&#39;,
+    &#39;maturityRating&#39;: &#39;NOT_MATURE&#39;,
+    &#39;allowAnonLogging&#39;: False,
+    &#39;contentVersion&#39;: &#39;0.2.1.0.preview.0&#39;,
+    &#39;panelizationSummary&#39;: {&#39;containsEpubBubbles&#39;: False,
+     &#39;containsImageBubbles&#39;: False},
+    &#39;imageLinks&#39;: {&#39;smallThumbnail&#39;: &#39;http://books.google.com/books/content?id=O0ESIQu9_7wC&amp;printsec=frontcover&amp;img=1&amp;zoom=5&amp;source=gbs_api&#39;,
+     &#39;thumbnail&#39;: &#39;http://books.google.com/books/content?id=O0ESIQu9_7wC&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;source=gbs_api&#39;},
+    &#39;language&#39;: &#39;es&#39;,
+    &#39;previewLink&#39;: &#39;http://books.google.com.mx/books?id=O0ESIQu9_7wC&amp;q=la+divina+comedia&amp;dq=la+divina+comedia&amp;hl=&amp;cd=3&amp;source=gbs_api&#39;,
+    &#39;infoLink&#39;: &#39;http://books.google.com.mx/books?id=O0ESIQu9_7wC&amp;dq=la+divina+comedia&amp;hl=&amp;source=gbs_api&#39;,
+    &#39;canonicalVolumeLink&#39;: &#39;https://books.google.com/books/about/La_Divina_Comedia_por_Dante_Alighieri.html?hl=&amp;id=O0ESIQu9_7wC&#39;},
+   &#39;saleInfo&#39;: {&#39;country&#39;: &#39;MX&#39;,
+    &#39;saleability&#39;: &#39;NOT_FOR_SALE&#39;,
+    &#39;isEbook&#39;: False},
+   &#39;accessInfo&#39;: {&#39;country&#39;: &#39;MX&#39;,
+    &#39;viewability&#39;: &#39;NO_PAGES&#39;,
+    &#39;embeddable&#39;: False,
+    &#39;publicDomain&#39;: False,
+    &#39;textToSpeechPermission&#39;: &#39;ALLOWED&#39;,
+    &#39;epub&#39;: {&#39;isAvailable&#39;: False},
+    &#39;pdf&#39;: {&#39;isAvailable&#39;: False},
+    &#39;webReaderLink&#39;: &#39;http://play.google.com/books/reader?id=O0ESIQu9_7wC&amp;hl=&amp;printsec=frontcover&amp;source=gbs_api&#39;,
+    &#39;accessViewStatus&#39;: &#39;NONE&#39;,
+    &#39;quoteSharingAllowed&#39;: False}}]}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Fuentes:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://towardsdatascience.com/exploratory-data-analysis-eda-python-87178e35b14">TWS</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "rafneta/CienciaDatosPythonCIDE",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Laboratorios/Lab11"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="lab11.html" title="previous page">Laboratorio 11</a>
+    <a class='right-next' id="next-link" href="ExpresionesRegulares.html" title="next page">Cadenas, Expresiones regulares</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          Por Rafael Martínez-Martínez and Federico Daverio<br/>
+        
+            &copy; Derechos de autor .<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
