@@ -32,8 +32,12 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['def ingresosacu(df):', "    df2 = df.groupby(by = ['numren','foliohog','folioviv']).sum()", "    df2['claves'] = df.groupby(['numren','foliohog','folioviv'])['clave'].sum()", '    df2.reset_index(level=0, inplace=True)', '    df2.reset_index(level=0, inplace=True)']
-...
-["    df2['ing_men'] = df2.ing_tri/3", '    return df2', '', 'df2 = ingresosacu(df1)', 'df2']
+sns.catplot(x = "p133",
+            data = Mc,
+            col="p13", 
+            col_wrap=4,
+           kind = 'count',
+           hue = 'p06')
+plt.show()
 -------------------
 
