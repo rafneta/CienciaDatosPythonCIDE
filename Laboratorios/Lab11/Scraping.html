@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; Introducción a la ciencia de datos</title>
+    <title>Scraping, HTML &#8212; Introducción a la ciencia de datos</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -147,7 +147,7 @@
   Laboratorios
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../Lab1/lab1.html">
    1. Anaconda, GitHub
@@ -334,11 +334,11 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="lab11.html">
    11. AED, Exp. Reg., Scraping
   </a>
-  <ul class="collapse-ul">
+  <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="EDA.html">
      EDA
@@ -352,6 +352,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="ExpresionesRegulares.html#expresiones-regulares">
      Expresiones regulares
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Scraping, HTML
     </a>
    </li>
   </ul>
@@ -371,6 +376,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../Lab12/Widgets.html#numeros-complejos-y-el-plano-complejo">
      1. Números complejos y el plano complejo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab12/Tableros.html">
+     Tableros
     </a>
    </li>
   </ul>
@@ -513,15 +523,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contenido
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="simple nav section-nav flex-column">
-</ul>
-
-        </nav>
-        
         </div>
     </div>
 </div>
@@ -530,9 +531,13 @@
         
               <div>
                 
-  <div class="cell docutils container">
+  <p><img alt="" src="https://raw.githubusercontent.com/rafneta/CienciaDatosPythonCIDE/master/imagenes/banner.png" /></p>
+<div class="section" id="scraping-html">
+<h1>Scraping, HTML<a class="headerlink" href="#scraping-html" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Los componentes de una página web, archivo html, css y javascript (en su forma más sencilla)</p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
 </pre></div>
@@ -542,43 +547,902 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">link</span> <span class="o">=</span> <span class="s2">&quot;http://rafneta.github.io/Notas/NotasSyS/index.html&quot;</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
-<span class="n">myfile</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="n">pagina</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">myfile</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<span class="n">pagina</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
+<span class="c1">#pagina.content</span>
+<span class="n">pagina</span><span class="o">.</span><span class="n">content</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">500</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b&#39;&lt;!DOCTYPE html&gt;\n&lt;html lang=&quot;en&quot; class=&quot;no-js&quot;&gt;\n\t&lt;head&gt;\n\t\t&lt;meta charset=&quot;UTF-8&quot; /&gt;\n\t\t&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;&gt; \n\t\t&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt; \n\t\t&lt;title&gt;Se\xc3\xb1ales y sistemas: Una perspectiva&lt;/title&gt;\n        &lt;!--&lt;link rel=&quot;stylesheet&quot; href=&quot;css/letras1.css&quot;&gt;--&gt;\n\t\t&lt;meta name=&quot;description&quot; content=&quot;Libro en Linea&quot; /&gt;\n\t\t&lt;meta name=&quot;keywords&quot; content=&quot;Se\xc3\xb1ales, sistemas, apuntes, libro&quot; /&gt;\n\t\t&lt;meta name=&quot;author&quot; content=&quot;Rafa&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pagina</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10000</span><span class="p">]</span>
-<span class="n">pes1</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&lt;p&gt;.+&lt;/p&gt;&quot;</span><span class="p">,</span><span class="n">pagina</span><span class="p">)</span>
-<span class="nb">len</span><span class="p">(</span><span class="n">pes1</span><span class="p">)</span>
-<span class="n">pes1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">pagina</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
-<span class="n">pes</span><span class="o">=</span><span class="n">soup</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">)</span>
-<span class="nb">len</span><span class="p">(</span><span class="n">pes</span><span class="p">)</span>
-<span class="n">pes</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
-<span class="n">pes1</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&lt;p.*/p.+&gt;&quot;</span><span class="p">,</span><span class="n">pagina</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pes1</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(&lt;p&gt;[\s+|\n+|\w+]?.+&lt;/p&gt;)&quot;</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">pagina</span><span class="o">.</span><span class="n">content</span><span class="p">,</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pes1</span><span class="p">))</span>
 <span class="n">pes1</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
-<span class="n">enlaces</span>
-<span class="n">divs</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="mi">4507</span><span class="n">eb0d42a3</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">pagina</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10000</span><span class="p">]</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">pes1</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&lt;p&gt;.+&lt;/p&gt;&quot;</span><span class="p">,</span><span class="n">pagina</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">len</span><span class="p">(</span><span class="n">pes1</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">pes1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">pagina</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;re&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>294
 </pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;&lt;p&gt;&lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-nc-sa/4.0/&quot;&gt;&lt;img alt=&quot;Licencia Creative Commons&quot; style=&quot;border-width:0&quot; src=&quot;https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png&quot; width=&quot;15%&quot; height=&quot;15%&quot; /&gt;&lt;/a&gt;&lt;br /&gt;&lt;span xmlns:dct=&quot;http://purl.org/dc/terms/&quot; property=&quot;dct:title&quot;&gt;Señales y sistemas: una perspectiva&lt;/span&gt; por &lt;a xmlns:cc=&quot;http://creativecommons.org/ns#&quot; href=&quot;http://www.mateyasi.org/portada.html&quot; property=&quot;cc:attributionName&quot; rel=&quot;cc:attributionURL&quot;&gt;Rafael Martínez-Martínez&lt;/a&gt; se distribuye bajo una &lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-nc-sa/4.0/&quot;&gt;Licencia Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional&lt;/a&gt;.&lt;/p&gt;&#39;,
+ &#39;&lt;p&gt;Los autores han hecho su mejor esfuerzo en la preparación de este material. Se distribuye gratuitamente con la esperanza de que sea útil, pero sin ninguna garantía expresa o implícita respecto a la exactitud o completitud del contenido.&lt;/p&gt;&#39;,
+ &#39;&lt;p&gt;Este prefacio (así como todo el documento electrónico) es variante respecto al tiempo, lo que consultes dependerá de la fecha y hora en que lo hagas. Creo (no tengo una referencia que confirme lo que escribiré) que los libros usuales han sido parte de la educación por tradición, es claro que hace décadas (por no decir siglos) una de las formas de almacenar los conocimientos era escribiendo libros y claro que la experiencia de interactuar con un libro es inigualable. En la actualidad tenemos herramientas tecnológicas (tantas que no sabemos que elegir) para almacenar información, transmitir y enseña, simular situaciones, etc. Por tal motivo este &quot;&quot;libro&quot;&quot; (le llamaremos documento electrónico) es un poco diferente a lo usual. Se presenta de manera escrita la teoría, pero muchas de las explicaciones son mediante video, lo cual acota a que la consulta sea mediante un dispositivo digital (por tal motivo lo definimos como un documento electrónico).&lt;/p&gt;&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">pagina</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+<span class="n">pes</span><span class="o">=</span><span class="n">soup</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pes</span><span class="p">))</span>
+<span class="n">pes</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>333
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;p&gt;&lt;br/&gt;La licencia es lo siguiente:
+ 
+ Permite a otros copiar, distribuir, exhibir y ejecutar públicamente el trabajo, así como hacer y distribuir trabajos derivados con fines no comerciales pero reconociendo la autoría y sólo bajo la misma licencia o una compatible.&lt;/p&gt;,
+ &lt;p&gt;&lt;a href=&quot;http://creativecommons.org/licenses/by-nc-sa/4.0/&quot; rel=&quot;license&quot;&gt;&lt;img alt=&quot;Licencia Creative Commons&quot; height=&quot;15%&quot; src=&quot;https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png&quot; style=&quot;border-width:0&quot; width=&quot;15%&quot;/&gt;&lt;/a&gt;&lt;br&gt;&lt;span property=&quot;dct:title&quot; xmlns:dct=&quot;http://purl.org/dc/terms/&quot;&gt;Señales y sistemas: una perspectiva&lt;/span&gt; por &lt;a href=&quot;http://www.mateyasi.org/portada.html&quot; property=&quot;cc:attributionName&quot; rel=&quot;cc:attributionURL&quot; xmlns:cc=&quot;http://creativecommons.org/ns#&quot;&gt;Rafael Martínez-Martínez&lt;/a&gt; se distribuye bajo una &lt;a href=&quot;http://creativecommons.org/licenses/by-nc-sa/4.0/&quot; rel=&quot;license&quot;&gt;Licencia Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional&lt;/a&gt;.&lt;/br&gt;&lt;/p&gt;,
+ &lt;p&gt;Los autores han hecho su mejor esfuerzo en la preparación de este material. Se distribuye gratuitamente con la esperanza de que sea útil, pero sin ninguna garantía expresa o implícita respecto a la exactitud o completitud del contenido.&lt;/p&gt;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="n">soup</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">,</span> <span class="n">class_</span> <span class="o">=</span> <span class="s2">&quot;justo&quot;</span><span class="p">)</span>
+<span class="n">a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;p class=&quot;justo&quot;&gt;
+                     Si \( \mathbb{R}e(a)&amp;gt;0\) la evalución
+                     \({ \left. t{ e }^{ -(a+j\omega )t } \right|  }_{ 0 }^{ \infty  }=0\),
+                     se tiene que:&lt;/p&gt;,
+ &lt;p class=&quot;justo&quot;&gt;
+                       de acuerdo a la definición de valor absoluto
+                       &lt;/p&gt;,
+ &lt;p class=&quot;justo&quot;&gt;
+                     Si \( \mathbb{R}e(a)&amp;gt;0\) las evaluciones son \(1\) y \(-1\)
+             repectivamente, al operar el signo en el denominador de la 
+             primera expresión se tiene que:&lt;/p&gt;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on Tag in module bs4.element object:
+
+class Tag(PageElement)
+ |  Tag(parser=None, builder=None, name=None, namespace=None, prefix=None, attrs=None, parent=None, previous=None, is_xml=None, sourceline=None, sourcepos=None, can_be_empty_element=None, cdata_list_attributes=None, preserve_whitespace_tags=None)
+ |  
+ |  Represents an HTML or XML tag that is part of a parse tree, along
+ |  with its attributes and contents.
+ |  
+ |  When Beautiful Soup parses the markup &lt;b&gt;penguin&lt;/b&gt;, it will
+ |  create a Tag object representing the &lt;b&gt; tag.
+ |  
+ |  Method resolution order:
+ |      Tag
+ |      PageElement
+ |      builtins.object
+ |  
+ |  Methods defined here:
+ |  
+ |  __bool__(self)
+ |      A tag is non-None even if it has no contents.
+ |  
+ |  __call__(self, *args, **kwargs)
+ |      Calling a Tag like a function is the same as calling its
+ |      find_all() method. Eg. tag(&#39;a&#39;) returns a list of all the A tags
+ |      found within this tag.
+ |  
+ |  __contains__(self, x)
+ |  
+ |  __copy__(self)
+ |      A copy of a Tag is a new Tag, unconnected to the parse tree.
+ |      Its contents are a copy of the old Tag&#39;s contents.
+ |  
+ |  __delitem__(self, key)
+ |      Deleting tag[key] deletes all &#39;key&#39; attributes for the tag.
+ |  
+ |  __eq__(self, other)
+ |      Returns true iff this Tag has the same name, the same attributes,
+ |      and the same contents (recursively) as `other`.
+ |  
+ |  __getattr__(self, tag)
+ |      Calling tag.subtag is the same as calling tag.find(name=&quot;subtag&quot;)
+ |  
+ |  __getitem__(self, key)
+ |      tag[key] returns the value of the &#39;key&#39; attribute for the Tag,
+ |      and throws an exception if it&#39;s not there.
+ |  
+ |  __hash__(self)
+ |      Return hash(self).
+ |  
+ |  __init__(self, parser=None, builder=None, name=None, namespace=None, prefix=None, attrs=None, parent=None, previous=None, is_xml=None, sourceline=None, sourcepos=None, can_be_empty_element=None, cdata_list_attributes=None, preserve_whitespace_tags=None)
+ |      Basic constructor.
+ |      
+ |      :param parser: A BeautifulSoup object.
+ |      :param builder: A TreeBuilder.
+ |      :param name: The name of the tag.
+ |      :param namespace: The URI of this Tag&#39;s XML namespace, if any.
+ |      :param prefix: The prefix for this Tag&#39;s XML namespace, if any.
+ |      :param attrs: A dictionary of this Tag&#39;s attribute values.
+ |      :param parent: The PageElement to use as this Tag&#39;s parent.
+ |      :param previous: The PageElement that was parsed immediately before
+ |          this tag.
+ |      :param is_xml: If True, this is an XML tag. Otherwise, this is an
+ |          HTML tag.
+ |      :param sourceline: The line number where this tag was found in its
+ |          source document.
+ |      :param sourcepos: The character position within `sourceline` where this
+ |          tag was found.
+ |      :param can_be_empty_element: If True, this tag should be
+ |          represented as &lt;tag/&gt;. If False, this tag should be represented
+ |          as &lt;tag&gt;&lt;/tag&gt;.
+ |      :param cdata_list_attributes: A list of attributes whose values should
+ |          be treated as CDATA if they ever show up on this tag.
+ |      :param preserve_whitespace_tags: A list of tag names whose contents
+ |          should have their whitespace preserved.
+ |  
+ |  __iter__(self)
+ |      Iterating over a Tag iterates over its contents.
+ |  
+ |  __len__(self)
+ |      The length of a Tag is the length of its list of contents.
+ |  
+ |  __ne__(self, other)
+ |      Returns true iff this Tag is not identical to `other`,
+ |      as defined in __eq__.
+ |  
+ |  __repr__ = __unicode__(self)
+ |  
+ |  __setitem__(self, key, value)
+ |      Setting tag[key] sets the value of the &#39;key&#39; attribute for the
+ |      tag.
+ |  
+ |  __str__ = __unicode__(self)
+ |  
+ |  __unicode__(self)
+ |      Renders this PageElement as a Unicode string.
+ |  
+ |  childGenerator(self)
+ |      Deprecated generator.
+ |  
+ |  clear(self, decompose=False)
+ |      Wipe out all children of this PageElement by calling extract()
+ |         on them.
+ |      
+ |      :param decompose: If this is True, decompose() (a more
+ |          destructive method) will be called instead of extract().
+ |  
+ |  decode(self, indent_level=None, eventual_encoding=&#39;utf-8&#39;, formatter=&#39;minimal&#39;)
+ |      Render a Unicode representation of this PageElement and its
+ |      contents.
+ |      
+ |      :param indent_level: Each line of the rendering will be
+ |           indented this many spaces. Used internally in
+ |           recursive calls while pretty-printing.
+ |      :param eventual_encoding: The tag is destined to be
+ |          encoded into this encoding. This method is _not_
+ |          responsible for performing that encoding. This information
+ |          is passed in so that it can be substituted in if the
+ |          document contains a &lt;META&gt; tag that mentions the document&#39;s
+ |          encoding.
+ |      :param formatter: A Formatter object, or a string naming one of
+ |          the standard formatters.
+ |  
+ |  decode_contents(self, indent_level=None, eventual_encoding=&#39;utf-8&#39;, formatter=&#39;minimal&#39;)
+ |      Renders the contents of this tag as a Unicode string.
+ |      
+ |      :param indent_level: Each line of the rendering will be
+ |         indented this many spaces. Used internally in
+ |         recursive calls while pretty-printing.
+ |      
+ |      :param eventual_encoding: The tag is destined to be
+ |         encoded into this encoding. decode_contents() is _not_
+ |         responsible for performing that encoding. This information
+ |         is passed in so that it can be substituted in if the
+ |         document contains a &lt;META&gt; tag that mentions the document&#39;s
+ |         encoding.
+ |      
+ |      :param formatter: A Formatter object, or a string naming one of
+ |          the standard Formatters.
+ |  
+ |  decompose(self)
+ |      Recursively destroys this PageElement and its children.
+ |      
+ |      This element will be removed from the tree and wiped out; so
+ |      will everything beneath it.
+ |      
+ |      The behavior of a decomposed PageElement is undefined and you
+ |      should never use one for anything, but if you need to _check_
+ |      whether an element has been decomposed, you can use the
+ |      `decomposed` property.
+ |  
+ |  encode(self, encoding=&#39;utf-8&#39;, indent_level=None, formatter=&#39;minimal&#39;, errors=&#39;xmlcharrefreplace&#39;)
+ |      Render a bytestring representation of this PageElement and its
+ |      contents.
+ |      
+ |      :param encoding: The destination encoding.
+ |      :param indent_level: Each line of the rendering will be
+ |          indented this many spaces. Used internally in
+ |          recursive calls while pretty-printing.
+ |      :param formatter: A Formatter object, or a string naming one of
+ |          the standard formatters.
+ |      :param errors: An error handling strategy such as
+ |          &#39;xmlcharrefreplace&#39;. This value is passed along into
+ |          encode() and its value should be one of the constants
+ |          defined by Python.
+ |      :return: A bytestring.
+ |  
+ |  encode_contents(self, indent_level=None, encoding=&#39;utf-8&#39;, formatter=&#39;minimal&#39;)
+ |      Renders the contents of this PageElement as a bytestring.
+ |      
+ |      :param indent_level: Each line of the rendering will be
+ |         indented this many spaces. Used internally in
+ |         recursive calls while pretty-printing.
+ |      
+ |      :param eventual_encoding: The bytestring will be in this encoding.
+ |      
+ |      :param formatter: A Formatter object, or a string naming one of
+ |          the standard Formatters.
+ |      
+ |      :return: A bytestring.
+ |  
+ |  find(self, name=None, attrs={}, recursive=True, text=None, **kwargs)
+ |      Look in the children of this PageElement and find the first
+ |      PageElement that matches the given criteria.
+ |      
+ |      All find_* methods take a common set of arguments. See the online
+ |      documentation for detailed explanations.
+ |      
+ |      :param name: A filter on tag name.
+ |      :param attrs: A dictionary of filters on attribute values.
+ |      :param recursive: If this is True, find() will perform a
+ |          recursive search of this PageElement&#39;s children. Otherwise,
+ |          only the direct children will be considered.
+ |      :param limit: Stop looking after finding this many results.
+ |      :kwargs: A dictionary of filters on attribute values.
+ |      :return: A PageElement.
+ |      :rtype: bs4.element.Tag | bs4.element.NavigableString
+ |  
+ |  findAll = find_all(self, name=None, attrs={}, recursive=True, text=None, limit=None, **kwargs)
+ |  
+ |  findChild = find(self, name=None, attrs={}, recursive=True, text=None, **kwargs)
+ |  
+ |  findChildren = find_all(self, name=None, attrs={}, recursive=True, text=None, limit=None, **kwargs)
+ |  
+ |  find_all(self, name=None, attrs={}, recursive=True, text=None, limit=None, **kwargs)
+ |      Look in the children of this PageElement and find all
+ |      PageElements that match the given criteria.
+ |      
+ |      All find_* methods take a common set of arguments. See the online
+ |      documentation for detailed explanations.
+ |      
+ |      :param name: A filter on tag name.
+ |      :param attrs: A dictionary of filters on attribute values.
+ |      :param recursive: If this is True, find_all() will perform a
+ |          recursive search of this PageElement&#39;s children. Otherwise,
+ |          only the direct children will be considered.
+ |      :param limit: Stop looking after finding this many results.
+ |      :kwargs: A dictionary of filters on attribute values.
+ |      :return: A ResultSet of PageElements.
+ |      :rtype: bs4.element.ResultSet
+ |  
+ |  get(self, key, default=None)
+ |      Returns the value of the &#39;key&#39; attribute for the tag, or
+ |      the value given for &#39;default&#39; if it doesn&#39;t have that
+ |      attribute.
+ |  
+ |  getText = get_text(self, separator=&#39;&#39;, strip=False, types=(&lt;class &#39;bs4.element.NavigableString&#39;&gt;, &lt;class &#39;bs4.element.CData&#39;&gt;))
+ |  
+ |  get_attribute_list(self, key, default=None)
+ |      The same as get(), but always returns a list.
+ |      
+ |      :param key: The attribute to look for.
+ |      :param default: Use this value if the attribute is not present
+ |          on this PageElement.
+ |      :return: A list of values, probably containing only a single
+ |          value.
+ |  
+ |  get_text(self, separator=&#39;&#39;, strip=False, types=(&lt;class &#39;bs4.element.NavigableString&#39;&gt;, &lt;class &#39;bs4.element.CData&#39;&gt;))
+ |      Get all child strings, concatenated using the given separator.
+ |      
+ |      :param separator: Strings will be concatenated using this separator.
+ |      
+ |      :param strip: If True, strings will be stripped before being
+ |          concatenated.
+ |      
+ |      :types: A tuple of NavigableString subclasses. Any strings of
+ |          a subclass not found in this list will be ignored. By
+ |          default, this means only NavigableString and CData objects
+ |          will be considered. So no comments, processing instructions,
+ |          stylesheets, etc.
+ |      
+ |      :return: A string.
+ |  
+ |  has_attr(self, key)
+ |      Does this PageElement have an attribute with the given name?
+ |  
+ |  has_key(self, key)
+ |      Deprecated method. This was kind of misleading because has_key()
+ |      (attributes) was different from __in__ (contents).
+ |      
+ |      has_key() is gone in Python 3, anyway.
+ |  
+ |  index(self, element)
+ |      Find the index of a child by identity, not value.
+ |      
+ |      Avoids issues with tag.contents.index(element) getting the
+ |      index of equal elements.
+ |      
+ |      :param element: Look for this PageElement in `self.contents`.
+ |  
+ |  prettify(self, encoding=None, formatter=&#39;minimal&#39;)
+ |      Pretty-print this PageElement as a string.
+ |      
+ |      :param encoding: The eventual encoding of the string. If this is None,
+ |          a Unicode string will be returned.
+ |      :param formatter: A Formatter object, or a string naming one of
+ |          the standard formatters.
+ |      :return: A Unicode string (if encoding==None) or a bytestring 
+ |          (otherwise).
+ |  
+ |  recursiveChildGenerator(self)
+ |      Deprecated generator.
+ |  
+ |  renderContents(self, encoding=&#39;utf-8&#39;, prettyPrint=False, indentLevel=0)
+ |      Deprecated method for BS3 compatibility.
+ |  
+ |  select(self, selector, namespaces=None, limit=None, **kwargs)
+ |      Perform a CSS selection operation on the current element.
+ |      
+ |      This uses the SoupSieve library.
+ |      
+ |      :param selector: A string containing a CSS selector.
+ |      
+ |      :param namespaces: A dictionary mapping namespace prefixes
+ |         used in the CSS selector to namespace URIs. By default,
+ |         Beautiful Soup will use the prefixes it encountered while
+ |         parsing the document.
+ |      
+ |      :param limit: After finding this number of results, stop looking.
+ |      
+ |      :param kwargs: Keyword arguments to be passed into SoupSieve&#39;s 
+ |         soupsieve.select() method.
+ |      
+ |      :return: A ResultSet of Tags.
+ |      :rtype: bs4.element.ResultSet
+ |  
+ |  select_one(self, selector, namespaces=None, **kwargs)
+ |      Perform a CSS selection operation on the current element.
+ |      
+ |      :param selector: A CSS selector.
+ |      
+ |      :param namespaces: A dictionary mapping namespace prefixes
+ |         used in the CSS selector to namespace URIs. By default,
+ |         Beautiful Soup will use the prefixes it encountered while
+ |         parsing the document.
+ |      
+ |      :param kwargs: Keyword arguments to be passed into SoupSieve&#39;s 
+ |         soupsieve.select() method.
+ |      
+ |      :return: A Tag.
+ |      :rtype: bs4.element.Tag
+ |  
+ |  smooth(self)
+ |      Smooth out this element&#39;s children by consolidating consecutive
+ |      strings.
+ |      
+ |      This makes pretty-printed output look more natural following a
+ |      lot of operations that modified the tree.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Readonly properties defined here:
+ |  
+ |  children
+ |      Iterate over all direct children of this PageElement.
+ |      
+ |      :yield: A sequence of PageElements.
+ |  
+ |  descendants
+ |      Iterate over all children of this PageElement in a
+ |      breadth-first sequence.
+ |      
+ |      :yield: A sequence of PageElements.
+ |  
+ |  isSelfClosing
+ |      Is this tag an empty-element tag? (aka a self-closing tag)
+ |      
+ |      A tag that has contents is never an empty-element tag.
+ |      
+ |      A tag that has no contents may or may not be an empty-element
+ |      tag. It depends on the builder used to create the tag. If the
+ |      builder has a designated list of empty-element tags, then only
+ |      a tag whose name shows up in that list is considered an
+ |      empty-element tag.
+ |      
+ |      If the builder has no designated list of empty-element tags,
+ |      then any tag with no contents is an empty-element tag.
+ |  
+ |  is_empty_element
+ |      Is this tag an empty-element tag? (aka a self-closing tag)
+ |      
+ |      A tag that has contents is never an empty-element tag.
+ |      
+ |      A tag that has no contents may or may not be an empty-element
+ |      tag. It depends on the builder used to create the tag. If the
+ |      builder has a designated list of empty-element tags, then only
+ |      a tag whose name shows up in that list is considered an
+ |      empty-element tag.
+ |      
+ |      If the builder has no designated list of empty-element tags,
+ |      then any tag with no contents is an empty-element tag.
+ |  
+ |  strings
+ |      Yield all strings of certain classes, possibly stripping them.
+ |      
+ |      :param strip: If True, all strings will be stripped before being
+ |          yielded.
+ |      
+ |      :types: A tuple of NavigableString subclasses. Any strings of
+ |          a subclass not found in this list will be ignored. By
+ |          default, this means only NavigableString and CData objects
+ |          will be considered. So no comments, processing instructions,
+ |          etc.
+ |      
+ |      :yield: A sequence of strings.
+ |  
+ |  stripped_strings
+ |      Yield all strings in the document, stripping them first.
+ |      
+ |      :yield: A sequence of stripped strings.
+ |  
+ |  text
+ |      Get all child strings, concatenated using the given separator.
+ |      
+ |      :param separator: Strings will be concatenated using this separator.
+ |      
+ |      :param strip: If True, strings will be stripped before being
+ |          concatenated.
+ |      
+ |      :types: A tuple of NavigableString subclasses. Any strings of
+ |          a subclass not found in this list will be ignored. By
+ |          default, this means only NavigableString and CData objects
+ |          will be considered. So no comments, processing instructions,
+ |          stylesheets, etc.
+ |      
+ |      :return: A string.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors defined here:
+ |  
+ |  parserClass
+ |  
+ |  string
+ |      Convenience property to get the single string within this
+ |      PageElement.
+ |      
+ |      TODO It might make sense to have NavigableString.string return
+ |      itself.
+ |      
+ |      :return: If this element has a single string child, return
+ |       value is that string. If this element has one child tag,
+ |       return value is the &#39;string&#39; attribute of the child tag,
+ |       recursively. If this element is itself a string, has no
+ |       children, or has more than one child, return value is None.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from PageElement:
+ |  
+ |  append(self, tag)
+ |      Appends the given PageElement to the contents of this one.
+ |      
+ |      :param tag: A PageElement.
+ |  
+ |  extend(self, tags)
+ |      Appends the given PageElements to this one&#39;s contents.
+ |      
+ |      :param tags: A list of PageElements.
+ |  
+ |  extract(self, _self_index=None)
+ |      Destructively rips this element out of the tree.
+ |      
+ |      :param _self_index: The location of this element in its parent&#39;s
+ |         .contents, if known. Passing this in allows for a performance
+ |         optimization.
+ |      
+ |      :return: `self`, no longer part of the tree.
+ |  
+ |  fetchNextSiblings = find_next_siblings(self, name=None, attrs={}, text=None, limit=None, **kwargs)
+ |  
+ |  fetchParents = find_parents(self, name=None, attrs={}, limit=None, **kwargs)
+ |  
+ |  fetchPrevious = find_all_previous(self, name=None, attrs={}, text=None, limit=None, **kwargs)
+ |  
+ |  fetchPreviousSiblings = find_previous_siblings(self, name=None, attrs={}, text=None, limit=None, **kwargs)
+ |  
+ |  findAllNext = find_all_next(self, name=None, attrs={}, text=None, limit=None, **kwargs)
+ |  
+ |  findAllPrevious = find_all_previous(self, name=None, attrs={}, text=None, limit=None, **kwargs)
+ |  
+ |  findNext = find_next(self, name=None, attrs={}, text=None, **kwargs)
+ |  
+ |  findNextSibling = find_next_sibling(self, name=None, attrs={}, text=None, **kwargs)
+ |  
+ |  findNextSiblings = find_next_siblings(self, name=None, attrs={}, text=None, limit=None, **kwargs)
+ |  
+ |  findParent = find_parent(self, name=None, attrs={}, **kwargs)
+ |  
+ |  findParents = find_parents(self, name=None, attrs={}, limit=None, **kwargs)
+ |  
+ |  findPrevious = find_previous(self, name=None, attrs={}, text=None, **kwargs)
+ |  
+ |  findPreviousSibling = find_previous_sibling(self, name=None, attrs={}, text=None, **kwargs)
+ |  
+ |  findPreviousSiblings = find_previous_siblings(self, name=None, attrs={}, text=None, limit=None, **kwargs)
+ |  
+ |  find_all_next(self, name=None, attrs={}, text=None, limit=None, **kwargs)
+ |      Find all PageElements that match the given criteria and appear
+ |      later in the document than this PageElement.
+ |      
+ |      All find_* methods take a common set of arguments. See the online
+ |      documentation for detailed explanations.
+ |      
+ |      :param name: A filter on tag name.
+ |      :param attrs: A dictionary of filters on attribute values.
+ |      :param text: A filter for a NavigableString with specific text.
+ |      :param limit: Stop looking after finding this many results.
+ |      :kwargs: A dictionary of filters on attribute values.
+ |      :return: A ResultSet containing PageElements.
+ |  
+ |  find_all_previous(self, name=None, attrs={}, text=None, limit=None, **kwargs)
+ |      Look backwards in the document from this PageElement and find all
+ |      PageElements that match the given criteria.
+ |      
+ |      All find_* methods take a common set of arguments. See the online
+ |      documentation for detailed explanations.
+ |      
+ |      :param name: A filter on tag name.
+ |      :param attrs: A dictionary of filters on attribute values.
+ |      :param text: A filter for a NavigableString with specific text.
+ |      :param limit: Stop looking after finding this many results.
+ |      :kwargs: A dictionary of filters on attribute values.
+ |      :return: A ResultSet of PageElements.
+ |      :rtype: bs4.element.ResultSet
+ |  
+ |  find_next(self, name=None, attrs={}, text=None, **kwargs)
+ |      Find the first PageElement that matches the given criteria and
+ |      appears later in the document than this PageElement.
+ |      
+ |      All find_* methods take a common set of arguments. See the online
+ |      documentation for detailed explanations.
+ |      
+ |      :param name: A filter on tag name.
+ |      :param attrs: A dictionary of filters on attribute values.
+ |      :param text: A filter for a NavigableString with specific text.
+ |      :kwargs: A dictionary of filters on attribute values.
+ |      :return: A PageElement.
+ |      :rtype: bs4.element.Tag | bs4.element.NavigableString
+ |  
+ |  find_next_sibling(self, name=None, attrs={}, text=None, **kwargs)
+ |      Find the closest sibling to this PageElement that matches the
+ |      given criteria and appears later in the document.
+ |      
+ |      All find_* methods take a common set of arguments. See the
+ |      online documentation for detailed explanations.
+ |      
+ |      :param name: A filter on tag name.
+ |      :param attrs: A dictionary of filters on attribute values.
+ |      :param text: A filter for a NavigableString with specific text.
+ |      :kwargs: A dictionary of filters on attribute values.
+ |      :return: A PageElement.
+ |      :rtype: bs4.element.Tag | bs4.element.NavigableString
+ |  
+ |  find_next_siblings(self, name=None, attrs={}, text=None, limit=None, **kwargs)
+ |      Find all siblings of this PageElement that match the given criteria
+ |      and appear later in the document.
+ |      
+ |      All find_* methods take a common set of arguments. See the online
+ |      documentation for detailed explanations.
+ |      
+ |      :param name: A filter on tag name.
+ |      :param attrs: A dictionary of filters on attribute values.
+ |      :param text: A filter for a NavigableString with specific text.
+ |      :param limit: Stop looking after finding this many results.
+ |      :kwargs: A dictionary of filters on attribute values.
+ |      :return: A ResultSet of PageElements.
+ |      :rtype: bs4.element.ResultSet
+ |  
+ |  find_parent(self, name=None, attrs={}, **kwargs)
+ |      Find the closest parent of this PageElement that matches the given
+ |      criteria.
+ |      
+ |      All find_* methods take a common set of arguments. See the online
+ |      documentation for detailed explanations.
+ |      
+ |      :param name: A filter on tag name.
+ |      :param attrs: A dictionary of filters on attribute values.
+ |      :kwargs: A dictionary of filters on attribute values.
+ |      
+ |      :return: A PageElement.
+ |      :rtype: bs4.element.Tag | bs4.element.NavigableString
+ |  
+ |  find_parents(self, name=None, attrs={}, limit=None, **kwargs)
+ |      Find all parents of this PageElement that match the given criteria.
+ |      
+ |      All find_* methods take a common set of arguments. See the online
+ |      documentation for detailed explanations.
+ |      
+ |      :param name: A filter on tag name.
+ |      :param attrs: A dictionary of filters on attribute values.
+ |      :param limit: Stop looking after finding this many results.
+ |      :kwargs: A dictionary of filters on attribute values.
+ |      
+ |      :return: A PageElement.
+ |      :rtype: bs4.element.Tag | bs4.element.NavigableString
+ |  
+ |  find_previous(self, name=None, attrs={}, text=None, **kwargs)
+ |      Look backwards in the document from this PageElement and find the
+ |      first PageElement that matches the given criteria.
+ |      
+ |      All find_* methods take a common set of arguments. See the online
+ |      documentation for detailed explanations.
+ |      
+ |      :param name: A filter on tag name.
+ |      :param attrs: A dictionary of filters on attribute values.
+ |      :param text: A filter for a NavigableString with specific text.
+ |      :kwargs: A dictionary of filters on attribute values.
+ |      :return: A PageElement.
+ |      :rtype: bs4.element.Tag | bs4.element.NavigableString
+ |  
+ |  find_previous_sibling(self, name=None, attrs={}, text=None, **kwargs)
+ |      Returns the closest sibling to this PageElement that matches the
+ |      given criteria and appears earlier in the document.
+ |      
+ |      All find_* methods take a common set of arguments. See the online
+ |      documentation for detailed explanations.
+ |      
+ |      :param name: A filter on tag name.
+ |      :param attrs: A dictionary of filters on attribute values.
+ |      :param text: A filter for a NavigableString with specific text.
+ |      :kwargs: A dictionary of filters on attribute values.
+ |      :return: A PageElement.
+ |      :rtype: bs4.element.Tag | bs4.element.NavigableString
+ |  
+ |  find_previous_siblings(self, name=None, attrs={}, text=None, limit=None, **kwargs)
+ |      Returns all siblings to this PageElement that match the
+ |      given criteria and appear earlier in the document.
+ |      
+ |      All find_* methods take a common set of arguments. See the online
+ |      documentation for detailed explanations.
+ |      
+ |      :param name: A filter on tag name.
+ |      :param attrs: A dictionary of filters on attribute values.
+ |      :param text: A filter for a NavigableString with specific text.
+ |      :param limit: Stop looking after finding this many results.
+ |      :kwargs: A dictionary of filters on attribute values.
+ |      :return: A ResultSet of PageElements.
+ |      :rtype: bs4.element.ResultSet
+ |  
+ |  format_string(self, s, formatter)
+ |      Format the given string using the given formatter.
+ |      
+ |      :param s: A string.
+ |      :param formatter: A Formatter object, or a string naming one of the standard formatters.
+ |  
+ |  formatter_for_name(self, formatter)
+ |      Look up or create a Formatter for the given identifier,
+ |      if necessary.
+ |      
+ |      :param formatter: Can be a Formatter object (used as-is), a
+ |          function (used as the entity substitution hook for an
+ |          XMLFormatter or HTMLFormatter), or a string (used to look
+ |          up an XMLFormatter or HTMLFormatter in the appropriate
+ |          registry.
+ |  
+ |  insert(self, position, new_child)
+ |      Insert a new PageElement in the list of this PageElement&#39;s children.
+ |      
+ |      This works the same way as `list.insert`.
+ |      
+ |      :param position: The numeric position that should be occupied
+ |         in `self.children` by the new PageElement. 
+ |      :param new_child: A PageElement.
+ |  
+ |  insert_after(self, *args)
+ |      Makes the given element(s) the immediate successor of this one.
+ |      
+ |      The elements will have the same parent, and the given elements
+ |      will be immediately after this one.
+ |      
+ |      :param args: One or more PageElements.
+ |  
+ |  insert_before(self, *args)
+ |      Makes the given element(s) the immediate predecessor of this one.
+ |      
+ |      All the elements will have the same parent, and the given elements
+ |      will be immediately before this one.
+ |      
+ |      :param args: One or more PageElements.
+ |  
+ |  nextGenerator(self)
+ |      # Old non-property versions of the generators, for backwards
+ |      # compatibility with BS3.
+ |  
+ |  nextSiblingGenerator(self)
+ |  
+ |  parentGenerator(self)
+ |  
+ |  previousGenerator(self)
+ |  
+ |  previousSiblingGenerator(self)
+ |  
+ |  replaceWith = replace_with(self, replace_with)
+ |  
+ |  replaceWithChildren = unwrap(self)
+ |  
+ |  replace_with(self, replace_with)
+ |      Replace this PageElement with another one, keeping the rest of the
+ |      tree the same.
+ |      
+ |      :param replace_with: A PageElement.
+ |      :return: `self`, no longer part of the tree.
+ |  
+ |  replace_with_children = unwrap(self)
+ |  
+ |  setup(self, parent=None, previous_element=None, next_element=None, previous_sibling=None, next_sibling=None)
+ |      Sets up the initial relations between this element and
+ |      other elements.
+ |      
+ |      :param parent: The parent of this element.
+ |      
+ |      :param previous_element: The element parsed immediately before
+ |          this one.
+ |      
+ |      :param next_element: The element parsed immediately before
+ |          this one.
+ |      
+ |      :param previous_sibling: The most recently encountered element
+ |          on the same level of the parse tree as this one.
+ |      
+ |      :param previous_sibling: The next element to be encountered
+ |          on the same level of the parse tree as this one.
+ |  
+ |  unwrap(self)
+ |      Replace this PageElement with its contents.
+ |      
+ |      :return: `self`, no longer part of the tree.
+ |  
+ |  wrap(self, wrap_inside)
+ |      Wrap this PageElement inside another one.
+ |      
+ |      :param wrap_inside: A PageElement.
+ |      :return: `wrap_inside`, occupying the position in the tree that used
+ |         to be occupied by `self`, and with `self` inside it.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Readonly properties inherited from PageElement:
+ |  
+ |  decomposed
+ |      Check whether a PageElement has been decomposed.
+ |      
+ |      :rtype: bool
+ |  
+ |  next
+ |      The PageElement, if any, that was parsed just after this one.
+ |      
+ |      :return: A PageElement.
+ |      :rtype: bs4.element.Tag | bs4.element.NavigableString
+ |  
+ |  next_elements
+ |      All PageElements that were parsed after this one.
+ |      
+ |      :yield: A sequence of PageElements.
+ |  
+ |  next_siblings
+ |      All PageElements that are siblings of this one but were parsed
+ |      later.
+ |      
+ |      :yield: A sequence of PageElements.
+ |  
+ |  parents
+ |      All PageElements that are parents of this PageElement.
+ |      
+ |      :yield: A sequence of PageElements.
+ |  
+ |  previous
+ |      The PageElement, if any, that was parsed just before this one.
+ |      
+ |      :return: A PageElement.
+ |      :rtype: bs4.element.Tag | bs4.element.NavigableString
+ |  
+ |  previous_elements
+ |      All PageElements that were parsed before this one.
+ |      
+ |      :yield: A sequence of PageElements.
+ |  
+ |  previous_siblings
+ |      All PageElements that are siblings of this one but were parsed
+ |      earlier.
+ |      
+ |      :yield: A sequence of PageElements.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from PageElement:
+ |  
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |  
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+ |  
+ |  nextSibling
+ |  
+ |  previousSibling
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">text</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\n                      de acuerdo a la definición de valor absoluto\n                      &#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[^\n].+&quot;</span><span class="p">,</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;                      de acuerdo a la definición de valor absoluto&#39;,
+ &#39;                      &#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">link</span> <span class="o">=</span> <span class="s2">&quot;https://www.amazon.com.mx/&quot;</span>
+<span class="n">pagina</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
+<span class="c1">#pagina.content</span>
+<span class="n">pagina</span><span class="o">.</span><span class="n">content</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b&#39;&lt;!DOCTYPE html&gt;\n&lt;!--[if lt IE 7]&gt; &lt;html lang=&quot;es-mx&quot; class=&quot;a-no-js a-lt-ie9 a-lt-ie8 a-lt-ie7&quot;&gt; &lt;![endif]--&gt;\n&lt;!--[if IE 7]&gt;    &lt;html lang=&quot;es-mx&quot; class=&quot;a-no-js a-lt-ie9 a-lt-ie8&quot;&gt; &lt;![endif]--&gt;\n&lt;!--[if IE 8]&gt;    &lt;html lang=&quot;es-mx&quot; class=&quot;a-no-js a-lt-ie9&quot;&gt; &lt;![endif]--&gt;\n&lt;!--[if gt IE 8]&gt;&lt;!--&gt;\n&lt;html class=&quot;a-no-js&quot; lang=&quot;es-mx&quot;&gt;&lt;!--&lt;![endif]--&gt;&lt;head&gt;\n    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;\n    &lt;meta charset=&quot;utf-8&quot;&gt;\n    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;&gt;\n    &lt;title dir=&quot;ltr&quot;&gt;Amazon.com.mx&lt;/title&gt;\n    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;\n    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://images-na.ssl-images-amazon.com/images/G/01/AUIClients/AmazonUI-3c913031596ca78a3768f4e934b1cc02ce238101.secure.min._V1_.css&quot;&gt;\n    &lt;script&gt;\n        \n        if (true === true) {\n            var ue_t0 = (+ new Date()),\n                ue_csm = window,\n                ue = { t0: ue_t0, d: function() { return (+new Date() - ue_t0); } },\n                ue_furl = &quot;fls-na.amazon.com&quot;,\n                ue_mid = &quot;A1AM78C64UM0Y8&quot;,\n                ue_sid = (document.cookie.match(/session-id=([0-9-]+)/) || [])[1],\n                ue_sn = &quot;opfcaptcha.amazon.com.mx&quot;,\n                ue_id = \&#39;JG79KX4A7351JEWAW27A\&#39;;\n        }\n    &lt;/script&gt;\n&lt;/head&gt;\n&lt;body&gt;\n\n&lt;!--\nPara comentar el acceso automatizado a los datos de Amazon, ponte en contacto con api-services-support@amazon.com.\nPara obtener informaci\xc3\xb3n sobre la migraci\xc3\xb3n a nuestras API, consulta nuestras API de Marketplace en https://developer.amazonservices.com/ref=rm_c_sv o nuestra Publicidad de Productos API en https://affiliate-program.amazon.com/gp/advertising/api/detail/main.html/ref=rm_c_ac para ver los casos de uso publicitario.\n\nTo discuss automated access to Amazon data please contact api-services-support@amazon.com.\nFor information about migrating to our APIs refer to our Marketplace APIs at https://developer.amazonservices.com/ref=rm_c_sv, or our Product Advertising API at https://affiliate-program.amazon.com/gp/advertising/api/detail/main.html/ref=rm_c_ac for advertising use cases.\n--&gt;\n\n&lt;!--\nCorreios.DoNotSend\n--&gt;\n\n&lt;div class=&quot;a-container a-padding-double-large&quot; style=&quot;min-width:350px;padding:44px 0 !important&quot;&gt;\n\n    &lt;div class=&quot;a-row a-spacing-double-large&quot; style=&quot;width: 350px; margin: 0 auto&quot;&gt;\n\n        &lt;div class=&quot;a-row a-spacing-medium a-text-center&quot;&gt;&lt;i class=&quot;a-icon a-logo&quot;&gt;&lt;/i&gt;&lt;/div&gt;\n\n        &lt;div class=&quot;a-box a-alert a-alert-info a-spacing-base&quot;&gt;\n            &lt;div class=&quot;a-box-inner&quot;&gt;\n                &lt;i class=&quot;a-icon a-icon-alert&quot;&gt;&lt;/i&gt;\n                &lt;h4&gt;Ingresar los caracteres que aparecen a continuaci\xc3\xb3n&lt;/h4&gt;\n                &lt;p class=&quot;a-last&quot;&gt;Sentimos las molestias. Necesitamos asegurarnos de que no eres un robot. Para obtener los mejores resultados, aseg\xc3\xbarate de que tu navegador acepta las cookies.&lt;/p&gt;\n            &lt;/div&gt;\n        &lt;/div&gt;\n\n        &lt;div class=&quot;a-section&quot;&gt;\n\n            &lt;div class=&quot;a-box a-color-offset-background&quot;&gt;\n                &lt;div class=&quot;a-box-inner a-padding-extra-large&quot;&gt;\n\n                    &lt;form method=&quot;get&quot; action=&quot;/errors/validateCaptcha&quot; name=&quot;&quot;&gt;\n                        &lt;input type=hidden name=&quot;amzn&quot; value=&quot;/cn8MUAsRIxmAvZP0flM3Q==&quot; /&gt;&lt;input type=hidden name=&quot;amzn-r&quot; value=&quot;&amp;#047;&quot; /&gt;\n                        &lt;div class=&quot;a-row a-spacing-large&quot;&gt;\n                            &lt;div class=&quot;a-box&quot;&gt;\n                                &lt;div class=&quot;a-box-inner&quot;&gt;\n                                    &lt;h4&gt;Ingresar los caracteres&lt;/h4&gt;\n                                    &lt;div class=&quot;a-row a-text-center&quot;&gt;\n                                        &lt;img src=&quot;https://images-na.ssl-images-amazon.com/captcha/imzrkqqo/Captcha_vnolmysfcy.jpg&quot;&gt;\n                                    &lt;/div&gt;\n                                    &lt;div class=&quot;a-row a-spacing-base&quot;&gt;\n                                        &lt;div class=&quot;a-row&quot;&gt;\n                                            &lt;div class=&quot;a-column a-span6&quot;&gt;\n                                            &lt;/div&gt;\n                                            &lt;div class=&quot;a-column a-span6 a-span-last a-text-right&quot;&gt;\n                                                &lt;a onclick=&quot;window.location.reload()&quot;&gt;Probar una imagen diferente&lt;/a&gt;\n                                            &lt;/div&gt;\n                                        &lt;/div&gt;\n                                        &lt;input autocomplete=&quot;off&quot; spellcheck=&quot;false&quot; placeholder=&quot;Ingresar los caracteres&quot; id=&quot;captchacharacters&quot; name=&quot;field-keywords&quot; class=&quot;a-span12&quot; autocapitalize=&quot;off&quot; autocorrect=&quot;off&quot; type=&quot;text&quot;&gt;\n                                    &lt;/div&gt;\n                                &lt;/div&gt;\n                            &lt;/div&gt;\n                        &lt;/div&gt;\n\n                        &lt;div class=&quot;a-section a-spacing-extra-large&quot;&gt;\n\n                            &lt;div class=&quot;a-row&quot;&gt;\n                                     &lt;span class=&quot;a-button a-button-primary a-span12&quot;&gt;\n                                         &lt;span class=&quot;a-button-inner&quot;&gt;\n                                             &lt;button type=&quot;submit&quot; class=&quot;a-button-text&quot;&gt;Continuar a Compras&lt;/button&gt;\n                                         &lt;/span&gt;\n                                     &lt;/span&gt;\n                            &lt;/div&gt;\n\n                        &lt;/div&gt;\n                    &lt;/form&gt;\n\n                &lt;/div&gt;\n            &lt;/div&gt;\n\n        &lt;/div&gt;\n\n    &lt;/div&gt;\n\n    &lt;div class=&quot;a-divider a-divider-section&quot;&gt;&lt;div class=&quot;a-divider-inner&quot;&gt;&lt;/div&gt;&lt;/div&gt;\n\n    &lt;div class=&quot;a-text-center a-spacing-small a-size-mini&quot;&gt;\n        &lt;a href=&quot;https://www.amazon.com.mx/gp/help/customer/display.html?ie=UTF8&amp;nodeId=508088&quot;&gt;Condiciones de Uso&lt;/a&gt;\n        &lt;span class=&quot;a-letter-space&quot;&gt;&lt;/span&gt;\n        &lt;span class=&quot;a-letter-space&quot;&gt;&lt;/span&gt;\n        &lt;span class=&quot;a-letter-space&quot;&gt;&lt;/span&gt;\n        &lt;span class=&quot;a-letter-space&quot;&gt;&lt;/span&gt;\n        &lt;a href=&quot;https://www.amazon.com.mx/gp/help/customer/display.html?ie=UTF8&amp;nodeId=468496&quot;&gt;Aviso de Privacidad&lt;/a&gt;\n    &lt;/div&gt;\n    &lt;div class=&quot;a-text-center a-size-mini a-color-secondary&quot;&gt;\n        \xc2\xa9 1996-2020, Amazon.com, Inc. o afiliados. Todos los derechos reservados.\n        &lt;script&gt;\n            if (true === true) {\n                document.write(\&#39;&lt;img src=&quot;https://fls-na.amaz\&#39;+\&#39;on.com/\&#39;+\&#39;1/oc-csi/1/OP/requestId=JG79KX4A7351JEWAW27A&amp;js=1&quot; /&gt;\&#39;);\n            };\n        &lt;/script&gt;\n        &lt;noscript&gt;\n            &lt;img src=&quot;https://fls-na.amazon.com/1/oc-csi/1/OP/requestId=JG79KX4A7351JEWAW27A&amp;js=0&quot; /&gt;\n        &lt;/noscript&gt;\n    &lt;/div&gt;\n&lt;/div&gt;\n&lt;script&gt;\n    if (true === true) {\n        var head = document.getElementsByTagName(\&#39;head\&#39;)[0],\n            prefix = &quot;https://images-na.ssl-images-amazon.com/images/G/01/csminstrumentation/&quot;,\n            elem = document.createElement(&quot;script&quot;);\n        elem.src = prefix + &quot;csm-captcha-instrumentation.min.js&quot;;\n        head.appendChild(elem);\n\n        elem = document.createElement(&quot;script&quot;);\n        elem.src = prefix + &quot;rd-script-6d68177fa6061598e9509dc4b5bdd08d.js&quot;;\n        head.appendChild(elem);\n    }\n&lt;/script&gt;\n&lt;/body&gt;&lt;/html&gt;&#39;
+</pre></div>
+</div>
 </div>
 </div>
 </div>
