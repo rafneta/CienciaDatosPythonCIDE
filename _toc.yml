@@ -87,12 +87,17 @@
       - file: Laboratorios/Lab11/Scraping
 
   - file: Laboratorios/Lab12/lab12
-    title: 12. Widgets, Visualización
+    title: 12. Visualización, Tableros
     sections:
+      - file: Laboratorios/Lab12/Visualizacion
       - file: Laboratorios/Lab12/Widgets
       - file: Laboratorios/Lab12/Tableros
   
-  
+  - file: Laboratorios/Lab13/lab13
+    title: 13. Regresión, ML
+    sections:
+      - file: Laboratorios/Lab13/ML
+
   
   #  sections:
   #    - file: Laboratorios/Lab7/ComplejidadAlgoritmica
