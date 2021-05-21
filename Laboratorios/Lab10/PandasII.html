@@ -365,9 +365,14 @@
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../Lab12/lab12.html">
-   12. Widgets, Visualización
+   12. Visualización, Tableros
   </a>
   <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab12/Visualizacion.html">
+     Visualización de datos
+    </a>
+   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Lab12/Widgets.html">
      ipywidgets
@@ -381,6 +386,20 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../Lab12/Tableros.html">
      Tableros
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Lab13/lab13.html">
+   13. Regresión, ML
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lab13/ML.html">
+     ML
     </a>
    </li>
   </ul>
@@ -649,7 +668,7 @@
 <div class="section" id="merge-and-append">
 <h3><a class="toc-backref" href="#id3">Merge and append</a><a class="headerlink" href="#merge-and-append" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Una de las cosas que utilizaremos más cuando harémos data cleaning es juntar data frame así de poder obtener una base más funcional. Para hacer esto tenemos diferentes funciones con Python.</p>
-<p><img alt="" src="Laboratorios/Lab10/join.jpg" /></p>
+<p><img alt="" src="../../_images/join.jpg" /></p>
 <p>Antes de ver los Join analizaremos como podemos concatenar data frames:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1638,7 +1657,7 @@ copy=True,
 <div class="section" id="merge">
 <h2><a class="toc-backref" href="#id4">Merge</a><a class="headerlink" href="#merge" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Pandas nos permite de juntar dataframe de manera computacionalmente eficaz con una sintaxis similar a la de SQL. Resulta mucho más eficaz que otros lenguajes como R. Tenemos una unica función atraves de la cual, especificando los distintos argumentos, podemos obtener los diferentes join:</p>
-<p><img alt="" src="Laboratorios/Lab10/join.jpg" /></p>
+<p><img alt="" src="../../_images/join.jpg" /></p>
 <p>pd.merge(
 left,
 right,
@@ -2461,7 +2480,7 @@ validate=None,
 </pre></div>
 </div>
 <p>Las condiciones que podemos utilizar son ligeramente diferente con respecto a python:</p>
-<p><img alt="" src="Laboratorios/Lab10/tabla2.png" /></p>
+<p><img alt="" src="../../_images/tabla2.png" /></p>
 <p>La condición de <em>where</em> podemos combinarla con los operadores <em>AND,OR,NOT</em></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">column1</span><span class="p">,</span> <span class="n">column2</span><span class="p">,</span> <span class="o">...</span>
 <span class="n">FROM</span> <span class="n">table_name</span>
@@ -2517,7 +2536,7 @@ validate=None,
 </pre></div>
 </div>
 <p>Otra función muy utili es el like:</p>
-<p><img alt="" src="Laboratorios/Lab10/miao.png" /></p>
+<p><img alt="" src="../../_images/miao.png" /></p>
 </div>
 </div>
 </div>
